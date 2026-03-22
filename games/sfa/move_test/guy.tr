@@ -1,0 +1,145 @@
+{
+	{
+		p1meter = 0,
+		acttable = 
+		{
+			{state = States.Throws.ThrowP},
+		}
+	},
+	{
+		p1meter = 0,
+		acttable = 
+		{
+			{state = States.Throws.ThrowK},
+		}
+	},
+	{
+		enemystate = "jump",
+		p1meter = 0,
+		acttable = 
+		{
+			{state = States.Throws.AirThrow},
+		}
+	},
+	{
+		fail = "not IsPlayerInState(P1, States.Basic.WallJump)",
+		p1meter = 0,
+		acttable = 
+		{
+			{state = States.Basic.WallJump},
+		}
+	},
+	{
+		p1meter = 0,
+		acttable = 
+		{
+			{state = States.Normals.Cmd_6MP},
+		}
+	},
+	{
+		p1meter = 0,
+		acttable = 
+		{
+			{state = States.Normals.Cmd_3HK},
+		}
+	},
+	{
+		p1meter = 0,
+		acttable = 
+		{
+			{state = States.Normals.Cmd_j2MP},
+		}
+	},
+	{
+		p1meter = 0,
+		acttable = 
+		{
+			{state = States.Normals.stLP, carry = true},
+			{state = States.Normals.stMP, carry = true},
+			{state = States.Normals.BushinChain_3rd},
+			{state = States.Normals.BushinChain_4th},
+		}
+	},
+	{
+		p1meter = 0,
+		acttable = 
+		{
+			{state = States.Specials.Tatsu},
+		}
+	},
+	{
+		fail = "not IsPlayerInState(P1, States.Specials.BushinFlip)",
+		p1meter = 0,
+		acttable = 
+		{
+			{state = States.Specials.BushinFlip},
+		}
+	},
+	{
+		fail = "not IsPlayerInState(P1, States.Specials.BushinFlip) and not IsPlayerInState(P1, States.Specials.BushinFlip_Elbow)",
+		p1meter = 0,
+		acttable = 
+		{
+			{state = States.Specials.BushinFlip},
+			{state = States.Specials.BushinFlip_Elbow},
+		}
+	},
+	{
+		fail = "not IsPlayerInState(P1, States.Specials.BushinFlip) and not IsPlayerInState(P1, States.Specials.BushinFlip_Grab)",
+		p1meter = 0,
+		acttable = 
+		{
+			{state = States.Specials.BushinFlip},
+			{state = States.Specials.BushinFlip_Grab},
+		}
+	},
+	{
+		fail = "not IsPlayerInState(P1, States.Specials.Run)",
+		p1meter = 0,
+		acttable = 
+		{
+			{state = States.Specials.Run},
+		}
+	},
+	{
+		fail = "not IsPlayerInState(P1, States.Specials.Run_L) and not IsPlayerInState(P1, States.Specials.Run_Stop)",
+		p1meter = 0,
+		acttable = 
+		{
+			{state = States.Specials.Run_L, carry = true},
+			{state = States.Specials.Run_Stop},
+		}
+	},
+	{
+		fail = "not IsPlayerInState(P1, States.Specials.Run_M) and not IsPlayerInState(P1, States.Specials.Run_Stop) and not IsPlayerInState(P1, States.Specials.Run_Slide)",
+		p1meter = 0,
+		acttable = 
+		{
+			{state = States.Specials.Run_M, carry = true},
+			{state = States.Specials.Run_Slide},
+		}
+	},
+	{
+		fail = "not IsPlayerInState(P1, States.Specials.Run_H) and not IsPlayerInState(P1, States.Specials.Run_Stop) and not IsPlayerInState(P1, States.Specials.Run_Overhead)",
+		p1meter = 0,
+		acttable = 
+		{
+			{state = States.Specials.Run_H, carry = true},
+			{state = States.Specials.Run_Overhead},
+		}
+	},
+	{
+		p1meter = 0x90,
+		acttable = 
+		{
+			{state = States.Supers.BushinHasoken},
+		}
+	},
+	{
+		p1meter = 0x90,
+		acttable = 
+		{
+			{state = States.Supers.BushinGoraikyaku},
+		}
+	},
+}

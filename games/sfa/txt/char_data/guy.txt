@@ -1,0 +1,123 @@
+-- Basic states
+	-- Idle & movement
+0xc42e - 0xc4a6: Idle
+0xc4c2: Crouching
+0xc4de - 0xc5e6: Forward walk
+0xc602 - 0xc70a: Back walk
+0xc726 - 0xc76e: Transition from crouch to stand
+0xc78a - 0xc7d2: Transition from stand to crouch
+0xc7ee - 0xc836: Standing turn around after side switch
+0xc852 - 0xc89a: Crouching turn around after side switch
+0xc8b6 - 0xc8ce: Prejump frames
+0xc8ea - 0xc902: Landing recovery from jump
+0xc91e - 0xc9ae: Neutral jump
+0xc9ca - 0xca42: Forward jump
+0xca5e - 0xcad6: Backward jump
+0xcc8a - 0xcca2: Wall jump
+	-- Blocking
+0xcaf2 - 0xcb56: Stand block (incl. proximity block)
+0xcb72 - 0xcbd6: Crouch block (incl. proximity block)
+0xcc0a - 0xcc6e: Air block (incl. proximity block)
+	-- Recovery Roll
+0xcd22 - 0xcd6a: Auto roll wakeup
+0xcd86 - 0xcdce: Recovery roll
+	-- Cutscenes
+0xce4e - 0xcf0e: Intro pose
+0xcf2a - 0xcfa2: Win pose 1
+0xcfbe - 0xd036: Win pose 2
+0xd0e6: Time over loss/draw
+	-- Getting thrown
+0x045e - 0x069e: Getting thrown
+	-- Getting hit
+0x080a - 0x083a: Standing hit in head 1
+0x0856 - 0x0886: Standing hit in head 2
+0x08a2 - 0x08d2: Standing hit in head 3
+0x08ee - 0x091e: Standing hit in body/feet 1
+0x093a - 0x096a: Standing hit in body/feet 2
+0x0986 - 0x09b6: Standing hit in body/feet 3
+0x09d2 - 0x0a02: Crouching hit 1
+0x0a1e - 0x0a4e: Crouching hit 2
+0x0a6a - 0x0a9a: Crouching hit 3
+0x0ab6 - 0x0afe: Launch hit (can usually be juggled)
+0x0b1a - 0x0b6a: Knockdown
+0x0bba - 0x0bea: Falling after sweep
+0x0c06 - 0x0c66: Air reset
+	-- Other
+0x0d46 - 0x0d8e: Stun
+0x0c82 - 0x0d2a: Getting up
+-- Attacks
+	-- Normals
+		-- Standing Normals
+0xd1b2 - 0xd1fa: Standing LP
+0xd216 - 0xd2be: Standing MP
+0xd2da - 0xd382: Standing HP
+0xd47a - 0xd4f2: Standing LK
+0xd50e - 0xd5ce: Standing MK
+0xd5ea - 0xd6aa: Standing HK
+		-- Crouching Normals
+0xd942 - 0xd98a: Crouching LP
+0xd9a6 - 0xda1e: Crouching MP
+0xda3a - 0xdaca: Crouching HP
+0xdae6 - 0xdb2e: Crouching LK
+0xdb4a - 0xdc0a: Crouching MK
+0xdc26 - 0xdcb6: Crouching HK
+		-- Neutral Jumping Normals
+0xdcd2 - 0xdd1a: Neutral Jumping LP
+0xdd36 - 0xdd7e: Neutral Jumping MP
+0xdd9a - 0xde12: Neutral Jumping HP
+0xde2e - 0xde5e: Neutral Jumping LK -- unique
+0xde7a - 0xdeda: Neutral Jumping MK
+0xdef6 - 0xdf3e: Neutral Jumping HK
+		-- Diagonal Jumping Normals
+0xdf5a - 0xdfa2: Diagonal Jumping LP
+0xdfbe - 0xe006: Diagonal Jumping MP
+0xe022 - 0xe09a: Diagonal Jumping HP
+0xe0b6 - 0xe116: Diagonal Jumping LK -- unique
+0xe132 - 0xe192: Diagonal Jumping MK
+0xe1ae - 0xe1f6: Diagonal Jumping HK
+		-- Command Normals
+0xe5a2 - 0xe662: Kubi Kudaki (f + MP)
+0xd7d2 - 0xd8da: Kamaitachi (df + HK)
+0xe696 - 0xe6c6: Hiji Otoshi (air d + MP)
+0xd39e - 0xd446: Bushin Gokusaken 3rd hit (LP -> MP -> HP)
+0xd6de - 0xd79e: Bushin Gokusaken 4th hit (LP -> MP -> HP -> HK)
+		-- Alpha Counter
+0xe496 - 0xe586: Alpha Counter - Sweep (b,db,d + K)
+	-- Throws
+0xe212 - 0xe28a: Seoi Nage (f/b + MP/HP)
+0xe2a6 - 0xe352: Tsukami Nage (f/b + MK/HK)
+0xe36e - 0xe47a: Izuna Otoshi (air f/b + MP/HP)
+	-- Special Moves
+		-- Bushin Senpukyaku (qcb + K)
+0xfa9a - 0xfbc2: L Bushin Senpukyaku
+0xfbde - 0xfd06: M Bushin Senpukyaku
+0xfd22 - 0xfe4a: H Bushin Senpukyaku
+		-- Bushin Flip (qcf + P, has followups)
+0xe6e2 - 0xe78a: Bushin Flip
+0xe962 - 0xe97a: Izuna no Hiji Otoshi -- Bushin Flip -> P
+0xe7a6 - 0xe8e2: Bushin Izuna Otoshi -- Bushin Flip -> P near opponent's head
+0xe8fe - 0xe946: Bushin Flip (recovery)
+		-- Hayagake (qcf + K, has followups)
+0xe9ae - 0xea56: Hayagake
+0xf08a - 0xf102: Kyuteishi -- L Hayagake -> K / automatic when close to opponent
+0xef4e - 0xf06e: Kage Sukui -- M Hayagake -> K
+0xec2a - 0xecba: Kubikari -- H Hayagake -> K
+0xf11e - 0xf166: Kubikari (recovery)
+	-- Super Moves
+		-- Bushin Hasoken (qcf,qcf + P, Lv2/3 version has followup with P)
+0xfe66 - 0xfef6: Bushin Hasoken (startup)
+0xff2a - 0xff8a: Lv1 Bushin Hasoken (1st hit)
+0xffa6 - 0xffee: Lv2/3 Bushin Hasoken (1st hit)
+0x000a - 0x006a: Bushin Hasoken (2nd hit, all versions)
+0x0082 - 0x012e: Bushin Hasoken (3rd hit, all versions)
+0x014a - 0x017a: Lv2/3 Bushin Hasoken (4th hit)
+0x0196 - 0x028a: Lv3 Bushin Hasoken (5th & 6th hit)
+0x02a6 - 0x0396: Lv1 Bushin Hasoken (last hit)
+0x03b2 - 0x0442: Lv2 Bushin Hasoken (last hit)
+		-- Bushin Goraikyaku (qcf,qcf + K)
+0xf182 - 0xf2a2, 0xf776 - 0xf84e: Lv1 Bushin Goraikyaku
+0xf2d6 - 0xf4e6, 0xf882 - 0xf95a: Lv2 Bushin Goraikyaku
+0xf502 - 0xf75a, 0xf98e - 0xfa66: Lv3 Bushin Goraikyaku
+	-- Other
+0x0daa - 0x0e6a: Taunt (Start)
+0xd8f6 - 0xd926: Kamaitachi/Bushin Hasoken (landing recovery)

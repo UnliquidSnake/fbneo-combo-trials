@@ -1,0 +1,112 @@
+{
+	{
+		p1meter = 0,
+		acttable = 
+		{
+			{state = States.Normals.crLK, carry = true},
+			{state = States.Normals.crLK, carry = true},
+			{state = States.Normals.crMP, carry = true},
+			{state = States.Normals.crHK},
+			{state = States.Specials.Roll_L},
+		}
+	},
+	{
+		p1meter = 0,
+		acttable = 
+		{
+			{state = States.Normals.jHP},
+			{state = States.Normals.stHP},
+			{state = States.Specials.Shoryuken_H, success = "IsAtkCombo() and P2.CurrState.IsAirborne"},
+		}
+	},
+	{
+		p1meter = 0x30,
+		acttable = 
+		{
+			{state = States.Normals.crLK, carry = true},
+			{state = States.Normals.crLK},
+			{state = States.Supers.Shoryureppa_L1, success = "IsAtkCombo() and P2.CurrState.IsAirborne"},
+		}
+	},
+	{
+		p1meter = 0,
+		acttable = 
+		{
+			{state = States.Specials.AirTatsu},
+			{state = States.Normals.crHK},
+		}
+	},
+	{
+		p1meter = 0x90,
+		acttable = 
+		{
+			{state = States.Normals.djHK},
+			{state = States.Normals.crMP},
+			{state = States.Normals.stMK},
+			{state = States.Supers.Shoryureppa_L3, success = "IsAtkCombo() and P2.CurrState.IsAirborne"},
+		}
+	},
+	{
+		fail = "not IsPlayerInState(P1, States.Normals.stHK) and not IsPlayerInState(P1, States.Specials.Shoryuken)",
+		p1meter = 0,
+		acttable = 
+		{
+			{state = States.Normals.stHK, nameadd = " [kara cancel]", success = "IsAtkWhiff()"},
+			{state = States.Specials.Shoryuken},
+		}
+	},
+	{
+		p1meter = 0,
+		acttable = 
+		{
+			{state = States.Normals.Cmd_6MK, nameadd = " [meaty]"},
+			{state = States.Normals.crLK, carry = true},
+			{state = States.Normals.crHK},
+		}
+	},
+	{
+		description = "Corner only",
+		p1meter = 0x30,
+		acttable = 
+		{
+			{state = States.Specials.Hadoken_L, success = "IsProjHit()"},
+			{state = States.Specials.AirTatsu, nameadd = " [whiff]", success = "IsAtkWhiff()", forcestart = true},
+			{state = States.Supers.Shinryuken_L1, success = "IsAtkCombo() and P2.CurrState.IsAirborne"},
+		}
+	},
+	{
+		description = "Crossup combo, opponent crouching",
+		p1meter = 0x90,
+		enemystate = "crouch",
+		acttable = 
+		{
+			{state = States.Normals.djMK, nameadd = " [crossup]", success = "IsAtkCombo() and IsCrossup()"},
+			{state = States.Normals.crLK, carry = true},
+			{state = States.Normals.crLK, carry = true},
+			{state = States.Normals.stMK},
+			{state = States.Supers.Shinryuken_L3, nameadd = " [11 hits or more]", success = "IsAtkMultiCombo(11)"},
+		}
+	},
+	{
+		description = "Corner only",
+		p1meter = 0,
+		acttable = 
+		{
+			{state = States.Normals.jHP},
+			{state = States.Normals.crLK, carry = true},
+			{state = States.Normals.crLK, carry = true},
+			{state = States.Normals.stHP},
+			{state = States.Specials.Roll_L},
+			{state = States.Specials.Shoryuken_H, success = "IsAtkCombo() and P2.CurrState.IsAirborne"},
+		}
+	},
+	{
+		description = "Freestyle combo, opponent crouching",
+		p1meter = 0x90,
+		enemystate = "crouch",
+		acttable = 
+		{
+			{state = States.Basic.Any, name = "Perform a 19 hit combo", success = "P1.CurrState.ComboCounter >= 19"},
+		}
+	},	
+}

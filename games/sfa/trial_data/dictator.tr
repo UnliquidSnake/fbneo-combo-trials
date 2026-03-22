@@ -1,0 +1,75 @@
+{
+	{
+		p1meter = 0,
+		acttable = 
+		{
+			{state = States.Normals.crMK},
+			{state = States.Specials.PsychoShot_H},
+		}
+	},
+	{
+		p1meter = 0,
+		acttable = 
+		{
+			{state = States.Normals.jHP},
+			{state = States.Normals.crMP},
+			{state = States.Specials.KneePress_H, success = "IsAtkCombo() and P2.CurrState.IsAirborne"},
+		}
+	},
+	{
+		p1meter = 0x60,
+		acttable = 
+		{
+			{state = States.Normals.crMK},
+			{state = States.Supers.KneePressNightmare_L2, success = "IsAtkCombo() and P2.CurrState.IsAirborne"},
+		}
+	},
+	{
+		description = "Corner only",
+		p1meter = 0,
+		acttable = 
+		{
+			{state = States.Specials.PsychoShot_L, success = "IsProjHit()"},
+			{state = States.Specials.KneePress_H, success = "IsAtkCombo() and P2.CurrState.IsAirborne", forcestart = true},
+		}
+	},
+	{
+		p1meter = 0,
+		acttable = 
+		{
+			{state = States.Normals.stHP},
+			{state = States.Normals.crMK},
+			{state = States.Specials.KneePress_H, success = "IsAtkCombo() and P2.CurrState.IsAirborne"},
+		}
+	},
+	{
+		p1meter = 0x90,
+		acttable = 
+		{
+			{state = States.Normals.jHK},
+			{state = States.Normals.crLK},
+			{state = States.Normals.stLK},
+			{state = States.Supers.PsychoCrusher_L3, success = "IsAtkMultiCombo(6)"},
+		}
+	},
+	{
+		p1meter = 0x90,
+		acttable = 
+		{
+			{state = States.Normals.crMK, nameadd = " [meaty]"},
+			{state = States.Normals.crMK},
+			{state = States.Supers.KneePressNightmare_L3, success = "IsAtkCombo() and P2.CurrState.IsAirborne"},
+		}
+	},
+	{
+		description = "Corner only",
+		p1meter = 0,
+		acttable = 
+		{
+			{state = States.Specials.PsychoShot_L, success = "IsProjHit()"},
+			{state = States.Normals.jHK, forcestart = true},
+			{state = States.Normals.crMP},
+			{state = States.Specials.KneePress_H, success = "IsAtkCombo() and P2.CurrState.IsAirborne"},
+		}
+	},	
+}

@@ -1,0 +1,119 @@
+-- Basic states
+	-- Idle & movement
+0xada4 - 0xae1c: Idle
+0xae38: Crouching
+0xaf1c - 0xaf94: Forward walk
+0xafb0 - 0xb028: Back walk
+0xae54 - 0xae9c: Transition from crouch to stand
+0xaeb8 - 0xaf00: Transition from stand to crouch
+0xb044 - 0xb08c: Standing turn around after side switch
+0xb0a8 - 0xb0f0: Crouching turn around after side switch
+0xb10c - 0xb124: Prejump frames
+0xb140 - 0xb158: Landing recovery from jump
+0xb174 - 0xb21c: Neutral jump
+0xb238 - 0xb2e0: Forward jump
+0xb2fc - 0xb38c: Backward jump
+	-- Blocking
+0xb3a8 - 0xb40c: Stand block (incl. proximity block)
+0xb428 - 0xb48c: Crouch block (incl. proximity block)
+0xb4c0 - 0xb524: Air block (incl. proximity block)
+	-- Recovery Roll
+0xb5a4 - 0xb5ec: Auto roll wakeup
+0xb608 - 0xb650: Recovery roll
+	-- Cutscenes
+0xb6d0 - 0xb838: Intro pose
+0xf2e8 - 0xf438: Special Intro vs. Ryu
+0xb8d0 - 0xb918: Win pose 1
+0xb934 - 0xbafc: Win pose 2
+0xf46c - 0xf514: Time over loss/draw
+	-- Getting thrown
+0xe92c - 0xeac4: Getting thrown
+	-- Getting hit
+0xeb88 - 0xebb8: Standing hit in head 1
+0xebd4 - 0xec04: Standing hit in head 2
+0xec20 - 0xec50: Standing hit in head 3
+0xec6c - 0xec9c: Standing hit in body/feet 1
+0xecb8 - 0xece8: Standing hit in body/feet 2
+0xed04 - 0xed34: Standing hit in body/feet 3
+0xed50 - 0xed68: Crouching hit 1
+0xed84 - 0xedb4: Crouching hit 2
+0xedd0 - 0xee00: Crouching hit 3
+0xee1c - 0xee64: Launch hit (can usually be juggled)
+0xee80 - 0xeed0: Knockdown
+0xef54 - 0xef84: Falling after sweep
+0xefa0 - 0xf018: Air reset
+	-- Other
+0xf0f8 - 0xf170: Stun
+0xf034 - 0xf0dc: Getting up
+-- Attacks
+	-- Normals
+		-- Standing Normals
+0xbcfc - 0xbd5c: Standing LP
+0xbd78 - 0xbdf0: Standing MP
+0xbe0c - 0xbeb4: Standing HP
+0xbed0 - 0xbfa8: Standing LK
+0xbfc4 - 0xc084: Standing MK
+0xc0a0 - 0xc160: Standing HK
+		-- Crouching Normals
+0xc17c - 0xc1c4: Crouching LP
+0xc1e0 - 0xc240: Crouching MP
+0xc25c - 0xc2bc: Crouching HP
+0xc2d8 - 0xc320: Crouching LK
+0xc33c - 0xc3e4: Crouching MK
+0xc400 - 0xc4c0: Crouching HK
+		-- Neutral Jumping Normals
+0xc4dc - 0xc53c: Neutral Jumping LP
+0xc570 - 0xc5d0: Neutral Jumping MP
+0xc604 - 0xc664: Neutral Jumping HP
+0xc698 - 0xc6e0: Neutral Jumping LK
+0xc72c - 0xc78c: Neutral Jumping MK
+0xc7a8 - 0xc820: Neutral Jumping HK
+		-- Diagonal Jumping Normals
+0xc854 - 0xc8b4: Diagonal Jumping LP
+0xc8e8 - 0xc948: Diagonal Jumping MP
+0xc97c - 0xc9dc: Diagonal Jumping HP
+0xca10 - 0xca70: Diagonal Jumping LK
+0xcaa4 - 0xcaec: Diagonal Jumping MK
+0xcb20 - 0xcb98: Diagonal Jumping HK
+		-- Alpha Counter
+0xe7d8 - 0xe8b0: Alpha Counter - Stomach Kick (b,db,d + K)
+	-- Throws
+0xcbcc - 0xcd08: Tiger Smash (f/b + MP/HP)
+	-- Special Moves
+		-- High Tiger Shot (qcf + P)
+0xcd24 - 0xcdcc: L High Tiger Shot
+0xcde8 - 0xce90: M High Tiger Shot
+0xceac - 0xcf54: H High Tiger Shot
+		-- Low Tiger Shot (qcf + K)
+0xcf70 - 0xd018: L Low Tiger Shot
+0xd034 - 0xd0dc: M Low Tiger Shot
+0xd0f8 - 0xd1a0: H Low Tiger Shot
+		-- Tiger Blow (dp + P)
+0xd594 - 0xd63c: L Tiger Blow
+0xd658 - 0xd718: M Tiger Blow
+0xd734 - 0xd824: H Tiger Blow
+0xd840 - 0xd8a0: L Tiger Blow (landing recovery)
+		-- Tiger Crush (dp + K)
+0xd1bc - 0xd24c: L Tiger Crush (startup & active)
+0xd268 - 0xd2f8: M Tiger Crush (startup & active)
+0xd314 - 0xd3a4: H Tiger Crush (startup & active)
+0xd3c0 - 0xd450: Tiger Crush (recovery, all versions)
+	-- Super Moves
+		-- Tiger Cannon (qcf,qcf + P)
+0xe248 - 0xe320: Tiger Cannon -- applies to all versions
+		-- Tiger Genocide (qcf,qcf + K)
+0xe33c - 0xe36c: Tiger Genocide (startup, all versions)
+0xe384 - 0xe3cc: Tiger Genocide (knee, all versions)
+0xe3e8 - 0xe418: Lv1 Tiger Genocide (landing from knee)
+0xe44c - 0xe47c: Lv2/3 Tiger Genocide (landing from knee)
+0xe4b0 - 0xe528: Lv1 Tiger Genocide (uppercut)
+0xe544 - 0xe61c: Lv2 Tiger Genocide (uppercut)
+0xe638 - 0xe7bc: Lv3 Tiger Genocide (uppercut)
+		-- Tiger Raid (qcb,qcb + K)
+0xd920 - 0xdb90: Lv1 Tiger Raid
+0xdbac - 0xdeac: Lv2 Tiger Raid
+0xdec8 - 0xe1c8: Lv3 Tiger Raid
+0xe1e4 - 0xe22c: Tiger Raid (recovery, all versions)
+	-- Other
+0xb854 - 0xb8b4: Taunt (Start)
+0xd8bc - 0xd904: M/H Tiger Blow, Tiger Genocide (landing recovery)

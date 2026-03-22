@@ -1,0 +1,126 @@
+{
+	{
+		p1meter = 0,
+		acttable = 
+		{
+			{state = States.Normals.crLK, carry = true},
+			{state = States.Normals.stMP},
+			{state = States.Specials.Tatsu_L},
+		}
+	},
+	{
+		p1meter = 0,
+		acttable = 
+		{
+			{state = States.Normals.Cmd_j2MP},
+			{state = States.Normals.stMP, carry = true},
+			{state = States.Normals.stHP},
+			{state = States.Specials.Run_M, carry = true},
+			{state = States.Specials.Run_Slide},
+		}
+	},
+	{
+		p1meter = 0x30,
+		acttable = 
+		{
+			{state = States.Normals.crLK, carry = true},
+			{state = States.Normals.stMP, carry = true},
+			{state = States.Normals.crHP},
+			{state = States.Supers.BushinGoraikyaku_L1, success = "IsAtkCombo() and P2.PrevState.IsAirborne"},
+		}
+	},
+	{
+		description = "Opponent jumping",
+		enemystate = "jump",
+		p1meter = 0,
+		acttable = 
+		{
+			{state = States.Normals.crHP, nameadd = " [air hit]", success = "IsAtkCombo() and P2.CurrState.IsAirborne"},
+			{state = States.Specials.Tatsu_H},
+		}
+	},
+	{
+		p1meter = 0,
+		acttable = 
+		{
+			{state = States.Normals.Cmd_j2MP},
+			{state = States.Normals.BushinChain_4th},
+		}
+	},
+	{
+		description = "Crossup combo",
+		p1meter = 0,
+		acttable = 
+		{
+			{state = States.Normals.djMK, nameadd = " [crossup]", success = "IsAtkCombo() and IsCrossup()"},
+			{state = States.Normals.crLK, carry = true},
+			{state = States.Normals.stMP, carry = true},
+			{state = States.Normals.crHP},
+			{state = States.Specials.Run_M, carry = true},
+			{state = States.Specials.Run_Slide},
+		}
+	},
+	{
+		description = "Corner only",
+		p1meter = 0x30,
+		acttable = 
+		{
+			{state = States.Throws.ThrowK},
+			{state = States.Specials.Tatsu_M},
+		}
+	},
+	{
+		description = "Corner only",
+		p1meter = 0x30,
+		acttable = 
+		{
+			{state = States.Specials.BushinFlip_Grab},
+			{state = States.Supers.BushinHasoken_L1, success = "IsAtkMultiCombo(4)"},
+		}
+	},
+	{
+		p1meter = 0,
+		acttable = 
+		{
+			{state = States.Normals.crHK, nameadd = " [meaty]", success = "IsAtkCombo() and not P2.CurrState.IsAirborne"},
+			{state = States.Normals.crHK}
+		}
+	},
+	{
+		p1meter = 0,
+		acttable = 
+		{
+			{state = States.Normals.Cmd_6MP, nameadd = " [meaty]"},
+			{state = States.Normals.crLK, carry = true},
+			{state = States.Normals.stMK},
+			{state = States.Specials.Run_M, carry = true},
+			{state = States.Specials.Run_Slide},
+		}
+	},
+	{
+		p1meter = 0,
+		acttable = 
+		{
+			{state = States.Normals.jHK},
+			{state = States.Normals.crLK, carry = true},
+			{state = States.Normals.stMP, carry = true},
+			{state = States.Normals.stHK},
+			{state = States.Normals.stMK},
+			{state = States.Specials.Run_M, carry = true},
+			{state = States.Specials.Run_Slide},
+		}
+	},
+	{
+		description = "Corner only",
+		p1meter = 0,
+		acttable = 
+		{
+			{state = States.Normals.djHK},
+			{state = States.Normals.stMP, carry = true},
+			{state = States.Normals.stHK},
+			{state = States.Normals.stHP},
+			{state = States.Specials.Run_H, carry = true},
+			{state = States.Specials.Run_Overhead, nameadd = " [2 hits]", success = "IsAtkMultiCombo(2)"},
+		}
+	},	
+}

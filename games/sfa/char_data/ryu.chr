@@ -1,0 +1,747 @@
+CharStateTable = {}
+CharStateTable.Basic = {}
+CharStateTable.Normals = {}
+CharStateTable.Throws = {}
+CharStateTable.Specials = {}
+CharStateTable.Supers = {}
+-----------------------------------------------------------------------------------------------
+-- State list
+-----------------------------------------------------------------------------------------------
+CharStateTable.Basic.Any = {}
+CharStateTable.Basic.Idle = {}
+CharStateTable.Basic.Crouch = {}
+CharStateTable.Basic.WalkForward = {}
+CharStateTable.Basic.WalkBack = {}
+CharStateTable.Basic.Jump = {}
+CharStateTable.Basic.NeutralJump = {}
+CharStateTable.Basic.ForwardJump = {}
+CharStateTable.Basic.BackJump = {}
+CharStateTable.Basic.Hitstun = {}
+CharStateTable.Basic.Knockdown = {}
+CharStateTable.Basic.Recovery = {}
+
+CharStateTable.Normals.stLP = {}
+CharStateTable.Normals.stMP = {}
+CharStateTable.Normals.stHP = {}
+CharStateTable.Normals.stLK = {}
+CharStateTable.Normals.stMK = {}
+CharStateTable.Normals.stHK = {}
+CharStateTable.Normals.crLP = {}
+CharStateTable.Normals.crMP = {}
+CharStateTable.Normals.crHP = {}
+CharStateTable.Normals.crLK = {}
+CharStateTable.Normals.crMK = {}
+CharStateTable.Normals.crHK = {}
+CharStateTable.Normals.jLP = {}
+CharStateTable.Normals.jMP = {}
+CharStateTable.Normals.jHP = {}
+CharStateTable.Normals.jLK = {}
+CharStateTable.Normals.jMK = {}
+CharStateTable.Normals.jHK = {}
+CharStateTable.Normals.njLP = {}
+CharStateTable.Normals.njMP = {}
+CharStateTable.Normals.njHP = {}
+CharStateTable.Normals.njLK = {}
+CharStateTable.Normals.njMK = {}
+CharStateTable.Normals.njHK = {}
+CharStateTable.Normals.djLP = {}
+CharStateTable.Normals.djMP = {}
+CharStateTable.Normals.djHP = {}
+CharStateTable.Normals.djLK = {}
+CharStateTable.Normals.djMK = {}
+CharStateTable.Normals.djHK = {}
+CharStateTable.Normals.Cmd_6MP = {}
+CharStateTable.Normals.Cmd_6MK = {}
+CharStateTable.Normals.AC = {}
+
+CharStateTable.Throws.ThrowP = {}
+CharStateTable.Throws.ThrowK = {}
+
+CharStateTable.Specials.Hadoken = {}
+CharStateTable.Specials.Hadoken_L = {}
+CharStateTable.Specials.Hadoken_M = {}
+CharStateTable.Specials.Hadoken_H = {}
+CharStateTable.Specials.Shoryuken = {}
+CharStateTable.Specials.Shoryuken_L = {}
+CharStateTable.Specials.Shoryuken_M = {}
+CharStateTable.Specials.Shoryuken_H = {}
+CharStateTable.Specials.Tatsu = {}
+CharStateTable.Specials.Tatsu_L = {}
+CharStateTable.Specials.Tatsu_M = {}
+CharStateTable.Specials.Tatsu_H = {}
+CharStateTable.Specials.AirTatsu = {}
+CharStateTable.Specials.AirTatsu_L = {}
+CharStateTable.Specials.AirTatsu_M = {}
+CharStateTable.Specials.AirTatsu_H = {}
+
+CharStateTable.Supers.ShinkuHadoken = {}
+CharStateTable.Supers.ShinkuHadoken_L1 = {}
+CharStateTable.Supers.ShinkuHadoken_L2 = {}
+CharStateTable.Supers.ShinkuHadoken_L3 = {}
+CharStateTable.Supers.ShinkuTatsumaki = {}
+CharStateTable.Supers.ShinkuTatsumaki_L1 = {}
+CharStateTable.Supers.ShinkuTatsumaki_L2 = {}
+CharStateTable.Supers.ShinkuTatsumaki_L3 = {}
+-----------------------------------------------------------------------------------------------
+-- Basic states
+-----------------------------------------------------------------------------------------------
+	-- Idle & movement
+-----------------------------------------------------------------------------------------------
+CharStateTable.Basic.Any =
+{
+	name = "Any",
+	stateval = {min = 0x0000, max = 0xffff}
+}
+CharStateTable.Basic.Idle =
+{
+	name = "Idle",
+	type = "notatk",
+	stateval = {min = 0x94a4, max = 0x951c}
+}
+CharStateTable.Basic.Crouch =
+{
+	name = "Crouch",
+	type = "notatk",
+	stateval = {min = 0x9538, max = 0x9538}
+}
+CharStateTable.Basic.WalkForward =
+{
+	name = "Walk Forward",
+	type = "notatk",
+	stateval = {min = 0x9554, max = 0x95cc}
+}
+CharStateTable.Basic.WalkBack =
+{
+	name = "Walk Backward",
+	type = "notatk",
+	stateval = {min = 0x95e8, max = 0x9660}
+}
+CharStateTable.Basic.NeutralJump = -- does not include prejump frames
+{
+	name = "Neutral Jump",
+	type = "notatk",
+	stateval = {min = 0x9874, max = 0x98ec}
+}
+CharStateTable.Basic.ForwardJump = -- does not include prejump frames
+{
+	name = "Forward Jump",
+	type = "notatk",
+	stateval = {min = 0x9908, max = 0x99b0}
+}
+CharStateTable.Basic.BackJump = -- does not include prejump frames
+{
+	name = "Backward Jump",
+	type = "notatk",
+	stateval = {min = 0x99cc, max = 0x9a5c}
+}
+CharStateTable.Basic.Jump = -- does not include prejump frames
+{
+	name = "Jump",
+	type = "notatk",
+	stateval = 
+	{
+		CharStateTable.Basic.NeutralJump.stateval,
+		CharStateTable.Basic.ForwardJump.stateval,
+		CharStateTable.Basic.BackJump.stateval,
+	}
+}
+-----------------------------------------------------------------------------------------------
+	-- Getting hit
+-----------------------------------------------------------------------------------------------
+CharStateTable.Basic.Hitstun =
+{
+	name = "Get Hit",
+	stateval = 
+	{
+		{min = 0xa7cc, max = 0xaaa8},
+		{min = 0xab98, max = 0xac5c},
+	}
+}
+CharStateTable.Basic.Knockdown =
+{
+	name = "Knockdown",
+	stateval = {min = 0xaac4, max = 0xab14}
+}
+CharStateTable.Basic.Recovery =
+{
+	name = "Recovery Roll",
+	inputname = "412P (when knocked down)",
+	type = "notatk",
+	stateval = {min = 0x9c5c, max = 0x9d08}
+}
+-----------------------------------------------------------------------------------------------
+-- Attacks
+-----------------------------------------------------------------------------------------------
+	-- Normals
+-----------------------------------------------------------------------------------------------
+		-- Standing Normals
+-----------------------------------------------------------------------------------------------
+CharStateTable.Normals.stLP =
+{
+	name = "Stand LP",
+	inputname = "5LP",
+	atkstr = T_AtkStr.L,
+	stateval = {min = 0xada0, max = 0xade8}
+}
+CharStateTable.Normals.stMP =
+{
+	name = "Stand MP",
+	inputname = "5MP",
+	atkstr = T_AtkStr.M,
+	stateval = {min = 0xae04, max = 0xae7c}
+}
+CharStateTable.Normals.stHP =
+{
+	name = "Stand HP",
+	inputname = "5HP",
+	atkstr = T_AtkStr.H,
+	stateval = {min = 0xae98, max = 0xaf10}
+}
+CharStateTable.Normals.stLK =
+{
+	name = "Stand LK",
+	inputname = "5LK",
+	atkstr = T_AtkStr.L,
+	stateval = {min = 0xaf2c, max = 0xafbc}
+}
+CharStateTable.Normals.stMK =
+{
+	name = "Stand MK",
+	inputname = "5MK",
+	atkstr = T_AtkStr.M,
+	stateval = {min = 0xafd8, max = 0xb050}
+}
+CharStateTable.Normals.stHK =
+{
+	name = "Stand HK",
+	inputname = "5HK",
+	atkstr = T_AtkStr.H,
+	stateval = {min = 0xb06c, max = 0xb0e4}
+}
+-----------------------------------------------------------------------------------------------
+		-- Crouching Normals
+-----------------------------------------------------------------------------------------------
+CharStateTable.Normals.crLP =
+{
+	name = "Crouch LP",
+	inputname = "2LP",
+	atkstr = T_AtkStr.L,
+	stateval = {min = 0xb100, max = 0xb148}
+}
+CharStateTable.Normals.crMP =
+{
+	name = "Crouch MP",
+	inputname = "2MP",
+	atkstr = T_AtkStr.M,
+	stateval = {min = 0xb164, max = 0xb1c4}
+}
+CharStateTable.Normals.crHP =
+{
+	name = "Crouch HP",
+	inputname = "2HP",
+	atkstr = T_AtkStr.H,
+	stateval = {min = 0xb1e0, max = 0xb240}
+}
+CharStateTable.Normals.crLK =
+{
+	name = "Crouch LK",
+	inputname = "2LK",
+	atkstr = T_AtkStr.L,
+	stateval = {min = 0xb25c, max = 0xb2bc}
+}
+CharStateTable.Normals.crMK =
+{
+	name = "Crouch MK",
+	inputname = "2MK",
+	atkstr = T_AtkStr.M,
+	stateval = {min = 0xb2d8, max = 0xb350}
+}
+CharStateTable.Normals.crHK =
+{
+	name = "Crouch HK",
+	inputname = "2HK",
+	atkstr = T_AtkStr.H,
+	stateval = {min = 0xb36c, max = 0xb3e4}
+}
+-----------------------------------------------------------------------------------------------
+	-- Neutral Jumping Normals
+-----------------------------------------------------------------------------------------------
+CharStateTable.Normals.njLP =
+{
+	name = "Neutral Jump LP",
+	inputname = "njLP",
+	atkstr = T_AtkStr.L,
+	stateval = {min = 0xb400, max = 0xb448}
+}
+CharStateTable.Normals.njMP =
+{
+	name = "Neutral Jump MP",
+	inputname = "njMP",
+	atkstr = T_AtkStr.M,
+	stateval = {min = 0xb464, max = 0xb4ac}
+}
+CharStateTable.Normals.njHP =
+{
+	name = "Neutral Jump HP",
+	inputname = "njHP",
+	atkstr = T_AtkStr.H,
+	stateval = {min = 0xb4c8, max = 0xb510}
+}
+CharStateTable.Normals.njLK =
+{
+	name = "Neutral Jump LK",
+	inputname = "njLK",
+	atkstr = T_AtkStr.L,
+	stateval = {min = 0xb52c, max = 0xb5a4}
+}
+CharStateTable.Normals.njMK =
+{
+	name = "Neutral Jump MK",
+	inputname = "njMK",
+	atkstr = T_AtkStr.M,
+	stateval = {min = 0xb5c0, max = 0xb638}
+}
+CharStateTable.Normals.njHK =
+{
+	name = "Neutral Jump HK",
+	inputname = "njHK",
+	atkstr = T_AtkStr.H,
+	stateval = {min = 0xb654, max = 0xb6e4}
+}
+-----------------------------------------------------------------------------------------------
+	-- Diagonal Jumping Normals
+-----------------------------------------------------------------------------------------------
+CharStateTable.Normals.djLP =
+{
+	name = "Diagonal Jump LP",
+	inputname = "djLP",
+	atkstr = T_AtkStr.L,
+	stateval = {min = 0xb700, max = 0xb748}
+}
+CharStateTable.Normals.djMP =
+{
+	name = "Diagonal Jump MP",
+	inputname = "djMP",
+	atkstr = T_AtkStr.M,
+	stateval = {min = 0xb764, max = 0xb824}
+}
+CharStateTable.Normals.djHP =
+{
+	name = "Diagonal Jump HP",
+	inputname = "djHP",
+	atkstr = T_AtkStr.H,
+	stateval = {min = 0xb840, max = 0xb888}
+}
+CharStateTable.Normals.djLK =
+{
+	name = "Diagonal Jump LK",
+	inputname = "djLK",
+	atkstr = T_AtkStr.L,
+	stateval = {min = 0xb8a4, max = 0xb8ec}
+}
+CharStateTable.Normals.djMK =
+{
+	name = "Diagonal Jump MK",
+	inputname = "djMK",
+	atkstr = T_AtkStr.M,
+	stateval = {min = 0xb908, max = 0xb968}
+}
+CharStateTable.Normals.djHK =
+{
+	name = "Diagonal Jump HK",
+	inputname = "djHK",
+	atkstr = T_AtkStr.H,
+	stateval = {min = 0xb984, max = 0xb9e4}
+}
+-----------------------------------------------------------------------------------------------
+	-- Jumping Normals - tracks both kinds of jumps
+-----------------------------------------------------------------------------------------------
+CharStateTable.Normals.jLP =
+{
+	name = "Jump LP",
+	inputname = "jLP",
+	atkstr = T_AtkStr.L,
+	startstate = {0xb400, 0xb700},
+	stateval = 
+	{
+		CharStateTable.Normals.njLP.stateval,
+		CharStateTable.Normals.djLP.stateval,
+	}
+}
+CharStateTable.Normals.jMP =
+{
+	name = "Jump MP",
+	inputname = "jMP",
+	atkstr = T_AtkStr.M,
+	startstate = {0xb464, 0xb764},
+	stateval = 
+	{
+		CharStateTable.Normals.njMP.stateval,
+		CharStateTable.Normals.djMP.stateval,
+	}
+}
+CharStateTable.Normals.jHP =
+{
+	name = "Jump HP",
+	inputname = "jHP",
+	atkstr = T_AtkStr.H,
+	startstate = {0xb4c8, 0xb840},
+	stateval = 
+	{
+		CharStateTable.Normals.njHP.stateval,
+		CharStateTable.Normals.djHP.stateval,
+	}
+}
+CharStateTable.Normals.jLK =
+{
+	name = "Jump LK",
+	inputname = "jLK",
+	atkstr = T_AtkStr.L,
+	startstate = {0xb52c, 0xb8a4},
+	stateval = 
+	{
+		CharStateTable.Normals.njLK.stateval,
+		CharStateTable.Normals.djLK.stateval,
+	}
+}
+CharStateTable.Normals.jMK =
+{
+	name = "Jump MK",
+	inputname = "jMK",
+	atkstr = T_AtkStr.M,
+	startstate = {0xb5c0, 0xb908},
+	stateval = 
+	{
+		CharStateTable.Normals.njMK.stateval,
+		CharStateTable.Normals.djMK.stateval,
+	}
+}
+CharStateTable.Normals.jHK =
+{
+	name = "Jump HK",
+	inputname = "jHK",
+	atkstr = T_AtkStr.H,
+	startstate = {0xb654, 0xb984},
+	stateval = 
+	{
+		CharStateTable.Normals.njHK.stateval,
+		CharStateTable.Normals.djHK.stateval,
+	}
+}
+-----------------------------------------------------------------------------------------------
+		-- Command Normals
+-----------------------------------------------------------------------------------------------
+CharStateTable.Normals.Cmd_6MP =
+{
+	name = "Sakotsu Wari",
+	inputname = "6MP",
+	atkstr = T_AtkStr.M,
+	stateval = {min = 0xcb40, max = 0xcc30}
+}
+CharStateTable.Normals.Cmd_6MK =
+{
+	name = "Senpukyaku",
+	inputname = "6MK",
+	atkstr = T_AtkStr.M,
+	stateval = {min = 0xcc4c, max = 0xcd58}
+}
+-----------------------------------------------------------------------------------------------
+		-- Alpha Counter - Shoryuken (b,db,d + P)
+-----------------------------------------------------------------------------------------------
+CharStateTable.Normals.AC =
+{
+	name = "Alpha Counter",
+	inputname = "412P (when blocking)",
+	spid = 0,
+	atkstr = T_AtkStr.H,
+	stateval = {min = 0xcd74, max = 0xce80}
+}
+-----------------------------------------------------------------------------------------------
+	-- Throws
+-----------------------------------------------------------------------------------------------
+CharStateTable.Throws.ThrowP =
+{
+	name = "Seoi Nage",
+	inputname = "MP/HP Throw",
+	type = "throw",
+	stateval = {min = 0xba00, max = 0xba90}
+}
+CharStateTable.Throws.ThrowK =
+{
+	name = "Tomoe Nage",
+	inputname = "MK/HK Throw",
+	type = "throw",
+	stateval = {min = 0xbaac, max = 0xbb6c}
+}
+-----------------------------------------------------------------------------------------------
+	-- Special Moves
+-----------------------------------------------------------------------------------------------
+		-- Hadoken (qcf + P)
+-----------------------------------------------------------------------------------------------
+CharStateTable.Specials.Hadoken_L =
+{
+	name = "(L) Hadoken",
+	inputname = "236LP",
+	type = "projectile",
+	spid = 1,
+	atkstr = T_AtkStr.L,
+	stateval = {min = 0xbb88, max = 0xbc18}
+}
+CharStateTable.Specials.Hadoken_M =
+{
+	name = "(M) Hadoken",
+	inputname = "236MP",
+	type = "projectile",
+	spid = 1,
+	atkstr = T_AtkStr.M,
+	stateval = {min = 0xbc34, max = 0xbcc4}
+}
+CharStateTable.Specials.Hadoken_H =
+{
+	name = "(H) Hadoken",
+	inputname = "236HP",
+	type = "projectile",
+	spid = 1,
+	atkstr = T_AtkStr.H,
+	stateval = {min = 0xbce0, max = 0xbd70}
+}
+CharStateTable.Specials.Hadoken =
+{
+	name = "Hadoken",
+	inputname = "236P",
+	type = "projectile",
+	spid = 1,
+	startstate = {0xbb88, 0xbc34, 0xbce0},
+	stateval =
+	{
+		CharStateTable.Specials.Hadoken_L.stateval,
+		CharStateTable.Specials.Hadoken_M.stateval,
+		CharStateTable.Specials.Hadoken_H.stateval,
+	}
+}
+-----------------------------------------------------------------------------------------------
+		-- Shoryuken (dp + P)
+-----------------------------------------------------------------------------------------------
+CharStateTable.Specials.Shoryuken_L =
+{
+	name = "(L) Shoryuken",
+	inputname = "623LP",
+	spid = 0,
+	atkstr = T_AtkStr.L,
+	stateval = {min = 0xbf10, max = 0xbfb8}
+}
+CharStateTable.Specials.Shoryuken_M =
+{
+	name = "(M) Shoryuken",
+	inputname = "623MP",
+	spid = 0,
+	atkstr = T_AtkStr.M,
+	stateval = {min = 0xbfd4, max = 0xc07c}
+}
+CharStateTable.Specials.Shoryuken_H =
+{
+	name = "(H) Shoryuken",
+	inputname = "623HP",
+	spid = 0,
+	atkstr = T_AtkStr.H,
+	stateval = {min = 0xc098, max = 0xc140}
+}
+CharStateTable.Specials.Shoryuken =
+{
+	name = "Shoryuken",
+	inputname = "623P",
+	spid = 0,
+	startstate = {0xbf10, 0xbfd4, 0xc098},
+	stateval =
+	{
+		CharStateTable.Specials.Shoryuken_L.stateval,
+		CharStateTable.Specials.Shoryuken_M.stateval,
+		CharStateTable.Specials.Shoryuken_H.stateval,
+	}
+}
+-----------------------------------------------------------------------------------------------
+		-- Tatsumaki Senpukyaku (qcb + K)
+-----------------------------------------------------------------------------------------------
+CharStateTable.Specials.Tatsu_L =
+{
+	name = "(L) Tatsumaki Senpukyaku",
+	inputname = "214LK",
+	spid = 2,
+	atkstr = T_AtkStr.L,
+	stateval =
+	{
+		{min = 0xc15c, max = 0xc18c},
+		{min = 0xc2d0, max = 0xc330},
+	}
+}
+CharStateTable.Specials.Tatsu_M =
+{
+	name = "(M) Tatsumaki Senpukyaku",
+	inputname = "214MK",
+	spid = 2,
+	atkstr = T_AtkStr.M,
+	stateval =
+	{
+		{min = 0xc15c, max = 0xc18c},
+		{min = 0xc34c, max = 0xc3ac},
+	}
+}
+CharStateTable.Specials.Tatsu_H =
+{
+	name = "(H) Tatsumaki Senpukyaku",
+	inputname = "214HK",
+	spid = 2,
+	atkstr = T_AtkStr.H,
+	stateval =
+	{
+		{min = 0xc15c, max = 0xc18c},
+		{min = 0xc3c8, max = 0xc428},
+	}
+}
+CharStateTable.Specials.Tatsu =
+{
+	name = "Tatsumaki Senpukyaku",
+	inputname = "214K",
+	spid = 2,
+	stateval =
+	{
+		{min = 0xc15c, max = 0xc18c},
+		{min = 0xc2d0, max = 0xc428},
+	}
+}
+-----------------------------------------------------------------------------------------------
+		-- Air Tatsumaki Senpukyaku (air qcb + K)
+-----------------------------------------------------------------------------------------------
+CharStateTable.Specials.AirTatsu_L =
+{
+	name = "(L) Air Tatsumaki Senpukyaku",
+	inputname = "Air 214LK",
+	spid = 3,
+	atkstr = T_AtkStr.L,
+	stateval = {min = 0xc444, max = 0xc4bc}
+}
+CharStateTable.Specials.AirTatsu_M =
+{
+	name = "(M) Air Tatsumaki Senpukyaku",
+	inputname = "Air 214MK",
+	spid = 3,
+	atkstr = T_AtkStr.M,
+	stateval = {min = 0xc4d8, max = 0xc550}
+}
+CharStateTable.Specials.AirTatsu_H =
+{
+	name = "(H) Air Tatsumaki Senpukyaku",
+	inputname = "Air 214HK",
+	spid = 3,
+	atkstr = T_AtkStr.H,
+	stateval = {min = 0xc56c, max = 0xc5e4}
+}
+CharStateTable.Specials.AirTatsu =
+{
+	name = "Air Tatsumaki Senpukyaku",
+	inputname = "Air 214K",
+	spid = 3,
+	startstate = {0xc444, 0xc4d8, 0xc56c},
+	stateval =
+	{
+		CharStateTable.Specials.AirTatsu_L.stateval,
+		CharStateTable.Specials.AirTatsu_M.stateval,
+		CharStateTable.Specials.AirTatsu_H.stateval,
+	}
+}
+-----------------------------------------------------------------------------------------------
+	-- Super Moves
+-----------------------------------------------------------------------------------------------
+		-- Shinku Hadoken (qcf,qcf + P)
+-----------------------------------------------------------------------------------------------
+CharStateTable.Supers.ShinkuHadoken_L1 =
+{
+	name = "(Level 1) Shinku Hadoken",
+	inputname = "236236P (Lv1)",
+	type = "projectile",
+	spid = 4,
+	atkstr = T_AtkStr.Lv1,
+	stateval = {min = 0xbd8c, max = 0xbedc}
+}
+CharStateTable.Supers.ShinkuHadoken_L2 =
+{
+	name = "(Level 2) Shinku Hadoken",
+	inputname = "236236P (Lv2)",
+	type = "projectile",
+	spid = 4,
+	atkstr = T_AtkStr.Lv2,
+	stateval = {min = 0xbd8c, max = 0xbedc}
+}
+CharStateTable.Supers.ShinkuHadoken_L3 =
+{
+	name = "(Level 3) Shinku Hadoken",
+	inputname = "236236P (Lv3)",
+	type = "projectile",
+	spid = 4,
+	atkstr = T_AtkStr.Lv3,
+	stateval = {min = 0xbd8c, max = 0xbedc}
+}
+CharStateTable.Supers.ShinkuHadoken =
+{
+	name = "Shinku Hadoken",
+	inputname = "236236P",
+	type = "projectile",
+	spid = 4,
+	stateval = {min = 0xbd8c, max = 0xbedc}
+}
+-----------------------------------------------------------------------------------------------
+		-- Shinku Tatsumaki (qcb,qcb + K)
+-----------------------------------------------------------------------------------------------
+CharStateTable.Supers.ShinkuTatsumaki_L1 =
+{
+	name = "(Level 1) Shinku Tatsumaki",
+	inputname = "214214K (Lv1)",
+	spid = 5,
+	atkstr = T_AtkStr.Lv1,
+	stateval =
+	{
+		{min = 0xc600, max = 0xc6d8},
+		{min = 0xc8a8, max = 0xc9cc},
+	}
+}
+CharStateTable.Supers.ShinkuTatsumaki_L2 =
+{
+	name = "(Level 2) Shinku Tatsumaki",
+	inputname = "214214K (Lv2)",
+	spid = 5,
+	atkstr = T_AtkStr.Lv2,
+	stateval =
+	{
+		{min = 0xc600, max = 0xc6d8},
+		{min = 0xc7cc, max = 0xc88c},
+		{min = 0xca18, max = 0xca60},
+	}
+}
+CharStateTable.Supers.ShinkuTatsumaki_L3 =
+{
+	name = "(Level 3) Shinku Tatsumaki",
+	inputname = "214214K (Lv3)",
+	spid = 5,
+	atkstr = T_AtkStr.Lv3,
+	stateval =
+	{
+		{min = 0xc600, max = 0xc6d8},
+		{min = 0xc6f0, max = 0xc7b0},
+		{min = 0xcaac, max = 0xcadc},
+	}
+}
+CharStateTable.Supers.ShinkuTatsumaki =
+{
+	name = "Shinku Tatsumaki",
+	inputname = "214214K",
+	spid = 5,
+	stateval =
+	{
+		{min = 0xc600, max = 0xc6d8},
+		CharStateTable.Supers.ShinkuTatsumaki_L1.stateval[2],
+		CharStateTable.Supers.ShinkuTatsumaki_L2.stateval[2],
+		CharStateTable.Supers.ShinkuTatsumaki_L2.stateval[3],
+		CharStateTable.Supers.ShinkuTatsumaki_L3.stateval[2],
+		CharStateTable.Supers.ShinkuTatsumaki_L3.stateval[3],
+	}
+}

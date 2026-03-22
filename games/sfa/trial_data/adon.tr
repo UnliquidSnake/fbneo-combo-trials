@@ -1,0 +1,74 @@
+{
+	{
+		p1meter = 0,
+		acttable = 
+		{
+			{state = States.Normals.crLK, carry = true},
+			{state = States.Normals.stMP, carry = true},
+			{state = States.Normals.crHK},
+		}
+	},
+	{
+		p1meter = 0,
+		acttable = 
+		{
+			{state = States.Normals.djMK},
+			{state = States.Normals.stMP},
+			{state = States.Specials.RisingJaguar_H, success = "IsAtkCombo() and P2.CurrState.IsAirborne"},
+		}
+	},
+	{
+		p1meter = 0x30,
+		acttable = 
+		{
+			{state = States.Normals.crLP},
+			{state = States.Normals.crLP, carry = true},
+			{state = States.Normals.crMP},
+			{state = States.Supers.JaguarVariedAssault_L1, success = "IsAtkCombo() and P2.CurrState.IsAirborne"},
+		}
+	},
+	{
+		p1meter = 0,
+		acttable = 
+		{
+			{state = States.Normals.crMP},
+			{state = States.Normals.crLK, carry = true},
+			{state = States.Normals.crHK},
+		}
+	},
+	{
+		description = "Opponent crouching",
+		enemystate = "crouch",
+		p1meter = 0,
+		acttable = 
+		{
+			{state = States.Specials.JaguarKick_L},
+			{state = States.Normals.crLK, carry = true},
+			{state = States.Normals.crHK},
+		}
+	},
+	{
+		description = "Corner only, opponent jumping",
+		enemystate = "jump",
+		p1meter = 0,
+		acttable = 
+		{
+			{state = States.Specials.JaguarKick_L, nameadd = " [air hit]", success = "IsAtkCombo() and P2.CurrState.IsAirborne"},
+			{state = States.Specials.RisingJaguar},
+		}
+	},
+	{
+		description = "Crossup combo, opponent crouching",
+		enemystate = "crouch",
+		p1meter = 0x90,
+		acttable = 
+		{
+			{state = States.Normals.djMK, nameadd = " [crossup]", success = "IsAtkCombo() and IsCrossup()"},
+			{state = States.Normals.crMP},
+			{state = States.Normals.crLK, carry = true},
+			{state = States.Normals.crMK},
+			{state = States.Supers.JaguarVariedAssault_L3, carry = true},
+			{state = States.Supers.JaguarVariedAssault_L3_FollowP, success = "IsAtkCombo() and P2.CurrState.IsAirborne"},
+		}
+	},
+}

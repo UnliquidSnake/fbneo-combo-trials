@@ -1,0 +1,124 @@
+-- Basic states
+	-- Idle & movement
+0x350a - 0x359a: Idle
+0x35b6: Crouching
+0x35d2 - 0x35ea: Forward walk
+0x3606 - 0x361e: Back walk
+0x363a - 0x3682: Transition from crouch to stand
+0x369e - 0x36e6: Transition from stand to crouch
+0x3702 - 0x374a: Standing turn around after side switch
+0x3766 - 0x37ae: Crouching turn around after side switch
+0x37ca - 0x37e2: Prejump frames
+0x37fe - 0x3816: Landing recovery from jump
+0x389a - 0x38fa: Neutral jump
+0x3916 - 0x3976: Forward jump
+0x3992 - 0x39f2: Backward jump
+	-- Blocking
+0x3a0e - 0x3a72: Stand block (incl. proximity block)
+0x3a8e - 0x3af2: Crouch block (incl. proximity block)
+0x3b26 - 0x3b8a: Air block (incl. proximity block)
+	-- Recovery Roll
+0x3c0a - 0x3c52: Auto roll wakeup
+0x3c6e - 0x3cb6: Recovery roll
+	-- Cutscenes
+0x3e9e - 0x3f32: Intro pose
+0x3f4e - 0x403e: Win pose 1
+0x405a - 0x40ea: Win pose 2
+0x41b2 - 0x42a2: Win pose 3
+0x44ee: Time over loss/draw
+	-- Getting thrown
+0x45ea - 0x4812: Getting thrown
+	-- Getting hit
+0x49c6 - 0x49f6: Standing hit in head 1
+0x4a12 - 0x4a42: Standing hit in head 2
+0x4a5e - 0x4a8e: Standing hit in head 3
+0x4aaa - 0x4ada: Standing hit in body/feet 1
+0x4af6 - 0x4b26: Standing hit in body/feet 2
+0x4b42 - 0x4b72: Standing hit in body/feet 3
+0x4b8e - 0x4ba6: Crouching hit 1
+0x4bc2 - 0x4bf2: Crouching hit 2
+0x4с0e - 0x4c3e: Crouching hit 3
+0x4c5a - 0x4ca2: Launch hit (can usually be juggled)
+0x4cbe - 0x4d0e: Knockdown
+0x4d92 - 0x4dc2: Falling after sweep
+0x4dde - 0x4e56: Air reset
+	-- Other
+0x4e72 - 0x4eba: Stun
+0x4ed6 - 0x4f4e: Getting up
+-- Attacks
+	-- Normals
+		-- Standing Normals
+0x4f6a - 0x4fe2: Standing LP
+0x4ffe - 0x50a6: Standing MP
+0x50c2 - 0x516a: Standing HP
+0x524a - 0x52aa: Standing LK
+0x52c6 - 0x5356: Standing MK
+0x541e - 0x54de: Standing HK
+		-- Crouching Normals
+0x55d6 - 0x561e: Crouching LP
+0x569e - 0x5716: Crouching MP
+0x57c6 - 0x586e: Crouching HP
+0x594e - 0x5996: Crouching LK
+0x5a16 - 0x5a5e: Crouching MK
+0x5ade - 0x5b3e: Crouching HK
+		-- Neutral Jumping Normals
+0x5bd6 - 0x5c66: Neutral Jumping LP
+0x5c82 - 0x5d2a: Neutral Jumping MP
+0x5d46 - 0x5dd6: Neutral Jumping HP
+0x5df2 - 0x5eca: Neutral Jumping LK
+0x5efe - 0x5f5e: Neutral Jumping MK
+0x6056 - 0x60b6: Neutral Jumping HK
+		-- Diagonal Jumping Normals
+0x614e - 0x61de: Diagonal Jumping LP
+0x61fa - 0x62a2: Diagonal Jumping MP
+0x62be - 0x634e: Diagonal Jumping HP
+0x636a - 0x6442: Diagonal Jumping LK
+0x6476 - 0x6506: Diagonal Jumping MK
+0x65ce - 0x662e: Diagonal Jumping HK
+		-- Alpha Counter
+0x857a - 0x860e: Alpha Counter - Standing MP (b,db,d + P)
+	-- Throws
+0x66c6 - 0x676e: Deadly Throw (f/b + MP/HP)
+	-- Special Moves
+		-- Psycho Shot (charge b,f + P)
+0x7fc2 - 0x809a: L Psycho Shot
+0x81aa - 0x8282: M Psycho Shot
+0x8392 - 0x846a: H Psycho Shot
+		-- Double Knee Press (charge b,f + K)
+0x6f02 - 0x6faa: L Double Knee Press
+0x708a - 0x7132: M Double Knee Press
+0x7212 - 0x72ba: H Double Knee Press
+		-- Head Stomp (charge d,u + K)
+0x789e: L Head Stomp (attack)
+0x78ba: M Head Stomp (attack)
+0x78d6: H Head Stomp (attack)
+0x78f2 - 0x790a: Head Stomp (dismount)
+0x793e - 0x79b6: Head Stomp (jump after attack) 
+		-- Skull Diver (after Head Stomp, P)
+0x79fe - 0x7a2e: L Skull Diver
+0x7a4a - 0x7a7a: M Skull Diver
+0x7a96 - 0x7ac6: H Skull Diver
+		-- Devil's Reverse (charge d,u + P -> P)
+0x7c82 - 0x7d2a: L Devil's Reverse (attack)
+0x7bbe - 0x7c66: M Devil's Reverse (attack)
+0x7ae2 - 0x7ba2: H Devil's Reverse (attack)
+		-- Bison Warp (dp/rdp + PPP/KKK)
+0x7d46 - 0x7eca: Bison Warp -- applies to all versions
+	-- Super Moves
+		-- Psycho Crusher (charge b,f,b,f + P)
+0x684e - 0x68de: Psycho Crusher (startup, all versions)
+0x690e - 0x698a: Lv1 Psycho Crusher (active)
+0x6a96 - 0x6b8a: Lv2 Psycho Crusher (active)
+0x6c7e - 0x6d8a: Lv3 Psycho Crusher (active)
+0x6da6 - 0x6e6a: Psycho Crusher (recovery, all versions)
+		-- Knee Press Nightmare (charge b,f,b,f + K)
+0x739a - 0x742a, 0x75ce - 0x7616: Lv1 Knee Press Nightmare (startup & active)
+0x7446 - 0x74ee, 0x7632 - 0x7692: Lv2 Knee Press Nightmare (startup & active)
+0x750a - 0x75b2, 0x76ae - 0x77a2: Lv3 Knee Press Nightmare
+0x77be - 0x77ee: Lv1 Knee Press Nightmare (recovery)
+0x780a - 0x783a: Lv2 Knee Press Nightmare (recovery)
+	-- Other
+0x42be - 0x440e: Taunt (Start)
+0x442a - 0x44d2: Taunt 2 (f + Start)
+0x7856 - 0x7886: Head Stomp/Devil's Reverse (jump)
+0x3832 - 0x384a: Head Stomp/Skull Diver/Devil's Reverse (landing recovery)

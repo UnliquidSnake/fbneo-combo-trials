@@ -1,0 +1,105 @@
+-- Basic states
+	-- Idle & movement
+0x1bf2 - 0x1c6a: Idle
+0x1c86: Crouching
+0x1ca2 - 0x1d1a: Forward walk
+0x1d36 - 0x1dae: Back walk
+0x1dca - 0x1e12: Transition from crouch to stand
+0x1e2e - 0x1e76: Transition from stand to crouch
+0x1e92 - 0x1eda: Standing turn around after side switch
+0x1ef6 - 0x1f3e: Crouching turn around after side switch
+0x1f5a - 0x1f72: Prejump frames
+0x1f8e - 0x1fa6: Landing recovery from jump
+0x1fc2 - 0x203a: Neutral jump
+0x2056 - 0x20ce: Forward jump
+0x20ea - 0x2162: Backward jump
+	-- Blocking
+0x217e - 0x21e2: Stand block (incl. proximity block)
+0x21fe - 0x2262: Crouch block (incl. proximity block)
+0x2296 - 0x22e2: Air block (incl. proximity block)
+	-- Recovery Roll
+0x2362 - 0x23aa: Auto roll wakeup
+0x23c6 - 0x240e: Recovery roll
+	-- Cutscenes
+0x248e - 0x251e: Intro pose
+0x2552 - 0x2582: Win pose 1
+0x2602 - 0x264a: Time over loss/draw
+	-- Getting thrown
+0x26e6 - 0x2926: Getting thrown
+	-- Getting hit
+0x2a92 - 0x2ac2: Standing hit in head 1
+0x2ade - 0x2b0e: Standing hit in head 2
+0x2b2a - 0x2b5a: Standing hit in head 3
+0x2b76 - 0x2ba6: Standing hit in body/feet 1
+0x2bc2 - 0x2bf2: Standing hit in body/feet 2
+0x2c0e - 0x2c3e: Standing hit in body/feet 3
+0x2c5a - 0x2c72: Crouching hit 1
+0x2c8e - 0x2cbe: Crouching hit 2
+0x2cda - 0x2d0a: Crouching hit 3
+0x2d26 - 0x2d6e: Launch hit (can usually be juggled)
+0x2d8a - 0x2dda: Knockdown
+0x2e5e - 0x2e8e: Falling after sweep
+0x2eaa - 0x2f22: Air reset
+	-- Other
+0x2f3e - 0x2f86: Stun
+0x2fa2 - 0x301a: Getting up
+-- Attacks
+	-- Normals
+		-- Standing Normals
+0x3036 - 0x307e: Standing LP
+0x309a - 0x3112: Standing MP
+0x312e - 0x31a6: Standing HP
+0x31c2 - 0x3252: Standing LK
+0x326e - 0x32fe: Standing MK
+0x331a - 0x33c2: Standing HK
+		-- Crouching Normals
+0x33de - 0x3426: Crouching LP
+0x3442 - 0x348a: Crouching MP
+0x34a6 - 0x3506: Crouching HP
+0x3522 - 0x359a: Crouching LK
+0x35b6 - 0x362e: Crouching MK
+0x364a - 0x36c2: Crouching HK
+		-- Neutral Jumping Normals
+0x36de - 0x3726: Neutral Jumping LP
+0x3742 - 0x378a: Neutral Jumping MP
+0x37a6 - 0x37ee: Neutral Jumping HP
+0x380a - 0x3852: Neutral Jumping LK
+0x386e - 0x38e6: Neutral Jumping MK -- unique
+0x3902 - 0x397a: Neutral Jumping HK -- unique
+		-- Diagonal Jumping Normals
+0x3996 - 0x39de: Diagonal Jumping LP
+0x39fa - 0x3a42: Diagonal Jumping MP
+0x3a5e - 0x3aa6: Diagonal Jumping HP
+0x3ac2 - 0x3b0a: Diagonal Jumping LK
+0x3b26 - 0x3b9e: Diagonal Jumping MK -- unique
+0x3bba - 0x3c32: Diagonal Jumping HK -- unique
+		-- Alpha Counter
+0x45f6 - 0x46e6: Alpha Counter - Sweep (b,db,d + K)
+	-- Throws
+0x3c4e - 0x3cde: Seoi Nage (f/b + MP/HP)
+	-- Special Moves
+		-- Gadoken (qcf + P)
+0x415a - 0x41d2: L Gadoken
+0x41ee - 0x4266: M Gadoken
+0x4282 - 0x42fa: H Gadoken
+		-- Koryuken (dp + P)
+0x4316 - 0x43be: L Koryuken
+0x43da - 0x4482: M Koryuken
+0x449e - 0x4546: H Koryuken
+		-- Dankukyaku (qcb + K)
+0x3cfa - 0x3d72: L Dankukyaku
+0x3d8e - 0x3e66: M Dankukyaku
+0x3e82 - 0x3f72: H Dankukyaku
+	-- Super Moves
+		-- Shinku Gadoken (qcf,qcf + P)
+0x5032 - 0x50aa: Shinku Gadoken -- applies for all versions
+		-- Koryurekka (qcf,qcf + K)
+0x4b8a - 0x4cc2: Lv1 Koryurekka
+0x4cde - 0x4e2e: Lv2 Koryurekka
+0x4e4a - 0x4f9a: Lv3 Koryurekka
+		-- Hissho Buraiken (qcb,qcb + K)
+0x3fa6 - 0x413e: Lv1 Hissho Buraiken
+0x4702 - 0x48ca: Lv2 Hissho Buraiken
+0x48e6 - 0x4b6e: Lv3 Hissho Buraiken
+	-- Other
+0x2682 - 0x26ca: Taunt (Start)

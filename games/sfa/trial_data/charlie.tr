@@ -1,0 +1,66 @@
+{
+	{
+		p1meter = 0,
+		acttable = 
+		{
+			{state = States.Normals.crLK, carry = true},
+			{state = States.Normals.stMP, carry = true},
+			{state = States.Normals.crHK},
+		}
+	},
+	{
+		p1meter = 0,
+		acttable = 
+		{
+			{state = States.Normals.jHP},
+			{state = States.Normals.crMP},
+			{state = States.Specials.SomersaultShell_H, success = "IsAtkCombo() and P2.CurrState.IsAirborne"},
+		}
+	},
+	{
+		p1meter = 0x30,
+		acttable = 
+		{
+			{state = States.Normals.crLK, carry = true},
+			{state = States.Normals.crMP},
+			{state = States.Supers.CrossfireBlitz_L1, success = "IsAtkCombo() and P2.CurrState.IsAirborne"},
+		}
+	},
+	{
+		description = "Crossup combo, opponent crouching",
+		enemystate = "crouch",
+		p1meter = 0,
+		acttable = 
+		{
+			{state = States.Normals.djMK, nameadd = " [crossup]", success = "IsAtkCombo() and IsCrossup()"},
+			{state = States.Normals.crLP, carry = true},
+			{state = States.Normals.crLK, carry = true},
+			{state = States.Normals.crMP},
+			{state = States.Specials.SomersaultShell_M},
+		}
+	},
+	{
+		description = "Corner only",
+		p1meter = 0x60,
+		acttable = 
+		{
+			{state = States.Normals.jHP},
+			{state = States.Normals.crMP},
+			{state = States.Supers.CrossfireBlitz_L1, success = "IsAtkCombo() and P2.CurrState.IsAirborne"},
+			{state = States.Supers.SomersaultJustice_L1},
+		}
+	},
+	{
+		description = "Corner only",
+		p1meter = 0,
+		acttable = 
+		{
+			{state = States.Normals.jHP},
+			{state = States.Normals.crLP, carry = true},
+			{state = States.Normals.crLP, carry = true},
+			{state = States.Normals.crMP},
+			{state = States.Specials.SonicBoom_L},
+			{state = States.Normals.Cmd_6HP},
+		}
+	},	
+}

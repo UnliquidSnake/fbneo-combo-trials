@@ -1,0 +1,72 @@
+{
+	{
+		p1meter = 0,
+		acttable = 
+		{
+			{state = States.Normals.crLP},
+			{state = States.Normals.stLK, carry = true},
+			{state = States.Normals.crHK},
+		}
+	},
+	{
+		p1meter = 0,
+		acttable = 
+		{
+			{state = States.Normals.jHP},
+			{state = States.Normals.stMK},
+			{state = States.Specials.JigokuScrape_H},
+		}
+	},
+	{
+		description = "Corner only",
+		p1meter = 0x30,
+		acttable = 
+		{
+			{state = States.Throws.Throw},
+			{state = States.Supers.MeidoNoMiyage_L1},
+		}
+	},
+	{
+		p1meter = 0x90,
+		acttable = 
+		{
+			{state = States.Normals.crLP},
+			{state = States.Normals.stLK, carry = true},
+			{state = States.Normals.stMK},
+			{state = States.Supers.MeidoNoMiyage_L3, success = "IsAtkCombo() and P2.PrevState.IsAirborne"},
+		}
+	},
+	{
+		p1meter = 0,
+		acttable = 
+		{
+			{state = States.Normals.jHP},
+			{state = States.Normals.stLK, carry = true},
+			{state = States.Normals.stMK, carry = true},
+			{state = States.Normals.stHK},
+			{state = States.Specials.DaikyoBurning_Grab},
+		}
+	},
+	{
+		description = "Crossup combo, opponent crouching",
+		enemystate = "crouch",
+		p1meter = 0,
+		acttable = 
+		{
+			{state = States.Normals.jLK, nameadd = " [crossup]", success = "IsAtkCombo() and IsCrossup()"},
+			{state = States.Normals.stLK, carry = true},
+			{state = States.Normals.stMK, carry = true},
+			{state = States.Normals.crHP},
+			{state = States.Specials.JigokuScrape_H},
+		}
+	},
+	{
+		p1meter = 0,
+		acttable = 
+		{
+			{state = States.Normals.stHK, nameadd = " [meaty]"},
+			{state = States.Normals.stHK},
+			{state = States.Specials.JigokuScrape_H},
+		}
+	},	
+}

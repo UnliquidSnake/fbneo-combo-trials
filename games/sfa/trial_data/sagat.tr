@@ -1,0 +1,92 @@
+{
+	{
+		p1meter = 0,
+		acttable = 
+		{
+			{state = States.Normals.crLK},
+			{state = States.Normals.stLP, carry = true},
+			{state = States.Normals.stMP, carry = true},
+			{state = States.Normals.crHK},
+		}
+	},
+	{
+		p1meter = 0,
+		acttable = 
+		{
+			{state = States.Normals.jHK},
+			{state = States.Normals.stMP},
+			{state = States.Specials.TigerBlow_H},
+		}
+	},
+	{
+		description = "Opponent jumping",
+		enemystate = "jump",
+		p1meter = 0,
+		acttable = 
+		{
+			{state = States.Normals.stMP, nameadd = " [air hit]", success = "IsAtkCombo() and P2.CurrState.IsAirborne"},
+			{state = States.Specials.TigerBlow_H},
+		}
+	},
+	{
+		description = "Corner only",
+		p1meter = 0,
+		acttable = 
+		{
+			{state = States.Specials.TigerCrush_L, nameadd = " [meaty]"},
+			{state = States.Specials.TigerBlow_H}
+		}
+	},
+	{
+		description = "Corner only",
+		p1meter = 0x30,
+		acttable = 
+		{
+			{state = States.Normals.jHK},
+			{state = States.Normals.crMP},
+			{state = States.Supers.TigerRaid_L1, success = "IsAtkCombo() and P2.CurrState.IsAirborne"},
+			{state = States.Specials.TigerBlow_H}
+		}
+	},
+	{
+		p1meter = 0x90,
+		acttable = 
+		{
+			{state = States.Normals.crHP, nameadd = " [meaty]"},
+			{state = States.Normals.crMK},
+			{state = States.Supers.TigerCannon_L3, success = "IsAtkCombo() and P2.CurrState.IsAirborne"},
+		}
+	},
+	{
+		p1meter = 0,
+		acttable = 
+		{
+			{state = States.Normals.crLK},
+			{state = States.Normals.crLP},
+			{state = States.Normals.crMP},
+			{state = States.Specials.TigerCrush_H, success = "IsAtkCombo() and P2.CurrState.IsAirborne"},
+		}
+	},
+	{
+		description = "Corner only",
+		p1meter = 0x30,
+		acttable = 
+		{
+			{state = States.Specials.TigerShotHigh_L, success = "IsProjHit()"},
+			{state = States.Supers.TigerRaid_L1, success = "IsAtkCombo() and P2.CurrState.IsAirborne", forcestart = true},
+			{state = States.Specials.TigerBlow_H}
+		}
+	},
+	{
+		description = "Corner only",
+		p1meter = 0x90,
+		acttable = 
+		{
+			{state = States.Normals.jLK},
+			{state = States.Normals.crLK},
+			{state = States.Normals.crMP},
+			{state = States.Supers.TigerRaid_L2, success = "IsAtkCombo() and P2.CurrState.IsAirborne"},
+			{state = States.Supers.TigerCannon_L1}
+		}
+	},	
+}

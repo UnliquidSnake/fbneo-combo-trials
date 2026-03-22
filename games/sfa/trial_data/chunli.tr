@@ -1,0 +1,107 @@
+{
+	{
+		p1meter = 0,
+		acttable = 
+		{
+			{state = States.Normals.crLK, carry = true},
+			{state = States.Normals.stMP, carry = true},
+			{state = States.Normals.crHK},
+		}
+	},
+	{
+		p1meter = 0,
+		acttable = 
+		{
+			{state = States.Normals.crLK, carry = true},
+			{state = States.Normals.crMK},
+			{state = States.Specials.Tenshokyaku_H, success = "IsAtkMultiCombo(3)"},
+		}
+	},
+	{
+		p1meter = 0,
+		acttable = 
+		{
+			{state = States.Normals.djHK},
+			{state = States.Normals.stLK},
+			{state = States.Specials.Hyakuretsukyaku_L},
+		}
+	},
+	{
+		description = "Corner only",
+		p1meter = 0,
+		acttable = 
+		{
+			{state = States.Specials.Kikoken_L, success = "IsProjHit()"},
+			{state = States.Normals.stLK, forcestart = true},
+		}
+	},
+	{
+		p1meter = 0x30,
+		acttable = 
+		{
+			{state = States.Normals.stLP, carry = true},
+			{state = States.Normals.stLP, carry = true},
+			{state = States.Normals.crMK},
+			{state = States.Supers.Senretsukyaku_L1, success = "IsAtkCombo() and P2.CurrState.IsAirborne"},
+		}
+	},
+	{
+		p1meter = 0,
+		acttable = 
+		{
+			{state = States.Normals.Cmd_j2MK, carry = true},
+			{state = States.Normals.Cmd_j2MK, carry = true},
+			{state = States.Normals.Cmd_j2MK},
+		}
+	},
+	{
+		p1meter = 0,
+		acttable = 
+		{
+			{state = States.Normals.Cmd_3HK},
+			{state = States.Specials.Tenshokyaku_H, success = "IsAtkMultiCombo(2)"},
+		}
+	},
+	{
+		description = "Corner only",
+		p1meter = 0x30,
+		acttable = 
+		{
+			{state = States.Normals.Cmd_3HK},
+			{state = States.Supers.Kikosho_L1}
+		}
+	},
+	{
+		description = "Corner only",
+		p1meter = 0x60,
+		acttable = 
+		{
+			{state = States.Supers.Kikosho_L1, nameadd = " [meaty]"},
+			{state = States.Supers.HazanTenshokyaku_L1}
+		}
+	},
+	{
+		description = "Corner only",
+		p1meter = 0x90,
+		acttable = 
+		{
+			{state = States.Normals.jHP},
+			{state = States.Normals.crMK},
+			{state = States.Supers.Senretsukyaku_L3, success = "IsAtkCombo() and P2.CurrState.IsAirborne"},
+			{state = States.Specials.Tenshokyaku_H, success = "IsAtkMultiCombo(2)"},
+		}
+	},
+	{
+		description = "Corner only",
+		p1meter = 0x90,
+		acttable = 
+		{
+			{state = States.Normals.jHP},
+			{state = States.Normals.stLP, carry = true},
+			{state = States.Normals.stLP, carry = true},
+			{state = States.Normals.stLK},
+			{state = States.Supers.Senretsukyaku_L2},
+			{state = States.Supers.Kikosho_L1},
+		}
+	},	
+}

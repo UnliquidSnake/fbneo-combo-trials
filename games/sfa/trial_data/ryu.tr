@@ -1,0 +1,104 @@
+{
+	{
+		p1meter = 0,
+		acttable = 
+		{
+			{state = States.Normals.crLK, carry = true},
+			{state = States.Normals.crMK},
+			{state = States.Specials.Hadoken_H, nameadd = " [close]", success = "IsAtkCombo() and P2.CurrState.IsAirborne"}
+		}
+	},
+	{
+		p1meter = 0,
+		acttable = 
+		{
+			{state = States.Normals.djHK},
+			{state = States.Normals.crMK},
+			{state = States.Specials.Tatsu_H}
+		}
+	},
+	{
+		p1meter = 0x60,
+		acttable = 
+		{
+			{state = States.Normals.crLK, carry = true},
+			{state = States.Normals.crLK, carry = true},
+			{state = States.Normals.crMK},
+			{state = States.Supers.ShinkuHadoken_L2, success = "IsAtkCombo() and P2.CurrState.IsAirborne"}
+		}
+	},
+	{
+		p1meter = 0x30,
+		acttable = 
+		{
+			{state = States.Specials.AirTatsu},
+			{state = States.Supers.ShinkuHadoken_L1, nameadd = " [2 hits]", success = "IsAtkMultiCombo(2)"}
+		}
+	},
+	{
+		description = "Corner only",
+		p1meter = 0,
+		acttable = 
+		{
+			{state = States.Specials.AirTatsu},
+			{state = States.Normals.djMP, success = "IsAtkMultiCombo(2)"}
+		}
+	},
+	{
+		description = "Opponent airborne",
+		p1meter = 0,
+		enemystate = "jump",
+		acttable = 
+		{
+			{state = States.Normals.djMP, nameadd = " [air hit]", success = "IsAtkCombo() and P2.CurrState.IsAirborne"},
+			{state = States.Normals.djMP},
+		}
+	},
+	{
+		description = "Crossup combo, opponent crouching",
+		p1meter = 0x90,
+		enemystate = "crouch",
+		acttable = 
+		{
+			{state = States.Normals.djMK, nameadd = " [crossup]", success = "IsAtkCombo() and IsCrossup()"},
+			{state = States.Normals.crMP},
+			{state = States.Normals.crMP},
+			{state = States.Supers.ShinkuHadoken_L3, success = "IsAtkCombo() and P2.CurrState.IsAirborne"}
+		}
+	},
+	{
+		description = "Corner only",
+		p1meter = 0x30,
+		acttable = 
+		{
+			{state = States.Normals.jHP},
+			{state = States.Normals.crLK, carry = true},
+			{state = States.Normals.crLK, carry = true},
+			{state = States.Normals.crMK},
+			{state = States.Specials.Tatsu_L},
+			{state = States.Supers.ShinkuHadoken_L1, nameadd = " [2 hits]", success = "IsAtkMultiCombo(2)"}
+		}
+	},
+	{
+		description = "Corner only",
+		p1meter = 0x60,
+		acttable = 
+		{
+			{state = States.Normals.jHP},
+			{state = States.Normals.crHP},
+			{state = States.Supers.ShinkuTatsumaki_L1, success = "IsAtkCombo() and P2.CurrState.IsAirborne"},
+			{state = States.Supers.ShinkuHadoken_L1, nameadd = " [2 hits]", success = "IsAtkMultiCombo(2)"}
+		}
+	},
+	{
+		description = "Corner only",
+		p1meter = 0x90,
+		acttable = 
+		{
+			{state = States.Normals.jHP},
+			{state = States.Normals.crHP},
+			{state = States.Supers.ShinkuTatsumaki_L3, success = "IsAtkCombo() and P2.CurrState.IsAirborne"},
+			{state = States.Normals.djMP, success = "IsAtkMultiCombo(2)"}
+		}
+	},
+}

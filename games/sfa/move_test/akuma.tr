@@ -1,0 +1,176 @@
+{
+	{
+		p1meter = 0,
+		acttable = 
+		{
+			{state = States.Throws.ThrowP},
+		}
+	},
+	{
+		p1meter = 0,
+		acttable = 
+		{
+			{state = States.Throws.ThrowK},
+		}
+	},
+	{
+		p1meter = 0,
+		acttable = 
+		{
+			{state = States.Normals.Cmd_6MP},
+		}
+	},
+	{
+		p1meter = 0,
+		acttable = 
+		{
+			{state = States.Normals.Cmd_6MK},
+		}
+	},
+	{
+		p1meter = 0,
+		acttable = 
+		{
+			{state = States.Normals.Cmd_j2MK},
+		}
+	},
+	{
+		p1meter = 0,
+		acttable = 
+		{
+			{state = States.Specials.Gohadoken, success = "IsProjHit()"},
+		}
+	},
+	{
+		p1meter = 0,
+		acttable = 
+		{
+			{state = States.Specials.ShakunetsuHadoken, success = "IsProjHit()"},
+		}
+	},
+	{
+		p1meter = 0,
+		acttable = 
+		{
+			{state = States.Specials.ZankuHadoken, success = "IsProjHit()"},
+		}
+	},
+	{
+		p1meter = 0,
+		acttable = 
+		{
+			{state = States.Specials.Goshoryuken},
+		}
+	},
+	{
+		p1meter = 0,
+		acttable = 
+		{
+			{state = States.Specials.Tatsu},
+		}
+	},
+	{
+		p1meter = 0,
+		acttable = 
+		{
+			{state = States.Specials.AirTatsu},
+		}
+	},
+	{
+		fail = "not IsPlayerInState(P1, States.Specials.AshuraSenku)",
+		p1meter = 0,
+		acttable = 
+		{
+			{state = States.Specials.AshuraSenku},
+		}
+	},
+	{
+		fail = "not IsPlayerInState(P1, States.Specials.DemonFlip)",
+		p1meter = 0,
+		acttable = 
+		{
+			{state = States.Specials.DemonFlip},
+		}
+	},
+	{
+		fail = "not IsPlayerInState(P1, States.Specials.DemonFlip) and not IsPlayerInState(P1, States.Specials.DemonFlip_Sweep)",
+		p1meter = 0,
+		acttable = 
+		{
+			{state = States.Specials.DemonFlip},
+			{state = States.Specials.DemonFlip_Sweep},
+		}
+	},
+	{
+		fail = "not IsPlayerInState(P1, States.Specials.DemonFlip) and not IsPlayerInState(P1, States.Specials.DemonFlip_Palm)",
+		p1meter = 0,
+		acttable = 
+		{
+			{state = States.Specials.DemonFlip},
+			{state = States.Specials.DemonFlip_Palm},
+		}
+	},
+	{
+		fail = "not IsPlayerInState(P1, States.Specials.DemonFlip) and not IsPlayerInState(P1, States.Specials.DemonFlip_Press)",
+		p1meter = 0,
+		acttable = 
+		{
+			{state = States.Specials.DemonFlip},
+			{state = States.Specials.DemonFlip_Press},
+		}
+	},
+	{
+		fail = "not IsPlayerInState(P1, States.Specials.DemonFlip) and not IsPlayerInState(P1, States.Specials.DemonFlip_Grab_P)",
+		p1meter = 0,
+		acttable = 
+		{
+			{state = States.Specials.DemonFlip},
+			{state = States.Specials.DemonFlip_Grab_P},
+		}
+	},
+	{
+		fail = "not IsPlayerInState(P1, States.Specials.DemonFlip) and not IsPlayerInState(P1, States.Specials.DemonFlip_Grab_K)",
+		p1meter = 0,
+		acttable = 
+		{
+			{state = States.Specials.DemonFlip},
+			{state = States.Specials.DemonFlip_Grab_K},
+		}
+	},
+	{
+		fail = "not IsPlayerInState(P1, States.Specials.Roll)",
+		p1meter = 0,
+		acttable = 
+		{
+			{state = States.Specials.Roll},
+		}
+	},
+	{
+		p1meter = 0x90,
+		acttable = 
+		{
+			{state = States.Supers.MessatsuGohadou, success = "IsProjHit()"},
+		}
+	},
+	{
+		p1meter = 0x90,
+		acttable = 
+		{
+			{state = States.Supers.MessatsuGoshoryu},
+		}
+	},
+	{
+		p1meter = 0x90,
+		acttable = 
+		{
+			{state = States.Supers.TenmaGozanku, success = "IsProjHit()"},
+		}
+	},
+	{
+		p1meter = 0x90,
+		acttable = 
+		{
+			{state = States.Supers.RagingDemon},
+		}
+	},
+}

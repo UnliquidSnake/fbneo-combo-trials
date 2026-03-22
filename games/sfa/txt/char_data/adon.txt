@@ -1,0 +1,111 @@
+-- Basic states
+	-- Idle & movement
+0xe0b0 - 0xe110: Idle
+0xe12c: Crouching
+0xe148 - 0xe1c0: Forward walk
+0xe1dc - 0xe254: Back walk
+0xe270 - 0xe2b8: Transition from crouch to stand
+0xe2d4 - 0xe31c: Transition from stand to crouch
+0xe338 - 0xe380: Standing turn around after side switch
+0xe39c - 0xe3e4: Crouching turn around after side switch
+0xe400 - 0xe418: Prejump frames
+0xe434 - 0xe44c: Landing recovery from jump
+0xe468 - 0xe4e0: Neutral jump
+0xe4fc - 0xe574: Forward jump
+0xe590 - 0xe620: Backward jump
+	-- Blocking
+0xe63c - 0xe6a0: Stand block (incl. proximity block)
+0xe6bc - 0xe720: Crouch block (incl. proximity block)
+0xe788 - 0xe81c: Air block (incl. proximity block)
+	-- Recovery Roll
+0xe89c - 0xe8e4: Auto roll wakeup
+0xe900 - 0xe948: Recovery roll
+	-- Cutscenes
+0xe9c8 - 0xebc0: Intro pose
+0xebdc - 0xec0c: Win pose 1
+0xec28 - 0xed48: Win pose 2
+0xedb0 - 0xee88: Win pose 3
+0xf040 - 0xf0b8: Time over loss/draw
+	-- Getting thrown
+0xf28c - 0xf4b4: Getting thrown
+	-- Getting hit
+0xf698 - 0xf6c8: Standing hit in head 1
+0xf6e4 - 0xf714: Standing hit in head 2
+0xf730 - 0xf760: Standing hit in head 3
+0xf77c - 0xf7ac: Standing hit in body/feet 1
+0xf7c8 - 0xf7f8: Standing hit in body/feet 2
+0xf814 - 0xf844: Standing hit in body/feet 3
+0xf860 - 0xf878: Crouching hit 1
+0xf894 - 0xf8c4: Crouching hit 2
+0xf8e0 - 0xf910: Crouching hit 3
+0xf92c - 0xf974: Launch hit (can usually be juggled)
+0xf990 - 0xf9f8: Knockdown
+0xfa7c - 0xfa94: Falling after sweep
+0xfab0 - 0xfb10: Air reset
+	-- Other
+0xfb2c - 0xfb74: Stun
+0xfb90 - 0xfc20: Getting up
+-- Attacks
+	-- Normals
+		-- Standing Normals
+0xfc3c - 0xfcb4: Standing LP
+0xfcd0 - 0xfd48: Standing MP
+0xfd64 - 0xfdf4: Standing HP
+0xfe10 - 0xfea0: Standing LK
+0xfebc - 0xff7c: Standing MK
+0xff98 - 0x0040: Standing HK
+		-- Crouching Normals
+0x005c - 0x00a4: Crouching LP
+0x00c0 - 0x0138: Crouching MP
+0x0154 - 0x01fc: Crouching HP
+0x0218 - 0x0260: Crouching LK
+0x027c - 0x02f4: Crouching MK
+0x0310 - 0x03b8: Crouching HK
+		-- Neutral Jumping Normals
+0x0480 - 0x04e0: Neutral Jumping LP
+0x04fc - 0x055c: Neutral Jumping MP
+0x0578 - 0x05d8: Neutral Jumping HP
+0x05f4 - 0x063c: Neutral Jumping LK
+0x0658 - 0x06b8: Neutral Jumping MK
+0x06d4 - 0x077c: Neutral Jumping HK
+		-- Diagonal Jumping Normals
+0x0798 - 0x07f8: Diagonal Jumping LP
+0x0814 - 0x0874: Diagonal Jumping MP
+0x0890 - 0x08f0: Diagonal Jumping HP
+0x090c - 0x0954: Diagonal Jumping LK
+0x0970 - 0x09e8: Diagonal Jumping MK
+0x0a04 - 0x0aac: Diagonal Jumping HK
+		-- Command Normals
+0x03d4 - 0x0464: Jutting Kick (df + MK)
+		-- Alpha Counter
+0x2444 - 0x2550: Alpha Counter - Rising Jaguar (b,db,d + K)
+	-- Throws
+0x0ac8 - 0x0c30: Jaguar Carry (f/b + MP/HP)
+0x0c4c - 0x0d24: Jaguar Slam (f/b + MK/HK)
+	-- Special Moves
+		-- Jaguar Kick (rdp + K)
+0x0d40 - 0x0e78: L Jaguar Kick
+0x0e94 - 0x0fcc: M Jaguar Kick
+0x0fe8 - 0x1120: H Jaguar Kick
+		-- Rising Jaguar (qcf,uf + K)
+0x1a00 - 0x1af0: L Rising Jaguar
+0x1b0c - 0x1be4: M Rising Jaguar
+0x1c00 - 0x1cd8: H Rising Jaguar
+		-- Jaguar Tooth (hcb + K)
+0x1cf4 - 0x1e74: L Jaguar Tooth
+0x1e90 - 0x2010: M Jaguar Tooth
+0x202c - 0x21ac: H Jaguar Tooth
+	-- Super Moves
+		-- Jaguar Varied Assault (qcf,qcf + P, has followups)
+0x256c - 0x277c: Lv1 Jaguar Varied Assault
+0x2798 - 0x2afc: Lv2 Jaguar Varied Assault
+0x2b18 - 0x2e7c: Lv3 Jaguar Varied Assault
+		-- Followups
+0x21c8 - 0x22ec: Jaguar Thousand (Lv3 Jaguar Varied Assault -> mash P)
+0x2308 - 0x2428: Jaguar Assassin (Lv3 Jaguar Varied Assault -> mash K)
+		-- Jaguar Revolver (qcb,qcb + K)
+0x113c - 0x13ac: Lv1 Jaguar Revolver
+0x13c8 - 0x1638: Lv2 Jaguar Revolver
+0x1654 - 0x19e4: Lv3 Jaguar Revolver
+	-- Other
+0x2e98 - 0x2f10: Taunt (Start)

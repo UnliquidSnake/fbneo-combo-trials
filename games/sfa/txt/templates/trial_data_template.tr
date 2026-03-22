@@ -1,0 +1,24 @@
+{
+	{
+		-- name = "Test Trial 1",
+		-- description = "Test Description 1",
+		-- p1meter = 0,
+		-- enemystate = "crouch",
+		-- enemyatk = "LP",
+		-- enemyatkinterval = 50,
+		acttable = 
+		{
+			{state = States.Normals.crLK},
+		}
+	},
+	{
+		-- name = "Test Trial 2",
+		-- description = "Test Description 2",
+		-- enemystate = "jump",
+		-- enemyatk = "HK",
+		acttable = 
+		{
+			{state = States.Normals.djHK},
+		}
+	}
+}

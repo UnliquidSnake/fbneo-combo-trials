@@ -1,0 +1,141 @@
+{
+	{
+		fail = "DefaultFail() or P1.CurrState.RoseClones > 0",
+		p1meter = 0,
+		acttable = 
+		{
+			{state = States.Normals.crLK, carry = true},
+			{state = States.Normals.crMK, carry = true},
+			{state = States.Normals.crHK}
+		}
+	},
+	{
+		fail = "DefaultFail() or P1.CurrState.RoseClones > 0",
+		p1meter = 0,
+		acttable = 
+		{
+			{state = States.Normals.jHK},
+			{state = States.Normals.stHP},
+			{state = States.Specials.SoulSpark_L}
+		}
+	},
+	{
+		fail = "DefaultFail() or P1.CurrState.RoseClones > 0",
+		p1meter = 0x30,
+		acttable = 
+		{
+			{state = States.Normals.crLK, carry = true},
+			{state = States.Normals.crHK},
+			{state = States.Supers.AuraSoulThrow_L1}
+		}
+	},
+	{
+		description = "Opponent jumping",
+		fail = "DefaultFail() or P1.CurrState.RoseClones > 0",
+		enemystate = "jump",
+		p1meter = 0x30,
+		acttable = 
+		{
+			{state = States.Normals.crHP, nameadd = " [air hit]", success = "IsAtkCombo() and P2.CurrState.IsAirborne"},
+			{state = States.Supers.AuraSoulThrow_L1}
+		}
+	},
+	{
+		description = "Combo from Alpha Counter",
+		fail = "DefaultFail() or P1.CurrState.RoseClones > 0",
+		enemystate = "crouch",
+		enemyatk = "HK",
+		p1meter = 0x30,
+		acttable = 
+		{
+			{state = States.Normals.AC},
+			{state = States.Normals.crHK},
+		}
+	},
+	{
+		fail = "DefaultFail() or P1.CurrState.RoseClones > 0",
+		p1meter = 0x90,
+		acttable = 
+		{
+			{state = States.Normals.jHP},
+			{state = States.Normals.crMP},
+			{state = States.Normals.crLK, carry = true},
+			{state = States.Normals.crHK},
+			{state = States.Supers.AuraSoulThrow_L3},
+			{state = States.Supers.AuraSoulThrow_Finish},
+		}
+	},
+	{
+		description = "Corner only",
+		fail = "DefaultFail() or P1.CurrState.RoseClones > 0",
+		p1meter = 0x30,
+		acttable = 
+		{
+			{state = States.Normals.jHP},
+			{state = States.Normals.crMP},
+			{state = States.Specials.SoulReflect_H},
+			{state = States.Supers.AuraSoulThrow_L1}
+		}
+	},
+	{
+		description = "Corner only",
+		fail = "DefaultFail() or P1.CurrState.RoseClones > 0",
+		p1meter = 0x30,
+		acttable = 
+		{
+			{state = States.Normals.Cmd_3MK, nameadd = " [meaty]"},
+			{state = States.Normals.crLP, carry = true},
+			{state = States.Normals.crHK},
+			{state = States.Supers.AuraSoulThrow_L1}
+		}
+	},
+	{
+		description = "Corner only",
+		fail = "DefaultFail() or P1.CurrState.RoseClones > 0",
+		p1meter = 0x60,
+		acttable = 
+		{
+			{state = States.Normals.jHK},
+			{state = States.Normals.crLP, carry = true},
+			{state = States.Normals.crLP, carry = true},
+			{state = States.Normals.crHK},
+			{state = States.Supers.AuraSoulSpark_L1},
+			{state = States.Supers.AuraSoulThrow_L1}
+		}
+	},
+	{
+		description = "Corner only",
+		p1meter = 0x90,
+		acttable = 
+		{
+			{state = States.Normals.jHP},
+			{state = States.Normals.crMP},
+			{state = States.Supers.SoulIllusion_L1},
+			{state = States.Supers.AuraSoulSpark_L2, success = "IsAtkCombo() and P2.CurrState.IsAirborne"}
+		}
+	},
+	{
+		description = "Corner only",
+		p1meter = 0x30,
+		acttable = 
+		{
+			{state = States.Normals.jHP},
+			{state = States.Normals.crMP},
+			{state = States.Supers.SoulIllusion_L1},
+			{state = States.Normals.Cmd_3MK},
+			{state = States.Normals.Cmd_3MK},
+			{state = States.Normals.Cmd_3MK},
+			{state = States.Normals.Cmd_3MK},
+			{state = States.Normals.Cmd_3MK},
+			{state = States.Normals.crHK}
+		}
+	},
+	{
+		description = "Freestyle combo",
+		p1meter = 0x90,
+		acttable = 
+		{
+			{state = States.Basic.Any, name = "Perform a 50 hit combo", success = "P1.CurrState.ComboCounter >= 50"},
+		}
+	},	
+}

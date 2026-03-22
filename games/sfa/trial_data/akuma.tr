@@ -1,0 +1,116 @@
+{
+	{
+		p1meter = 0,
+		acttable = 
+		{
+			{state = States.Normals.crLK, carry = true},
+			{state = States.Normals.crLK},
+			{state = States.Specials.Gohadoken_H, nameadd = " [close]", success = "IsAtkCombo() and P2.CurrState.IsAirborne"},
+		}
+	},
+	{
+		p1meter = 0,
+		acttable = 
+		{
+			{state = States.Normals.crLK, carry = true},
+			{state = States.Normals.crLP, carry = true},
+			{state = States.Normals.crLK},
+			{state = States.Specials.Tatsu_M},
+			{state = States.Specials.Goshoryuken_H},
+		}
+	},
+	{
+		p1meter = 0,
+		acttable = 
+		{
+			{state = States.Normals.jHP},
+			{state = States.Normals.crHP},
+			{state = States.Specials.Goshoryuken_H, success = "IsAtkCombo() and P2.CurrState.IsAirborne"},
+		}
+	},
+	{
+		description = "Corner only",
+		p1meter = 0,
+		acttable = 
+		{
+			{state = States.Normals.jHP},
+			{state = States.Normals.stHP},
+			{state = States.Specials.ShakunetsuHadoken_H, success = "IsAtkMultiCombo(3)"},
+		}
+	},
+	{
+		p1meter = 0x30,
+		acttable = 
+		{
+			{state = States.Normals.crLK, carry = true},
+			{state = States.Normals.crLK},
+			{state = States.Supers.MessatsuGoshoryu_L1, success = "IsAtkCombo() and P2.CurrState.IsAirborne"},
+		}
+	},
+	{
+		p1meter = 0,
+		acttable = 
+		{
+			{state = States.Specials.AirTatsu, nameadd = " [2 hits]", success = "IsAtkMultiCombo(2)"},
+			{state = States.Specials.Goshoryuken_H},
+		}
+	},
+	{
+		description = "Corner only",
+		p1meter = 0,
+		acttable = 
+		{
+			{state = States.Normals.Cmd_6MP},
+			{state = States.Specials.Gohadoken_H},
+		}
+	},
+	{
+		description = "Crossup combo, opponent crouching",
+		enemystate = "crouch",
+		p1meter = 0,
+		acttable = 
+		{
+			{state = States.Normals.djMK, nameadd = " [crossup]", success = "IsAtkCombo() and IsCrossup()"},
+			{state = States.Normals.crMP},
+			{state = States.Normals.crLK, carry = true},
+			{state = States.Normals.crHK},
+			{state = States.Specials.Tatsu_H},
+		}
+	},
+	{
+		description = "Corner only",
+		p1meter = 0x90,
+		acttable = 
+		{
+			{state = States.Specials.ZankuHadoken_L, success = "IsProjHit()"},
+			{state = States.Supers.MessatsuGohadou_L3, success = "IsAtkCombo() and P2.CurrState.IsAirborne", forcestart = true},
+			{state = States.Specials.Goshoryuken_H, success = "IsAtkMultiCombo(2)"},
+		}
+	},
+	{
+		description = "Corner only",
+		p1meter = 0x30,
+		acttable = 
+		{
+			{state = States.Specials.ZankuHadoken_L, success = "IsProjHit()"},
+			{state = States.Specials.ZankuHadoken_H, success = "IsProjHit()", forcestart = true,},
+			{state = States.Normals.crLK, forcestart = true, carry = true},
+			{state = States.Normals.crLK},
+			{state = States.Specials.Tatsu_L},
+			{state = States.Specials.Tatsu_L},
+			{state = States.Specials.Tatsu_L},
+			{state = States.Supers.MessatsuGoshoryu_L1},
+		}
+	},
+	{
+		description = "Corner only",
+		p1meter = 0,
+		acttable = 
+		{
+			{state = States.Specials.ZankuHadoken_L, success = "IsProjHit()"},
+			{state = States.Specials.AirTatsu, forcestart = true},
+			{state = States.Specials.Tatsu_L},
+			{state = States.Specials.AirTatsu}
+		}
+	},
+}

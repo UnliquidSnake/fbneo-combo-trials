@@ -1,0 +1,121 @@
+-- Basic states
+	-- Idle & movement
+0xf8b2 - 0xf92a: Idle
+0xf946: Crouching
+0xf962 - 0xf9da: Forward walk
+0xf9f6 - 0xfa6e: Back walk
+0xfa8a - 0xfad2: Transition from crouch to stand
+0xfaee - 0xfb36: Transition from stand to crouch
+0xfb52 - 0xfb9a: Standing turn around after side switch
+0xfbb6 - 0xfbfe: Crouching turn around after side switch
+0xfc1a - 0xfc32: Prejump frames
+0xfc4e - 0xfc66: Landing recovery from jump
+0xfc82 - 0xfcfa: Neutral jump
+0xfd16 - 0xfdbe: Forward jump
+0xfdda - 0xfe6a: Backward jump
+	-- Blocking
+0xfe86 - 0xfeea: Stand block (incl. proximity block)
+0xff06 - 0xff6a: Crouch block (incl. proximity block)
+0xff9e - 0xffea: Air block (incl. proximity block)
+	-- Recovery Roll
+0x006a - 0x00b2: Auto roll wakeup
+0x00ce - 0x0116: Recovery roll
+	-- Cutscenes
+0x0196 - 0x02e6: Intro pose
+0x0302 - 0x0362: Win pose 1
+0x037e - 0x042e: Win pose 2
+0x0442: Time over loss/draw
+	-- Getting thrown
+0x076a - 0x09aa: Getting thrown
+	-- Getting hit
+0x0b16 - 0x0b46: Standing hit in head 1
+0x0b62 - 0x0b92: Standing hit in head 2
+0x0bae - 0x0bde: Standing hit in head 3
+0x0bfa - 0x0c2a: Standing hit in body/feet 1
+0x0c46 - 0x0c76: Standing hit in body/feet 2
+0x0c92 - 0x0cc2: Standing hit in body/feet 3
+0x0cde - 0x0cf6: Crouching hit 1
+0x0d12 - 0x0d42: Crouching hit 2
+0x0d5e - 0x0d8e: Crouching hit 3
+0x0daa - 0x0df2: Launch hit (can usually be juggled)
+0x0e0e - 0x0e5e: Knockdown
+0x0ee2 - 0x0f12: Falling after sweep
+0x0f2e - 0x0fa6: Air reset
+	-- Other
+0x0fc2 - 0x100a: Stun
+0x1026 - 0x10ce: Getting up
+-- Attacks
+	-- Normals
+		-- Standing Normals
+0x10ea - 0x1132: Standing LP
+0x114e - 0x11c6: Standing MP
+0x11e2 - 0x125a: Standing HP
+0x1276 - 0x1306: Standing LK
+0x1322 - 0x13fa: Standing MK
+0x1416 - 0x14ee: Standing HK
+		-- Crouching Normals
+0x150a - 0x1552: Crouching LP
+0x156e - 0x15ce: Crouching MP
+0x15ea - 0x164a: Crouching HP
+0x1666 - 0x16c6: Crouching LK
+0x16e2 - 0x175a: Crouching MK
+0x1776 - 0x17ee: Crouching HK
+		-- Neutral Jumping Normals
+0x180a - 0x1852: Neutral Jumping LP
+0x186e - 0x18b6: Neutral Jumping MP
+0x18d2 - 0x191a: Neutral Jumping HP
+0x1936 - 0x19ae: Neutral Jumping LK -- unique
+0x19ca - 0x1a42: Neutral Jumping MK -- unique
+0x1a5e - 0x1aee: Neutral Jumping HK -- unique
+		-- Diagonal Jumping Normals
+0x1b0a - 0x1b52: Diagonal Jumping LP
+0x1b6e - 0x1bb6: Diagonal Jumping MP
+0x1bd2 - 0x1c1a: Diagonal Jumping HP
+0x1c36 - 0x1c7e: Diagonal Jumping LK -- unique
+0x1c9a - 0x1d42: Diagonal Jumping MK -- unique
+0x1d5e - 0x1dbe: Diagonal Jumping HK -- unique
+		-- Command Normals
+0x2c0a - 0x2cfa: Inazuma Kakato Wari (f + MK)
+		-- Alpha Counter
+0x2d16 - 0x2e3a: Alpha Counter - Shoryuken (b,db,d + P)
+	-- Throws
+0x1eea - 0x206a: Jigoku Guruma (f/b + MP/HP)
+0x1dda - 0x1ece: Tsukami Nage (f/b + MK/HK)
+0x2086 - 0x21ee: Jigoku Fusha (air f/b + MP/HP)
+	-- Special Moves
+		-- Hadoken (qcf + P)
+0x220a - 0x229a: L Hadoken
+0x22b6 - 0x2346: M Hadoken
+0x2362 - 0x23f2: H Hadoken
+		-- Shoryuken (dp + P)
+0x240e - 0x24ce: L Shoryuken
+0x24ea - 0x25aa: M Shoryuken
+0x25c6 - 0x2686: H Shoryuken
+		-- Tatsumaki Senpukyaku (qcb + K, air OK)
+0x26a2 - 0x26ea: L Tatsumaki Senpukyaku (Startup)
+0x28da - 0x293a: L Tatsumaki Senpukyaku (Active)
+0x2736 - 0x277e: M Tatsumaki Senpukyaku (Startup)
+0x295e - 0x29b6: M Tatsumaki Senpukyaku (Active)
+0x27ca - 0x2812: H Tatsumaki Senpukyaku (Startup)
+0x29d2 - 0x2a32: H Tatsumaki Senpukyaku (Active)
+0x2a4e - 0x2ac6: L Air Tatsumaki Senpukyaku
+0x2ae2 - 0x2b5a: M Air Tatsumaki Senpukyaku
+0x2b76 - 0x2bee: H Air Tatsumaki Senpukyaku
+0x285e - 0x288e: Air & Ground Tatsumaki Senpukyaku (Recovery)
+		-- Zenpo Tenshin (qcb + P)
+0x37ae - 0x380e: L Zenpo Tenshin
+0x382a - 0x38ea: M Zenpo Tenshin
+0x3906 - 0x3a26: H Zenpo Tenshin
+	-- Super Moves
+		-- Shoryureppa (qcf,qcf + P)
+0x2e56 - 0x2fbe: Lv1 Shoryureppa
+0x2fda - 0x3142: Lv2 Shoryureppa
+0x315e - 0x336e: Lv3 Shoryureppa
+		-- Shinryuken (qcf,qcf + K, mash K for more hits)
+0x338a - 0x34ae: Lv1 Shinryuken
+0x352e - 0x3652: Lv2 Shinryuken
+0x366e - 0x3792: Lv3 Shinryuken
+0x34ca - 0x3512: Shinryuken (recovery)
+	-- Other
+0x3a42 - 0x3aea: Taunt 1 (Start)
+0x3b1e - 0x3b96: Taunt 2 (f + Start)

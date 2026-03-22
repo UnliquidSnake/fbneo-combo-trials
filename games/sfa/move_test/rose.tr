@@ -1,0 +1,71 @@
+{
+	{
+		p1meter = 0,
+		acttable = 
+		{
+			{state = States.Throws.ThrowP},
+		}
+	},
+	{
+		p1meter = 0,
+		acttable = 
+		{
+			{state = States.Normals.Cmd_3MK},
+		}
+	},
+	
+	{
+		p1meter = 0,
+		acttable = 
+		{
+			{state = States.Specials.SoulSpark, success = "IsProjHit()"},
+		}
+	},
+	{
+		fail = "not IsPlayerInState(P1, States.Specials.SoulThrow)",
+		enemystate = "jump",
+		p1meter = 0,
+		acttable = 
+		{
+			{state = States.Specials.SoulThrow},
+		}
+	},
+	{
+		p1meter = 0,
+		acttable = 
+		{
+			{state = States.Specials.SoulReflect},
+		}
+	},
+	{
+		p1meter = 0x90,
+		acttable = 
+		{
+			{state = States.Supers.AuraSoulSpark, success = "IsAtkCombo() or IsProjHit()"},
+		}
+	},
+	{
+		enemystate = "jump",
+		p1meter = 0x30,
+		acttable = 
+		{
+			{state = States.Supers.AuraSoulThrow_L1},
+		}
+	},
+	{
+		p1meter = 0x90,
+		acttable = 
+		{
+			{state = States.Supers.AuraSoulThrow},
+			{state = States.Supers.AuraSoulThrow_Finish},
+		}
+	},
+	{
+		fail = "not IsPlayerInState(P1, States.Supers.SoulIllusion)",
+		p1meter = 0x90,
+		acttable = 
+		{
+			{state = States.Supers.SoulIllusion},
+		}
+	},
+}

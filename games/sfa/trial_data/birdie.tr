@@ -1,0 +1,48 @@
+{
+	{
+		p1meter = 0,
+		acttable = 
+		{
+			{state = States.Normals.stLK, carry = true},
+			{state = States.Normals.crMP, carry = true},
+			{state = States.Normals.crHK},
+		}
+	},
+	{
+		p1meter = 0,
+		acttable = 
+		{
+			{state = States.Normals.Cmd_j2HP},
+			{state = States.Normals.crMP, carry = true},
+			{state = States.Normals.stHP},
+		}
+	},
+	{
+		p1meter = 0,
+		acttable = 
+		{
+			{state = States.Normals.jHK},
+			{state = States.Normals.stLK, carry = true},
+			{state = States.Normals.crHP},
+			{state = States.Specials.BullHead_H},
+		}
+	},
+	{
+		p1meter = 0,
+		acttable = 
+		{
+			{state = States.Normals.stHK, nameadd = " [meaty]"},
+			{state = States.Normals.crHK},
+		}
+	},
+	{
+		p1meter = 0x60,
+		acttable = 
+		{
+			{state = States.Normals.jHK},
+			{state = States.Normals.crMP, carry = true},
+			{state = States.Normals.crHP},
+			{state = States.Supers.TheBirdie_L2, success = "IsAtkCombo() and P2.CurrState.IsAirborne"},
+		}
+	},	
+}
