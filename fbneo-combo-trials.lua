@@ -179,7 +179,6 @@ function ReadConfig(param_cfgpath, param_errorname) -- Read all data from config
 	-- Split lines
 	for i = 1, #cfglines do
 		local strsplit = {}
-		--for j in cfglines[i]:gmatch("[^=%s]+") do table.insert(strsplit, j) end -- Split by spaces and equal signs
 		for j in cfglines[i]:gmatch("[^=]+") do table.insert(strsplit, j) end -- Split by equal sign
 		if not (#strsplit == 2) then error("ERROR: Cannot parse parameter " .. strsplit[1]) end
 		local key = strsplit[1]
@@ -214,7 +213,7 @@ function LoadConfig() -- Load default config, overwrite with game-specific confi
 	CheckSecondaryConfigErrors()
 end
 -------------------------------------------------------Other Script Functions-------------------------------------------------------
-local function CheckSupportedRom() -- Check whether specific rom are supported by the script
+local function CheckSupportedRom() -- Check whether specific rom is supported by the script
 	local romlist = ReadLinesFromFile(Path_RomList, "rom list")
 	local IsSupportedRom = false
 	for i = 1, #romlist do
