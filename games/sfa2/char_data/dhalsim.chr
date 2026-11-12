@@ -1,0 +1,1141 @@
+local CharStateTable = {}
+CharStateTable.Basic = {}
+CharStateTable.Normals = {}
+CharStateTable.Throws = {}
+CharStateTable.Specials = {}
+CharStateTable.Supers = {}
+-----------------------------------------------------------------------------------------------
+-- State list
+-----------------------------------------------------------------------------------------------
+CharStateTable.Basic.Any = {}
+CharStateTable.Basic.Idle = {}
+CharStateTable.Basic.Crouch = {}
+CharStateTable.Basic.WalkForward = {}
+CharStateTable.Basic.WalkBack = {}
+CharStateTable.Basic.Jump = {}
+CharStateTable.Basic.NeutralJump = {}
+CharStateTable.Basic.ForwardJump = {}
+CharStateTable.Basic.BackJump = {}
+CharStateTable.Basic.Hitstun = {}
+CharStateTable.Basic.Knockdown = {}
+CharStateTable.Basic.Recovery = {}
+CharStateTable.Basic.CC = {}
+CharStateTable.Basic.CC_Ground = {}
+CharStateTable.Basic.CC_Air = {}
+
+CharStateTable.Normals.stLP = {}
+CharStateTable.Normals.stMP = {}
+CharStateTable.Normals.stHP = {}
+CharStateTable.Normals.stLK = {}
+CharStateTable.Normals.stMK = {}
+CharStateTable.Normals.stHK = {}
+CharStateTable.Normals.Cmd_4LP = {}
+CharStateTable.Normals.Cmd_4MP = {}
+CharStateTable.Normals.Cmd_4HP = {}
+CharStateTable.Normals.Cmd_4LK = {}
+CharStateTable.Normals.Cmd_4MK = {}
+CharStateTable.Normals.Cmd_4HK = {}
+CharStateTable.Normals.crLP = {}
+CharStateTable.Normals.crMP = {}
+CharStateTable.Normals.crHP = {}
+CharStateTable.Normals.crLK = {}
+CharStateTable.Normals.crMK = {}
+CharStateTable.Normals.crHK = {}
+CharStateTable.Normals.Cmd_1LP = {}
+CharStateTable.Normals.Cmd_1MP = {}
+CharStateTable.Normals.Cmd_1HP = {}
+CharStateTable.Normals.Cmd_1LK = {}
+CharStateTable.Normals.Cmd_1MK = {}
+CharStateTable.Normals.Cmd_1HK = {}
+CharStateTable.Normals.jLP = {}
+CharStateTable.Normals.jMP = {}
+CharStateTable.Normals.jHP = {}
+CharStateTable.Normals.jLK = {}
+CharStateTable.Normals.jMK = {}
+CharStateTable.Normals.jHK = {}
+CharStateTable.Normals.Cmd_j4LP = {}
+CharStateTable.Normals.Cmd_j4MP = {}
+CharStateTable.Normals.Cmd_j4HP = {}
+CharStateTable.Normals.Cmd_j4LK = {}
+CharStateTable.Normals.Cmd_j4MK = {}
+CharStateTable.Normals.Cmd_j4HK = {}
+CharStateTable.Normals.njLP = {}
+CharStateTable.Normals.njMP = {}
+CharStateTable.Normals.njHP = {}
+CharStateTable.Normals.njLK = {}
+CharStateTable.Normals.njMK = {}
+CharStateTable.Normals.njHK = {}
+CharStateTable.Normals.Cmd_nj4LP = {}
+CharStateTable.Normals.Cmd_nj4MP = {}
+CharStateTable.Normals.Cmd_nj4HP = {}
+CharStateTable.Normals.Cmd_nj4LK = {}
+CharStateTable.Normals.Cmd_nj4MK = {}
+CharStateTable.Normals.Cmd_nj4HK = {}
+CharStateTable.Normals.djLP = {}
+CharStateTable.Normals.djMP = {}
+CharStateTable.Normals.djHP = {}
+CharStateTable.Normals.djLK = {}
+CharStateTable.Normals.djMK = {}
+CharStateTable.Normals.djHK = {}
+CharStateTable.Normals.Cmd_dj4LP = {}
+CharStateTable.Normals.Cmd_dj4MP = {}
+CharStateTable.Normals.Cmd_dj4HP = {}
+CharStateTable.Normals.Cmd_dj4LK = {}
+CharStateTable.Normals.Cmd_dj4MK = {}
+CharStateTable.Normals.Cmd_dj4HK = {}
+CharStateTable.Normals.Cmd_6LP = {}
+CharStateTable.Normals.Cmd_j2HP = {}
+CharStateTable.Normals.Cmd_j2K = {}
+CharStateTable.Normals.Cmd_j2LK = {}
+CharStateTable.Normals.Cmd_j2MK = {}
+CharStateTable.Normals.Cmd_j2HK = {}
+CharStateTable.Normals.AC_P = {}
+CharStateTable.Normals.AC_K = {}
+
+CharStateTable.Throws.ThrowMP = {}
+CharStateTable.Throws.ThrowHP = {}
+
+CharStateTable.Specials.YogaFire = {}
+CharStateTable.Specials.YogaFire_L = {}
+CharStateTable.Specials.YogaFire_M = {}
+CharStateTable.Specials.YogaFire_H = {}
+CharStateTable.Specials.YogaFlame = {}
+CharStateTable.Specials.YogaFlame_L = {}
+CharStateTable.Specials.YogaFlame_M = {}
+CharStateTable.Specials.YogaFlame_H = {}
+CharStateTable.Specials.YogaBlast = {}
+CharStateTable.Specials.YogaBlast_L = {}
+CharStateTable.Specials.YogaBlast_M = {}
+CharStateTable.Specials.YogaBlast_H = {}
+CharStateTable.Specials.YogaTeleport = {}
+CharStateTable.Specials.YogaEscape = {}
+
+CharStateTable.Supers.YogaInferno = {}
+CharStateTable.Supers.YogaInferno_L1 = {}
+CharStateTable.Supers.YogaInferno_L2 = {}
+CharStateTable.Supers.YogaInferno_L3 = {}
+CharStateTable.Supers.YogaStrike = {}
+CharStateTable.Supers.YogaStrike_L1 = {}
+CharStateTable.Supers.YogaStrike_L2 = {}
+CharStateTable.Supers.YogaStrike_L3 = {}
+-----------------------------------------------------------------------------------------------
+-- Basic states
+-----------------------------------------------------------------------------------------------
+	-- Idle & movement
+-----------------------------------------------------------------------------------------------
+CharStateTable.Basic.Any =
+{
+	name = "Any",
+	stateval = {min = 0x0000, max = 0xffff}
+}
+CharStateTable.Basic.Idle =
+{
+	name = "Idle",
+	type = "notatk",
+	stateval = {min = 0x0986, max = 0x0a2e}
+}
+CharStateTable.Basic.Crouch =
+{
+	name = "Crouch",
+	type = "notatk",
+	stateval = {min = 0x0a4a, max = 0x0a4a}
+}
+CharStateTable.Basic.WalkForward =
+{
+	name = "Walk Forward",
+	type = "notatk",
+	stateval = {min = 0x0a66, max = 0x0b0e}
+}
+CharStateTable.Basic.WalkBack =
+{
+	name = "Walk Backward",
+	type = "notatk",
+	stateval = {min = 0x0b2a, max = 0x0bd2}
+}
+CharStateTable.Basic.NeutralJump = -- does not include prejump frames
+{
+	name = "Neutral Jump",
+	type = "notatk",
+	stateval = {min = 0x0de6, max = 0x0f36}
+}
+CharStateTable.Basic.ForwardJump = -- does not include prejump frames
+{
+	name = "Forward Jump",
+	type = "notatk",
+	stateval = {min = 0x0f52, max = 0x10d2}
+}
+CharStateTable.Basic.BackJump = -- does not include prejump frames
+{
+	name = "Backward Jump",
+	type = "notatk",
+	stateval = {min = 0x10ee, max = 0x123e}
+}
+CharStateTable.Basic.Jump = -- does not include prejump frames
+{
+	name = "Jump",
+	type = "notatk",
+	stateval = 
+	{
+		CharStateTable.Basic.NeutralJump.stateval,
+		CharStateTable.Basic.ForwardJump.stateval,
+		CharStateTable.Basic.BackJump.stateval,
+	}
+}
+-----------------------------------------------------------------------------------------------
+	-- Getting hit
+-----------------------------------------------------------------------------------------------
+CharStateTable.Basic.Hitstun =
+{
+	name = "Get Hit",
+	type = "notatk",
+	stateval = 
+	{
+		{min = 0x1f5e, max = 0x226a},
+		{min = 0x233e, max = 0x265a},
+	}
+}
+CharStateTable.Basic.Knockdown =
+{
+	name = "Knockdown",
+	type = "notatk",
+	stateval = {min = 0x2286, max = 0x22ee}
+}
+CharStateTable.Basic.Recovery =
+{
+	name = "Recovery Roll",
+	inputname = "412P when knocked down",
+	type = "notatk",
+	stateval =
+	{
+		{min = 0x143e, max = 0x14ea},
+		{min = 0x5fa6, max = 0x6246}, -- Yoga Escape
+	}
+}
+-----------------------------------------------------------------------------------------------
+	-- Custom Combo Activation
+-----------------------------------------------------------------------------------------------
+CharStateTable.Basic.CC_Ground =
+{
+	name = "(Ground) Activate Custom Combo",
+	inputname = "Ground PPK or PKK of differing strengths",
+	type = "notatk",
+	spid = 4,
+	stateval = {min = 0x5f42, max = 0x5f8a}
+}
+CharStateTable.Basic.CC_Air =
+{
+	name = "(Air) Activate Custom Combo",
+	inputname = "Air PPK or PKK of differing strengths",
+	type = "notatk",
+	spid = 4,
+	stateval = {min = 0x5eae, max = 0x5f26}
+}
+CharStateTable.Basic.CC =
+{
+	name = "Activate Custom Combo",
+	inputname = "PPK or PKK of differing strengths",
+	type = "notatk",
+	spid = 4,
+	startstate = {0x5f42, 0x5eae},
+	stateval =
+	{
+		CharStateTable.Basic.CC_Ground.stateval,
+		CharStateTable.Basic.CC_Air.stateval,
+	}
+}
+-----------------------------------------------------------------------------------------------
+-- Attacks
+-----------------------------------------------------------------------------------------------
+	-- Normals
+-----------------------------------------------------------------------------------------------
+		-- Standing Normals
+-----------------------------------------------------------------------------------------------
+CharStateTable.Normals.stLP =
+{
+	name = "Stand LP",
+	inputname = "5LP",
+	atkstr = T_AtkStr.L,
+	stateval = {min = 0x41e6, max = 0x425e}
+}
+CharStateTable.Normals.stMP =
+{
+	name = "Stand MP",
+	inputname = "5MP",
+	atkstr = T_AtkStr.M,
+	stateval = {min = 0x2aee, max = 0x2bf6}
+}
+CharStateTable.Normals.stHP =
+{
+	name = "Stand HP",
+	inputname = "5HP",
+	atkstr = T_AtkStr.H,
+	stateval = {min = 0x2c12, max = 0x2d62}
+}
+CharStateTable.Normals.stLK =
+{
+	name = "Stand LK",
+	inputname = "5LK",
+	atkstr = T_AtkStr.L,
+	stateval = {min = 0x2d7e, max = 0x2e56}
+}
+CharStateTable.Normals.stMK =
+{
+	name = "Stand MK",
+	inputname = "5MK",
+	atkstr = T_AtkStr.M,
+	stateval = {min = 0x2e72, max = 0x2faa}
+}
+CharStateTable.Normals.stHK =
+{
+	name = "Stand HK",
+	inputname = "5HK",
+	atkstr = T_AtkStr.H,
+	stateval = {min = 0x2fc6, max = 0x30e6}
+}
+CharStateTable.Normals.Cmd_4LP = -- charge to get distinct attack
+{
+	name = "Back LP",
+	inputname = "4LP (hold)",
+	atkstr = T_AtkStr.L,
+	stateval = {min = 0x7506, max = 0x75b2}
+}
+CharStateTable.Normals.Cmd_4MP =
+{
+	name = "Back MP",
+	inputname = "4MP",
+	atkstr = T_AtkStr.M,
+	stateval = {min = 0x427a, max = 0x430a}
+}
+CharStateTable.Normals.Cmd_4HP =
+{
+	name = "Back HP",
+	inputname = "4HP",
+	atkstr = T_AtkStr.H,
+	stateval = {min = 0x4326, max = 0x43b6}
+}
+CharStateTable.Normals.Cmd_4LK =
+{
+	name = "Back LK",
+	inputname = "4LK",
+	atkstr = T_AtkStr.L,
+	stateval = {min = 0x43d2, max = 0x4462}
+}
+CharStateTable.Normals.Cmd_4MK =
+{
+	name = "Back MK",
+	inputname = "4MK",
+	atkstr = T_AtkStr.M,
+	stateval = {min = 0x447e, max = 0x453e}
+}
+CharStateTable.Normals.Cmd_4HK =
+{
+	name = "Back HK",
+	inputname = "4HK",
+	atkstr = T_AtkStr.H,
+	stateval = {min = 0x455a, max = 0x464a}
+}
+-----------------------------------------------------------------------------------------------
+		-- Crouching Normals
+-----------------------------------------------------------------------------------------------
+CharStateTable.Normals.crLP =
+{
+	name = "Crouch LP",
+	inputname = "2LP",
+	atkstr = T_AtkStr.L,
+	stateval = {min = 0x3102, max = 0x320a}
+}
+CharStateTable.Normals.crMP =
+{
+	name = "Crouch MP",
+	inputname = "2MP",
+	atkstr = T_AtkStr.M,
+	stateval = {min = 0x3226, max = 0x332e}
+}
+CharStateTable.Normals.crHP =
+{
+	name = "Crouch HP",
+	inputname = "2HP",
+	atkstr = T_AtkStr.H,
+	stateval = {min = 0x334a, max = 0x346a}
+}
+CharStateTable.Normals.crLK =
+{
+	name = "Crouch LK",
+	inputname = "2LK",
+	atkstr = T_AtkStr.L,
+	stateval = {min = 0x4e0a, max = 0x4eb6}
+}
+CharStateTable.Normals.crMK =
+{
+	name = "Crouch MK",
+	inputname = "2MK",
+	atkstr = T_AtkStr.M,
+	stateval = {min = 0x4ed2, max = 0x4f96}
+}
+CharStateTable.Normals.crHK =
+{
+	name = "Crouch HK",
+	inputname = "2HK",
+	atkstr = T_AtkStr.H,
+	stateval = {min = 0x4fb2, max = 0x5076}
+}
+CharStateTable.Normals.Cmd_1LP =
+{
+	name = "Down Back LP",
+	inputname = "1LP",
+	atkstr = T_AtkStr.L,
+	stateval = {min = 0x4666, max = 0x46c6}
+}
+CharStateTable.Normals.Cmd_1MP =
+{
+	name = "Down Back MP",
+	inputname = "1MP",
+	atkstr = T_AtkStr.M,
+	stateval = {min = 0x46e2, max = 0x4742}
+}
+CharStateTable.Normals.Cmd_1HP =
+{
+	name = "Down Back HP",
+	inputname = "1HP",
+	atkstr = T_AtkStr.H,
+	stateval = {min = 0x475e, max = 0x47be}
+}
+CharStateTable.Normals.Cmd_1LK =
+{
+	name = "Down Back LK",
+	inputname = "1LK",
+	atkstr = T_AtkStr.L,
+	stateval = {min = 0x3486, max = 0x3516}
+}
+CharStateTable.Normals.Cmd_1MK =
+{
+	name = "Down Back MK",
+	inputname = "1MK",
+	atkstr = T_AtkStr.M,
+	stateval = {min = 0x3532, max = 0x35c2}
+}
+CharStateTable.Normals.Cmd_1HK =
+{
+	name = "Down Back HK",
+	inputname = "1HK",
+	atkstr = T_AtkStr.H,
+	stateval = {min = 0x35de, max = 0x366e}
+}
+-----------------------------------------------------------------------------------------------
+	-- Neutral Jumping Normals
+-----------------------------------------------------------------------------------------------
+CharStateTable.Normals.njLP =
+{
+	name = "Neutral Jump LP",
+	inputname = "njLP",
+	atkstr = T_AtkStr.L,
+	stateval = {min = 0x368a, max = 0x3732}
+}
+CharStateTable.Normals.njMP =
+{
+	name = "Neutral Jump MP",
+	inputname = "njMP",
+	atkstr = T_AtkStr.M,
+	stateval = {min = 0x374e, max = 0x380e}
+}
+CharStateTable.Normals.njHP =
+{
+	name = "Neutral Jump HP",
+	inputname = "njHP",
+	atkstr = T_AtkStr.H,
+	stateval = {min = 0x382a, max = 0x38ea}
+}
+CharStateTable.Normals.njLK =
+{
+	name = "Neutral Jump LK",
+	inputname = "njLK",
+	atkstr = T_AtkStr.L,
+	stateval = {min = 0x3906, max = 0x39c6}
+}
+CharStateTable.Normals.njMK =
+{
+	name = "Neutral Jump MK",
+	inputname = "njMK",
+	atkstr = T_AtkStr.M,
+	stateval = {min = 0x39e2, max = 0x3aba}
+}
+CharStateTable.Normals.njHK =
+{
+	name = "Neutral Jump HK",
+	inputname = "njHK",
+	atkstr = T_AtkStr.H,
+	stateval = {min = 0x3ad6, max = 0x3bde}
+}
+CharStateTable.Normals.Cmd_nj4LP =
+{
+	name = "Neutral Jump Back LP",
+	inputname = "nj4LP",
+	atkstr = T_AtkStr.L,
+	stateval = {min = 0x47da, max = 0x483a}
+}
+CharStateTable.Normals.Cmd_nj4MP =
+{
+	name = "Neutral Jump Back MP",
+	inputname = "nj4MP",
+	atkstr = T_AtkStr.M,
+	stateval = {min = 0x4856, max = 0x48b6}
+}
+CharStateTable.Normals.Cmd_nj4HP =
+{
+	name = "Neutral Jump Back HP",
+	inputname = "nj4HP",
+	atkstr = T_AtkStr.H,
+	stateval = {min = 0x48d2, max = 0x4932}
+}
+CharStateTable.Normals.Cmd_nj4LK =
+{
+	name = "Neutral Jump Back LK",
+	inputname = "nj4LK",
+	atkstr = T_AtkStr.L,
+	stateval = {min = 0x494e, max = 0x49ae}
+}
+CharStateTable.Normals.Cmd_nj4MK =
+{
+	name = "Neutral Jump Back MK",
+	inputname = "nj4MK",
+	atkstr = T_AtkStr.M,
+	stateval = {min = 0x4a46, max = 0x4aa6}
+}
+CharStateTable.Normals.Cmd_nj4HK =
+{
+	name = "Neutral Jump Back HK",
+	inputname = "nj4HK",
+	atkstr = T_AtkStr.H,
+	stateval = {min = 0x4b3e, max = 0x4bce}
+}
+-----------------------------------------------------------------------------------------------
+	-- Diagonal Jumping Normals
+-----------------------------------------------------------------------------------------------
+CharStateTable.Normals.djLP =
+{
+	name = "Diagonal Jump LP",
+	inputname = "djLP",
+	atkstr = T_AtkStr.L,
+	stateval = {min = 0x3eee, max = 0x3fc6}
+}
+CharStateTable.Normals.djMP =
+{
+	name = "Diagonal Jump MP",
+	inputname = "djMP",
+	atkstr = T_AtkStr.M,
+	stateval = {min = 0x3fe2, max = 0x40a2}
+}
+CharStateTable.Normals.djHP =
+{
+	name = "Diagonal Jump HP",
+	inputname = "djHP",
+	atkstr = T_AtkStr.H,
+	stateval = {min = 0x40be, max = 0x4196}
+}
+CharStateTable.Normals.djLK =
+{
+	name = "Diagonal Jump LK",
+	inputname = "djLK",
+	atkstr = T_AtkStr.L,
+	stateval = {min = 0x3bfa, max = 0x3cba}
+}
+CharStateTable.Normals.djMK =
+{
+	name = "Diagonal Jump MK",
+	inputname = "djMK",
+	atkstr = T_AtkStr.M,
+	stateval = {min = 0x3cd6, max = 0x3dae}
+}
+CharStateTable.Normals.djHK =
+{
+	name = "Diagonal Jump HK",
+	inputname = "djHK",
+	atkstr = T_AtkStr.H,
+	stateval = {min = 0x3dca, max = 0x3ed2}
+}
+CharStateTable.Normals.Cmd_dj4LP =
+{
+	name = "Diagonal Jump Back LP",
+	inputname = "dj4LP",
+	atkstr = T_AtkStr.L,
+	stateval = {min = 0x4c96, max = 0x4cf6}
+}
+CharStateTable.Normals.Cmd_dj4MP =
+{
+	name = "Diagonal Jump Back MP",
+	inputname = "dj4MP",
+	atkstr = T_AtkStr.M,
+	stateval = {min = 0x4d12, max = 0x4d72}
+}
+CharStateTable.Normals.Cmd_dj4HP =
+{
+	name = "Diagonal Jump Back HP",
+	inputname = "dj4HP",
+	atkstr = T_AtkStr.H,
+	stateval = {min = 0x4d8e, max = 0x4dee}
+}
+CharStateTable.Normals.Cmd_dj4LK =
+{
+	name = "Diagonal Jump Back LK",
+	inputname = "dj4LK",
+	atkstr = T_AtkStr.L,
+	stateval = {min = 0x49ca, max = 0x4a2a}
+}
+CharStateTable.Normals.Cmd_dj4MK =
+{
+	name = "Diagonal Jump Back MK",
+	inputname = "dj4MK",
+	atkstr = T_AtkStr.M,
+	stateval = {min = 0x4ac2, max = 0x4b22}
+}
+CharStateTable.Normals.Cmd_dj4HK =
+{
+	name = "Diagonal Jump Back HK",
+	inputname = "dj4HK",
+	atkstr = T_AtkStr.H,
+	stateval = {min = 0x4bea, max = 0x4c7a}
+}
+-----------------------------------------------------------------------------------------------
+	-- Jumping Normals - tracks both kinds of jumps
+-----------------------------------------------------------------------------------------------
+CharStateTable.Normals.jLP =
+{
+	name = "Jump LP",
+	inputname = "jLP",
+	atkstr = T_AtkStr.L,
+	startstate = {0x368a, 0x3732},
+	stateval = 
+	{
+		CharStateTable.Normals.njLP.stateval,
+		CharStateTable.Normals.djLP.stateval,
+	}
+}
+CharStateTable.Normals.jMP =
+{
+	name = "Jump MP",
+	inputname = "jMP",
+	atkstr = T_AtkStr.M,
+	startstate = {0x374e, 0x380e},
+	stateval = 
+	{
+		CharStateTable.Normals.njMP.stateval,
+		CharStateTable.Normals.djMP.stateval,
+	}
+}
+CharStateTable.Normals.jHP =
+{
+	name = "Jump HP",
+	inputname = "jHP",
+	atkstr = T_AtkStr.H,
+	startstate = {0x382a, 0x38ea},
+	stateval = 
+	{
+		CharStateTable.Normals.njHP.stateval,
+		CharStateTable.Normals.djHP.stateval,
+	}
+}
+CharStateTable.Normals.jLK =
+{
+	name = "Jump LK",
+	inputname = "jLK",
+	atkstr = T_AtkStr.L,
+	startstate = {0x3906, 0x39c6},
+	stateval = 
+	{
+		CharStateTable.Normals.njLK.stateval,
+		CharStateTable.Normals.djLK.stateval,
+	}
+}
+CharStateTable.Normals.jMK =
+{
+	name = "Jump MK",
+	inputname = "jMK",
+	atkstr = T_AtkStr.M,
+	startstate = {0x39e2, 0x3aba},
+	stateval = 
+	{
+		CharStateTable.Normals.njMK.stateval,
+		CharStateTable.Normals.djMK.stateval,
+	}
+}
+CharStateTable.Normals.jHK =
+{
+	name = "Jump HK",
+	inputname = "jHK",
+	atkstr = T_AtkStr.H,
+	startstate = {0x3ad6, 0x3bde},
+	stateval = 
+	{
+		CharStateTable.Normals.njHK.stateval,
+		CharStateTable.Normals.djHK.stateval,
+	}
+}
+CharStateTable.Normals.Cmd_j4LP =
+{
+	name = "Jump Back LP",
+	inputname = "j4LP",
+	atkstr = T_AtkStr.L,
+	startstate = {0x47da, 0x4c96},
+	stateval = 
+	{
+		CharStateTable.Normals.Cmd_nj4LP.stateval,
+		CharStateTable.Normals.Cmd_dj4LP.stateval,
+	}
+}
+CharStateTable.Normals.Cmd_j4MP =
+{
+	name = "Jump Back MP",
+	inputname = "j4MP",
+	atkstr = T_AtkStr.M,
+	startstate = {0x4856, 0x4d12},
+	stateval = 
+	{
+		CharStateTable.Normals.Cmd_nj4MP.stateval,
+		CharStateTable.Normals.Cmd_dj4MP.stateval,
+	}
+}
+CharStateTable.Normals.Cmd_j4HP =
+{
+	name = "Jump Back HP",
+	inputname = "j4HP",
+	atkstr = T_AtkStr.H,
+	startstate = {0x48d2, 0x4d8e},
+	stateval = 
+	{
+		CharStateTable.Normals.Cmd_nj4HP.stateval,
+		CharStateTable.Normals.Cmd_dj4HP.stateval,
+	}
+}
+CharStateTable.Normals.Cmd_j4LK =
+{
+	name = "Jump Back LK",
+	inputname = "j4LK",
+	atkstr = T_AtkStr.L,
+	startstate = {0x494e, 0x49ca},
+	stateval = 
+	{
+		CharStateTable.Normals.Cmd_nj4LK.stateval,
+		CharStateTable.Normals.Cmd_dj4LK.stateval,
+	}
+}
+CharStateTable.Normals.Cmd_j4MK =
+{
+	name = "Jump Back MK",
+	inputname = "j4MK",
+	atkstr = T_AtkStr.M,
+	startstate = {0x4a46, 0x4ac2},
+	stateval = 
+	{
+		CharStateTable.Normals.Cmd_nj4MK.stateval,
+		CharStateTable.Normals.Cmd_dj4MK.stateval,
+	}
+}
+CharStateTable.Normals.Cmd_j4HK =
+{
+	name = "Jump Back HK",
+	inputname = "j4HK",
+	atkstr = T_AtkStr.H,
+	startstate = {0x4b3e, 0x4bea},
+	stateval = 
+	{
+		CharStateTable.Normals.Cmd_nj4HK.stateval,
+		CharStateTable.Normals.Cmd_dj4HK.stateval,
+	}
+}
+-----------------------------------------------------------------------------------------------
+		-- Command Normals
+-----------------------------------------------------------------------------------------------
+CharStateTable.Normals.Cmd_6LP =
+{
+	name = "Yoga Palm",
+	inputname = "6LP",
+	atkstr = T_AtkStr.L,
+	stateval = {min = 0x2a42, max = 0x2ad2}
+}
+CharStateTable.Normals.Cmd_j2HP =
+{
+	name = "Yoga Mummy",
+	inputname = "Air 2HP",
+	atkstr = T_AtkStr.H,
+	stateval = {min = 0x5126, max = 0x5186}
+}
+CharStateTable.Normals.Cmd_j2LK =
+{
+	name = "(L) Yoga Drill",
+	inputname = "Air 2LK",
+	atkstr = T_AtkStr.L,
+	stateval = {min = 0x51a2, max = 0x5202}
+}
+CharStateTable.Normals.Cmd_j2MK =
+{
+	name = "(M) Yoga Drill",
+	inputname = "Air 2MK",
+	atkstr = T_AtkStr.M,
+	stateval = {min = 0x521e, max = 0x527e}
+}
+CharStateTable.Normals.Cmd_j2HK =
+{
+	name = "(H) Yoga Drill",
+	inputname = "Air 2HK",
+	atkstr = T_AtkStr.H,
+	stateval = {min = 0x529a, max = 0x52fa}
+}
+CharStateTable.Normals.Cmd_j2K =
+{
+	name = "Yoga Drill",
+	inputname = "Air 2K",
+	startstate = {0x51a2, 0x521e, 0x529a},
+	stateval =
+	{
+		CharStateTable.Normals.Cmd_j2LK.stateval,
+		CharStateTable.Normals.Cmd_j2MK.stateval,
+		CharStateTable.Normals.Cmd_j2HK.stateval,
+	}
+}
+-----------------------------------------------------------------------------------------------
+	-- Alpha Counters
+-----------------------------------------------------------------------------------------------
+		-- Punch AC - Back MP (b,db,d + P)
+-----------------------------------------------------------------------------------------------
+CharStateTable.Normals.AC_P =
+{
+	name = "(P) Alpha Counter",
+	inputname = "412P (when blocking)",
+	spid = 5,
+	stateval = {min = 0x62c6, max = 0x636e}
+}
+-----------------------------------------------------------------------------------------------
+		-- Kick AC - Slide (b,db,d + K)
+-----------------------------------------------------------------------------------------------
+CharStateTable.Normals.AC_K =
+{
+	name = "(K) Alpha Counter",
+	inputname = "412K (when blocking)",
+	spid = 9,
+	stateval = {min = 0x502e, max = 0x510a}
+}
+-----------------------------------------------------------------------------------------------
+	-- Throws
+-----------------------------------------------------------------------------------------------
+CharStateTable.Throws.ThrowMP =
+{
+	name = "Yoga Smash",
+	inputname = "MP Throw",
+	type = "throw",
+	stateval = {min = 0x5c7a, max = 0x5d86}
+}
+CharStateTable.Throws.ThrowHP =
+{
+	name = "Yoga Throw",
+	inputname = "HP Throw",
+	type = "throw",
+	stateval = {min = 0x5da2, max = 0x5e92}
+}
+-----------------------------------------------------------------------------------------------
+	-- Special Moves
+-----------------------------------------------------------------------------------------------
+		-- Yoga Fire (qcf + P)
+-----------------------------------------------------------------------------------------------
+CharStateTable.Specials.YogaFire_L =
+{
+	name = "(L) Yoga Fire",
+	inputname = "236LP",
+	type = "projectile",
+	spid = 1,
+	atkstr = T_AtkStr.L,
+	startstate = {0x5666, 0x6f8a},
+	stateval =
+	{
+		{min = 0x5666, max = 0x56f6},
+		{min = 0x6f8a, max = 0x701a}, -- CC only
+	}
+}
+CharStateTable.Specials.YogaFire_M =
+{
+	name = "(M) Yoga Fire",
+	inputname = "236MP",
+	type = "projectile",
+	spid = 1,
+	atkstr = T_AtkStr.M,
+	startstate = {0x5712, 0x7036},
+	stateval =
+	{
+		{min = 0x5712, max = 0x57a2},
+		{min = 0x7036, max = 0x70c6}, -- CC only
+	}
+}
+CharStateTable.Specials.YogaFire_H =
+{
+	name = "(H) Yoga Fire",
+	inputname = "236HP",
+	type = "projectile",
+	spid = 1,
+	atkstr = T_AtkStr.H,
+	startstate = {0x57be, 0x70e2},
+	stateval =
+	{
+		{min = 0x57be, max = 0x584e},
+		{min = 0x70e2, max = 0x7172}, -- CC only
+	}
+}
+CharStateTable.Specials.YogaFire =
+{
+	name = "Yoga Fire",
+	inputname = "236P",
+	type = "projectile",
+	spid = 1,
+	startstate = {0x5666, 0x6f8a, 0x5712, 0x7036, 0x57be, 0x70e2},
+	stateval =
+	{
+		CharStateTable.Specials.YogaFire_L.stateval[1],
+		CharStateTable.Specials.YogaFire_M.stateval[1],
+		CharStateTable.Specials.YogaFire_H.stateval[1],
+		CharStateTable.Specials.YogaFire_L.stateval[2],
+		CharStateTable.Specials.YogaFire_M.stateval[2],
+		CharStateTable.Specials.YogaFire_H.stateval[2],
+	}
+}
+-----------------------------------------------------------------------------------------------
+		-- Yoga Flame (hcb + P)
+-----------------------------------------------------------------------------------------------
+CharStateTable.Specials.YogaFlame_L =
+{
+	name = "(L) Yoga Flame",
+	type = "projectile",
+	inputname = "63214LP",
+	spid = 2,
+	startstate = {0x586a, 0x5882, 0x718e, 0x71a6},
+	stateval =
+	{
+		{min = 0x586a, max = 0x58e2},
+		{min = 0x718e, max = 0x7206}, -- CC only
+	}
+}
+CharStateTable.Specials.YogaFlame_M =
+{
+	name = "(M) Yoga Flame",
+	type = "projectile",
+	inputname = "63214MP",
+	spid = 2,
+	startstate = {0x58fe, 0x5916, 0x7222, 0x723a},
+	stateval =
+	{
+		{min = 0x58fe, max = 0x5976},
+		{min = 0x7222, max = 0x729a}, -- CC only
+	}
+}
+CharStateTable.Specials.YogaFlame_H =
+{
+	name = "(H) Yoga Flame",
+	type = "projectile",
+	inputname = "63214HP",
+	spid = 2,
+	startstate = {0x5992, 0x59aa, 0x72b6, 0x72ce},
+	stateval =
+	{
+		{min = 0x5992, max = 0x5a0a},
+		{min = 0x72b6, max = 0x732e}, -- CC only
+	}
+}
+CharStateTable.Specials.YogaFlame =
+{
+	name = "Yoga Flame",
+	type = "projectile",
+	inputname = "63214P",
+	spid = 2,
+	startstate = {0x586a, 0x5882, 0x718e, 0x71a6, 0x58fe, 0x5916, 0x7222, 0x723a, 0x5992, 0x59aa, 0x72b6, 0x72ce},
+	stateval =
+	{
+		CharStateTable.Specials.YogaFlame_L.stateval[1],
+		CharStateTable.Specials.YogaFlame_M.stateval[1],
+		CharStateTable.Specials.YogaFlame_H.stateval[1],
+		CharStateTable.Specials.YogaFlame_L.stateval[2],
+		CharStateTable.Specials.YogaFlame_M.stateval[2],
+		CharStateTable.Specials.YogaFlame_H.stateval[2],
+	}
+}
+-----------------------------------------------------------------------------------------------
+		-- Yoga Blast (hcb + K)
+-----------------------------------------------------------------------------------------------
+CharStateTable.Specials.YogaBlast_L =
+{
+	name = "(L) Yoga Blast",
+	type = "projectile",
+	inputname = "63214LK",
+	spid = 3,
+	startstate = {0x5a72, 0x5a8a, 0x734a, 0x7362},
+	stateval =
+	{
+		{min = 0x5a72, max = 0x5aea},
+		{min = 0x734a, max = 0x73c2}, -- CC only
+	}
+}
+CharStateTable.Specials.YogaBlast_M =
+{
+	name = "(M) Yoga Blast",
+	type = "projectile",
+	inputname = "63214MK",
+	spid = 3,
+	startstate = {0x5b06, 0x5b1e, 0x73de, 0x73f6},
+	stateval =
+	{
+		{min = 0x5b06, max = 0x5b7e},
+		{min = 0x73de, max = 0x7456}, -- CC only
+	}
+}
+CharStateTable.Specials.YogaBlast_H =
+{
+	name = "(H) Yoga Blast",
+	type = "projectile",
+	inputname = "63214HK",
+	spid = 3,
+	startstate = {0x5b9a, 0x5bb2, 0x7472, 0x748a},
+	stateval =
+	{
+		{min = 0x5b9a, max = 0x5c12},
+		{min = 0x7472, max = 0x74ea}, -- CC only
+	}
+}
+CharStateTable.Specials.YogaBlast =
+{
+	name = "Yoga Blast",
+	type = "projectile",
+	inputname = "63214K",
+	spid = 3,
+	startstate = {0x5a72, 0x5a8a, 0x734a, 0x7362, 0x5b06, 0x5b1e, 0x73de, 0x73f6, 0x5b9a, 0x5bb2, 0x7472, 0x748a},
+	stateval =
+	{
+		CharStateTable.Specials.YogaBlast_L.stateval[1],
+		CharStateTable.Specials.YogaBlast_M.stateval[1],
+		CharStateTable.Specials.YogaBlast_H.stateval[1],
+		CharStateTable.Specials.YogaBlast_L.stateval[2],
+		CharStateTable.Specials.YogaBlast_M.stateval[2],
+		CharStateTable.Specials.YogaBlast_H.stateval[2],
+	}
+}
+-----------------------------------------------------------------------------------------------
+		-- Yoga Teleport (dp/rdp + PPP/KKK, air OK)
+-----------------------------------------------------------------------------------------------
+CharStateTable.Specials.YogaTeleport =
+{
+	name = "Yoga Teleport",
+	inputname = "623PPP/KKK or 421PPP/KKK (air OK)",
+	type = "notatk",
+	spid = 0,
+	startstate = {0x5316, 0x6d8a},
+	stateval =
+	{
+		{min = 0x5316, max = 0x5632},
+		{min = 0x6d8a, max = 0x6f56}, -- CC only
+	}
+}
+-----------------------------------------------------------------------------------------------
+		-- Yoga Escape (b,db,d + K when knocked down)
+-----------------------------------------------------------------------------------------------
+CharStateTable.Specials.YogaEscape =
+{
+	name = "Yoga Escape",
+	inputname = "412K when knocked down",
+	type = "notatk",
+	spid = 6,
+	stateval = {min = 0x5fa6, max = 0x6246},
+}
+-----------------------------------------------------------------------------------------------
+	-- Super Moves
+-----------------------------------------------------------------------------------------------
+		-- Yoga Inferno (qcf,qcf + P)
+-----------------------------------------------------------------------------------------------
+CharStateTable.Supers.YogaInferno_L1 =
+{
+	name = "(Level 1) Yoga Inferno",
+	inputname = "236236P (Lv1)",
+	spid = 7,
+	atkstr = T_AtkStr.Lv1,
+	stateval =
+	{
+		{min = 0x638a, max = 0x63d2}, -- startup
+		{min = 0x63ee, max = 0x6496}, -- attack
+		{min = 0x6952, max = 0x699a}, -- recovery
+	}
+}
+CharStateTable.Supers.YogaInferno_L2 =
+{
+	name = "(Level 2) Yoga Inferno",
+	inputname = "236236P (Lv2)",
+	spid = 7,
+	atkstr = T_AtkStr.Lv2,
+	stateval =
+	{
+		{min = 0x638a, max = 0x63d2}, -- startup
+		{min = 0x64ca, max = 0x6662}, -- attack
+		{min = 0x6952, max = 0x699a}, -- recovery
+	}
+}
+CharStateTable.Supers.YogaInferno_L3 =
+{
+	name = "(Level 3) Yoga Inferno",
+	inputname = "236236P (Lv3)",
+	spid = 7,
+	atkstr = T_AtkStr.Lv3,
+	stateval =
+	{
+		{min = 0x638a, max = 0x63d2}, -- startup
+		{min = 0x6696, max = 0x691e}, -- attack
+		{min = 0x6952, max = 0x699a}, -- recovery
+	}
+}
+CharStateTable.Supers.YogaInferno =
+{
+	name = "Yoga Inferno",
+	inputname = "236236P",
+	spid = 7,
+	stateval =
+	{
+		{min = 0x638a, max = 0x63d2}, -- startup
+		CharStateTable.Supers.YogaInferno_L1.stateval[2],
+		CharStateTable.Supers.YogaInferno_L2.stateval[2],
+		CharStateTable.Supers.YogaInferno_L3.stateval[2],
+		{min = 0x6952, max = 0x699a}, -- recovery
+	}
+}
+
+-----------------------------------------------------------------------------------------------
+		-- Yoga Strike (qcf,qcf + K)
+-----------------------------------------------------------------------------------------------
+CharStateTable.Supers.YogaStrike_L1 =
+{
+	name = "(Level 1) Yoga Strike",
+	inputname = "236236K (Lv1)",
+	type = "throw",
+	spid = 8,
+	atkstr = T_AtkStr.Lv1,
+	stateval = {min = 0x69b6, max = 0x6d6e}
+}
+CharStateTable.Supers.YogaStrike_L2 =
+{
+	name = "(Level 2) Yoga Strike",
+	inputname = "236236K (Lv2)",
+	type = "throw",
+	spid = 8,
+	atkstr = T_AtkStr.Lv2,
+	stateval = {min = 0x69b6, max = 0x6d6e}
+}
+CharStateTable.Supers.YogaStrike_L3 =
+{
+	name = "(Level 3) Yoga Strike",
+	inputname = "236236K (Lv3)",
+	type = "throw",
+	spid = 8,
+	atkstr = T_AtkStr.Lv3,
+	stateval = {min = 0x69b6, max = 0x6d6e}
+}
+CharStateTable.Supers.YogaStrike =
+{
+	name = "Yoga Strike",
+	inputname = "236236K",
+	type = "throw",
+	spid = 8,
+	stateval = {min = 0x69b6, max = 0x6d6e}
+}
+
+return CharStateTable

@@ -1,0 +1,146 @@
+-- Basic states
+	-- Idle & movement
+0xb884 - 0xb8fc: Idle
+0xb918: Crouching
+0xb934 - 0xb9ac: Forward walk
+0xb9c8 - 0xba40: Back walk
+0xba5c - 0xbaa4: Transition from crouch to stand
+0xbac0 - 0xbb08: Transition from stand to crouch
+0xbb24 - 0xbb6c: Standing turn around after side switch
+0xbb88 - 0xbbd0: Crouching turn around after side switch
+0xbbec - 0xbc04: Prejump frames
+0xbc20 - 0xbc34: Landing recovery from jump
+0xbc54 - 0xbce4: Neutral jump
+0xbd00 - 0xbd78: Forward jump
+0xbdac - 0xbe24: Backward jump
+	-- Blocking
+0xbe58 - 0xbebc: Stand block (incl. proximity block)
+0xbed8 - 0xbf3c: Crouch block (incl. proximity block)
+0xbf70 - 0xbfd4: Air block (incl. proximity block)
+	-- Recovery Roll
+0xc054 - 0xc09c: Auto roll wakeup
+0xc0b8 - 0xc100: Recovery roll
+	-- Custom Combo
+0xffd8 - 0x0020: Grounded CC activation
+0x003c - 0x0054: Air CC activation
+	-- Cutscenes
+0xc180 - 0xc1f8: Intro pose
+0xc214 - 0xc28c: Win pose 1
+0xc2a8 - 0xc338: Win pose 2
+0xc354 - 0xc414: Win pose 3
+0xc430 - 0xc598: Win pose 4
+0xc5b4 - 0xc734: Win pose 5
+0xca30 - 0xca78: Time over loss/draw
+	-- Getting thrown
+0xca94 - 0xcd64: Getting thrown
+	-- Getting hit
+0xce40 - 0xce70: Standing hit in head 1
+0xce8c - 0xcebc: Standing hit in head 2
+0xced8 - 0xcf08: Standing hit in head 3
+0xcf24 - 0xcf54: Standing hit in body/feet 1
+0xcf70 - 0xcfa0: Standing hit in body/feet 2
+0xcfbc - 0xcfec: Standing hit in body/feet 3
+0xd008 - 0xd020: Crouching hit 1
+0xd03c - 0xd06c: Crouching hit 2
+0xd088 - 0xd0b8: Crouching hit 3
+0xd0d4 - 0xd11c: Launch hit (can usually be juggled)
+0xd138 - 0xd1d8: Knockdown
+0xd560 - 0xd578: Spin out after AC
+0xd1f4 - 0xd224: Falling after sweep
+0xd3d4 - 0xd44c: Air reset
+	-- Other
+0xd468 - 0xd4b0: Stun
+0xd4cc - 0xd544: Getting up
+-- Attacks
+	-- Normals
+		-- Standing Normals
+0xd594 - 0xd624: Standing LP
+0xd640 - 0xd6b8: Standing MP
+0xd6d4 - 0xd794: Standing HP
+0xd7b0 - 0xd810: Standing LK
+0xd82c - 0xd8bc: Standing MK
+0xd8d8 - 0xd968: Standing HK
+		-- Crouching Normals
+0xd984 - 0xd9e4: Crouching LP
+0xda00 - 0xdac0: Crouching MP
+0xdaf4 - 0xdbb4: Crouching HP
+0xdbd0 - 0xdc30: Crouching LK
+0xdc4c - 0xdcdc: Crouching MK
+0xdcf8 - 0xdda0: Crouching HK
+		-- Neutral Jumping Normals
+0xddbc - 0xde64: Neutral Jumping LP
+0xde80 - 0xdf28: Neutral Jumping MP
+0xdf44 - 0xe004: Neutral Jumping HP
+0xe020 - 0xe068: Neutral Jumping LK
+0xe084 - 0xe0cc: Neutral Jumping MK
+0xe0e8 - 0xe160: Neutral Jumping HK
+		-- Diagonal Jumping Normals
+0xe17c - 0xe224: Diagonal Jumping LP
+0xe240 - 0xe2e8: Diagonal Jumping MP
+0xe304 - 0xe3c4: Diagonal Jumping HP
+0xe3e0 - 0xe428: Diagonal Jumping LK
+0xe444 - 0xe48c: Diagonal Jumping MK
+0xe4a8 - 0xe520: Diagonal Jumping HK
+		-- Alpha Counter
+0xf530 - 0xf560: AC startup
+0xf57c - 0xf60c: Punch AC - Jigoku Scrape (b,db,d + P)
+0xf628 - 0xf700: Kick AC - Slide (b,db,d + K)
+	-- Throws
+0xe53c - 0xe5e4: Long Shogun Throw (f/b + MP/HP)
+0xe53c - 0xe5e4: Short Shogun Throw (f/b + MK/HK)
+	-- Special Moves
+		-- Jigoku Scrape (qcf + P)
+0xf038 - 0xf0f8: L Jigoku Scrape
+0xf114 - 0xf1bc: M Jigoku Scrape
+0xf1d8 - 0xf298: H Jigoku Scrape
+		-- Butsumetsu Buster (360 + P)
+0xf71c - 0xf764: Butsumetsu Buster (startup, all versions)
+0xf894 - 0xf954: Butsumetsu Buster (whiff, all versions)
+		-- Daikyo Burning (360 + K)
+0xf7cc - 0xf7fc: Daikyo Burning (startup, all versions)
+0xf830 - 0xf860: Daikyo Burning (startup during CC, all versions)
+0xf970 - 0xf9e8: Daikyo Burning (active, all versions)
+0xfa04 - 0xfac4: Daikyo Burning (hit grab before dragging portion, all versions)
+0xfaf8 - 0xfb40: Daikyo Burning (recovery, all versions)
+0xfc24 - 0xfd1c: Daikyo Burning (drag, all versions)
+		-- Shiraha Catch (dp + K)
+0x0070 - 0x00a0: Shiraha Catch (startup, all versions)
+0xe600 - 0xe690: Shiraha Catch (activate, all versions)
+0x00bc - 0x017c: L Shiraha Catch (whiff recovery)
+0x0198 - 0x0288: M Shiraha Catch (whiff recovery)
+0x02a4 - 0x03c4: H Shiraha Catch (whiff recovery)
+		-- Kouten Okiagari (f,df,d + P when knocked down)
+0xc11c - 0xc164: Kouten Okiagari
+		-- Tengu Walking (b,db,d + K when knocked down)
+0xfd38 - 0xfe90: Tengu Walking
+	-- Super Moves
+		-- Meido no Miyage (qcf,qcf + P)
+0xea9c - 0xebec: Lv1 Meido no Miyage
+0xec08 - 0xed70: Lv2 Meido no Miyage
+0xed8c - 0xef88: Lv3 Meido no Miyage
+0xefd4 - 0xf01c: Lv3 Meido no Miyage (recovery)
+		-- Tenchu Satsu (720 + P)
+0xf780 - 0xf7b0: Tenchu Satsu (startup, all versions)
+0xf894 - 0xf954: Tenchu Satsu (whiff, all versions)
+0xe8a4 - 0xe988: Tenchu Satsu (2nd throw & damage ender, all versions)
+0xe9d8 - 0xea80: Lv3 Tenchu Satsu (drag)
+0xfc24: Lv3 Tenchu Satsu (ending damage part)
+	-- Other
+0xfeac - 0xff24: Taunt (Start)
+0xe6ac - 0xe80c: Butsumetsu Buster throw anim/Tenchu Satsu 1st throw anim, all versions
+0xe9bc: Butsumetsu Buster/Daikyo Burning/Tenchu Satsu (recovery, all versions) -- for Butsumetsu Buster this is also where opponent takes damage
+
+Special ID's:
+
+0 - Butsumetsu Buster
+1 - Meido no Miyage
+2 - Jigoku Scrape
+3 - Tenchu Satsu
+4 - Punch AC
+5 - Daikyo Burning
+6 - Tengu Walking
+7 - Taunt
+8 - Kick AC
+9 - CC Activation
+10 - Shiraha Catch
+11 - Shiraha Catch Activate

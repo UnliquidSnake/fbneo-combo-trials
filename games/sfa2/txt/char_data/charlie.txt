@@ -1,0 +1,145 @@
+-- Basic states
+	-- Idle & movement
+0x0ca6 - 0x0d1e: Idle
+0x0d3a: Crouching
+0x0d56 - 0x0dce: Forward walk
+0x0dea - 0x0e62: Back walk
+0x0e7e - 0x0ec6: Transition from crouch to stand
+0x0ee2 - 0x0f2a: Transition from stand to crouch
+0x0f46 - 0x0f8e: Standing turn around after side switch
+0x0faa - 0x0ff2: Crouching turn around after side switch
+0x100e - 0x1026: Prejump frames
+0x1042 - 0x105a: Landing recovery from jump
+0x1076 - 0x1106: Neutral jump
+0x1122 - 0x11ca: Forward jump
+0x11e6 - 0x128e: Backward jump
+	-- Blocking
+0x12aa - 0x130e: Stand block (incl. proximity block)
+0x132a - 0x138e: Crouch block (incl. proximity block)
+0x13c2 - 0x1426: Air block (incl. proximity block)
+	-- Recovery Roll
+0x14a6 - 0x14ee: Auto roll wakeup
+0x150a - 0x1552: Recovery roll
+	-- Custom Combo
+0x6f36 - 0x6f4e: Grounded CC activation
+0x6f6a - 0x6f82: Air CC activation
+	-- Cutscenes
+0x15d2 - 0x16aa: Intro pose
+0x16c6 - 0x17ce: Win pose 1
+0x17ea - 0x18da: Win pose 2
+0x18f6 - 0x1a46: Win pose 3
+0x1a62 - 0x1be2: Win pose 4
+0x1bfe - 0x1c76: Time over loss/draw
+	-- Getting thrown
+0x210e - 0x2366: Getting thrown
+	-- Getting hit
+0x24d2 - 0x2502: Standing hit in head 1
+0x251e - 0x254e: Standing hit in head 2
+0x256a - 0x259a: Standing hit in head 3
+0x25b6 - 0x25e6: Standing hit in body/feet 1
+0x2602 - 0x2632: Standing hit in body/feet 2
+0x264e - 0x267e: Standing hit in body/feet 3
+0x269a - 0x26b2: Crouching hit 1
+0x26ce - 0x26fe: Crouching hit 2
+0x271a - 0x274a: Crouching hit 3
+0x2766 - 0x27ae: Launch hit (can usually be juggled)
+0x27ca - 0x281a: Knockdown
+0x286a - 0x2882: Spin out after AC
+0x289e - 0x28ce: Falling after sweep
+0x2a7e - 0x2afe: Air reset
+	-- Other
+0x2b12 - 0x2b5a: Stun
+0x2b76 - 0x2c06: Getting up
+-- Attacks
+	-- Normals
+		-- Standing Normals
+0x2c22 - 0x2c6a: Standing LP
+0x2c86 - 0x2d16: Standing MP
+0x2d32 - 0x2dda: Standing HP
+0x2df6 - 0x2e86: Standing LK
+0x2ea2 - 0x2f4a: Standing MK
+0x2f66 - 0x303e: Standing HK
+		-- Crouching Normals
+0x305a - 0x30a2: Crouching LP
+0x30be - 0x3136: Crouching MP
+0x3152 - 0x3212: Crouching HP
+0x322e - 0x328e: Crouching LK
+0x32aa - 0x333a: Crouching MK
+0x3356 - 0x33fe: Crouching HK
+		-- Neutral Jumping Normals
+0x341a - 0x3462: Neutral Jumping LP
+0x347e - 0x34f6: Neutral Jumping MP
+0x3512 - 0x35a2: Neutral Jumping HP
+0x35be - 0x3636: Neutral Jumping LK -- unique
+0x3652 - 0x36e2: Neutral Jumping MK
+0x36fe - 0x378e: Neutral Jumping HK
+		-- Diagonal Jumping Normals
+0x37aa - 0x37f2: Diagonal Jumping LP
+0x380e - 0x3886: Diagonal Jumping MP
+0x38a2 - 0x391a: Diagonal Jumping HP
+0x3936 - 0x397e: Diagonal Jumping LK -- unique
+0x399a - 0x3a2a: Diagonal Jumping MK
+0x3a46 - 0x3ad6: Diagonal Jumping HK
+		-- Command Normals
+0x436e - 0x43fe: Spinning Back Knuckle (f + HP)
+0x44de - 0x4556, 0x45a2 - 0x45ba: Rolling Sobat (f/b + MK)
+0x441a - 0x44c2: Heavy Stab Kick (f/b + HK)
+		-- Alpha Counter
+0x3e4e - 0x3e7e: AC startup
+0x3e9a - 0x3f12: Punch AC - Spinning Back Knuckle (b,db,d + P)
+0x6e42 - 0x6f1a: Kick AC - Sweep (b,db,d + K)
+	-- Throws
+0x3af2 - 0x3c2a: Dragon Suplex (f/b + MP/HP)
+0x3d3e - 0x3e1a: Knee Gatling (f/b + MK/HK)
+0x3c4e - 0x3d22: Flying Buster Drop (air f/b + MP/HP)
+	-- Special Moves
+		-- Sonic Boom (charge b,f + P)
+0x4e52 - 0x4ee2: L Sonic Boom
+0x4efe - 0x4f8e: M Sonic Boom
+0x4faa - 0x503a: H Sonic Boom
+0x5056 - 0x50e6: L Sonic Boom (during CC)
+0x5102 - 0x5192: M Sonic Boom (during CC)
+0x51ae - 0x523e: H Sonic Boom (during CC)
+		-- Somersault Shell (charge d,u + K)
+0x525a - 0x53aa: L Somersault Shell
+0x53c6 - 0x5516: M Somersault Shell
+0x5532 - 0x566a: H Somersault Shell
+0x56ea - 0x583a: L Somersault Shell (during CC)
+0x5856 - 0x59a6: M Somersault Shell (during CC)
+0x59c2 - 0x5afa: H Somersault Shell (during CC)
+	-- Super Moves
+		-- Sonic Break (charge b,f,b,f + P, keep pressing P for followups)
+0x6512 - 0x65a2: Lv1 Sonic Break (1st)
+0x65be - 0x664e: Lv2 Sonic Break (1st)
+0x666a - 0x66fa: Lv3 Sonic Break (1st)
+0x6716 - 0x678e: Sonic Break (2nd, all versions)
+0x67aa - 0x6822: Sonic Break (3rd, all versions)
+0x683e - 0x68b6: Sonic Break (4th, all versions)
+0x6962 - 0x6992: Sonic Break (1st, recovery, all versions)
+0x69ae - 0x69de: Sonic Break (2nd, recovery, all versions)
+0x69fa - 0x6a2a: Sonic Break (3rd, recovery, all versions)
+0x68ce - 0x6946: Sonic Break (4th, recovery, all versions)
+		-- Crossfire Blitz (charge b,f,b,f + K)
+0x45d6 - 0x4816: Lv1 Crossfire Blitz
+0x4832 - 0x4aea: Lv2 Crossfire Blitz
+0x4b06 - 0x4e36: Lv3 Crossfire Blitz
+		-- Somersault Justice (charge db,df,db,uf + K)
+0x5bde - 0x5d16, 0x6022 - 0x6142: Lv1 Somersault Justice
+0x5d4a - 0x5e82, 0x615e - 0x627e: Lv2 Somersault Justice
+0x5eb6 - 0x5fee, 0x629a - 0x63a2, 0x63d6 - 0x64f6: Lv3 Somersault Justice
+	-- Other
+0x6a62 - 0x6c8a: Taunt 1 (Start)
+0x6ca6 - 0x6e0e: Taunt 2 (f+Start)
+0x5686 - 0x56ce: Somersault Shell/Somersault Justice (recovery, all versions)
+
+Special ID's:
+
+0 - Somersault Shell
+1 - Sonic Boom
+2 - Crossfire Blitz
+3 - Somersault Justice
+4 - Sonic Break
+5 - Punch AC
+6 - Taunt
+7 - Kick AC
+8 - CC Activation

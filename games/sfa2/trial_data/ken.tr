@@ -1,0 +1,213 @@
+{
+	{
+		p1meter = 0,
+		save = "ken/ken_vs_ryu_pb.fs",
+		acttable = 
+		{
+			{state = States.Normals.crLK, carry = true},
+			{state = States.Normals.crLK},
+			{state = States.Specials.Tatsu_M},
+		}
+	},
+	{
+		p1meter = 0,
+		save = "ken/ken_vs_ryu_jumpin.fs",
+		acttable = 
+		{
+			{state = States.Normals.jHP},
+			{state = States.Normals.stMK},
+			{state = States.Specials.Shoryuken_H, success = "IsAtkCombo() and P2.CurrState.IsAirborne"},
+		}
+	},
+	{
+		fail = "DefaultFail() or P1.CurrState.CCActive",
+		p1meter = 0x30,
+		save = "ken/ken_vs_ryu_pb.fs",
+		acttable = 
+		{
+			{state = States.Normals.crLK, carry = true},
+			{state = States.Normals.crLK},
+			{state = States.Supers.Shoryureppa_L1, success = "IsAtkCombo() and P2.CurrState.IsAirborne"},
+		}
+	},
+	{
+		fail = "DefaultFail() or P1.CurrState.CCActive",
+		p1meter = 0x90,
+		save = "ken/ken_vs_ryu_jumpin.fs",
+		acttable = 
+		{
+			{state = States.Normals.djHK},
+			{state = States.Normals.stMK, nameadd = " [2 hits]", success = "IsAtkMultiCombo(2)"},
+			{state = States.Supers.Shoryureppa_L3, success = "IsAtkCombo() and P2.CurrState.IsAirborne"},
+		}
+	},
+	{
+		p1meter = 0,
+		save = "ken/ken_vs_ryu_jumpin.fs",
+		acttable = 
+		{
+			{state = States.Specials.AirTatsu},
+			{state = States.Normals.stMK},
+			{state = States.Specials.Shoryuken_H, success = "IsAtkCombo() and P2.CurrState.IsAirborne"},
+		}
+	},
+	{
+		description = "Corner only",
+		p1meter = 0,
+		save = "ken/ken_vs_ryu_corner_jumpin.fs",
+		acttable = 
+		{
+			{state = States.Normals.jHP},
+			{state = States.Normals.crMP},
+			{state = States.Normals.crMK},
+			{state = States.Specials.Tatsu_H},
+		}
+	},
+	{
+		description = "Crossup combo, opponent crouching",
+		enemystate = "crouch",
+		p1meter = 0,
+		save = "ken/ken_vs_ryu_crossup.fs",
+		acttable = 
+		{
+			{state = States.Normals.djMK, nameadd = " [crossup]", success = "IsAtkCombo() and IsCrossup()"},
+			{state = States.Normals.crLP},
+			{state = States.Normals.crHP},
+			{state = States.Specials.Hadoken_H},
+		}
+	},
+	{
+		fail = "not IsPlayerInState(P1, States.Normals.stHK) and not IsPlayerInState(P1, States.Specials.Shoryuken)",
+		p1meter = 0,
+		save = "ken/ken_vs_ryu_karadp.fs",
+		acttable = 
+		{
+			{state = States.Normals.stHK, nameadd = " [kara cancel]", success = "IsAtkWhiff()"},
+			{state = States.Specials.Shoryuken},
+		}
+	},
+	{
+		description = "Corner only",
+		p1meter = 0,
+		save = "ken/ken_vs_ryu_corner_pb.fs",
+		acttable = 
+		{
+			{state = States.Normals.Cmd_6MK, nameadd = " [meaty]"},
+			{state = States.Normals.crMK},
+			{state = States.Specials.Tatsu_H},
+		}
+	},
+	{
+		fail = "DefaultFail() or P1.CurrState.CCActive",
+		p1meter = 0x90,
+		save = "ken/ken_vs_ryu_pb.fs",
+		acttable = 
+		{
+			{state = States.Normals.crMP, nameadd = " [meaty]"},
+			{state = States.Normals.stMK, nameadd = " [2 hits]", success = "IsAtkMultiCombo(2)"},
+			{state = States.Supers.Shinryuken_L3, nameadd = " [11 hits or more]", success = "IsAtkMultiCombo(11)"},
+		}
+	},
+	{
+		fail = "DefaultFail() or P1.CurrState.CCActive",
+		description = "Freestyle combo, opponent crouching",
+		enemystate = "crouch",
+		p1meter = 0x90,
+		acttable = 
+		{
+			{state = States.Normals.djMK},
+			{state = States.Basic.Any, name = "Perform a 17 hit combo without CC", success = "P1.CurrState.ComboCounter >= 17"},
+		}
+	},
+	{
+		fail = "DefaultFail() or (IsCCEnded() and Trial.CurrState.TrialProgress <= 1)",
+		p1meter = 0x30,
+		save = "ken/ken_vs_ryu_pb.fs",
+		acttable = 
+		{
+			{state = States.Basic.CC},
+			{state = States.Normals.crHK},
+			{state = States.Specials.Tatsu_H},
+			{state = States.Specials.Shoryuken_H},
+		}
+	},
+	{
+		enemystate = "crouch",
+		p1meter = 0x30,
+		save = "ken/ken_vs_ryu_jumpin.fs",
+		acttable = 
+		{
+			{state = States.Normals.djHK},
+			{state = States.Basic.CC_Ground},
+			{state = States.Normals.crHK},
+			{state = States.Specials.Tatsu_L},
+			{state = States.Specials.Tatsu_L},
+			{state = States.Specials.Shoryuken_H},
+		}
+	},
+	{
+		fail = "DefaultFail() or (IsCCEnded() and Trial.CurrState.TrialProgress <= 1)",
+		enemystate = "jump",
+		p1meter = 0x40,
+		save = "ken/ken_vs_ryu_pb.fs",
+		acttable = 
+		{
+			{state = States.Basic.CC},
+			{state = States.Normals.stMP, nameadd = " [air hit]", success = "IsAtkCombo() and P2.CurrState.IsAirborne"},
+			{state = States.Specials.Shoryuken_L},
+			{state = States.Specials.Shoryuken_L},
+			{state = States.Specials.Shoryuken_H},
+		}
+	},
+	{
+		fail = "DefaultFail() or (IsCCEnded() and Trial.CurrState.TrialProgress <= 1)",
+		p1meter = 0x90,
+		save = "ken/ken_vs_ryu_pb.fs",
+		acttable = 
+		{
+			{state = States.Basic.CC},
+			{state = States.Normals.crHK},
+			{state = States.Specials.Tatsu_H},
+			{state = States.Specials.Shoryuken_L},
+			{state = States.Specials.Shoryuken_L},
+			{state = States.Specials.Shoryuken_H, nameadd = " [3 hits]", success = "IsAtkMultiCombo(3)"},
+		}
+	},
+	{
+		enemystate = "crouch",
+		p1meter = 0x90,
+		save = "ken/ken_vs_ryu_jumpin.fs",
+		acttable = 
+		{
+			{state = States.Normals.djHK},
+			{state = States.Basic.CC},
+			{state = States.Normals.crMK},
+			{state = States.Specials.Tatsu_H},
+			{state = States.Specials.Tatsu_H},
+			{state = States.Specials.Tatsu_H},
+			{state = States.Specials.Tatsu_H},
+			{state = States.Normals.stMP},
+			{state = States.Specials.Shoryuken_H, success = "IsAtkCombo() and P2.CurrState.IsAirborne"},
+		}
+	},
+	{
+		enemystate = "crouch",
+		p1meter = 0x90,
+		save = "ken/ken_vs_ryu_jumpin.fs",
+		acttable = 
+		{
+			{state = States.Specials.AirTatsu},
+			{state = States.Basic.CC_Ground},
+			{state = States.Normals.crHK},
+			{state = States.Specials.Hadoken_H},
+			{state = States.Specials.Roll_L},
+			{state = States.Normals.stHK},
+			{state = States.Specials.Hadoken_H},
+			{state = States.Specials.Roll_L},
+			{state = States.Normals.stHK},
+			{state = States.Specials.Hadoken_H},
+			{state = States.Specials.Roll_L},
+			{state = States.Specials.Shoryuken_L},
+		}
+	},
+}

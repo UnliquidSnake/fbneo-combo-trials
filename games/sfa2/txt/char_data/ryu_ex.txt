@@ -1,0 +1,159 @@
+-- Basic states
+	-- Idle & movement
+0x5e30 - 0x5ea8: Idle
+0x5ec4: Crouching
+0x5ee0 - 0x5f58: Forward walk
+0x5f74 - 0x5fec: Back walk
+0x6008 - 0x6050: Transition from crouch to stand
+0x606c - 0x60b4: Transition from stand to crouch
+0x60d0 - 0x6118: Standing turn around after side switch
+0x6134 - 0x617c: Crouching turn around after side switch
+0x6198 - 0x61b0: Prejump frames
+0x61cc - 0x61e4: Landing recovery from jump
+0x6200 - 0x6278: Neutral jump
+0x6294 - 0x6354: Forward jump
+0x6370 - 0x6418: Backward jump
+	-- Blocking
+0x6434 - 0x6498: Stand block (incl. proximity block)
+0x64b4 - 0x6518: Crouch block (incl. proximity block)
+0x654c - 0x6598: Air block (incl. proximity block)
+	-- Recovery Roll
+0x6618 - 0x6660: Auto roll wakeup
+0x667c - 0x66c4: Recovery roll
+	-- Custom Combo
+0xac50 - 0xada0: Grounded CC activation
+0xa7a0 - 0xa7b8: Air CC activation
+	-- Cutscenes
+0xa7d4 - 0xa8dc: Intro pose
+0x6a80 - 0x69a0: Win pose
+0x6cac: Time over loss/draw
+	-- Getting thrown
+0x7088 - 0x7370: Getting thrown
+	-- Getting hit
+0x7434 - 0x7464: Standing hit in head 1
+0x7480 - 0x74b0: Standing hit in head 2
+0x74cc - 0x74fc: Standing hit in head 3
+0x7518 - 0x7548: Standing hit in body/feet 1
+0x7564 - 0x7594: Standing hit in body/feet 2
+0x75b0 - 0x75e0: Standing hit in body/feet 3
+0x75fc - 0x7614: Crouching hit 1
+0x7630 - 0x7660: Crouching hit 2
+0x767c - 0x76ac: Crouching hit 3
+0x76c8 - 0x7710: Launch hit (can usually be juggled)
+0x772c - 0x777c: Knockdown
+0x77cc - 0x77e4: Spin out after AC
+0x7800 - 0x7830: Falling after sweep
+0x79e0 - 0x7a58: Air reset
+	-- Other
+0x7a74 - 0x7abc: Stun
+0x7ad8 - 0x7b80: Getting up
+-- Attacks
+	-- Normals
+		-- Standing Normals
+0x7b9c - 0x7bfc: Standing LP
+0x7c18 - 0x7c90: Standing MP
+0x7cac - 0x7d24: Standing HP
+0x7d40 - 0x7dd0: Standing LK
+0x7dec - 0x7e64: Standing MK
+0x7e80 - 0x7f10: Standing HK
+		-- Crouching Normals
+0x7f2c - 0x7f8c: Crouching LP
+0x7fa8 - 0x8008: Crouching MP
+0x8024 - 0x8084: Crouching HP
+0x80a0 - 0x8118: Crouching LK
+0x8134 - 0x81ac: Crouching MK
+0x81c8 - 0x8240: Crouching HK
+		-- Neutral Jumping Normals
+0x825c - 0x82a4: Neutral Jumping LP
+0x82c0 - 0x8308: Neutral Jumping MP -- unique
+0x8324 - 0x836c: Neutral Jumping HP
+0x8388 - 0x8400: Neutral Jumping LK -- unique
+0x841c - 0x8494: Neutral Jumping MK -- unique
+0x84b0 - 0x8540: Neutral Jumping HK -- unique
+		-- Diagonal Jumping Normals
+0x855c - 0x85a4: Diagonal Jumping LP
+0x85c0 - 0x8680: Diagonal Jumping MP -- unique
+0x869c - 0x86e4: Diagonal Jumping HP
+0x8700 - 0x8748: Diagonal Jumping LK -- unique
+0x8764 - 0x87c4: Diagonal Jumping MK -- unique
+0x87e0 - 0x8840: Diagonal Jumping HK -- unique
+		-- Command Normals
+0x9ff4 - 0xa0e4: Sakotsu Wari (f + MP)
+0xa100 - 0xa20c: Senpukyaku (f + MK)
+		-- Alpha Counter
+0xa414 - 0xa45c: AC startup
+0xa478 - 0xa520: Punch AC - Shoryuken (b,db,d + P)
+0xa380 - 0xa3f8: Kick AC - Sweep (b,db,d + K)
+	-- Throws
+0x885c - 0x88ec: Seoi Nage (f/b + MP/HP)
+0x8908 - 0x89c8: Tomoe Nage (f/b + MK/HK)
+	-- Special Moves
+		-- Hadoken (qcf + P)
+0x8a78 - 0x8b08: L Hadoken
+0x8b24 - 0x8bb4: M Hadoken
+0x8bd0 - 0x8c60: H Hadoken
+0x9298 - 0x9328: L Hadoken (during CC)
+0x9344 - 0x93d4: M Hadoken (during CC)
+0x93f0 - 0x9480: H Hadoken (during CC)
+		-- Shoryuken (dp + P)
+0xaf90 - 0xb038: L Shoryuken
+0xb054 - 0xb0fc: M Shoryuken
+0xb118 - 0xb1d8: H Shoryuken
+0x904c - 0x90f4: L Shoryuken (during CC)
+0x9110 - 0x91b8: M Shoryuken (during CC)
+0x91d4 - 0x927c: H Shoryuken (during CC)
+		-- Tatsumaki Senpukyaku (qcb + K, air OK)
+0xb8e4 - 0xb92c: L Tatsumaki Senpukyaku (Startup)
+0xb960 - 0xb9c0: M Tatsumaki Senpukyaku (Startup & 1st hit)
+0xb9f4 - 0xba54: H Tatsumaki Senpukyaku (Startup & 1st hit)
+0x9518 - 0x9578: Tatsumaki Senpukyaku (Recovery)
+0xae1c - 0xae7c: L Tatsumaki Senpukyaku (Active)
+0xae98 - 0xaef8: M Tatsumaki Senpukyaku (Active)
+0xaf14 - 0xaf74: H Tatsumaki Senpukyaku (Active)
+0x9784 - 0x97e4: L Tatsumaki Senpukyaku (Active, during CC)
+0x9800 - 0x9860: M Tatsumaki Senpukyaku (Active, during CC)
+0x987c - 0x98dc: H Tatsumaki Senpukyaku (Active, during CC)
+0xb1f4 - 0xb26c: L Air Tatsumaki Senpukyaku
+0xb288 - 0xb300: M Air Tatsumaki Senpukyaku
+0xb31c - 0xb394: H Air Tatsumaki Senpukyaku
+0x9594 - 0x95f4: Air Tatsumaki Senpukyaku (Recovery)
+		-- Fake Hadoken (qcf + Start)
+0x89e4 - 0x8a5c: Fake Hadoken
+		-- Ashura Senku (dp/rdp + PPP/KKK)
+0xaa98 - 0xab58: Ashura Senku
+0xab74 - 0xac34: Ashura Senku (during CC)
+	-- Super Moves
+		-- Shinku Hadoken (qcf,qcf + P)
+0x8c7c - 0x8dcc: Shinku Hadoken -- applies for all versions
+		-- Shinku Tatsumaki (qcb,qcb + K)
+0x9ab4 - 0x9b8c: Shinku Tatsumaki (Startup)
+0x9d5c - 0x9e80: Lv1 Shinku Tatsumaki (Active)
+0x9c80 - 0x9d40, 0x9ecc - 0x9f14: Lv2 Shinku Tatsumaki (Active)
+0x9ba4 - 0x9c64, 0x9f60 - 0x9f90: Lv3 Shinku Tatsumaki (Active)
+0xa1f4: Shinku Tatsumaki (Recovery)
+		-- Messatsu Goshoryu (qcf,qcf + K)
+0xb3b0 - 0xb500: Lv1 Messatsu Goshoryu
+0xb51c - 0xb69c: Lv2 Messatsu Goshoryu
+0xb6b8 - 0xb8c8: Lv3 Messatsu Goshoryu
+		-- Shun Goku Satsu (LP,LP,f,LK,HP)
+0xa8f8 - 0xa940: Shun Goku Satsu (Startup)
+0xa95c - 0xaa7c: Shun Goku Satsu (Active)		
+	-- Other
+0xa53c - 0xa614: Taunt 1 (Start)
+0xa630 - 0xa750: Taunt 2 (f+Start)
+
+Special ID's:
+
+0 - Shoryuken & Punch AC
+1 - Hadoken
+2 - Tatsu
+3 - Air Tatsu
+4 - Shinku Hadoken
+5 - Shinku Tatsumaki
+6 - Taunt
+7 - Kick AC
+8 - CC Activation
+9 - Fake Hadoken
+10 - Shun Goku Satsu
+11 - Ashura Senku
+12 - Messatsu Goshoryu

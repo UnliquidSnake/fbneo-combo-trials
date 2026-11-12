@@ -163,7 +163,7 @@
 		p1meter = 0x90,
 		acttable = 
 		{
-			{state = States.Supers.TenmaGozanku, success = "IsProjHit()"},
+			{state = States.Supers.TenmaGozanku},
 		}
 	},
 	{

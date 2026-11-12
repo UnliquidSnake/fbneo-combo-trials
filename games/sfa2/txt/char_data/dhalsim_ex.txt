@@ -1,0 +1,108 @@
+-- Basic states
+	-- Idle & movement
+0x0986 - 0x0a2e: Idle
+0x0a4a: Crouching
+0x0a66 - 0x0b0e: Forward walk
+0x0b2a - 0x0bd2: Back walk
+0x0bee - 0x0c36: Transition from crouch to stand
+0x0c52 - 0x0c9a: Transition from stand to crouch
+0x0cb6 - 0x0cfe: Standing turn around after side switch
+0x0d1a - 0x0d62: Crouching turn around after side switch
+0x0d7e - 0x0d96: Prejump frames
+0x0db2 - 0x0dca: Landing recovery from jump
+0x0de6 - 0x0f36: Neutral jump
+0x0f52 - 0x10d2: Forward jump
+0x10ee - 0x123e: Backward jump
+	-- Blocking
+0x125a - 0x12be: Stand block (incl. proximity block)
+0x12da - 0x133e: Crouch block (incl. proximity block)
+	-- Recovery Roll
+0x143e - 0x1486: Auto roll wakeup
+	-- Cutscenes
+0x17ea - 0x187a: Win pose
+0x18fa: Time over loss/draw
+	-- Getting thrown
+0x1a4a - 0x1daa: Getting thrown
+	-- Getting hit
+0x1f5e - 0x1f8e: Standing hit in head 1
+0x1faa - 0x1fda: Standing hit in head 2
+0x1ff6 - 0x2026: Standing hit in head 3
+0x2042 - 0x2072: Standing hit in body/feet 1
+0x208e - 0x20be: Standing hit in body/feet 2
+0x20da - 0x210a: Standing hit in body/feet 3
+0x2126 - 0x213e: Crouching hit 1
+0x215a - 0x218a: Crouching hit 2
+0x21a6 - 0x21d6: Crouching hit 3
+0x21f2 - 0x226a: Launch hit (can usually be juggled)
+0x2286 - 0x22ee: Knockdown
+0x233e - 0x2356: Spin out after AC
+0x2372 - 0x23a2: Falling after sweep
+0x25ca - 0x265a: Air reset
+	-- Other
+0x268e - 0x2706: Stun
+0x2722 - 0x279a: Getting up
+-- Attacks
+	-- Normals
+		-- Far Standing Normals
+0x2a42 - 0x2ad2: Far Standing LP
+0x2aee - 0x2bf6: Far Standing MP
+0x2c12 - 0x2d62: Far Standing HP
+0x2d7e - 0x2e56: Far Standing LK
+0x2e72 - 0x2faa: Far Standing MK
+0x2fc6 - 0x30e6: Far Standing HK
+		-- Close Standing Normals
+0x41e6 - 0x425e: Close Standing LP
+0x427a - 0x430a: Close Standing MP
+0x4326 - 0x43b6: Close Standing HP
+0x43d2 - 0x4462: Close Standing LK
+0x447e - 0x453e: Close Standing MK
+0x455a - 0x464a: Close Standing HK
+		-- Far Crouching Normals
+0x3102 - 0x320a: Far Crouching LP
+0x3226 - 0x332e: Far Crouching MP
+0x334a - 0x346a: Far Crouching HP
+0x4e0a - 0x4eb6: Far Crouching LK
+0x4ed2 - 0x4f96: Far Crouching MK
+0x4fb2 - 0x5076: Far Crouching HK
+		-- Close Crouching Normals
+0x4666 - 0x46c6: Close Crouching LP
+0x46e2 - 0x4742: Close Crouching MP
+0x7cca - 0x7dea: Close Crouching HP
+0x3532 - 0x35c2: Close Crouching MK
+		-- Neutral Jumping Normals
+0x77a2 - 0x7862: Neutral Jumping LP
+0x795a - 0x7a1a: Neutral Jumping MP
+0x7b12 - 0x7bd2: Neutral Jumping HP
+0x3906 - 0x39c6: Neutral Jumping LK
+0x39e2 - 0x3aba: Neutral Jumping MK
+0x3ad6 - 0x3bde: Neutral Jumping HK
+		-- Diagonal Jumping Normals
+0x787e - 0x793e: Diagonal Jumping LP
+0x7a36 - 0x7af6: Diagonal Jumping MP
+0x7bee - 0x7cae: Diagonal Jumping HP
+0x3bfa - 0x3cba: Diagonal Jumping LK
+0x3cd6 - 0x3dae: Diagonal Jumping MK
+0x3dca - 0x3ed2: Diagonal Jumping HK
+		-- Recovery
+0x41b2 - 0x41ca: Jump Normal Recovery
+		-- Command Normals
+0x5126 - 0x5186: Yoga Mummy (air d + HP)
+0x521e - 0x527e: Yoga Drill (air d + HK)
+	-- Throws
+0x5c7a - 0x5d86: Yoga Smash (f/b + MP)
+0x5da2 - 0x5e92: Yoga Throw (f/b + HP)
+	-- Special Moves
+		-- Yoga Fire (qcf + P)
+0x5666 - 0x56f6: L Yoga Fire
+0x5712 - 0x57a2: M Yoga Fire
+0x57be - 0x584e: H Yoga Fire
+		-- Yoga Flame (hcf + P)
+0x586a - 0x58e2: L Yoga Flame
+0x58fe - 0x5976: M Yoga Flame
+0x5992 - 0x5a0a: H Yoga Flame
+0x5a26 - 0x5a56: Yoga Flame (recovery)
+
+Special ID's:
+
+0 - Yoga Fire
+1 - Yoga Flame

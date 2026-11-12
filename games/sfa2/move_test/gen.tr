@@ -1,0 +1,148 @@
+{
+	{
+		p1meter = 0,
+		acttable = 
+		{
+			{state = States.Throws.ThrowP},
+		}
+	},
+	{
+		p1meter = 0,
+		acttable = 
+		{
+			{state = States.Throws.ThrowK},
+		}
+	},
+	{
+		p1meter = 0,
+		acttable = 
+		{
+			{state = States.Normals.Crane_TC},
+		}
+	},
+	{
+		fail = "not IsPlayerInState(P1, States.Specials.StyleSwitch_Crane)",
+		p1meter = 0,
+		acttable = 
+		{
+			{state = States.Specials.StyleSwitch_Crane},
+		}
+	},
+	{
+		fail = "not IsPlayerInState(P1, States.Specials.StyleSwitch_Mantis)",
+		p1meter = 0,
+		acttable = 
+		{
+			{state = States.Specials.StyleSwitch_Mantis},
+		}
+	},
+	{
+		p1meter = 0,
+		acttable = 
+		{
+			{state = States.Specials.Hyakurenko},
+		}
+	},
+	{
+		p1meter = 0,
+		acttable = 
+		{
+			{state = States.Specials.Gekiro},
+			{state = States.Specials.Gekiro_Follow},
+			{state = States.Specials.Gekiro_Finish},
+		}
+	},
+	{
+		p1meter = 0,
+		acttable = 
+		{
+			{state = States.Specials.Jyasen},
+		}
+	},
+	{
+		fail = "not IsPlayerInState(P1, States.Specials.Oga) and not IsPlayerInState(P1, States.Specials.Oga_WallDive)",
+		p1meter = 0,
+		acttable = 
+		{
+			{state = States.Specials.Oga, carry = true},
+			{state = States.Specials.Oga_WallDive},
+		}
+	},
+	{
+		fail = "not IsPlayerInState(P1, States.Specials.Oga) and not IsPlayerInState(P1, States.Specials.Oga_WallDiveAngled)",
+		p1meter = 0,
+		acttable = 
+		{
+			{state = States.Specials.Oga, carry = true},
+			{state = States.Specials.Oga_WallDiveAngled},
+		}
+	},
+	{
+		fail = "(not IsPlayerInState(P1, States.Specials.Oga) and not IsPlayerInState(P1, States.Specials.Oga_Feint)) or IsPlayerInState(P1, States.Specials.Oga_CeilingCling)",
+		p1meter = 0,
+		acttable = 
+		{
+			{state = States.Specials.Oga, carry = true},
+			{state = States.Specials.Oga_WallFeint},
+		}
+	},
+	{
+		fail = "not IsPlayerInState(P1, States.Specials.Oga) and not IsPlayerInState(P1, States.Specials.Oga_CeilingCling) and not IsPlayerInState(P1, States.Specials.Oga_CeilingDive)",
+		p1meter = 0,
+		acttable = 
+		{
+			{state = States.Specials.Oga, carry = true},
+			{state = States.Specials.Oga_CeilingCling, carry = true},
+			{state = States.Specials.Oga_CeilingDive},
+		}
+	},
+	{
+		fail = "not IsPlayerInState(P1, States.Specials.Oga) and not IsPlayerInState(P1, States.Specials.Oga_CeilingCling) and not IsPlayerInState(P1, States.Specials.Oga_CeilingDiveAngled)",
+		p1meter = 0,
+		acttable = 
+		{
+			{state = States.Specials.Oga, carry = true},
+			{state = States.Specials.Oga_CeilingCling, carry = true},
+			{state = States.Specials.Oga_CeilingDiveAngled},
+		}
+	},
+	{
+		fail = "not IsPlayerInState(P1, States.Specials.Oga) and not IsPlayerInState(P1, States.Specials.Oga_CeilingCling) and not IsPlayerInState(P1, States.Specials.Oga_CeilingFeint)",
+		p1meter = 0,
+		acttable = 
+		{
+			{state = States.Specials.Oga, carry = true},
+			{state = States.Specials.Oga_CeilingCling, carry = true},
+			{state = States.Specials.Oga_CeilingFeint},
+		}
+	},
+	{
+		p1meter = 0x90,
+		acttable = 
+		{
+			{state = States.Supers.Zanei},
+		}
+	},
+	{
+		p1meter = 0x90,
+		acttable = 
+		{
+			{state = States.Supers.Shitenshu},
+		}
+	},
+	{
+		enemystate = "jump",
+		p1meter = 0x90,
+		acttable = 
+		{
+			{state = States.Supers.Jakoha},
+		}
+	},
+	{
+		p1meter = 0x90,
+		acttable = 
+		{
+			{state = States.Supers.Kouga},
+		}
+	},
+}

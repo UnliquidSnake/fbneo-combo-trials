@@ -1,4 +1,4 @@
-CharStateTable = {}
+local CharStateTable = {}
 CharStateTable.Basic = {}
 CharStateTable.Normals = {}
 CharStateTable.Throws = {}
@@ -766,3 +766,5 @@ CharStateTable.Supers.SoulIllusion =
 	spid = 6,
 	stateval = {min = 0xfaea, max = 0xfb4a}
 }
+
+return CharStateTable

@@ -10,20 +10,6 @@
 		p1meter = 0,
 		acttable = 
 		{
-			{state = States.Normals.Cmd_6MP},
-		}
-	},
-	{
-		p1meter = 0,
-		acttable = 
-		{
-			{state = States.Normals.Cmd_6MK},
-		}
-	},
-	{
-		p1meter = 0,
-		acttable = 
-		{
 			{state = States.Specials.Gadoken, success = "IsProjHit()"},
 		}
 	},

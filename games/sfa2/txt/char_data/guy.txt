@@ -1,0 +1,162 @@
+-- Basic states
+	-- Idle & movement
+0x34a0 - 0x3518: Idle
+0x3534: Crouching
+0x3550 - 0x3658: Forward walk
+0x3674 - 0x377c: Back walk
+0x3798 - 0x37e0: Transition from crouch to stand
+0x37fc - 0x3844: Transition from stand to crouch
+0x3860 - 0x38a8: Standing turn around after side switch
+0x38c4 - 0x390c: Crouching turn around after side switch
+0x3928 - 0x3940: Prejump frames
+0x395c - 0x3974: Landing recovery from jump
+0x3990 - 0x3a20: Neutral jump
+0x3a3c - 0x3ab4: Forward jump
+0x3ad0 - 0x3b48: Backward jump
+0x3cfc - 0x3d14: Wall jump
+	-- Blocking
+0x3b64 - 0x3bc8: Stand block (incl. proximity block)
+0x3be4 - 0x3c48: Crouch block (incl. proximity block)
+0x3c7c - 0x3ce0: Air block (incl. proximity block)
+	-- Recovery Roll
+0x3d94 - 0x3ddc: Auto roll wakeup
+0x3df8 - 0x3e40: Recovery roll
+	-- Custom Combo
+0x8960 - 0x8978: Grounded CC activation
+0x8994 - 0x89ac: Air CC activation
+	-- Cutscenes
+0x3ec0 - 0x3f80: Intro pose
+0x3f9c - 0x4014: Win pose 1
+0x4030 - 0x40a8: Win pose 2
+0x40c4 - 0x413c: Win pose 3
+0x4158: Time over loss/draw
+	-- Getting thrown
+0x7d88 - 0x8040: Getting thrown
+	-- Getting hit
+0x8134 - 0x8164: Standing hit in head 1
+0x8180 - 0x81b0: Standing hit in head 2
+0x81cc - 0x81fc: Standing hit in head 3
+0x8218 - 0x8248: Standing hit in body/feet 1
+0x8264 - 0x8294: Standing hit in body/feet 2
+0x82b0 - 0x82e0: Standing hit in body/feet 3
+0x82fc - 0x832c: Crouching hit 1
+0x8348 - 0x8378: Crouching hit 2
+0x8394 - 0x83c4: Crouching hit 3
+0x83e0 - 0x8428: Launch hit (can usually be juggled)
+0x8444 - 0x8494: Knockdown
+0x84b0 - 0x84c8: Spin out after AC
+0x84e4 - 0x8514: Falling after sweep
+0x86e0 - 0x8740: Air reset
+	-- Other
+0x8820 - 0x8868: Stun
+0x875c - 0x8804: Getting up
+-- Attacks
+	-- Normals
+		-- Standing Normals
+0x445c - 0x44a4: Standing LP
+0x44c0 - 0x4568: Standing MP
+0x4584 - 0x462c: Standing HP
+0x4724 - 0x479c: Standing LK
+0x47b8 - 0x4878: Standing MK
+0x4894 - 0x496c: Standing HK
+		-- Crouching Normals
+0x4c04 - 0x4c4c: Crouching LP
+0x4c68 - 0x4ce0: Crouching MP
+0x4cfc - 0x4da4: Crouching HP
+0x4dc0 - 0x4e08: Crouching LK
+0x4e24 - 0x4ee4: Crouching MK
+0x4f00 - 0x4f90: Crouching HK
+		-- Neutral Jumping Normals
+0x4fac - 0x4ff4: Neutral Jumping LP
+0x5010 - 0x5058: Neutral Jumping MP
+0x5074 - 0x50ec: Neutral Jumping HP
+0x5108 - 0x5138: Neutral Jumping LK -- unique
+0x5154 - 0x51b4: Neutral Jumping MK
+0x51d0 - 0x5218: Neutral Jumping HK
+		-- Diagonal Jumping Normals
+0x5234 - 0x527c: Diagonal Jumping LP
+0x5298 - 0x52e0: Diagonal Jumping MP
+0x52fc - 0x5374: Diagonal Jumping HP
+0x5390 - 0x53f0: Diagonal Jumping LK -- unique
+0x540c - 0x546c: Diagonal Jumping MK
+0x5488 - 0x54d0: Diagonal Jumping HK
+		-- Command Normals
+0x5894 - 0x5984: Kubi Kudaki (f + MP)
+0x4a94 - 0x4b9c: Kamaitachi (df + HK)
+0x59b8 - 0x59e8: Hiji Otoshi (air d + MP)
+0x4648 - 0x46f0: Bushin Gokusaken 3rd hit (LP -> MP -> HP)
+0x49a0 - 0x4a60: Bushin Gokusaken 4th hit (LP -> MP -> HP -> HK)
+		-- Alpha Counter
+0x7cac - 0x7d6c: Punch AC - Crouching HP (b,db,d + P)
+0x5770 - 0x5878: Kick AC - Sweep (b,db,d + K)
+	-- Throws
+0x54ec - 0x5564: Seoi Nage (f/b + MP/HP)
+0x5580 - 0x562c: Tsukami Nage (f/b + MK/HK)
+0x54ec - 0x5564: Bushin Seoi Nage (during Tsukami Nage -> f,uf,u,ub,b + MP/HP)
+0x5648 - 0x5754: Izuna Otoshi (air f/b + MP/HP)
+	-- Special Moves
+		-- Bushin Senpukyaku (qcb + K)
+0x6c04 - 0x6d2c: L Bushin Senpukyaku
+0x6d48 - 0x6e70: M Bushin Senpukyaku
+0x6e8c - 0x6fb4: H Bushin Senpukyaku
+0x6fd0 - 0x70f8: L Bushin Senpukyaku (during CC)
+0x7114 - 0x723c: M Bushin Senpukyaku (during CC)
+0x7258 - 0x7380: H Bushin Senpukyaku (during CC)
+		-- Bushin Flip (qcf + P, has followups)
+0x5a04 - 0x5aac: Bushin Flip
+0x5c84 - 0x5c9c: Izuna no Hiji Otoshi -- Bushin Flip -> P
+0x5ac8 - 0x5c04: Bushin Izuna Otoshi -- Bushin Flip -> P near opponent's head
+0x5c20 - 0x5c68: Bushin Flip (recovery)
+		-- Hayagake (qcf + K, has followups)
+0x5cd0 - 0x5d78: Hayagake
+0x61f4 - 0x626c: Kyuteishi -- L Hayagake -> K / automatic when close to opponent
+0x5f4c - 0x6084: Kage Sukui -- M Hayagake -> K
+0x60a0 - 0x61d8: Kage Sukui (during CC)
+0x5d94 - 0x5e24: Kubikari -- H Hayagake -> K
+0x5e70 - 0x5f00: Kubikari (during CC)
+0x6288 - 0x62d0: Kubikari (recovery)
+		-- Hozanto (qcb + P)
+0x89c8 - 0x8ae8: L Hozanto
+0x8b04 - 0x8c24: M Hozanto
+0x8c40 - 0x8d60: H Hozanto
+0x8d7c - 0x8e84: L Hozanto (during CC)
+0x8ea0 - 0x8fa8: M Hozanto (during CC)
+0x8fc4 - 0x90cc: H Hozanto (during CC)
+	-- Super Moves
+		-- Bushin Hasoken (qcf,qcf + P)
+0x739c - 0x73cc: Bushin Hasoken (startup)
+0x7460 - 0x74c0: Lv1 Bushin Hasoken (1st hit)
+0x74dc - 0x753c: Lv2 Bushin Hasoken (1st hit)
+0x7558 - 0x75a0: Lv3 Bushin Hasoken (1st hit)
+0x75b8 - 0x764c: Lv1 Bushin Hasoken (2nd hit)
+0x7668 - 0x76e0: Lv2 Bushin Hasoken (2nd hit)
+0x76fc - 0x7774: Lv3 Bushin Hasoken (2nd hit)
+0x7790 - 0x7808: Lv1 Bushin Hasoken (3rd hit)
+0x7824 - 0x789c: Lv2 Bushin Hasoken (3rd hit)
+0x78b8 - 0x7930: Lv3 Bushin Hasoken (3rd hit)
+0x794c - 0x797c: Lv2 Bushin Hasoken (4th hit)
+0x7998 - 0x79c8: Lv3 Bushin Hasoken (4th hit)
+0x79e4 - 0x7a2c: Lv3 Bushin Hasoken (5th hit)
+0x7a48 - 0x7ad8: Lv3 Bushin Hasoken (last hit)
+0x7af4 - 0x7be4: Lv1 Bushin Hasoken (last hit)
+0x7c00 - 0x7c90: Lv2 Bushin Hasoken (last hit)
+		-- Bushin Goraikyaku (qcf,qcf + K)
+0x62ec - 0x640c, 0x68e0 - 0x69b8: Lv1 Bushin Goraikyaku
+0x6440 - 0x6650, 0x69ec - 0x6ac4: Lv2 Bushin Goraikyaku
+0x666c - 0x68c4, 0x6af8 - 0x6bd0: Lv3 Bushin Goraikyaku
+	-- Other
+0x8884 - 0x8944: Taunt (Start)
+0x4bb8 - 0x4be8: Kamaitachi/Bushin Hasoken (landing recovery)
+
+Special ID's:
+
+0 - Bushin Flip
+1 - Hayagake
+2 - Bushin Goraikyaku
+3 - Bushin Senpukyaku
+4 - Kick AC
+5 - Bushin Hasoken
+6 - Punch AC
+7 - Taunt
+8 - CC Activation
+9 - Hozanto

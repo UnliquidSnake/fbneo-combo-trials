@@ -1,0 +1,72 @@
+{
+	{
+		p1meter = 0,
+		acttable = 
+		{
+			{state = States.Throws.ThrowP},
+		}
+	},
+	{
+		p1meter = 0,
+		acttable = 
+		{
+			{state = States.Throws.ThrowK},
+		}
+	},
+	{
+		p1meter = 0,
+		acttable = 
+		{
+			{state = States.Normals.Cmd_6MK},
+		}
+	},
+	{
+		p1meter = 0,
+		acttable = 
+		{
+			{state = States.Specials.Hadoken, success = "IsProjHit()"},
+		}
+	},
+	{
+		p1meter = 0,
+		acttable = 
+		{
+			{state = States.Specials.Hadoken_L3, success = "IsProjHit()"},
+		}
+	},
+	{
+		p1meter = 0,
+		acttable = 
+		{
+			{state = States.Specials.Shouoken},
+		}
+	},
+	{
+		p1meter = 0,
+		acttable = 
+		{
+			{state = States.Specials.Tatsu},
+		}
+	},
+	{
+		p1meter = 0x90,
+		acttable = 
+		{
+			{state = States.Supers.ShinkuHadoken},
+		}
+	},
+	{
+		p1meter = 0x90,
+		acttable = 
+		{
+			{state = States.Supers.MidareZakura},
+		}
+	},
+	{
+		p1meter = 0x90,
+		acttable = 
+		{
+			{state = States.Supers.HaruIchiban},
+		}
+	},
+}

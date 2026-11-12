@@ -1,0 +1,99 @@
+{
+	{
+		p1meter = 0,
+		acttable = 
+		{
+			{state = States.Throws.ThrowP},
+		}
+	},
+	{
+		fail = "not IsPlayerInState(P1, States.Normals.Taunt)",
+		p1meter = 0,
+		acttable = 
+		{
+			{state = States.Normals.Taunt},
+		}
+	},
+	{
+		fail = "not IsPlayerInState(P1, States.Normals.CrouchingTaunt)",
+		p1meter = 0,
+		acttable = 
+		{
+			{state = States.Normals.CrouchingTaunt},
+		}
+	},
+	{
+		fail = "not IsPlayerInState(P1, States.Normals.JumpingTaunt)",
+		p1meter = 0,
+		acttable = 
+		{
+			{state = States.Normals.JumpingTaunt},
+		}
+	},
+	{
+		p1meter = 0,
+		acttable = 
+		{
+			{state = States.Specials.Gadoken, success = "IsProjHit()"},
+		}
+	},
+	{
+		p1meter = 0,
+		acttable = 
+		{
+			{state = States.Specials.Koryuken},
+		}
+	},
+	{
+		p1meter = 0,
+		acttable = 
+		{
+			{state = States.Specials.Dankukyaku},
+		}
+	},
+	{
+		fail = "not IsPlayerInState(P1, States.Specials.RollTaunt_Forward)",
+		p1meter = 0,
+		acttable = 
+		{
+			{state = States.Specials.RollTaunt_Forward},
+		}
+	},
+	{
+		fail = "not IsPlayerInState(P1, States.Specials.RollTaunt_Back)",
+		p1meter = 0,
+		acttable = 
+		{
+			{state = States.Specials.RollTaunt_Back},
+		}
+	},
+	{
+		p1meter = 0x90,
+		acttable = 
+		{
+			{state = States.Supers.ShinkuGadoken, success = "IsProjHit()"},
+		}
+	},
+	{
+		p1meter = 0x90,
+		acttable = 
+		{
+			{state = States.Supers.Koryurekka},
+		}
+	},
+	{
+		p1meter = 0x90,
+		acttable = 
+		{
+			{state = States.Supers.HisshoBuraiken},
+		}
+	},
+	{
+		fail = "not IsPlayerInState(P1, States.Supers.LegendaryTaunt)",
+		p1meter = 0x30,
+		acttable = 
+		{
+			{state = States.Supers.LegendaryTaunt},
+		}
+	},
+}

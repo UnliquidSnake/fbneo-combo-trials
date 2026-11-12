@@ -1,0 +1,115 @@
+{
+	{
+		p1meter = 0,
+		acttable = 
+		{
+			{state = States.Throws.ThrowP},
+		}
+	},
+	{
+		p1meter = 0,
+		acttable = 
+		{
+			{state = States.Throws.ThrowK},
+		}
+	},
+	{
+		p1meter = 0,
+		acttable = 
+		{
+			{state = States.Throws.ThrowCrouch},
+		}
+	},
+	{
+		p1meter = 0,
+		acttable = 
+		{
+			{state = States.Normals.Cmd_1MK},
+		}
+	},
+	{
+		p1meter = 0,
+		acttable = 
+		{
+			{state = States.Normals.Cmd_1HK},
+		}
+	},
+	{
+		p1meter = 0,
+		acttable = 
+		{
+			{state = States.Normals.Cmd_dj2HP},
+		}
+	},
+	{
+		p1meter = 0,
+		acttable = 
+		{
+			{state = States.Normals.Cmd_dj2K},
+		}
+	},
+	{
+		p1meter = 0,
+		acttable = 
+		{
+			{state = States.Normals.Cmd_nj8P},
+		}
+	},
+	{
+		p1meter = 0,
+		acttable = 
+		{
+			{state = States.Specials.SPD},
+		}
+	},
+	{
+		p1meter = 0,
+		acttable = 
+		{
+			{state = States.Specials.Lariat_P},
+		}
+	},
+	{
+		p1meter = 0,
+		acttable = 
+		{
+			{state = States.Specials.Lariat_K},
+		}
+	},
+	{
+		p1meter = 0,
+		acttable = 
+		{
+			{state = States.Specials.RunGrab},
+		}
+	},
+	{
+		p1meter = 0,
+		acttable = 
+		{
+			{state = States.Specials.AtomicSuplex},
+		}
+	},
+	{
+		p1meter = 0,
+		acttable = 
+		{
+			{state = States.Specials.GreenHand},
+		}
+	},
+	{
+		p1meter = 0x90,
+		acttable = 
+		{
+			{state = States.Supers.FAB},
+		}
+	},
+	{
+		enemystate = "jump",
+		p1meter = 0x90,
+		acttable = 
+		{
+			{state = States.Supers.AerialRussianSlam},
+		}
+	},
+}

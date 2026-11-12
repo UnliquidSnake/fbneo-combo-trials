@@ -1,0 +1,164 @@
+-- Basic states
+	-- Idle & movement
+0x9322 - 0x936a: Idle
+0x9386: Crouching
+0x93a2 - 0x94aa: Forward walk
+0x94c6 - 0x95ce: Back walk
+0x95ea - 0x9632: Transition from crouch to stand
+0x964e - 0x9696: Transition from stand to crouch
+0x96b2 - 0x96fa: Standing turn around after side switch
+0x9716 - 0x975e: Crouching turn around after side switch
+0x977a - 0x9792: Prejump frames
+0x97ae - 0x97c6: Landing recovery from jump
+0x97e2 - 0x9872: Neutral jump
+0x988e - 0x994e: Forward jump
+0x996a - 0x9a2a: Backward jump
+0xa762 - 0xa77a: Wall jump
+	-- Blocking
+0x9a46 - 0x9aaa: Stand block (incl. proximity block)
+0x9ac6 - 0x9b2a: Crouch block (incl. proximity block)
+0x9b5e - 0x9bc2: Air block (incl. proximity block)
+	-- Recovery Roll
+0x9d0a - 0x9d52: Auto roll wakeup
+0x9bde - 0x9c26: Recovery roll
+	-- Custom Combo
+0xa4de - 0xa4f6: Grounded CC activation
+0xa512 - 0xa52a: Air CC activation
+	-- Cutscenes
+0x9d6e - 0x9e5e: Intro pose
+0x9e7a - 0x9eda: Win pose 1
+0x9ef6 - 0xa0d6: Win pose 2
+0xa0f2 - 0xa242: Win pose 3
+0xa2da - 0xa3ca: Time over loss/draw
+	-- Getting thrown
+0xfc32 - 0xfea2: Getting thrown
+	-- Getting hit
+0xff7e - 0xffae: Standing hit in head 1
+0xffca - 0xfffa: Standing hit in head 2
+0x0016 - 0x0046: Standing hit in head 3
+0x0062 - 0x0092: Standing hit in body/feet 1
+0x00ae - 0x00de: Standing hit in body/feet 2
+0x00fa - 0x012a: Standing hit in body/feet 3
+0x0146 - 0x0176: Crouching hit 1
+0x0192 - 0x01c2: Crouching hit 2
+0x01de - 0x020e: Crouching hit 3
+0x022a - 0x0272: Launch hit (can usually be juggled)
+0x028e - 0x02c6: Knockdown
+0x06fa - 0x0712: Spin out after AC
+0x0316 - 0x0346: Falling after sweep
+0x0526 - 0x05ce: Air reset
+	-- Other
+0x0666 - 0x06c6: Stun
+0x05ea - 0x064a: Getting up
+-- Attacks
+	-- Normals
+		-- Standing Normals
+0xaa9e - 0xab16: Standing LP
+0xab32 - 0xab7a: Standing MP
+0xab96 - 0xac0e: Standing HP
+0xac2a - 0xaca2: Standing LK
+0xacbe - 0xad4e: Standing MK
+0xad6a - 0xae42: Standing HK
+		-- Crouching Normals
+0xae5e - 0xaed6: Crouching LP
+0xaef2 - 0xaf6a: Crouching MP
+0xaf86 - 0xaffe: Crouching HP
+0xb01a - 0xb092: Crouching LK
+0xb0ae - 0xb126: Crouching MK
+0xb142 - 0xb1d2: Crouching HK
+		-- Neutral Jumping Normals
+0xb1ee - 0xb296: Neutral Jumping LP
+0xb2b2 - 0xb35a: Neutral Jumping MP
+0xb376 - 0xb41e: Neutral Jumping HP
+0xb43a - 0xb4b2: Neutral Jumping LK -- unique
+0xb4ce - 0xb55e: Neutral Jumping MK -- unique
+0xb57a - 0xb622: Neutral Jumping HK -- unique
+		-- Diagonal Jumping Normals
+0xb63e - 0xb6e6: Diagonal Jumping LP
+0xb702 - 0xb7aa: Diagonal Jumping MP
+0xb7c6 - 0xb86e: Diagonal Jumping HP
+0xb88a - 0xb902: Diagonal Jumping LK -- unique
+0xb966 - 0xba26: Diagonal Jumping MK -- unique
+0xba42 - 0xbb1a: Diagonal Jumping HK -- unique
+		-- Command Normals
+0xbcc2 - 0xbd6a: Kakukyakuraku (df + HK)
+0xbd86 - 0xbe16: Yosokyaku (neutral jump d + MK)
+0xbe32 - 0xbec2: Yosokyaku (diagonal jump d + MK)
+		-- Alpha Counter
+0xbf8a - 0xc04a: Punch AC - Sou Hakkei (b,db,d + P)
+0xbede - 0xbf6e: Kick AC - Crouching MK (b,db,d + K)
+	-- Throws
+0xbb36 - 0xbbc6: Koshuto (f/b + MP/HP)
+0xbbe2 - 0xbc5a: Ryuseiraku (air f/b + MP/HP)
+	-- Special Moves
+		-- Hyakuretsukyaku (mash K)
+0xc112 - 0xc1ea: L Hyakuretsukyaku
+0xc206 - 0xc2de: M Hyakuretsukyaku
+0xc2fa - 0xc3d2: H Hyakuretsukyaku
+0xc3ee - 0xc41e: L Hyakuretsukyaku (recovery)
+0xc43a - 0xc46a: M Hyakuretsukyaku (recovery)
+0xc486 - 0xc4b6: H Hyakuretsukyaku (recovery)
+0xc4d2 - 0xc5aa: L Hyakuretsukyaku (during CC)
+0xc5de - 0xc69e: M Hyakuretsukyaku (during CC)
+0xc6ba - 0xc792: H Hyakuretsukyaku (during CC)
+0xc7ae - 0xc7de: L Hyakuretsukyaku (recovery during CC)
+0xc7fa - 0xc82a: M Hyakuretsukyaku (recovery during CC)
+0xc846 - 0xc876: H Hyakuretsukyaku (recovery during CC)
+		-- Kikoken (hcf + P)
+0xd31e - 0xd3de: L Kikoken
+0xd3fa - 0xd4ba: M Kikoken
+0xd4d6 - 0xd596: H Kikoken
+0xd5b2 - 0xd672: L Kikoken (during CC)
+0xd68e - 0xd74e: M Kikoken (during CC)
+0xd76a - 0xd82a: H Kikoken (during CC)
+		-- Tenshokyaku (charge d,u + K)
+0xd846 - 0xd97e: L Tenshokyaku
+0xd99a - 0xdb4a: M Tenshokyaku
+0xdb66 - 0xdd76: H Tenshokyaku
+0xddc2 - 0xdee2: L Tenshokyaku (during CC)
+0xdefe - 0xe0ae: M Tenshokyaku (during CC)
+0xe0ca - 0xe2aa: H Tenshokyaku (during CC)
+0xe30e - 0xe326: L Tenshokyaku (recovery)
+0xe342 - 0xe35a: M Tenshokyaku (recovery)
+0xe376 - 0xe38e: H Tenshokyaku (recovery)
+		-- Senenshu (hcb + K)
+0xc892 - 0xc9e2: L Senenshu
+0xc9fe - 0xcb4e: M Senenshu
+0xcb6a - 0xccba: H Senenshu
+0xccd6 - 0xce26: L Senenshu (during CC)
+0xce42 - 0xcf92: M Senenshu (during CC)
+0xcfae - 0xd0e6: H Senenshu (during CC)
+0xd11a - 0xd1aa: Senenshu (all non-CC versions after hit connects)
+	-- Super Moves
+		-- Kikosho (qcf,qcf + P)
+0xf6a6 - 0xf766: Kikosho (startup, all versions)
+0xf782 - 0xf8be: Lv1 Kikosho
+0xf8da - 0xfa46: Lv2 Kikosho
+0xfa62 - 0xfc16: Lv3 Kikosho
+		-- Senretsukyaku (charge b,f,b,f + K)
+0xe3aa - 0xe55a: Lv1 Senretsukyaku
+0xe576 - 0xe7b6: Lv2 Senretsukyaku
+0xe7d2 - 0xeaa2: Lv3 Senretsukyaku
+		-- Hazan Tenshokyaku (charge db,df,db,uf + K)
+0xeabe - 0xedee: Lv1 Hazan Tenshokyaku
+0xee0a - 0xf1b2: Lv2 Hazan Tenshokyaku
+0xf1ce - 0xf5ee: Lv3 Hazan Tenshokyaku
+0xf60a - 0xf622: Lv1 Hazan Tenshokyaku (recovery)
+0xf63e - 0xf656: Lv2 Hazan Tenshokyaku (recovery)
+0xf672 - 0xf68a: Lv3 Hazan Tenshokyaku (recovery)
+	-- Other
+0xc066 - 0xc0f6: Taunt (Start)
+
+Special ID's:
+
+0 - Hyakuretsukyaku
+1 - Senenshu
+2 - Kikoken
+3 - Tenshokyaku
+4 - Senretsukyaku
+5 - Hazan Tenshokyaku
+6 - Kikosho
+7 - Taunt
+8 - Punch AC
+9 - Kick AC
+10 - CC Activation

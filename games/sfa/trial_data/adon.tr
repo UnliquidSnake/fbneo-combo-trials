@@ -1,6 +1,7 @@
 {
 	{
 		p1meter = 0,
+		save = "adon/adon_vs_sagat_pb.fs",
 		acttable = 
 		{
 			{state = States.Normals.crLK, carry = true},
@@ -10,6 +11,7 @@
 	},
 	{
 		p1meter = 0,
+		save = "adon/adon_vs_sagat_jumpin.fs",
 		acttable = 
 		{
 			{state = States.Normals.djMK},
@@ -19,6 +21,7 @@
 	},
 	{
 		p1meter = 0x30,
+		save = "adon/adon_vs_sagat_pb.fs",
 		acttable = 
 		{
 			{state = States.Normals.crLP},
@@ -29,6 +32,7 @@
 	},
 	{
 		p1meter = 0,
+		save = "adon/adon_vs_sagat_pb.fs",
 		acttable = 
 		{
 			{state = States.Normals.crMP},
@@ -37,9 +41,21 @@
 		}
 	},
 	{
+		p1meter = 0x60,
+		save = "adon/adon_vs_sagat_jumpin.fs",
+		acttable = 
+		{
+			{state = States.Normals.djHK},
+			{state = States.Normals.crMP},
+			{state = States.Normals.crMK},
+			{state = States.Supers.JaguarVariedAssault_L2, success = "IsAtkMultiCombo(6) and P2.CurrState.IsAirborne"},
+		}
+	},
+	{
 		description = "Opponent crouching",
 		enemystate = "crouch",
 		p1meter = 0,
+		save = "adon/adon_vs_sagat_jumpin.fs",
 		acttable = 
 		{
 			{state = States.Specials.JaguarKick_L},
@@ -51,6 +67,7 @@
 		description = "Corner only, opponent jumping",
 		enemystate = "jump",
 		p1meter = 0,
+		save = "adon/adon_vs_sagat_corner.fs",
 		acttable = 
 		{
 			{state = States.Specials.JaguarKick_L, nameadd = " [air hit]", success = "IsAtkCombo() and P2.CurrState.IsAirborne"},
@@ -61,6 +78,7 @@
 		description = "Crossup combo, opponent crouching",
 		enemystate = "crouch",
 		p1meter = 0x90,
+		save = "adon/adon_vs_sagat_jumpin.fs",
 		acttable = 
 		{
 			{state = States.Normals.djMK, nameadd = " [crossup]", success = "IsAtkCombo() and IsCrossup()"},

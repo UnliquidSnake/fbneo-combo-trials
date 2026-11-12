@@ -1,4 +1,4 @@
-CharStateTable = {}
+local CharStateTable = {}
 CharStateTable.Basic = {}
 CharStateTable.Normals = {}
 CharStateTable.Throws = {}
@@ -77,9 +77,17 @@ CharStateTable.Supers.TheBirdie_L1 = {}
 CharStateTable.Supers.TheBirdie_L2 = {}
 CharStateTable.Supers.TheBirdie_L3 = {}
 CharStateTable.Supers.BullRevenger = {}
+CharStateTable.Supers.BullRevenger_P = {}
+CharStateTable.Supers.BullRevenger_K = {}
 CharStateTable.Supers.BullRevenger_L1 = {}
+CharStateTable.Supers.BullRevenger_L1_P = {}
+CharStateTable.Supers.BullRevenger_L1_K = {}
 CharStateTable.Supers.BullRevenger_L2 = {}
+CharStateTable.Supers.BullRevenger_L2_P = {}
+CharStateTable.Supers.BullRevenger_L2_K = {}
 CharStateTable.Supers.BullRevenger_L3 = {}
+CharStateTable.Supers.BullRevenger_L3_P = {}
+CharStateTable.Supers.BullRevenger_L3_K = {}
 -----------------------------------------------------------------------------------------------
 -- Basic states
 -----------------------------------------------------------------------------------------------
@@ -604,12 +612,13 @@ CharStateTable.Specials.BullHorn_L5 =
 }
 CharStateTable.Specials.BullHorn_L6 =
 {
-	name = "(Level 6) Bull Horn",
+	name = "(Final) Bull Horn",
 	inputname = "Hold PP/KK, release (Lv6)",
 	spid = 1,
 	atkstr = T_AtkStr.L6,
 	stateval = {min = 0x75de, max = 0x76ce}
 }
+
 CharStateTable.Specials.BullHorn =
 {
 	name = "Bull Horn",
@@ -686,12 +695,42 @@ CharStateTable.Supers.TheBirdie =
 	}
 }
 -----------------------------------------------------------------------------------------------
-		-- Bull Revenger (qcf,qcf + K)
+		-- Bull Revenger (qcf,qcf + P/K)
 -----------------------------------------------------------------------------------------------
+CharStateTable.Supers.BullRevenger_L1_P =
+{
+	name = "(Level 1) (P) Bull Revenger",
+	inputname = "236236P (Lv1)",
+	type = "throw",
+	spid = 3,
+	atkstr = T_AtkStr.Lv1,
+	atktype = T_AtkType.P,
+	stateval =
+	{
+		{min = 0x76ea, max = 0x771a},
+		{min = 0x78f2, max = 0x793a},
+		{min = 0x6a72, max = 0x6c0a},
+	}
+}
+CharStateTable.Supers.BullRevenger_L1_K =
+{
+	name = "(Level 1) (K) Bull Revenger",
+	inputname = "236236K (Lv1)",
+	type = "throw",
+	spid = 3,
+	atkstr = T_AtkStr.Lv1,
+	atktype = T_AtkType.K,
+	stateval =
+	{
+		{min = 0x76ea, max = 0x771a},
+		{min = 0x78f2, max = 0x793a},
+		{min = 0x6a72, max = 0x6c0a},
+	}
+}
 CharStateTable.Supers.BullRevenger_L1 =
 {
 	name = "(Level 1) Bull Revenger",
-	inputname = "236236K (Lv1)",
+	inputname = "236236P/K (Lv1)",
 	type = "throw",
 	spid = 3,
 	atkstr = T_AtkStr.Lv1,
@@ -702,10 +741,42 @@ CharStateTable.Supers.BullRevenger_L1 =
 		{min = 0x6a72, max = 0x6c0a},
 	}
 }
+CharStateTable.Supers.BullRevenger_L2_P =
+{
+	name = "(Level 2) (P) Bull Revenger",
+	inputname = "236236P (Lv2)",
+	type = "throw",
+	spid = 3,
+	atkstr = T_AtkStr.Lv2,
+	atktype = T_AtkType.P,
+	stateval =
+	{
+		{min = 0x76ea, max = 0x771a},
+		{min = 0x78f2, max = 0x793a},
+		{min = 0x6a72, max = 0x6c0a},
+		{min = 0x6c56, max = 0x6da6},
+	}
+}
+CharStateTable.Supers.BullRevenger_L2_K =
+{
+	name = "(Level 2) (K) Bull Revenger",
+	inputname = "236236K (Lv2)",
+	type = "throw",
+	spid = 3,
+	atkstr = T_AtkStr.Lv2,
+	atktype = T_AtkType.K,
+	stateval =
+	{
+		{min = 0x76ea, max = 0x771a},
+		{min = 0x78f2, max = 0x793a},
+		{min = 0x6a72, max = 0x6c0a},
+		{min = 0x6c56, max = 0x6da6},
+	}
+}
 CharStateTable.Supers.BullRevenger_L2 =
 {
 	name = "(Level 2) Bull Revenger",
-	inputname = "236236K (Lv2)",
+	inputname = "236236P/K (Lv2)",
 	type = "throw",
 	spid = 3,
 	atkstr = T_AtkStr.Lv2,
@@ -717,10 +788,44 @@ CharStateTable.Supers.BullRevenger_L2 =
 		{min = 0x6c56, max = 0x6da6},
 	}
 }
+CharStateTable.Supers.BullRevenger_L3_P =
+{
+	name = "(Level 3) (P) Bull Revenger",
+	inputname = "236236P (Lv3)",
+	type = "throw",
+	spid = 3,
+	atkstr = T_AtkStr.Lv3,
+	atktype = T_AtkType.P,
+	stateval =
+	{
+		{min = 0x76ea, max = 0x771a},
+		{min = 0x78f2, max = 0x793a},
+		{min = 0x6a72, max = 0x6c0a},
+		{min = 0x6c56, max = 0x6da6},
+		{min = 0x6df2, max = 0x6e82},
+	}
+}
+CharStateTable.Supers.BullRevenger_L3_K =
+{
+	name = "(Level 3) (K) Bull Revenger",
+	inputname = "236236K (Lv3)",
+	type = "throw",
+	spid = 3,
+	atkstr = T_AtkStr.Lv3,
+	atktype = T_AtkType.K,
+	stateval =
+	{
+		{min = 0x76ea, max = 0x771a},
+		{min = 0x78f2, max = 0x793a},
+		{min = 0x6a72, max = 0x6c0a},
+		{min = 0x6c56, max = 0x6da6},
+		{min = 0x6df2, max = 0x6e82},
+	}
+}
 CharStateTable.Supers.BullRevenger_L3 =
 {
 	name = "(Level 3) Bull Revenger",
-	inputname = "236236K (Lv3)",
+	inputname = "236236P/K (Lv3)",
 	type = "throw",
 	spid = 3,
 	atkstr = T_AtkStr.Lv3,
@@ -733,10 +838,42 @@ CharStateTable.Supers.BullRevenger_L3 =
 		{min = 0x6df2, max = 0x6e82},
 	}
 }
+CharStateTable.Supers.BullRevenger_P =
+{
+	name = "(P) Bull Revenger",
+	inputname = "236236P",
+	type = "throw",
+	spid = 3,
+	atktype = T_AtkType.P,
+	stateval =
+	{
+		{min = 0x76ea, max = 0x771a},
+		{min = 0x78f2, max = 0x793a},
+		{min = 0x6a72, max = 0x6c0a},
+		{min = 0x6c56, max = 0x6da6},
+		{min = 0x6df2, max = 0x6e82},
+	}
+}
+CharStateTable.Supers.BullRevenger_K =
+{
+	name = "(K) Bull Revenger",
+	inputname = "236236K",
+	type = "throw",
+	spid = 3,
+	atktype = T_AtkType.K,
+	stateval =
+	{
+		{min = 0x76ea, max = 0x771a},
+		{min = 0x78f2, max = 0x793a},
+		{min = 0x6a72, max = 0x6c0a},
+		{min = 0x6c56, max = 0x6da6},
+		{min = 0x6df2, max = 0x6e82},
+	}
+}
 CharStateTable.Supers.BullRevenger =
 {
 	name = "Bull Revenger",
-	inputname = "236236K",
+	inputname = "236236P/K",
 	type = "throw",
 	spid = 3,
 	stateval =
@@ -748,3 +885,5 @@ CharStateTable.Supers.BullRevenger =
 		{min = 0x6df2, max = 0x6e82},
 	}
 }
+
+return CharStateTable

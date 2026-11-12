@@ -1,6 +1,7 @@
 {
 	{
 		p1meter = 0,
+		save = "ryu/ryu_vs_ken_pb.fs",
 		acttable = 
 		{
 			{state = States.Normals.crLK, carry = true},
@@ -10,6 +11,7 @@
 	},
 	{
 		p1meter = 0,
+		save = "ryu/ryu_vs_ken_jumpin.fs",
 		acttable = 
 		{
 			{state = States.Normals.djHK},
@@ -19,6 +21,7 @@
 	},
 	{
 		p1meter = 0x60,
+		save = "ryu/ryu_vs_ken_pb.fs",
 		acttable = 
 		{
 			{state = States.Normals.crLK, carry = true},
@@ -29,6 +32,7 @@
 	},
 	{
 		p1meter = 0x30,
+		save = "ryu/ryu_vs_ken_jumpin.fs",
 		acttable = 
 		{
 			{state = States.Specials.AirTatsu},
@@ -38,6 +42,7 @@
 	{
 		description = "Corner only",
 		p1meter = 0,
+		save = "ryu/ryu_vs_ken_corner_jumpin.fs",
 		acttable = 
 		{
 			{state = States.Specials.AirTatsu},
@@ -45,9 +50,10 @@
 		}
 	},
 	{
-		description = "Opponent airborne",
+		description = "Corner only, opponent airborne",
 		p1meter = 0,
 		enemystate = "jump",
+		save = "ryu/ryu_vs_ken_corner_jumpin.fs",
 		acttable = 
 		{
 			{state = States.Normals.djMP, nameadd = " [air hit]", success = "IsAtkCombo() and P2.CurrState.IsAirborne"},
@@ -58,6 +64,7 @@
 		description = "Crossup combo, opponent crouching",
 		p1meter = 0x90,
 		enemystate = "crouch",
+		save = "ryu/ryu_vs_ken_jumpin.fs",
 		acttable = 
 		{
 			{state = States.Normals.djMK, nameadd = " [crossup]", success = "IsAtkCombo() and IsCrossup()"},
@@ -69,6 +76,7 @@
 	{
 		description = "Corner only",
 		p1meter = 0x30,
+		save = "ryu/ryu_vs_ken_corner_jumpin.fs",
 		acttable = 
 		{
 			{state = States.Normals.jHP},
@@ -82,6 +90,7 @@
 	{
 		description = "Corner only",
 		p1meter = 0x60,
+		save = "ryu/ryu_vs_ken_corner_jumpin.fs",
 		acttable = 
 		{
 			{state = States.Normals.jHP},
@@ -93,6 +102,7 @@
 	{
 		description = "Corner only",
 		p1meter = 0x90,
+		save = "ryu/ryu_vs_ken_corner_jumpin.fs",
 		acttable = 
 		{
 			{state = States.Normals.jHP},

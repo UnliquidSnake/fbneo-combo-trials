@@ -1,44 +1,48 @@
+-- Main script for Street Fighter Alpha
+
+local GameRoutine = {}
 -------------------------------------------------------Loading routine-------------------------------------------------------
-local Path_HelperScript = "games/" .. GameFolder .. "/script/gamestate.lua"
-LoadScript(Path_HelperScript, "ERROR: Cannot find gamestate file for " .. GameFolder)
+-- Load helper script for player variables
+local Path_GameState = "games/" .. GameFolder .. "/script/gamestate.lua"
+Helper.LoadModule(Path_GameState, "ERROR: Cannot find gamestate script")
+-------------------------------------------------------Constants-------------------------------------------------------
+-- Define path for game-specific trial functions & helper script for player variables
 Path_TrialFunctions = "script/trial_funcs/cps2-functions.lua"
+-- Message values
+GameMessage = {"Select Dan for both players with Lua hotkey 3 (Alt+3)"} -- Message when loading script
+CharMessage = function() return P1.CharName .. " vs. " .. P2.CharName end
+-- Button table & helper values
+Buttons = 
+{
+	LP = "Weak Punch",
+	MP = "Medium Punch",
+	HP = "Strong Punch",
+	LK = "Weak Kick",
+	MK = "Medium Kick",
+	HK = "Strong Kick",
+}
+Button_Confirm = Buttons.LP
+Button_Back = Buttons.MP
+InputHelperText = "LP - Confirm, MP - Back"
+-- Refill timer
+local RefillTimer = 0
 -------------------------------------------------------Functions-------------------------------------------------------
-function CheckSecondaryConfigErrors() -- Error handling of game-specific config values
+function CfgRoutine.CheckSecondaryErrors(param_cfgobj) -- Error handling of game-specific config values
 	-- Read values from config file
-	local config_p1meter = Config.P1RefillSuperMeter
+	local config_p1meter = param_cfgobj.P1RefillSuperMeter
 	-- Check integrity of config values
-	if not(type(config_p1meter) == "number" and IsInteger(config_p1meter) and config_p1meter >= 0 and config_p1meter <= PlayerMaxSuperMeter) then
+	if not (type(config_p1meter) == "number" and Helper.IsInteger(config_p1meter) and config_p1meter >= 0 and config_p1meter <= PlayerMaxSuperMeter) then
 		error("ERROR: Config parameter P1RefillSuperMeter has incorrect value") end
 end
-local function LoadCharData() -- Get character data for trials & filepaths for loading rest of the script
-	P1.CharID = Read_PlayerCharID(P1)
-	P2.CharID = Read_PlayerCharID(P2)
-	P1.CharShortname = T_CharShortname[P1.CharID]
-	P2.CharShortname = T_CharShortname[P2.CharID]
-	P1.CharName = T_CharName[P1.CharID]
-	P2.CharName = T_CharName[P2.CharID]
-	print ("Detected chars: " .. P1.CharName .. " vs. " .. P2.CharName)
-	-- Set paths for char-specific files
-	Path_P1StateData = "games/" .. GameFolder .. "/char_data/" .. P1.CharShortname .. ".chr"
-	Path_P2StateData = "games/" .. GameFolder .. "/char_data/" .. P2.CharShortname .. ".chr"
-	Path_TrialData = "games/" .. GameFolder .. "/trial_data/" .. P1.CharShortname .. ".tr"
-	-- Load character state data
-	LoadScript(Path_P1StateData, "ERROR: Cannot find character data for player 1")
-	P1.StateTable = CharStateTable
-	LoadScript(Path_P2StateData, "ERROR: Cannot find character data for player 2")
-	P2.StateTable = CharStateTable
-	if not (type(P1.StateTable) == "table") then error("ERROR: Empty or missing state table for player 1") end
-	if not (type(P2.StateTable) == "table") then error("ERROR: Empty or missing state table for player 2") end
-end
-local SetInfiniteTime = function() -- Freeze timer
+function GameRoutine.SetInfiniteTime() -- Freeze timer
 	ww(Addr_MatchTimer, MaxTimeCount) end
-local SetInfiniteStun = function() -- Freeze stun values
+function GameRoutine.SetInfiniteStun() -- Freeze stun values
 	wb(Addr_PlayerStun(P1), 0)
 	wb(Addr_PlayerStun(P2), 0)
 end
-local SetGameSpeed = function(param_speed) -- Set game speed to specific value
+function GameRoutine.SetGameSpeed(param_speed) -- Set game speed to specific value
 	wb(Addr_GameSpeed, param_speed) end
-local RefillPlayers = function() -- Refill HP & meters
+function GameRoutine.RefillPlayers() -- Refill HP & meters
 	local Refill = {P1Health, P2Health, P1SuperMeter, P2SuperMeter = 0}
 	Refill.P1Health = PlayerMaxHealth
 	Refill.P2Health = PlayerMaxHealth
@@ -51,7 +55,7 @@ local RefillPlayers = function() -- Refill HP & meters
 	Write_PlayerSuperMeter(P1, Refill.P1SuperMeter)
 	Write_PlayerSuperMeter(P2, Refill.P2SuperMeter)
 end
-local RefillHandler = function() -- Control timer & conditions for refills
+function GameRoutine.RefillHandler() -- Control timer & conditions for refills
 	-- Refill on a timer if following things happen:
 	if 
 	(
@@ -70,14 +74,14 @@ local RefillHandler = function() -- Control timer & conditions for refills
 		IsPlayerInState(P2, P2.StateTable.Basic.Recovery)
 	) then RefillTimer = 0 end
 	if (RefillTimer > 0) then RefillTimer = RefillTimer-1 end
-	if (RefillTimer == 0) then RefillPlayers() end
+	if (RefillTimer == 0) then GameRoutine.RefillPlayers() end
 end
-local UpdateLocalVars = function()
-	-- Update previous frame values
-	CopyTable(P1.CurrState, P1.PrevState)
-	CopyTable(P2.CurrState, P2.PrevState)
-	CopyTable(Match.CurrState, Match.PrevState)
-	-- Update current frame values
+function GameRoutine.SelectDan() -- Hacky function for when you can't manually input the Dan code
+	wb(Addr_PlayerSelect(P1), T_CharID.Dan)
+	wb(Addr_PlayerSelect(P2), T_CharID.Dan)
+end
+function GameRoutine.UpdateGameVars()
+	-- Update player values
 	PlayerFuncs =
 	{
 		Health = Read_PlayerHealth,
@@ -91,14 +95,15 @@ local UpdateLocalVars = function()
 		CharState = Read_PlayerCharState,
 		SpecialID = Read_PlayerSpecialID,
 		AtkStr = Read_PlayerAtkStr,
+		AtkType = Read_PlayerAtkType,
 		InHitstun = Read_PlayerInHitstun,
 		ProjActive = Read_PlayerProjActive,
 		RoseClones = Read_PlayerRoseClones,
 	}
-	-- Update player values
+
 	for k,v in pairs(PlayerFuncs) do
-		P1.CurrState["" .. k] = v(P1)
-		P2.CurrState["" .. k] = v(P2)
+		P1.CurrState[k] = v(P1)
+		P2.CurrState[k] = v(P2)
 	end
 	-- Update projectile detection values
 	if (P1.PrevState.ProjActive == false and P1.CurrState.ProjActive == true) then
@@ -112,19 +117,23 @@ local UpdateLocalVars = function()
 	-- Update match values
 	Match.CurrState.Timer = Read_MatchTimer()
 end
-------------------------------------------------------Main execution loop-------------------------------------------------------
-function UpdateGameGUI()
-	if (Config.DisplayDebugText == true) then DisplayDebugText() end
+------------------------------------------------------Execution-------------------------------------------------------
+function InitRoutine.GameInit()
+	GameRoutine.RefillPlayers()
+	-- Set hotkey for selecting Dan
+	input.registerhotkey(3, GameRoutine.SelectDan)
 end
-function GameHandler()
-	UpdateLocalVars()
-	SetInfiniteTime()
-	SetInfiniteStun()
-	SetGameSpeed(SlowestGameSpeed)
-	RefillHandler()
+function ExecRoutine.GameExec()
+	GameRoutine.UpdateGameVars()
+	GameRoutine.SetInfiniteTime()
+	GameRoutine.SetInfiniteStun()
+	GameRoutine.SetGameSpeed(SlowestGameSpeed)
+	GameRoutine.RefillHandler()
 end
--------------------------------------------------------First run routine-------------------------------------------------------
-LoadConfig()
-LoadCharData()
-print ("Loaded character state data")
-RefillPlayers()
+function GuiRoutine.DebugGui()
+	gui.text(Config.DebugTextPosX,Config.DebugTextPosY,"HitCount: " .. Trial.HitCount)
+	gui.text(Config.DebugTextPosX,Config.DebugTextPosY+CharIntervalY,"AtkStarted: " .. tostring(Trial.IsAtkStarted))
+	gui.text(Config.DebugTextPosX,Config.DebugTextPosY+CharIntervalY*2,"EnemyAtkTimer: " .. Trial.EnemyAtkTimer)
+end
+
+return GameRoutine

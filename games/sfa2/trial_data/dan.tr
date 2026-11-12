@@ -1,0 +1,125 @@
+{
+	{
+		p1meter = 0,
+		save = "dan/dan_vs_sagat_pb.fs",
+		acttable = 
+		{
+			{state = States.Normals.crLP, carry = true},
+			{state = States.Normals.crLP, carry = true},
+			{state = States.Normals.crLK},
+			{state = States.Specials.Gadoken_H},
+		}
+	},
+	{
+		p1meter = 0,
+		save = "dan/dan_vs_sagat_jumpin.fs",
+		acttable = 
+		{
+			{state = States.Normals.jHK},
+			{state = States.Normals.crHK},
+		}
+	},
+	{
+		fail = "DefaultFail() or P1.CurrState.CCActive",
+		p1meter = 0x30,
+		save = "dan/dan_vs_sagat_pb.fs",
+		acttable = 
+		{
+			{state = States.Normals.crLP, carry = true},
+			{state = States.Normals.crLP, carry = true},
+			{state = States.Normals.crLK},
+			{state = States.Supers.ShinkuGadoken_L1, success = "IsAtkCombo() and P2.CurrState.IsAirborne"},
+		}
+	},
+	{
+		description = "Crossup combo, opponent crouching",
+		p1meter = 0,
+		enemystate = "crouch",
+		save = "dan/dan_vs_sagat_crossup.fs",
+		acttable = 
+		{
+			{state = States.Normals.djMK, nameadd = " [crossup]", success = "IsAtkCombo() and IsCrossup()"},
+			{state = States.Normals.stMP},
+			{state = States.Specials.Dankukyaku_M},
+		}
+	},
+	{
+		fail = "DefaultFail() or P1.CurrState.CCActive",
+		description = "Crossup combo, opponent crouching",
+		p1meter = 0x90,
+		enemystate = "crouch",
+		save = "dan/dan_vs_sagat_crossup.fs",
+		acttable = 
+		{
+			{state = States.Normals.djMK, nameadd = " [crossup]", success = "IsAtkCombo() and IsCrossup()"},
+			{state = States.Normals.stMP},
+			{state = States.Supers.HisshoBuraiken_L3, success = "IsAtkCombo() and P2.CurrState.IsAirborne"},
+		}
+	},
+	{
+		fail = "DefaultFail() or P1.CurrState.CCActive",
+		description = "Corner only",
+		p1meter = 0x90,
+		save = "dan/dan_vs_sagat_corner_pb.fs",
+		acttable = 
+		{
+			{state = States.Throws.ThrowP},
+			{state = States.Supers.Koryurekka_L3, success = "IsAtkMultiCombo(4)"},
+		}
+	},
+	{
+		fail = "DefaultFail() or (IsCCEnded() and Trial.CurrState.TrialProgress <= 1)",
+		p1meter = 0x30,
+		save = "dan/dan_vs_sagat_pb.fs",
+		acttable = 
+		{
+			{state = States.Basic.CC},
+			{state = States.Normals.crHK},
+			{state = States.Specials.Dankukyaku_H},
+			{state = States.Specials.Koryuken_H},
+		}
+	},
+	{
+		enemystate = "crouch",
+		p1meter = 0x30,
+		save = "dan/dan_vs_sagat_jumpin.fs",
+		acttable = 
+		{
+			{state = States.Normals.jMK},
+			{state = States.Basic.CC_Ground},
+			{state = States.Normals.crHK},
+			{state = States.Specials.Dankukyaku_M},
+			{state = States.Specials.Gadoken_H},
+			{state = States.Specials.Dankukyaku_H},
+		}
+	},
+	{
+		fail = "DefaultFail() or (IsCCEnded() and Trial.CurrState.TrialProgress <= 1)",
+		enemystate = "jump",
+		p1meter = 0x30,
+		save = "dan/dan_vs_sagat_pb.fs",
+		acttable = 
+		{
+			{state = States.Basic.CC},
+			{state = States.Normals.crHP, nameadd = " [air hit]", success = "IsAtkCombo() and P2.CurrState.IsAirborne"},
+			{state = States.Specials.Koryuken_L},
+			{state = States.Specials.Koryuken_L},
+			{state = States.Specials.Koryuken_H},
+		}
+	},
+	{
+		fail = "DefaultFail() or (IsCCEnded() and Trial.CurrState.TrialProgress <= 1)",
+		p1meter = 0x90,
+		save = "dan/dan_vs_sagat_pb.fs",
+		acttable = 
+		{
+			{state = States.Basic.CC},
+			{state = States.Normals.crHK},
+			{state = States.Specials.Dankukyaku_M},
+			{state = States.Specials.Dankukyaku_M},
+			{state = States.Specials.Dankukyaku_M},
+			{state = States.Specials.Gadoken_H},
+			{state = States.Specials.Dankukyaku_H, nameadd = " [3 hits]", success = "IsAtkMultiCombo(3)"},
+		}
+	},
+}

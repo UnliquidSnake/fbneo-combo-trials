@@ -1,0 +1,133 @@
+{
+	{
+		p1meter = 0,
+		save = "sodom/sodom_vs_guy_pb.fs",
+		acttable = 
+		{
+			{state = States.Normals.crLK},
+			{state = States.Specials.JigokuScrape_H},
+		}
+	},
+	{
+		p1meter = 0,
+		save = "sodom/sodom_vs_guy_jumpin.fs",
+		acttable = 
+		{
+			{state = States.Normals.jHP},
+			{state = States.Normals.crHP},
+			{state = States.Specials.JigokuScrape_H},
+		}
+	},
+	{
+		p1meter = 0,
+		save = "sodom/sodom_vs_guy_jumpin.fs",
+		acttable = 
+		{
+			{state = States.Normals.jHP},
+			{state = States.Normals.stMK},
+			{state = States.Specials.DaikyoBurning_Grab},
+		}
+	},
+	{
+		p1meter = 0,
+		save = "sodom/sodom_vs_guy_pb.fs",
+		acttable = 
+		{
+			{state = States.Normals.stMP},
+			{state = States.Normals.crHP},
+			{state = States.Specials.JigokuScrape_H},
+		}
+	},
+	{
+		fail = "DefaultFail() or P1.CurrState.CCActive",
+		p1meter = 0x90,
+		save = "sodom/sodom_vs_guy_pb.fs",
+		acttable = 
+		{
+			{state = States.Normals.stMP},
+			{state = States.Normals.crLK},
+			{state = States.Supers.MeidoNoMiyage_L3, success = "IsAtkCombo() and P2.PrevState.IsAirborne"},
+		}
+	},
+	{
+		fail = "DefaultFail() or P1.CurrState.CCActive",
+		p1meter = 0x30,
+		save = "sodom/sodom_vs_guy_pb.fs",
+		acttable = 
+		{
+			{state = States.Throws.ThrowK},
+			{state = States.Supers.MeidoNoMiyage_L1, nameadd = " [2 hits]", success = "IsAtkMultiCombo(2)"},
+		}
+	},
+	{
+		description = "Crossup combo, opponent crouching",
+		enemystate = "crouch",
+		p1meter = 0,
+		save = "sodom/sodom_vs_guy_crossup.fs",
+		acttable = 
+		{
+			{state = States.Normals.djLK, nameadd = " [crossup]", success = "IsAtkCombo() and IsCrossup()"},
+			{state = States.Normals.crHP},
+			{state = States.Specials.DaikyoBurning_Grab},
+		}
+	},
+	{
+		fail = "DefaultFail() or (IsCCEnded() and Trial.CurrState.TrialProgress <= 1)",
+		p1meter = 0x30,
+		save = "sodom/sodom_vs_guy_pb.fs",
+		acttable = 
+		{
+			{state = States.Basic.CC},
+			{state = States.Normals.stHK},
+			{state = States.Specials.JigokuScrape_M},
+			{state = States.Specials.JigokuScrape_M},
+			{state = States.Specials.JigokuScrape_H},
+		}
+	},
+	{
+		enemystate = "crouch",
+		p1meter = 0x30,
+		save = "sodom/sodom_vs_guy_jumpin.fs",
+		acttable = 
+		{
+			{state = States.Normals.jHP},
+			{state = States.Basic.CC_Ground},
+			{state = States.Normals.stHK},
+			{state = States.Specials.JigokuScrape_M},
+			{state = States.Specials.JigokuScrape_M},
+			{state = States.Normals.crHP},
+			{state = States.Specials.JigokuScrape_H},
+		}
+	},
+	{
+		fail = "DefaultFail() or (IsCCEnded() and Trial.CurrState.TrialProgress <= 1)",
+		enemystate = "jump",
+		p1meter = 0x38,
+		save = "sodom/sodom_vs_guy_pb.fs",
+		acttable = 
+		{
+			{state = States.Basic.CC},
+			{state = States.Normals.crHP, nameadd = " [air hit]", success = "IsAtkCombo() and P2.CurrState.IsAirborne"},
+			{state = States.Specials.JigokuScrape_H, nameadd = " [2 hits]", success = "IsAtkMultiCombo(2)"},
+			{state = States.Specials.JigokuScrape_L},
+			{state = States.Specials.JigokuScrape_M},
+		}
+	},
+	{
+		fail = "DefaultFail() or (IsCCEnded() and Trial.CurrState.TrialProgress <= 1)",
+		p1meter = 0x90,
+		save = "sodom/sodom_vs_guy_pb.fs",
+		acttable = 
+		{
+			{state = States.Basic.CC},
+			{state = States.Normals.stHK},
+			{state = States.Specials.JigokuScrape_M},
+			{state = States.Specials.JigokuScrape_M},
+			{state = States.Specials.JigokuScrape_M},
+			{state = States.Specials.JigokuScrape_M},
+			{state = States.Specials.JigokuScrape_M},
+			{state = States.Normals.crHP},
+			{state = States.Specials.DaikyoBurning_Grab},
+		}
+	},
+}

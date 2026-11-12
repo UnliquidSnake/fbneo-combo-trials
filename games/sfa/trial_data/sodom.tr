@@ -1,6 +1,7 @@
 {
 	{
 		p1meter = 0,
+		save = "sodom/sodom_vs_guy_pb.fs",
 		acttable = 
 		{
 			{state = States.Normals.crLP},
@@ -10,6 +11,7 @@
 	},
 	{
 		p1meter = 0,
+		save = "sodom/sodom_vs_guy_jumpin.fs",
 		acttable = 
 		{
 			{state = States.Normals.jHP},
@@ -18,16 +20,17 @@
 		}
 	},
 	{
-		description = "Corner only",
-		p1meter = 0x30,
+		p1meter = 0x60,
+		save = "sodom/sodom_vs_sodom_pb.fs",
 		acttable = 
 		{
 			{state = States.Throws.Throw},
-			{state = States.Supers.MeidoNoMiyage_L1},
+			{state = States.Supers.MeidoNoMiyage_L2, nameadd = " [2 hits]", success = "IsAtkMultiCombo(2)"},
 		}
 	},
 	{
 		p1meter = 0x90,
+		save = "sodom/sodom_vs_guy_pb.fs",
 		acttable = 
 		{
 			{state = States.Normals.crLP},
@@ -38,6 +41,7 @@
 	},
 	{
 		p1meter = 0,
+		save = "sodom/sodom_vs_guy_jumpin.fs",
 		acttable = 
 		{
 			{state = States.Normals.jHP},
@@ -51,6 +55,7 @@
 		description = "Crossup combo, opponent crouching",
 		enemystate = "crouch",
 		p1meter = 0,
+		save = "sodom/sodom_vs_guy_crossup.fs",
 		acttable = 
 		{
 			{state = States.Normals.jLK, nameadd = " [crossup]", success = "IsAtkCombo() and IsCrossup()"},
@@ -61,7 +66,17 @@
 		}
 	},
 	{
+		p1meter = 0x30,
+		save = "sodom/sodom_vs_sodom_meaty.fs",
+		acttable = 
+		{
+			{state = States.Normals.crHK, nameadd = " [meaty]"},
+			{state = States.Supers.MeidoNoMiyage_L1, nameadd = " [all hits]", success = "IsAtkMultiCombo(3)"},
+		}
+	},
+	{
 		p1meter = 0,
+		save = "sodom/sodom_vs_guy_pb.fs",
 		acttable = 
 		{
 			{state = States.Normals.stHK, nameadd = " [meaty]"},

@@ -1,6 +1,7 @@
 {
 	{
 		p1meter = 0,
+		save = "ken/ken_vs_ryu_pb.fs",
 		acttable = 
 		{
 			{state = States.Normals.crLK, carry = true},
@@ -12,6 +13,7 @@
 	},
 	{
 		p1meter = 0,
+		save = "ken/ken_vs_ryu_jumpin.fs",
 		acttable = 
 		{
 			{state = States.Normals.jHP},
@@ -21,6 +23,7 @@
 	},
 	{
 		p1meter = 0x30,
+		save = "ken/ken_vs_ryu_pb.fs",
 		acttable = 
 		{
 			{state = States.Normals.crLK, carry = true},
@@ -30,6 +33,7 @@
 	},
 	{
 		p1meter = 0,
+		save = "ken/ken_vs_ryu_jumpin.fs",
 		acttable = 
 		{
 			{state = States.Specials.AirTatsu},
@@ -38,6 +42,7 @@
 	},
 	{
 		p1meter = 0x90,
+		save = "ken/ken_vs_ryu_jumpin.fs",
 		acttable = 
 		{
 			{state = States.Normals.djHK},
@@ -49,6 +54,7 @@
 	{
 		fail = "not IsPlayerInState(P1, States.Normals.stHK) and not IsPlayerInState(P1, States.Specials.Shoryuken)",
 		p1meter = 0,
+		save = "ken/ken_vs_ryu_karadp.fs",
 		acttable = 
 		{
 			{state = States.Normals.stHK, nameadd = " [kara cancel]", success = "IsAtkWhiff()"},
@@ -57,6 +63,7 @@
 	},
 	{
 		p1meter = 0,
+		save = "ken/ken_vs_sagat_pb.fs",
 		acttable = 
 		{
 			{state = States.Normals.Cmd_6MK, nameadd = " [meaty]"},
@@ -67,6 +74,7 @@
 	{
 		description = "Corner only",
 		p1meter = 0x30,
+		save = "ken/ken_vs_ryu_fullscreen.fs",
 		acttable = 
 		{
 			{state = States.Specials.Hadoken_L, success = "IsProjHit()"},
@@ -78,6 +86,7 @@
 		description = "Crossup combo, opponent crouching",
 		p1meter = 0x90,
 		enemystate = "crouch",
+		save = "ken/ken_vs_ryu_crossup.fs",
 		acttable = 
 		{
 			{state = States.Normals.djMK, nameadd = " [crossup]", success = "IsAtkCombo() and IsCrossup()"},
@@ -90,6 +99,7 @@
 	{
 		description = "Corner only",
 		p1meter = 0,
+		save = "ken/ken_vs_ryu_corner_jumpin.fs",
 		acttable = 
 		{
 			{state = States.Normals.jHP},

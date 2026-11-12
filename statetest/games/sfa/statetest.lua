@@ -16,6 +16,8 @@ local addr_p1charstate = 0xFF8422
 local addr_p2charstate = 0xFF8822
 local addr_p1specialid = 0xFF8533
 local addr_p2specialid = 0xFF8933
+local addr_p1atktype = 0xFF8501
+local addr_p2atktype = 0xFF8901
 local addr_p1atkstr = 0xFF8502
 local addr_p2atkstr = 0xFF8902
 local addr_gamespeed = 0xFFAE14
@@ -34,6 +36,7 @@ local FrameCount = 0
 -- Player state variables
 P1State.CurrState.CharState = 0 -- word
 P1State.CurrState.SpecialID = 0 -- byte
+P1State.CurrState.AtkType = 0 -- byte
 P1State.CurrState.AtkStr = 0 -- byte
 -- Copy everything for player 2 state values
 copyTable(P1State.CurrState, P2State.CurrState)
@@ -49,6 +52,10 @@ local function readPlayerOneSpecialID()
 	return rb(addr_p1specialid)/2 end
 local function readPlayerTwoSpecialID()
 	return rb(addr_p2specialid)/2 end
+local function readPlayerOneAtkType()
+	return rb(addr_p1atktype)/2 end
+local function readPlayerTwoAtkType()
+	return rb(addr_p2atktype)/2 end
 local function readPlayerOneAtkStr()
 	return rb(addr_p1atkstr)/2 end
 local function readPlayerTwoAtkStr()
@@ -67,14 +74,18 @@ local function updateStateVars()
 	P2State.CurrState.CharState = readPlayerTwoCharState()
 	P1State.CurrState.SpecialID = readPlayerOneSpecialID()
 	P2State.CurrState.SpecialID = readPlayerTwoSpecialID()
+	P1State.CurrState.AtkType = readPlayerOneAtkType()
+	P2State.CurrState.AtkType = readPlayerTwoAtkType()
 	P1State.CurrState.AtkStr = readPlayerOneAtkStr()
 	P2State.CurrState.AtkStr = readPlayerTwoAtkStr()
 	-- Update text
 	P1CharStateText = string.format("CharState: 0x%x", P1State.CurrState.CharState)
 	P1SpecialIDText = string.format("SpecialID: %d", P1State.CurrState.SpecialID)
+	P1AtkTypeText = string.format("AtkType: %d", P1State.CurrState.AtkType)
 	P1AtkStrText = string.format("AtkStr: %d", P1State.CurrState.AtkStr)
 	P2CharStateText = string.format("CharState: 0x%x", P2State.CurrState.CharState)
 	P2SpecialIDText = string.format("SpecialID: %d", P2State.CurrState.SpecialID)
+	P2AtkTypeText = string.format("AtkType: %d", P2State.CurrState.AtkType)
 	P2AtkStrText = string.format("AtkStr: %d", P2State.CurrState.AtkStr)
 end
 
@@ -82,9 +93,11 @@ local function drawStateText()
 	gui.text(P1TextPosX,P1TextPosY,P1CharStateText)
 	gui.text(P1TextPosX,P1TextPosY+10,P1SpecialIDText)
 	gui.text(P1TextPosX,P1TextPosY+20,P1AtkStrText)
+	gui.text(P1TextPosX,P1TextPosY+30,P1AtkTypeText)
 	gui.text(P2TextPosX,P2TextPosY,P2CharStateText)
 	gui.text(P2TextPosX,P2TextPosY+10,P2SpecialIDText)
 	gui.text(P2TextPosX,P2TextPosY+20,P2AtkStrText)
+	gui.text(P2TextPosX,P2TextPosY+30,P2AtkTypeText)
 end
 local function writeStateText(file)
 	if (P1CurrState == P1PrevState) then P1CurrStateText = "prev" end

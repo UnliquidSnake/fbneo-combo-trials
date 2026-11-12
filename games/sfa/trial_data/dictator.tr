@@ -1,6 +1,7 @@
 {
 	{
 		p1meter = 0,
+		save = "dictator/dictator_vs_charlie_pb.fs",
 		acttable = 
 		{
 			{state = States.Normals.crMK},
@@ -9,6 +10,7 @@
 	},
 	{
 		p1meter = 0,
+		save = "dictator/dictator_vs_charlie_jumpin.fs",
 		acttable = 
 		{
 			{state = States.Normals.jHP},
@@ -18,6 +20,7 @@
 	},
 	{
 		p1meter = 0x60,
+		save = "dictator/dictator_vs_charlie_pb.fs",
 		acttable = 
 		{
 			{state = States.Normals.crMK},
@@ -25,8 +28,18 @@
 		}
 	},
 	{
+		p1meter = 0,
+		save = "dictator/dictator_vs_charlie_pb.fs",
+		acttable = 
+		{
+			{state = States.Normals.stHP},
+			{state = States.Normals.stHK},
+		}
+	},
+	{
 		description = "Corner only",
 		p1meter = 0,
+		save = "dictator/dictator_vs_charlie_corner_fullscreen.fs",
 		acttable = 
 		{
 			{state = States.Specials.PsychoShot_L, success = "IsProjHit()"},
@@ -35,6 +48,7 @@
 	},
 	{
 		p1meter = 0,
+		save = "dictator/dictator_vs_charlie_pb.fs",
 		acttable = 
 		{
 			{state = States.Normals.stHP},
@@ -44,6 +58,7 @@
 	},
 	{
 		p1meter = 0x90,
+		save = "dictator/dictator_vs_charlie_jumpin.fs",
 		acttable = 
 		{
 			{state = States.Normals.jHK},
@@ -54,6 +69,7 @@
 	},
 	{
 		p1meter = 0x90,
+		save = "dictator/dictator_vs_charlie_pb.fs",
 		acttable = 
 		{
 			{state = States.Normals.crMK, nameadd = " [meaty]"},
@@ -64,6 +80,7 @@
 	{
 		description = "Corner only",
 		p1meter = 0,
+		save = "dictator/dictator_vs_charlie_corner_fullscreen.fs",
 		acttable = 
 		{
 			{state = States.Specials.PsychoShot_L, success = "IsProjHit()"},

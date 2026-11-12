@@ -1,0 +1,145 @@
+{
+	{
+		p1meter = 0,
+		save = "sakura/sakura_vs_ryu_pb.fs",
+		acttable = 
+		{
+			{state = States.Normals.crLK, carry = true},
+			{state = States.Normals.crLK, carry = true},
+			{state = States.Normals.stLK},
+			{state = States.Specials.Shouoken_H, success = "IsAtkCombo() and P2.CurrState.IsAirborne"},
+		}
+	},
+	{
+		p1meter = 0,
+		save = "sakura/sakura_vs_ryu_jumpin.fs",
+		acttable = 
+		{
+			{state = States.Normals.jHP},
+			{state = States.Normals.stHP},
+			{state = States.Specials.Shouoken_H, success = "IsAtkCombo() and P2.CurrState.IsAirborne"},
+		}
+	},
+	{
+		fail = "DefaultFail() or P1.CurrState.CCActive",
+		p1meter = 0x30,
+		save = "sakura/sakura_vs_ryu_pb.fs",
+		acttable = 
+		{
+			{state = States.Normals.crLK, carry = true},
+			{state = States.Normals.crLK, carry = true},
+			{state = States.Normals.stLK},
+			{state = States.Supers.MidareZakura_L1, success = "IsAtkCombo() and P2.CurrState.IsAirborne"},
+		}
+	},
+	{
+		fail = "DefaultFail() or P1.CurrState.CCActive",
+		p1meter = 0x90,
+		save = "sakura/sakura_vs_ryu_jumpin.fs",
+		acttable = 
+		{
+			{state = States.Normals.jHK},
+			{state = States.Normals.stHP},
+			{state = States.Supers.HaruIchiban_L3, success = "IsAtkCombo() and P2.CurrState.IsAirborne"},
+		}
+	},
+	{
+		p1meter = 0,
+		save = "sakura/sakura_vs_ryu_pb.fs",
+		acttable = 
+		{
+			{state = States.Normals.stMP},
+			{state = States.Normals.stMP},
+			{state = States.Specials.Shouoken_H, success = "IsAtkCombo() and P2.CurrState.IsAirborne"},
+		}
+	},
+	{
+		description = "Crossup combo",
+		p1meter = 0,
+		save = "sakura/sakura_vs_ryu_crossup.fs",
+		acttable = 
+		{
+			{state = States.Normals.djMK, nameadd = " [crossup]", success = "IsAtkCombo() and IsCrossup()"},
+			{state = States.Normals.crLK, carry = true},
+			{state = States.Normals.crLK, carry = true},
+			{state = States.Normals.stLK},
+			{state = States.Specials.Shouoken_H, success = "IsAtkCombo() and P2.CurrState.IsAirborne"},
+		}
+	},
+	{
+		p1meter = 0,
+		save = "sakura/sakura_vs_ryu_jumpin.fs",
+		acttable = 
+		{
+			{state = States.Normals.Cmd_6MK},
+			{state = States.Normals.crLK},
+			{state = States.Specials.Shouoken_H, success = "IsAtkCombo() and P2.CurrState.IsAirborne"},
+		}
+	},
+	{
+		fail = "DefaultFail() or (IsCCEnded() and Trial.CurrState.TrialProgress <= 1)",
+		p1meter = 0x30,
+		save = "sakura/sakura_vs_ryu_pb.fs",
+		acttable = 
+		{
+			{state = States.Basic.CC},
+			{state = States.Normals.crHK},
+			{state = States.Specials.Tatsu_H},
+			{state = States.Specials.Shouoken_H, nameadd = " [5 hits]", success = "IsAtkMultiCombo(5)"},
+		}
+	},
+	{
+		enemystate = "crouch",
+		p1meter = 0x30,
+		save = "sakura/sakura_vs_ryu_jumpin.fs",
+		acttable = 
+		{
+			{state = States.Normals.djMK},
+			{state = States.Basic.CC_Ground},
+			{state = States.Normals.crHK},
+			{state = States.Specials.Shouoken_H, nameadd = " [5 hits]", success = "IsAtkMultiCombo(5)"},
+			{state = States.Specials.Shouoken_H, nameadd = " [6 hits]", success = "IsAtkMultiCombo(6)"},
+		}
+	},
+	{
+		fail = "DefaultFail() or (IsCCEnded() and Trial.CurrState.TrialProgress <= 1)",
+		enemystate = "jump",
+		p1meter = 0x30,
+		save = "sakura/sakura_vs_ryu_pb.fs",
+		acttable = 
+		{
+			{state = States.Basic.CC},
+			{state = States.Normals.stMP, nameadd = " [air hit]", success = "IsAtkCombo() and P2.CurrState.IsAirborne"},
+			{state = States.Specials.Shouoken_H, nameadd = " [6 hits]", success = "IsAtkMultiCombo(6)"},
+			{state = States.Specials.Shouoken_H, nameadd = " [6 hits]", success = "IsAtkMultiCombo(6)"},
+		}
+	},
+	{
+		fail = "DefaultFail() or (IsCCEnded() and Trial.CurrState.TrialProgress <= 1)",
+		p1meter = 0x90,
+		save = "sakura/sakura_vs_ryu_pb.fs",
+		acttable = 
+		{
+			{state = States.Basic.CC},
+			{state = States.Normals.crHK},
+			{state = States.Specials.Shouoken_M, nameadd = " [3 hits]", success = "IsAtkMultiCombo(3)"},
+			{state = States.Specials.Shouoken_M, nameadd = " [3 hits]", success = "IsAtkMultiCombo(3)"},
+			{state = States.Specials.Shouoken_M, nameadd = " [3 hits]", success = "IsAtkMultiCombo(3)"},
+			{state = States.Specials.Shouoken_H, nameadd = " [6 hits]", success = "IsAtkMultiCombo(6)"},
+		}
+	},
+	{
+		fail = "DefaultFail() or (IsCCEnded() and Trial.CurrState.TrialProgress <= 1)",
+		enemystate = "jump",
+		p1meter = 0x90,
+		save = "sakura/sakura_vs_ryu_pb.fs",
+		acttable = 
+		{
+			{state = States.Basic.CC},
+			{state = States.Specials.Shouoken_M, nameadd = " [air hit]", success = "IsAtkCombo() and P2.PrevState.IsAirborne"},
+			{state = States.Specials.Shouoken_M, nameadd = " [3 hits]", success = "IsAtkMultiCombo(3)"},
+			{state = States.Specials.Shouoken_M, nameadd = " [3 hits]", success = "IsAtkMultiCombo(3)"},
+			{state = States.Specials.Shouoken_H, nameadd = " [6 hits]", success = "IsAtkMultiCombo(6)"},
+		}
+	},
+}

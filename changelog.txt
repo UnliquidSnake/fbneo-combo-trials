@@ -1,0 +1,20 @@
+Changes from v0.1
+
+added new game: Street Fighter Alpha 2
+
+general:
+- new feature: can attach savestates to trials as an optional parameter. If present, a savestate will automatically load on pressing any relevant menu buttons - this also reloads character state data for both characters. Useful for implementing character-specific combos;
+- new feature: "inputname" parameter for trial action. If defined, will override the name of the command input for that action. Mostly used for Gen in Alpha 2;
+- added new menu button for reloading the attached savestate if present;
+- added savestate protection - will reset all trial progress & meter values if the user loads a savestate;
+- after exiting the menu, there is an interval where no inputs will be processed, this is to prevent an attack button from being immediately pressed when menu is exited;
+- restructured the entire codebase for convenience - now everything is loaded in modules independently of each other before execution begins
+
+sfa:
+- updated trials to make use of savestate feature;
+- removed a few trials, added a few others;
+- added a Dan select hotkey for when code is unavailable;
+- added new attack property in the char data for attack type (punch/kick) - useful for certain moves like Akuma/E.Ryu teleport;
+- fixed oversights with specific moves:
+	Chun's Yosokyaku was not being recognized when done from neutral jump;
+	Chun's Senenshu recovery frames after attack connects were not being recognized;

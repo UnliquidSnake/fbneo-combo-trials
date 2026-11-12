@@ -1,0 +1,93 @@
+{
+	{
+		p1meter = 0,
+		acttable = 
+		{
+			{state = States.Throws.ThrowMP},
+		}
+	},
+	{
+		p1meter = 0,
+		acttable = 
+		{
+			{state = States.Throws.ThrowHP},
+		}
+	},
+	{
+		p1meter = 0,
+		acttable = 
+		{
+			{state = States.Normals.Cmd_6LP},
+		}
+	},
+	{
+		p1meter = 0,
+		acttable = 
+		{
+			{state = States.Normals.Cmd_j2HP},
+		}
+	},
+	{
+		p1meter = 0,
+		acttable = 
+		{
+			{state = States.Normals.Cmd_j2K},
+		}
+	},
+	{
+		p1meter = 0,
+		acttable = 
+		{
+			{state = States.Specials.YogaFire, success = "IsProjHit()"},
+		}
+	},
+	{
+		p1meter = 0,
+		acttable = 
+		{
+			{state = States.Specials.YogaFlame},
+		}
+	},
+	{
+		enemystate = "jump",
+		p1meter = 0,
+		acttable = 
+		{
+			{state = States.Specials.YogaBlast},
+		}
+	},
+	{
+		fail = "not IsPlayerInState(P1, States.Specials.YogaTeleport)",
+		p1meter = 0,
+		acttable = 
+		{
+			{state = States.Specials.YogaTeleport},
+		}
+	},
+	{
+		fail = "not IsPlayerInState(P1, States.Specials.YogaEscape)",
+		enemystate = "crouch",
+		enemyatk = "HK",
+		p1meter = 0,
+		acttable = 
+		{
+			{state = States.Specials.YogaEscape},
+		}
+	},
+	{
+		p1meter = 0x90,
+		acttable = 
+		{
+			{state = States.Supers.YogaInferno},
+		}
+	},
+	{
+		fail = "not IsPlayerInState(P1, States.Supers.YogaStrike)",
+		enemystate = "jump",
+		p1meter = 0x90,
+		acttable = 
+		{
+			{state = States.Supers.YogaStrike},
+		}
+	},
+}

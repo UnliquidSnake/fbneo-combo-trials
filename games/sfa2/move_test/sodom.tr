@@ -1,0 +1,80 @@
+{
+	{
+		p1meter = 0,
+		acttable = 
+		{
+			{state = States.Throws.ThrowP},
+		}
+	},
+	{
+		p1meter = 0,
+		acttable = 
+		{
+			{state = States.Throws.ThrowK},
+		}
+	},
+	{
+		p1meter = 0,
+		acttable = 
+		{
+			{state = States.Specials.JigokuScrape},
+		}
+	},
+	{
+		p1meter = 0,
+		acttable = 
+		{
+			{state = States.Specials.ButsumetsuBuster},
+		}
+	},
+	{
+		p1meter = 0,
+		acttable = 
+		{
+			{state = States.Specials.DaikyoBurning},
+			{state = States.Specials.DaikyoBurning_Grab},
+		}
+	},
+	{
+		p1meter = 0,
+		enemystate = "jump",
+		enemyatk = "LP",
+		acttable = 
+		{
+			{state = States.Specials.ShirahaCatch},
+		}
+	},
+	{
+		fail = "not IsPlayerInState(P1, States.Specials.Roll)",
+		enemystate = "crouch",
+		enemyatk = "HK",
+		p1meter = 0,
+		acttable = 
+		{
+			{state = States.Specials.Roll},
+		}
+	},
+	{
+		enemystate = "crouch",
+		enemyatk = "HK",
+		p1meter = 0,
+		acttable = 
+		{
+			{state = States.Specials.TenguWalking},
+		}
+	},
+	{
+		p1meter = 0x90,
+		acttable = 
+		{
+			{state = States.Supers.MeidoNoMiyage},
+		}
+	},
+	{
+		p1meter = 0x90,
+		acttable = 
+		{
+			{state = States.Supers.TenchuSatsu},
+		}
+	},
+}

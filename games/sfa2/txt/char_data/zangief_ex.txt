@@ -1,0 +1,96 @@
+-- Basic states
+	-- Idle & movement
+0xaf4c - 0xb0e4: Idle
+0xb100: Crouching
+0xb11c - 0xb1f4: Forward walk
+0xb210 - 0xb2e8: Back walk
+0xb304 - 0xb34c: Transition from crouch to stand
+0xb368 - 0xb3b0: Transition from stand to crouch
+0xb3cc - 0xb444: Standing turn around after side switch
+0xb460 - 0xb4a8: Crouching turn around after side switch
+0xb4c4 - 0xb4dc: Prejump frames
+0xb4f8 - 0xb510: Landing recovery from jump
+0xb52c - 0xb58c: Neutral jump
+0xb5a8 - 0xb608: Forward jump
+0xb624 - 0xb684: Backward jump
+	-- Blocking
+0xb6a0 - 0xb704: Stand block (incl. proximity block)
+0xb720 - 0xb784: Crouch block (incl. proximity block)
+	-- Recovery Roll
+0xb884 - 0xb8cc: Auto roll wakeup
+	-- Cutscenes
+0xbb34 - 0xbbdc: Win pose 1
+0xbe10 - 0xbf48: Win pose 2
+0xbf64 - 0xbfdc: Time over loss/draw
+	-- Getting thrown
+0xccf0 - 0xcfd8: Getting thrown
+	-- Getting hit
+0xd0cc - 0xd0fc: Standing hit in head 1
+0xd118 - 0xd148: Standing hit in head 2
+0xd164 - 0xd194: Standing hit in head 3
+0xd1b0 - 0xd1e0: Standing hit in body/feet 1
+0xd1fc - 0xd22c: Standing hit in body/feet 2
+0xd248 - 0xd278: Standing hit in body/feet 3
+0xd294 - 0xd2ac: Crouching hit 1
+0xd2c8 - 0xd2f8: Crouching hit 2
+0xd314 - 0xd344: Crouching hit 3
+0xd360 - 0xd3d8: Launch hit (can usually be juggled)
+0xd3f4 - 0xd444: Knockdown
+0xd494 - 0xd4ac: Spin out after AC
+0xd4c8 - 0xd4f8: Falling after sweep
+0xd6f0 - 0xd780: Air reset
+	-- Other
+0xd79c - 0xd814: Stun
+0xd830 - 0xd8c0: Getting up
+-- Attacks
+	-- Normals
+		-- Standing Normals
+0xd8dc - 0xd96c: Standing LP
+0xd988 - 0xda48: Standing MP
+0xda64 - 0xdb0c: Standing HP
+0xdb28 - 0xdbd0: Standing LK
+0xdbec - 0xdc94: Standing MK
+0xdcb0 - 0xddb8: Standing HK
+		-- Crouching Normals
+0xddd4 - 0xde4c: Crouching LP
+0xde68 - 0xdef8: Crouching MP
+0xdf14 - 0xdfa4: Crouching HP
+0xdfc0 - 0xe038: Crouching LK
+0xe254 - 0xe2cc: Crouching MK
+0xe2e8 - 0xe360: Crouching HK
+		-- Neutral Jumping Normals
+0xc97c - 0xca0c: Neutral Jumping LP
+0xca28 - 0xcab8: Neutral Jumping MP
+0xcad4 - 0xcb64: Neutral Jumping HP -- unique
+0xc454 - 0xc514: Neutral Jumping LK
+0xc530 - 0xc5f0: Neutral Jumping MK
+0xc60c - 0xc6cc: Neutral Jumping HK
+		-- Diagonal Jumping Normals
+0xcb80 - 0xcc10: Diagonal Jumping LP
+0xcc2c - 0xccbc: Diagonal Jumping MP
+0xe6d8 - 0xe750: Diagonal Jumping HP -- unique
+0xc6e8 - 0xc7a8: Diagonal Jumping LK
+0xc7c4 - 0xc884: Diagonal Jumping MK
+0xc8a0 - 0xc960: Diagonal Jumping HK
+		-- Command Normals
+0xeb8c - 0xec04: Flying Body Attack (diagonal jump d + HP)
+0xec20 - 0xec80: L Double Knee Drop (diagonal jump d + LK)
+0xec9c - 0xecfc: M Double Knee Drop (diagonal jump d + MK)
+0xed18 - 0xed30: Double Knee Drop (landing recovery)
+0xed4c - 0xedac: M Headbutt (neutral jump u + MP)
+0xedc8 - 0xee28: H Headbutt (neutral jump u + HP)
+0xee44 - 0xee5c: Headbutt (landing recovery)
+	-- Throws
+0xf924 - 0xfb1c: Back Drop (f/b + MP/HP)
+0xf7c4 - 0xf870: Kamitsuki (f/b + MK/HK)
+0xf8a4 - 0xf908: Stomach Claw (df + MP/HP)
+	-- Special Moves
+		-- Spinning Piledriver (360 + P)
+0xfd3c - 0xfec4: Spinning Piledriver
+		-- Double Lariat (PPP)
+0xf08c - 0xf284: Double Lariat
+
+Special ID's:
+
+0 - Double Lariat
+1 - Spinning Piledriver

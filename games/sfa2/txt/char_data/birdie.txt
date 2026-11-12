@@ -1,0 +1,164 @@
+-- Basic states
+	-- Idle & movement
+0xb78e - 0xb7d6: Idle
+0xb7f2: Crouching
+0xb80e - 0xb8b6: Forward walk
+0xb8d2 - 0xb97a: Back walk
+0xb996 - 0xb9de: Transition from crouch to stand
+0xb9fa - 0xba42: Transition from stand to crouch
+0xba5e - 0xbaa6: Standing turn around after side switch
+0xbac2 - 0xbb0a: Crouching turn around after side switch
+0xbb26 - 0xbb3e: Prejump frames
+0xbb5a - 0xbb72: Landing recovery from jump
+0xbb8e - 0xbc36: Neutral jump
+0xbc52 - 0xbcfa: Forward jump
+0xbd16 - 0xbdbe: Backward jump
+	-- Blocking
+0xbe0e - 0xbe3e: Stand block (incl. proximity block)
+0xbe5a - 0xbebe: Crouch block (incl. proximity block)
+0xbef2 - 0xbf56: Air block (incl. proximity block)
+	-- Recovery Roll
+0xbfd6 - 0xc01e: Auto roll wakeup
+0xc03a - 0xc082: Recovery roll
+	-- Custom Combo
+0x1af6 - 0x1b6e: Grounded CC activation
+0x1b8a - 0x1ba2: Air CC activation
+	-- Cutscenes
+0xc102 - 0xc282: Intro pose
+0xc29e - 0xc44e: Win pose 1
+0xc49a - 0xc64a: Win pose 2
+0xc6ae - 0xc816: Win pose 3
+0xc8c6 - 0xc986: Win pose 4
+0xcd5a - 0xce7a: Time over loss/draw
+	-- Getting thrown
+0xd50a - 0xd7aa: Getting thrown
+	-- Getting hit
+0xd8b6 - 0xd8e6: Standing hit in head 1
+0xd902 - 0xd932: Standing hit in head 2
+0xd94e - 0xd97e: Standing hit in head 3
+0xd99a - 0xd9ca: Standing hit in body/feet 1
+0xd9e6 - 0xda16: Standing hit in body/feet 2
+0xda32 - 0xda62: Standing hit in body/feet 3
+0xda7e - 0xda96: Crouching hit 1
+0xdab2 - 0xdae2: Crouching hit 2
+0xdafe - 0xdb2e: Crouching hit 3
+0xdb4a - 0xdb92: Launch hit (can usually be juggled)
+0xdbae - 0xdbfe: Knockdown
+0xdc4e - 0xdc66: Spin out after AC
+0xdc82 - 0xdcb2: Falling after sweep
+0xde4a - 0xdeaa: Air reset
+	-- Other
+0xdec6 - 0xdf0e: Stun
+0xdf2a - 0xdf8a: Getting up
+-- Attacks
+	-- Normals
+		-- Standing Normals
+0xdfa6 - 0xe01e: Standing LP
+0xe03a - 0xe0e2: Standing MP
+0xe0fe - 0xe1be: Standing HP
+0xe1da - 0xe23a: Standing LK
+0xe256 - 0xe2fe: Standing MK
+0xe31a - 0xe3c2: Standing HK
+		-- Crouching Normals
+0xe3de - 0xe456: Crouching LP
+0xe472 - 0xe51a: Crouching MP
+0xe536 - 0xe626: Crouching HP
+0xe642 - 0xe68a: Crouching LK
+0xe6a6 - 0xe71e: Crouching MK
+0xe73a - 0xe7ca: Crouching HK
+		-- Neutral Jumping Normals
+0xe7e6 - 0xe846: Neutral Jumping LP
+0xe862 - 0xe8c2: Neutral Jumping MP
+0xe8de - 0xe93e: Neutral Jumping HP
+0xe95a - 0xe9ba: Neutral Jumping LK
+0xe9d6 - 0xea36: Neutral Jumping MK
+0xea52 - 0xeafa: Neutral Jumping HK
+		-- Diagonal Jumping Normals
+0xeb16 - 0xeb76: Diagonal Jumping LP
+0xeb92 - 0xebf2: Diagonal Jumping MP
+0xec0e - 0xec6e: Diagonal Jumping HP
+0xec8a - 0xecea: Diagonal Jumping LK
+0xed06 - 0xed66: Diagonal Jumping MK
+0xed82 - 0xee2a: Diagonal Jumping HK
+		-- Command Normals
+0x0d76 - 0x0dd6: Body Splash (air d + HP)
+		-- Alpha Counter
+0xee46 - 0xeed6: Punch AC - Bull Head (b,db,d + P)
+0xeef2 - 0xefca: Kick AC - Gut Kick (b,db,d + K)
+	-- Throws
+0xefe6 - 0xf092: Bull Spike (f/b + MP/HP)
+0x1bbe - 0x1c7e: Bull Throw (f/b + MK/HK)
+	-- Special Moves
+		-- Bull Head (charge b,f + P)
+0xf7ae - 0xf89e: L Bull Head
+0xf8ba - 0xf9aa: M Bull Head
+0xf9c6 - 0xfab6: H Bull Head
+0x023a - 0x032a: L Bull Head (during CC)
+0x0346 - 0x0436: M Bull Head (during CC)
+0x0452 - 0x0542: H Bull Head (during CC)
+		-- Murderer Chain (360 + P)
+		-- Bandit Chain (360 + K)
+0x17fa - 0x188a: L Murderer Chain/Bandit Chain (startup & whiff)
+0x18a6 - 0x1936: M Murderer Chain/Bandit Chain (startup & whiff)
+0x1952 - 0x19e2: H Murderer Chain/Bandit Chain (startup & whiff)
+0xf0ae - 0xf3e2: Murderer Chain (throw)
+0x1c9a - 0x1efa: Bandit Chain (throw)
+		-- Bull Horn (hold PP/KK, release)
+0xfad2 - 0xfbf2: Lv1 Bull Horn
+0xfc0e - 0xfd2e: Lv2 Bull Horn
+0xfd4a - 0xfe6a: Lv3 Bull Horn
+0xfe86 - 0xffa6: Lv4 Bull Horn
+0xffc2 - 0x00e2: Final Bull Horn
+0x055e - 0x067e: Lv1 Bull Horn (during CC)
+0x069a - 0x07ba: Lv2 Bull Horn (during CC)
+0x07d6 - 0x08f6: Lv3 Bull Horn (during CC)
+0x0912 - 0x0a32: Lv4 Bull Horn (during CC)
+0x0a4e - 0x0b6e: Final Bull Horn (during CC)
+	-- Super Moves
+		-- The Birdie (charge b,f,b,f + P)
+0x0e3a - 0x0e52: Lv1 The Birdie (startup)
+0x0f1e - 0x0f36: Lv1 The Birdie (1st, charge)
+0x0f86 - 0x0fce: Lv1 The Birdie (1st, hit)
+0x0f52 - 0x0f6a: Lv1 The Birdie (recovery between charges)
+0x0fea - 0x1032: Lv1 The Birdie (2nd)
+0x104e - 0x1096: Lv1 The Birdie (3rd)
+0x0e86 - 0x0e9e: Lv2 The Birdie (startup)
+0x10b2: Lv2 The Birdie (1st, charge)
+0x111a - 0x1162: Lv2 The Birdie (1st, hit)
+0x10e6 - 0x10fe: Lv2 The Birdie (recovery after 1st & 2nd charges)
+0x117e - 0x11ae: Lv2 The Birdie (2nd)
+0x11e2 - 0x12a6: Lv2 The Birdie (3rd)
+0x1702 - 0x1762: Lv2 The Birdie (4th)
+0x0ed2 - 0x0eea: Lv3 The Birdie (startup)
+0x12c2 - 0x12da: Lv3 The Birdie (1st, charge)
+0x132a - 0x135a: Lv3 The Birdie (1st, hit)
+0x12f6 - 0x130e: Lv3 The Birdie (recovery after 1st & 2nd charges)
+0x138e - 0x13d6: Lv3 The Birdie (2nd)
+0x13f2 - 0x16e6: Lv3 The Birdie (3rd & 4th)
+0x177e - 0x17de: Lv3 The Birdie (last hit)
+		-- Bull Revenger (qcf,qcf + P/K)
+0x0cc6 - 0x0cf6: Bull Revenger (startup, all versions)
+0x0d12 - 0x0d5a: Bull Revenger (whiff, all versions)
+0x20fa - 0x21a2: Bull Revenger (1st hit, all versions)
+0x21d6 - 0x2296: Lv3 Bull Revenger (2nd hit)
+0x2376 - 0x24ae: Lv1 Bull Revenger (2nd hit)
+0x24fa - 0x2632: Bull Revenger (2nd hit of Lv2/3rd hit of Lv3)
+0x267e - 0x27b6: Lv2/3 Bull Revenger (last hit)
+	-- Other
+0xcf5a - 0xd032: Taunt 1 (Start)
+0xd04e - 0xd1ce: Taunt 2 (f+Start)
+0xd1ea - 0xd352: Taunt 3 (b+Start)
+0xce96 - 0xcf3e: Murderer Chain/Bull Revenger (recovery)
+
+Special ID's:
+
+0 - Bull Head
+1 - Bull Horn
+2 - Murderer Chain
+3 - Bull Revenger
+4 - The Birdie
+5 - Punch AC
+6 - Taunt
+7 - Kick AC
+8 - CC Activation
+9 - Bandit Chain

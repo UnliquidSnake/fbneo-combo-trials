@@ -1,0 +1,1593 @@
+local CharStateTable = {}
+CharStateTable.Basic = {}
+CharStateTable.Normals = {}
+CharStateTable.Throws = {}
+CharStateTable.Specials = {}
+CharStateTable.Supers = {}
+-----------------------------------------------------------------------------------------------
+-- State list
+-----------------------------------------------------------------------------------------------
+CharStateTable.Basic.Any = {}
+CharStateTable.Basic.Idle = {}
+CharStateTable.Basic.Crouch = {}
+CharStateTable.Basic.WalkForward = {}
+CharStateTable.Basic.WalkBack = {}
+CharStateTable.Basic.Jump = {}
+CharStateTable.Basic.NeutralJump = {}
+CharStateTable.Basic.ForwardJump = {}
+CharStateTable.Basic.BackJump = {}
+CharStateTable.Basic.Hitstun = {}
+CharStateTable.Basic.Knockdown = {}
+CharStateTable.Basic.Recovery = {}
+CharStateTable.Basic.CC = {}
+CharStateTable.Basic.CC_Ground = {}
+CharStateTable.Basic.CC_Air = {}
+
+CharStateTable.Normals.Mantis_stLP = {}
+CharStateTable.Normals.Mantis_stMP = {}
+CharStateTable.Normals.Mantis_stHP = {}
+CharStateTable.Normals.Mantis_stLK = {}
+CharStateTable.Normals.Mantis_stMK = {}
+CharStateTable.Normals.Mantis_stHK = {}
+CharStateTable.Normals.Crane_stLP = {}
+CharStateTable.Normals.Crane_stMP = {}
+CharStateTable.Normals.Crane_stHP = {}
+CharStateTable.Normals.Crane_stLK = {}
+CharStateTable.Normals.Crane_stMK = {}
+CharStateTable.Normals.Crane_stHK = {}
+CharStateTable.Normals.Mantis_crLP = {}
+CharStateTable.Normals.Mantis_crMP = {}
+CharStateTable.Normals.Mantis_crHP = {}
+CharStateTable.Normals.Mantis_crLK = {}
+CharStateTable.Normals.Mantis_crMK = {}
+CharStateTable.Normals.Mantis_crHK = {}
+CharStateTable.Normals.Crane_crLP = {}
+CharStateTable.Normals.Crane_crMP = {}
+CharStateTable.Normals.Crane_crHP = {}
+CharStateTable.Normals.Crane_crLK = {}
+CharStateTable.Normals.Crane_crMK = {}
+CharStateTable.Normals.Crane_crHK = {}
+CharStateTable.Normals.Mantis_jLP = {}
+CharStateTable.Normals.Mantis_jMP = {}
+CharStateTable.Normals.Mantis_jHP = {}
+CharStateTable.Normals.Mantis_jLK = {}
+CharStateTable.Normals.Mantis_jMK = {}
+CharStateTable.Normals.Mantis_jHK = {}
+CharStateTable.Normals.Crane_jLP = {}
+CharStateTable.Normals.Crane_jMP = {}
+CharStateTable.Normals.Crane_jHP = {}
+CharStateTable.Normals.Crane_jLK = {}
+CharStateTable.Normals.Crane_jMK = {}
+CharStateTable.Normals.Crane_jHK = {}
+CharStateTable.Normals.Mantis_njLP = {}
+CharStateTable.Normals.Mantis_njMP = {}
+CharStateTable.Normals.Mantis_njHP = {}
+CharStateTable.Normals.Mantis_njLK = {}
+CharStateTable.Normals.Mantis_njMK = {}
+CharStateTable.Normals.Mantis_njHK = {}
+CharStateTable.Normals.Crane_njLP = {}
+CharStateTable.Normals.Crane_njMP = {}
+CharStateTable.Normals.Crane_njHP = {}
+CharStateTable.Normals.Crane_njLK = {}
+CharStateTable.Normals.Crane_njMK = {}
+CharStateTable.Normals.Crane_njHK = {}
+CharStateTable.Normals.Mantis_djLP = {}
+CharStateTable.Normals.Mantis_djMP = {}
+CharStateTable.Normals.Mantis_djHP = {}
+CharStateTable.Normals.Mantis_djLK = {}
+CharStateTable.Normals.Mantis_djMK = {}
+CharStateTable.Normals.Mantis_djHK = {}
+CharStateTable.Normals.Crane_djLP = {}
+CharStateTable.Normals.Crane_djMP = {}
+CharStateTable.Normals.Crane_djHP = {}
+CharStateTable.Normals.Crane_djLK = {}
+CharStateTable.Normals.Crane_djMK = {}
+CharStateTable.Normals.Crane_djHK = {}
+CharStateTable.Normals.Crane_Cmd_TC = {}
+CharStateTable.Normals.Mantis_AC_P = {}
+CharStateTable.Normals.Mantis_AC_K = {}
+CharStateTable.Normals.Crane_AC_P = {}
+CharStateTable.Normals.Crane_AC_K = {}
+
+CharStateTable.Throws.ThrowP = {}
+CharStateTable.Throws.ThrowK = {}
+
+CharStateTable.Specials.StyleSwitch = {}
+CharStateTable.Specials.StyleSwitch_Mantis = {}
+CharStateTable.Specials.StyleSwitch_Crane = {}
+CharStateTable.Specials.Hyakurenko = {}
+CharStateTable.Specials.Hyakurenko_L = {}
+CharStateTable.Specials.Hyakurenko_M = {}
+CharStateTable.Specials.Hyakurenko_H = {}
+CharStateTable.Specials.Gekiro = {}
+CharStateTable.Specials.Gekiro_L = {}
+CharStateTable.Specials.Gekiro_M = {}
+CharStateTable.Specials.Gekiro_H = {}
+CharStateTable.Specials.Gekiro_Follow = {}
+CharStateTable.Specials.Gekiro_Finish = {}
+CharStateTable.Specials.Jyasen = {}
+CharStateTable.Specials.Jyasen_L = {}
+CharStateTable.Specials.Jyasen_M = {}
+CharStateTable.Specials.Jyasen_H = {}
+CharStateTable.Specials.Oga = {}
+CharStateTable.Specials.Oga_L = {}
+CharStateTable.Specials.Oga_M = {}
+CharStateTable.Specials.Oga_H = {}
+CharStateTable.Specials.Oga_WallDive = {}
+CharStateTable.Specials.Oga_WallDiveAngled = {}
+CharStateTable.Specials.Oga_CeilingCling = {}
+CharStateTable.Specials.Oga_CeilingDive = {}
+CharStateTable.Specials.Oga_CeilingDiveAngled = {}
+CharStateTable.Specials.Oga_Feint = {}
+CharStateTable.Specials.Oga_WallFeint = {}
+CharStateTable.Specials.Oga_CeilingFeint = {}
+
+CharStateTable.Supers.Zanei = {}
+CharStateTable.Supers.Zanei_L1 = {}
+CharStateTable.Supers.Zanei_L2 = {}
+CharStateTable.Supers.Zanei_L3 = {}
+CharStateTable.Supers.Shitenshu = {}
+CharStateTable.Supers.Shitenshu_L1 = {}
+CharStateTable.Supers.Shitenshu_L2 = {}
+CharStateTable.Supers.Shitenshu_L3 = {}
+CharStateTable.Supers.Jakoha = {}
+CharStateTable.Supers.Jakoha_L1 = {}
+CharStateTable.Supers.Jakoha_L2 = {}
+CharStateTable.Supers.Jakoha_L3 = {}
+CharStateTable.Supers.Kouga = {}
+CharStateTable.Supers.Kouga_L1 = {}
+CharStateTable.Supers.Kouga_L2 = {}
+CharStateTable.Supers.Kouga_L3 = {}
+-----------------------------------------------------------------------------------------------
+-- Basic states
+-----------------------------------------------------------------------------------------------
+	-- Idle & movement
+-----------------------------------------------------------------------------------------------
+CharStateTable.Basic.Any =
+{
+	name = "Any",
+	stateval = {min = 0x0000, max = 0xffff}
+}
+CharStateTable.Basic.Idle =
+{
+	name = "Idle",
+	type = "notatk",
+	stateval = 
+	{
+		{min = 0x6ab8, max = 0x6b60, style = "mantis"},
+		{min = 0x97b0, max = 0x9858, style = "crane"},
+	}
+}
+CharStateTable.Basic.Crouch =
+{
+	name = "Crouch",
+	type = "notatk",
+	stateval = 
+	{
+		{min = 0x6b7c, max = 0x6b7c, style = "mantis"},
+		{min = 0x9874, max = 0x9874, style = "crane"},
+	}
+}
+CharStateTable.Basic.WalkForward =
+{
+	name = "Walk Forward",
+	type = "notatk",
+	stateval = 
+	{
+		{min = 0x6b98, max = 0x6ca0, style = "mantis"},
+		{min = 0x9890, max = 0x9998, style = "crane"},
+	}
+}
+CharStateTable.Basic.WalkBack =
+{
+	name = "Walk Backward",
+	type = "notatk",
+	stateval = 
+	{
+		{min = 0x6cbc, max = 0x6dc4, style = "mantis"},
+		{min = 0x99b4, max = 0x9abc, style = "crane"},
+	}
+}
+CharStateTable.Basic.NeutralJump = -- does not include prejump frames
+{
+	name = "Neutral Jump",
+	type = "notatk",
+	stateval = 
+	{
+		{min = 0x6ff0, max = 0x7098, style = "mantis"},
+		{min = 0x9ce8, max = 0x9d90, style = "crane"},
+	}
+}
+CharStateTable.Basic.ForwardJump = -- does not include prejump frames
+{
+	name = "Forward Jump",
+	type = "notatk",
+	stateval = 
+	{
+		{min = 0x70b4, max = 0x715c, style = "mantis"},
+		{min = 0x9dac, max = 0x9e54, style = "crane"},
+	}
+}
+CharStateTable.Basic.BackJump = -- does not include prejump frames
+{
+	name = "Backward Jump",
+	type = "notatk",
+	stateval = 
+	{
+		{min = 0x7178, max = 0x7220, style = "mantis"},
+		{min = 0x9e70, max = 0x9f18, style = "crane"},
+	}
+}
+CharStateTable.Basic.Jump = -- does not include prejump frames
+{
+	name = "Jump",
+	type = "notatk",
+	stateval = 
+	{
+		CharStateTable.Basic.NeutralJump.stateval[1],
+		CharStateTable.Basic.ForwardJump.stateval[1],
+		CharStateTable.Basic.BackJump.stateval[1],
+		CharStateTable.Basic.NeutralJump.stateval[2],
+		CharStateTable.Basic.ForwardJump.stateval[2],
+		CharStateTable.Basic.BackJump.stateval[2],
+	}
+}
+-----------------------------------------------------------------------------------------------
+	-- Getting hit
+-----------------------------------------------------------------------------------------------
+CharStateTable.Basic.Hitstun =
+{
+	name = "Get Hit",
+	type = "notatk",
+	stateval = 
+	{
+		{min = 0xbd94, max = 0xc088, style = "mantis"},
+		{min = 0xc170, max = 0xc264, style = "mantis"},
+		{min = 0xc3c4, max = 0xc3dc, style = "mantis"},
+		{min = 0xfd78, max = 0xffff, style = "crane"},
+		{min = 0x0000, max = 0x006c, style = "crane"},
+		{min = 0x0154, max = 0x0248, style = "crane"},
+		{min = 0x03a8, max = 0x03c0, style = "crane"},
+	}
+}
+CharStateTable.Basic.Knockdown =
+{
+	name = "Knockdown",
+	type = "notatk",
+	stateval = 
+	{
+		{min = 0xc0a4, max = 0xc154, style = "mantis"},
+		{min = 0x0088, max = 0x0138, style = "crane"},
+	}
+}
+CharStateTable.Basic.Recovery =
+{
+	name = "Recovery Roll",
+	inputname = "412P when knocked down",
+	type = "notatk",
+	stateval = 
+	{
+		{min = 0x73ec, max = 0x7560, style = "mantis"},
+		{min = 0xa12c, max = 0xa2a0, style = "crane"},
+	}
+}
+-----------------------------------------------------------------------------------------------
+	-- Custom Combo Activation
+-----------------------------------------------------------------------------------------------
+CharStateTable.Basic.CC_Ground =
+{
+	name = "(Ground) Activate Custom Combo",
+	inputname = "Ground PPK or PKK of differing strengths",
+	type = "notatk",
+	spid = 12,
+	stateval = 
+	{
+		{min = 0x79b4, max = 0x7a14, style = "mantis"},
+		{min = 0xa73c, max = 0xa76c, style = "crane"},
+	}
+}
+CharStateTable.Basic.CC_Air =
+{
+	name = "(Air) Activate Custom Combo",
+	inputname = "Air PPK or PKK of differing strengths",
+	type = "notatk",
+	spid = 12,
+	stateval = 
+	{
+		{min = 0x7a30, max = 0x7a48, style = "mantis"},
+		{min = 0xa788, max = 0xa7a0, style = "crane"},
+	}
+}
+CharStateTable.Basic.CC =
+{
+	name = "Activate Custom Combo",
+	inputname = "PPK or PKK of differing strengths",
+	type = "notatk",
+	spid = 12,
+	startstate = {0x79b4, 0x7a30, 0xa73c, 0xa788},
+	stateval =
+	{
+		CharStateTable.Basic.CC_Ground.stateval[1],
+		CharStateTable.Basic.CC_Air.stateval[1],
+		CharStateTable.Basic.CC_Ground.stateval[2],
+		CharStateTable.Basic.CC_Air.stateval[2],
+	}
+}
+-----------------------------------------------------------------------------------------------
+-- Attacks
+-----------------------------------------------------------------------------------------------
+	-- Normals
+-----------------------------------------------------------------------------------------------
+		-- Standing Normals
+-----------------------------------------------------------------------------------------------
+CharStateTable.Normals.Mantis_stLP =
+{
+	name = "(Mantis) Stand LP",
+	inputname = "(Mantis) 5LP",
+	style = "mantis",
+	atkstr = T_AtkStr.L,
+	stateval = {min = 0x7c74, max = 0x7cbc}
+}
+CharStateTable.Normals.Mantis_stMP =
+{
+	name = "(Mantis) Stand MP",
+	inputname = "(Mantis) 5MP",
+	style = "mantis",
+	atkstr = T_AtkStr.M,
+	stateval = {min = 0x7cd8, max = 0x7d68}
+}
+CharStateTable.Normals.Mantis_stHP =
+{
+	name = "(Mantis) Stand HP",
+	inputname = "(Mantis) 5HP",
+	style = "mantis",
+	atkstr = T_AtkStr.H,
+	stateval = {min = 0x7d84, max = 0x7e2c}
+}
+CharStateTable.Normals.Mantis_stLK =
+{
+	name = "(Mantis) Stand LK",
+	inputname = "(Mantis) 5LK",
+	style = "mantis",
+	atkstr = T_AtkStr.L,
+	stateval = {min = 0x7e48, max = 0x7ef0}
+}
+CharStateTable.Normals.Mantis_stMK =
+{
+	name = "(Mantis) Stand MK",
+	inputname = "(Mantis) 5MK",
+	style = "mantis",
+	atkstr = T_AtkStr.M,
+	stateval = {min = 0x7f0c, max = 0x7fb4}
+}
+CharStateTable.Normals.Mantis_stHK =
+{
+	name = "(Mantis) Stand HK",
+	inputname = "(Mantis) 5HK",
+	style = "mantis",
+	atkstr = T_AtkStr.H,
+	stateval = {min = 0x7fd0, max = 0x80a8}
+}
+CharStateTable.Normals.Crane_stLP =
+{
+	name = "(Crane) Stand LP",
+	inputname = "(Crane) 5LP",
+	style = "crane",
+	atkstr = T_AtkStr.L,
+	stateval = {min = 0xa9cc, max = 0xaa2c}
+}
+CharStateTable.Normals.Crane_stMP =
+{
+	name = "(Crane) Stand MP",
+	inputname = "(Crane) 5MP",
+	style = "crane",
+	atkstr = T_AtkStr.M,
+	stateval = {min = 0xaa48, max = 0xab50}
+}
+CharStateTable.Normals.Crane_stHP =
+{
+	name = "(Crane) Stand HP",
+	inputname = "(Crane) 5HP",
+	style = "crane",
+	atkstr = T_AtkStr.H,
+	stateval = {min = 0xab6c, max = 0xac2c}
+}
+CharStateTable.Normals.Crane_stLK =
+{
+	name = "(Crane) Stand LK",
+	inputname = "(Crane) 5LK",
+	style = "crane",
+	atkstr = T_AtkStr.L,
+	stateval = {min = 0xac48, max = 0xacc0}
+}
+CharStateTable.Normals.Crane_stMK =
+{
+	name = "(Crane) Stand MK",
+	inputname = "(Crane) 5MK",
+	style = "crane",
+	atkstr = T_AtkStr.M,
+	stateval = {min = 0xacdc, max = 0xad9c}
+}
+CharStateTable.Normals.Crane_stHK =
+{
+	name = "(Crane) Stand HK",
+	inputname = "(Crane) 5HK",
+	style = "crane",
+	atkstr = T_AtkStr.H,
+	stateval = {min = 0xadb8, max = 0xaf08}
+}
+-----------------------------------------------------------------------------------------------
+		-- Crouching Normals
+-----------------------------------------------------------------------------------------------
+CharStateTable.Normals.Mantis_crLP =
+{
+	name = "(Mantis) Crouch LP",
+	inputname = "(Mantis) 2LP",
+	style = "mantis",
+	atkstr = T_AtkStr.L,
+	stateval = {min = 0x80c4, max = 0x810c}
+}
+CharStateTable.Normals.Mantis_crMP =
+{
+	name = "(Mantis) Crouch MP",
+	inputname = "(Mantis) 2MP",
+	style = "mantis",
+	atkstr = T_AtkStr.M,
+	stateval = {min = 0x8128, max = 0x81b8}
+}
+CharStateTable.Normals.Mantis_crHP =
+{
+	name = "(Mantis) Crouch HP",
+	inputname = "(Mantis) 2HP",
+	style = "mantis",
+	atkstr = T_AtkStr.H,
+	stateval = {min = 0x81d4, max = 0x8264}
+}
+CharStateTable.Normals.Mantis_crLK =
+{
+	name = "(Mantis) Crouch LK",
+	inputname = "(Mantis) 2LK",
+	style = "mantis",
+	atkstr = T_AtkStr.L,
+	stateval = {min = 0x8280, max = 0x82c8}
+}
+CharStateTable.Normals.Mantis_crMK =
+{
+	name = "(Mantis) Crouch MK",
+	inputname = "(Mantis) 2MK",
+	style = "mantis",
+	atkstr = T_AtkStr.M,
+	stateval = {min = 0x82e4, max = 0x838c}
+}
+CharStateTable.Normals.Mantis_crHK =
+{
+	name = "(Mantis) Crouch HK",
+	inputname = "(Mantis) 2HK",
+	style = "mantis",
+	atkstr = T_AtkStr.H,
+	stateval = {min = 0x83a8, max = 0x8450}
+}
+CharStateTable.Normals.Crane_crLP =
+{
+	name = "(Crane) Crouch LP",
+	inputname = "(Crane) 2LP",
+	style = "crane",
+	atkstr = T_AtkStr.L,
+	stateval = {min = 0xaf24, max = 0xaf84}
+}
+CharStateTable.Normals.Crane_crMP =
+{
+	name = "(Crane) Crouch MP",
+	inputname = "(Crane) 2MP",
+	style = "crane",
+	atkstr = T_AtkStr.M,
+	stateval = {min = 0xafa0, max = 0xb000}
+}
+CharStateTable.Normals.Crane_crHP =
+{
+	name = "(Crane) Crouch HP",
+	inputname = "(Crane) 2HP",
+	style = "crane",
+	atkstr = T_AtkStr.H,
+	stateval = {min = 0xb01c, max = 0xb10c}
+}
+CharStateTable.Normals.Crane_crLK =
+{
+	name = "(Crane) Crouch LK",
+	inputname = "(Crane) 2LK",
+	style = "crane",
+	atkstr = T_AtkStr.L,
+	stateval = {min = 0xb128, max = 0xb188}
+}
+CharStateTable.Normals.Crane_crMK =
+{
+	name = "(Crane) Crouch MK",
+	inputname = "(Crane) 2MK",
+	style = "crane",
+	atkstr = T_AtkStr.M,
+	stateval = {min = 0xb1a4, max = 0xb234}
+}
+CharStateTable.Normals.Crane_crHK =
+{
+	name = "(Crane) Crouch HK",
+	inputname = "(Crane) 2HK",
+	style = "crane",
+	atkstr = T_AtkStr.H,
+	stateval = {min = 0xb268, max = 0xb3a0}
+}
+-----------------------------------------------------------------------------------------------
+	-- Neutral Jumping Normals
+-----------------------------------------------------------------------------------------------
+CharStateTable.Normals.Mantis_njLP =
+{
+	name = "(Mantis) Neutral Jump LP",
+	inputname = "(Mantis) njLP",
+	style = "mantis",
+	atkstr = T_AtkStr.L,
+	stateval = {min = 0x846c, max = 0x8544}
+}
+CharStateTable.Normals.Mantis_njMP =
+{
+	name = "(Mantis) Neutral Jump MP",
+	inputname = "(Mantis) njMP",
+	style = "mantis",
+	atkstr = T_AtkStr.M,
+	stateval = {min = 0x8560, max = 0x8620}
+}
+CharStateTable.Normals.Mantis_njHP =
+{
+	name = "(Mantis) Neutral Jump HP",
+	inputname = "(Mantis) njHP",
+	style = "mantis",
+	atkstr = T_AtkStr.H,
+	stateval = {min = 0x863c, max = 0x86fc}
+}
+CharStateTable.Normals.Mantis_njLK =
+{
+	name = "(Mantis) Neutral Jump LK",
+	inputname = "(Mantis) njLK",
+	style = "mantis",
+	atkstr = T_AtkStr.L,
+	stateval = {min = 0x8718, max = 0x87d8}
+}
+CharStateTable.Normals.Mantis_njMK =
+{
+	name = "(Mantis) Neutral Jump MK",
+	inputname = "(Mantis) njMK",
+	style = "mantis",
+	atkstr = T_AtkStr.M,
+	stateval = {min = 0x87f4, max = 0x8884}
+}
+CharStateTable.Normals.Mantis_njHK =
+{
+	name = "(Mantis) Neutral Jump HK",
+	inputname = "(Mantis) njHK",
+	style = "mantis",
+	atkstr = T_AtkStr.H,
+	stateval = {min = 0x88a0, max = 0x8930}
+}
+CharStateTable.Normals.Crane_njLP =
+{
+	name = "(Crane) Neutral Jump LP",
+	inputname = "(Crane) njLP",
+	style = "crane",
+	atkstr = T_AtkStr.L,
+	stateval = {min = 0xb3bc, max = 0xb464}
+}
+CharStateTable.Normals.Crane_njMP =
+{
+	name = "(Crane) Neutral Jump MP",
+	inputname = "(Crane) njMP",
+	style = "crane",
+	atkstr = T_AtkStr.M,
+	stateval = {min = 0xb480, max = 0xb528}
+}
+CharStateTable.Normals.Crane_njHP =
+{
+	name = "(Crane) Neutral Jump HP",
+	inputname = "(Crane) njHP",
+	style = "crane",
+	atkstr = T_AtkStr.H,
+	stateval = {min = 0xb544, max = 0xb5bc}
+}
+CharStateTable.Normals.Crane_njLK =
+{
+	name = "(Crane) Neutral Jump LK",
+	inputname = "(Crane) njLK",
+	style = "crane",
+	atkstr = T_AtkStr.L,
+	stateval = {min = 0xb5d8, max = 0xb668}
+}
+CharStateTable.Normals.Crane_njMK =
+{
+	name = "(Crane) Neutral Jump MK",
+	inputname = "(Crane) njMK",
+	style = "crane",
+	atkstr = T_AtkStr.M,
+	stateval = {min = 0xb684, max = 0xb75c}
+}
+CharStateTable.Normals.Crane_njHK =
+{
+	name = "(Crane) Neutral Jump HK",
+	inputname = "(Crane) njHK",
+	style = "crane",
+	atkstr = T_AtkStr.H,
+	stateval = {min = 0xb778, max = 0xb808}
+}
+-----------------------------------------------------------------------------------------------
+	-- Diagonal Jumping Normals
+-----------------------------------------------------------------------------------------------
+CharStateTable.Normals.Mantis_djLP =
+{
+	name = "(Mantis) Diagonal Jump LP",
+	inputname = "(Mantis) djLP",
+	style = "mantis",
+	atkstr = T_AtkStr.L,
+	stateval = {min = 0x894c, max = 0x8a24}
+}
+CharStateTable.Normals.Mantis_djMP =
+{
+	name = "(Mantis) Diagonal Jump MP",
+	inputname = "(Mantis) djMP",
+	style = "mantis",
+	atkstr = T_AtkStr.M,
+	stateval = {min = 0x8a40, max = 0x8b00}
+}
+CharStateTable.Normals.Mantis_djHP =
+{
+	name = "(Mantis) Diagonal Jump HP",
+	inputname = "(Mantis) djHP",
+	style = "mantis",
+	atkstr = T_AtkStr.H,
+	stateval = {min = 0x8b1c, max = 0x8bdc}
+}
+CharStateTable.Normals.Mantis_djLK =
+{
+	name = "(Mantis) Diagonal Jump LK",
+	inputname = "(Mantis) djLK",
+	style = "mantis",
+	atkstr = T_AtkStr.L,
+	stateval = {min = 0x8bf8, max = 0x8cb8}
+}
+CharStateTable.Normals.Mantis_djMK =
+{
+	name = "(Mantis) Diagonal Jump MK",
+	inputname = "(Mantis) djMK",
+	style = "mantis",
+	atkstr = T_AtkStr.M,
+	stateval = {min = 0x8cd4, max = 0x8d64}
+}
+CharStateTable.Normals.Mantis_djHK =
+{
+	name = "(Mantis) Diagonal Jump HK",
+	inputname = "(Mantis) djHK",
+	style = "mantis",
+	atkstr = T_AtkStr.H,
+	stateval = {min = 0x8d80, max = 0x8e10}
+}
+CharStateTable.Normals.Crane_djLP =
+{
+	name = "(Crane) Diagonal Jump LP",
+	inputname = "(Crane) djLP",
+	style = "crane",
+	atkstr = T_AtkStr.L,
+	stateval = {min = 0xb918, max = 0xb9c0}
+}
+CharStateTable.Normals.Crane_djMP =
+{
+	name = "(Crane) Diagonal Jump MP",
+	inputname = "(Crane) djMP",
+	style = "crane",
+	atkstr = T_AtkStr.M,
+	stateval = {min = 0xb9dc, max = 0xba6c}
+}
+CharStateTable.Normals.Crane_djHP =
+{
+	name = "(Crane) Diagonal Jump HP",
+	inputname = "(Crane) djHP",
+	style = "crane",
+	atkstr = T_AtkStr.H,
+	stateval = {min = 0xba88, max = 0xbb00}
+}
+CharStateTable.Normals.Crane_djLK =
+{
+	name = "(Crane) Diagonal Jump LK",
+	inputname = "(Crane) djLK",
+	style = "crane",
+	atkstr = T_AtkStr.L,
+	stateval = {min = 0xbb1c, max = 0xbbac}
+}
+CharStateTable.Normals.Crane_djMK =
+{
+	name = "(Crane) Diagonal Jump MK",
+	inputname = "(Crane) djMK",
+	style = "crane",
+	atkstr = T_AtkStr.M,
+	stateval = {min = 0xbbc8, max = 0xbcb8}
+}
+CharStateTable.Normals.Crane_djHK =
+{
+	name = "(Crane) Diagonal Jump HK",
+	inputname = "(Crane) djHK",
+	style = "crane",
+	atkstr = T_AtkStr.H,
+	stateval = {min = 0xbcd4, max = 0xbd64}
+}
+-----------------------------------------------------------------------------------------------
+	-- Jumping Normals - tracks both kinds of jumps
+-----------------------------------------------------------------------------------------------
+CharStateTable.Normals.Mantis_jLP =
+{
+	name = "(Mantis) Jump LP",
+	inputname = "(Mantis) jLP",
+	style = "mantis",
+	atkstr = T_AtkStr.L,
+	startstate = {0x846c, 0x894c},
+	stateval = 
+	{
+		CharStateTable.Normals.Mantis_njLP.stateval,
+		CharStateTable.Normals.Mantis_djLP.stateval,
+	}
+}
+CharStateTable.Normals.Mantis_jMP =
+{
+	name = "(Mantis) Jump MP",
+	inputname = "(Mantis) jMP",
+	style = "mantis",
+	atkstr = T_AtkStr.M,
+	startstate = {0x8560, 0x8a40},
+	stateval = 
+	{
+		CharStateTable.Normals.Mantis_njMP.stateval,
+		CharStateTable.Normals.Mantis_djMP.stateval,
+	}
+}
+CharStateTable.Normals.Mantis_jHP =
+{
+	name = "(Mantis) Jump HP",
+	inputname = "(Mantis) jHP",
+	style = "mantis",
+	atkstr = T_AtkStr.H,
+	startstate = {0x863c, 0x8b1c},
+	stateval = 
+	{
+		CharStateTable.Normals.Mantis_njHP.stateval,
+		CharStateTable.Normals.Mantis_djHP.stateval,
+	}
+}
+CharStateTable.Normals.Mantis_jLK =
+{
+	name = "(Mantis) Jump LK",
+	inputname = "(Mantis) jLK",
+	style = "mantis",
+	atkstr = T_AtkStr.L,
+	startstate = {0x8718, 0x8bf8},
+	stateval = 
+	{
+		CharStateTable.Normals.Mantis_njLK.stateval,
+		CharStateTable.Normals.Mantis_djLK.stateval,
+	}
+}
+CharStateTable.Normals.Mantis_jMK =
+{
+	name = "(Mantis) Jump MK",
+	inputname = "(Mantis) jMK",
+	style = "mantis",
+	atkstr = T_AtkStr.M,
+	startstate = {0x87f4, 0x8cd4},
+	stateval = 
+	{
+		CharStateTable.Normals.Mantis_njMK.stateval,
+		CharStateTable.Normals.Mantis_djMK.stateval,
+	}
+}
+CharStateTable.Normals.Mantis_jHK =
+{
+	name = "(Mantis) Jump HK",
+	inputname = "(Mantis) jHK",
+	style = "mantis",
+	atkstr = T_AtkStr.H,
+	startstate = {0x88a0, 0x8d80},
+	stateval = 
+	{
+		CharStateTable.Normals.Mantis_njHK.stateval,
+		CharStateTable.Normals.Mantis_djHK.stateval,
+	}
+}
+CharStateTable.Normals.Crane_jLP =
+{
+	name = "(Crane) Jump LP",
+	inputname = "(Crane) jLP",
+	style = "crane",
+	atkstr = T_AtkStr.L,
+	startstate = {0xb3bc, 0xb918},
+	stateval = 
+	{
+		CharStateTable.Normals.Crane_njLP.stateval,
+		CharStateTable.Normals.Crane_djLP.stateval,
+	}
+}
+CharStateTable.Normals.Crane_jMP =
+{
+	name = "(Crane) Jump MP",
+	inputname = "(Crane) jMP",
+	style = "crane",
+	atkstr = T_AtkStr.M,
+	startstate = {0xb480, 0xb9dc},
+	stateval = 
+	{
+		CharStateTable.Normals.Crane_njMP.stateval,
+		CharStateTable.Normals.Crane_djMP.stateval,
+	}
+}
+CharStateTable.Normals.Crane_jHP =
+{
+	name = "(Crane) Jump HP",
+	inputname = "(Crane) jHP",
+	style = "crane",
+	atkstr = T_AtkStr.H,
+	startstate = {0xb544, 0xba88},
+	stateval = 
+	{
+		CharStateTable.Normals.Crane_njHP.stateval,
+		CharStateTable.Normals.Crane_djHP.stateval,
+	}
+}
+CharStateTable.Normals.Crane_jLK =
+{
+	name = "(Crane) Jump LK",
+	inputname = "(Crane) jLK",
+	style = "crane",
+	atkstr = T_AtkStr.L,
+	startstate = {0xb5d8, 0xbb1c},
+	stateval = 
+	{
+		CharStateTable.Normals.Crane_njLK.stateval,
+		CharStateTable.Normals.Crane_djLK.stateval,
+	}
+}
+CharStateTable.Normals.Crane_jMK =
+{
+	name = "(Crane) Jump MK",
+	inputname = "(Crane) jMK",
+	style = "crane",
+	atkstr = T_AtkStr.M,
+	startstate = {0xb684, 0xbbc8},
+	stateval = 
+	{
+		CharStateTable.Normals.Crane_njMK.stateval,
+		CharStateTable.Normals.Crane_djMK.stateval,
+	}
+}
+CharStateTable.Normals.Crane_jHK =
+{
+	name = "(Crane) Jump HK",
+	inputname = "(Crane) jHK",
+	style = "crane",
+	atkstr = T_AtkStr.H,
+	startstate = {0xb778, 0xbcd4},
+	stateval = 
+	{
+		CharStateTable.Normals.Crane_njHK.stateval,
+		CharStateTable.Normals.Crane_djHK.stateval,
+	}
+}
+-----------------------------------------------------------------------------------------------
+		-- Command Normals
+-----------------------------------------------------------------------------------------------
+CharStateTable.Normals.Crane_TC =
+{
+	name = "Shakudan",
+	inputname = "(Crane) jHK->HK",
+	style = "crane",
+	atkstr = T_AtkStr.H,
+	startstate = {0xb824, 0xbd80},
+	stateval =
+	{
+		{min = 0xb824, max = 0xb8fc}, -- neutral jump
+		{min = 0xbd80, max = 0xbe58}, -- diagonal jump
+	}
+}
+-----------------------------------------------------------------------------------------------
+	-- Alpha Counters
+-----------------------------------------------------------------------------------------------
+		-- (Mantis) Punch AC - Palm Strike (b,db,d + P)
+-----------------------------------------------------------------------------------------------
+CharStateTable.Normals.Mantis_AC_P =
+{
+	name = "(Mantis) (P) Alpha Counter",
+	inputname = "(Mantis) 412P (when blocking)",
+	style = "mantis",
+	spid = 10,
+	stateval = {min = 0x91fc, max = 0x92a4}
+}
+-----------------------------------------------------------------------------------------------
+		-- (Mantis) Kick AC - Gekiro (b,db,d + K)
+-----------------------------------------------------------------------------------------------
+CharStateTable.Normals.Mantis_AC_K =
+{
+	name = "(Mantis) (K) Alpha Counter",
+	inputname = "(Mantis) 412K (when blocking)",
+	style = "mantis",
+	spid = 11,
+	stateval = {min = 0x92c0, max = 0x9440}
+}
+-----------------------------------------------------------------------------------------------
+		-- (Crane) Punch AC - Shoulder Charge (b,db,d + P)
+-----------------------------------------------------------------------------------------------
+CharStateTable.Normals.Crane_AC_P =
+{
+	name = "(Crane) (P) Alpha Counter",
+	inputname = "(Crane) 412P (when blocking)",
+	style = "crane",
+	spid = 10,
+	stateval = {min = 0xc244, max = 0xc31c}
+}
+-----------------------------------------------------------------------------------------------
+		-- (Crane) Kick AC - Sobat (b,db,d + K)
+-----------------------------------------------------------------------------------------------
+CharStateTable.Normals.Crane_AC_K =
+{
+	name = "(Crane) (K) Alpha Counter",
+	inputname = "(Crane) 412K (when blocking)",
+	style = "crane",
+	spid = 11,
+	stateval = {min = 0xc338, max = 0xc3f8}
+}
+-----------------------------------------------------------------------------------------------
+	-- Throws
+-----------------------------------------------------------------------------------------------
+CharStateTable.Throws.ThrowP =
+{
+	name = "Juraku",
+	inputname = "MP/HP Throw",
+	type = "throw",
+	stateval = 
+	{
+		{min = 0x8e2c, max = 0x8eec, style = "mantis"},
+		{min = 0xbe74, max = 0xbf34, style = "crane"},
+	}
+}
+CharStateTable.Throws.ThrowK =
+{
+	name = "Houzen",
+	inputname = "MK/HK Throw",
+	type = "throw",
+	stateval = 
+	{
+		{min = 0x8f08, max = 0x8ff8, style = "mantis"},
+		{min = 0xbf50, max = 0xc040, style = "crane"},
+	}
+}
+-----------------------------------------------------------------------------------------------
+	-- Special Moves
+-----------------------------------------------------------------------------------------------
+		-- Style Switch (KKK in Mantis/PPP in Crane)
+-----------------------------------------------------------------------------------------------
+CharStateTable.Specials.StyleSwitch_Mantis =
+{
+	name = "Switch to Mantis Style",
+	inputname = "(Crane) PPP",
+	type = "notatk",
+	spid = 8,
+	stateval = {min = 0x7bd8, max = 0x7c20, style = "mantis"}
+}
+CharStateTable.Specials.StyleSwitch_Crane =
+{
+	name = "Switch to Crane Style",
+	inputname = "(Mantis) KKK",
+	type = "notatk",
+	spid = 8,
+	stateval = {min = 0xa948, max = 0xa978, style = "crane"}
+}
+CharStateTable.Specials.StyleSwitch =
+{
+	name = "Switch Style",
+	inputname = "(Mantis) KKK or (Crane) PPP",
+	type = "notatk",
+	spid = 8,
+	stateval =
+	{
+		CharStateTable.Specials.StyleSwitch_Mantis.stateval,
+		CharStateTable.Specials.StyleSwitch_Crane.stateval,
+	}
+}
+-----------------------------------------------------------------------------------------------
+		-- Hyakurenko (in Mantis, mash P)
+-----------------------------------------------------------------------------------------------
+CharStateTable.Specials.Hyakurenko_L =
+{
+	name = "(L) Hyakurenko",
+	inputname = "(Mantis) Mash LP",
+	style = "mantis",
+	spid = 0,
+	atkstr = T_AtkStr.L,
+	startstate = {0x9610, 0x9628, 0x9940, 0x9958},
+	stateval =
+	{
+		{min = 0x9610, max = 0x96d0}, -- attack
+		{min = 0x9940, max = 0x9a00}, -- CC attack
+		{min = 0x98a4, max = 0x98bc}, -- recovery
+		{min = 0x9bd4, max = 0x9bec}, -- CC recovery
+	}
+}
+CharStateTable.Specials.Hyakurenko_M =
+{
+	name = "(M) Hyakurenko",
+	inputname = "(Mantis) Mash MP",
+	style = "mantis",
+	spid = 0,
+	atkstr = T_AtkStr.M,
+	startstate = {0x96ec, 0x9704, 0x9a1c, 0x9a34},
+	stateval =
+	{
+		{min = 0x96ec, max = 0x97ac}, -- attack
+		{min = 0x9a1c, max = 0x9adc}, -- CC attack
+		{min = 0x98d8, max = 0x98f0}, -- recovery
+		{min = 0x9c08, max = 0x9c20}, -- CC recovery
+	}
+}
+CharStateTable.Specials.Hyakurenko_H =
+{
+	name = "(H) Hyakurenko",
+	inputname = "(Mantis) Mash HP",
+	style = "mantis",
+	spid = 0,
+	atkstr = T_AtkStr.H,
+	startstate = {0x97c8, 0x97e0, 0x9af8, 0x9b10},
+	stateval =
+	{
+		{min = 0x97c8, max = 0x9888}, -- attack
+		{min = 0x9af8, max = 0x9bb8}, -- CC attack
+		{min = 0x990c, max = 0x9924}, -- recovery
+		{min = 0x9c3c, max = 0x9c54}, -- CC recovery
+	}
+}
+CharStateTable.Specials.Hyakurenko =
+{
+	name = "Hyakurenko",
+	inputname = "(Mantis) Mash P",
+	style = "mantis",
+	spid = 0,
+	startstate = {0x9610, 0x9628, 0x9940, 0x9958, 0x96ec, 0x9704, 0x9a1c, 0x9a34, 0x97c8, 0x97e0, 0x9af8, 0x9b10},
+	stateval =
+	{
+		CharStateTable.Specials.Hyakurenko_L.stateval[1],
+		CharStateTable.Specials.Hyakurenko_M.stateval[1],
+		CharStateTable.Specials.Hyakurenko_H.stateval[1],
+		CharStateTable.Specials.Hyakurenko_L.stateval[2],
+		CharStateTable.Specials.Hyakurenko_M.stateval[2],
+		CharStateTable.Specials.Hyakurenko_H.stateval[2],
+		CharStateTable.Specials.Hyakurenko_L.stateval[3],
+		CharStateTable.Specials.Hyakurenko_M.stateval[3],
+		CharStateTable.Specials.Hyakurenko_H.stateval[3],
+		CharStateTable.Specials.Hyakurenko_L.stateval[4],
+		CharStateTable.Specials.Hyakurenko_M.stateval[4],
+		CharStateTable.Specials.Hyakurenko_H.stateval[4],
+	}
+}
+-----------------------------------------------------------------------------------------------
+		-- Gekiro (in Mantis, dp + K, then keep pressing K in a rhythm)
+-----------------------------------------------------------------------------------------------
+CharStateTable.Specials.Gekiro_L =
+{
+	name = "(L) Gekiro",
+	inputname = "(Mantis) 623LK",
+	style = "mantis",
+	spid = 1,
+	atkstr = T_AtkStr.L,
+	startstate = {0x9c70, 0x9c88, 0xa70c, 0xa724},
+	stateval =
+	{
+		{min = 0x9c70, max = 0x9d00},
+		{min = 0xa70c, max = 0xa79c}, -- CC only
+	}
+}
+CharStateTable.Specials.Gekiro_M =
+{
+	name = "(M) Gekiro",
+	inputname = "(Mantis) 623MK",
+	style = "mantis",
+	spid = 1,
+	atkstr = T_AtkStr.M,
+	startstate = {0x9f28, 0x9f40, 0xa7b8, 0xa7d0},
+	stateval =
+	{
+		{min = 0x9f28, max = 0x9fb8},
+		{min = 0xa7b8, max = 0xa848}, -- CC only
+	}
+}
+CharStateTable.Specials.Gekiro_H =
+{
+	name = "(H) Gekiro",
+	inputname = "(Mantis) 623HK",
+	style = "mantis",
+	spid = 1,
+	atkstr = T_AtkStr.H,
+	startstate = {0xa22c, 0xa244, 0xa864, 0xa87c},
+	stateval =
+	{
+		{min = 0xa22c, max = 0xa2bc},
+		{min = 0xa864, max = 0xa8f4}, -- CC only
+	}
+}
+CharStateTable.Specials.Gekiro =
+{
+	name = "Gekiro",
+	inputname = "(Mantis) 623K",
+	style = "mantis",
+	spid = 1,
+	startstate = {0x9c70, 0x9c88, 0xa70c, 0xa724, 0x9f28, 0x9f40, 0xa7b8, 0xa7d0, 0xa22c, 0xa244, 0xa864, 0xa87c},
+	stateval =
+	{
+		CharStateTable.Specials.Gekiro_L.stateval[1],
+		CharStateTable.Specials.Gekiro_M.stateval[1],
+		CharStateTable.Specials.Gekiro_H.stateval[1],
+		CharStateTable.Specials.Gekiro_L.stateval[2],
+		CharStateTable.Specials.Gekiro_M.stateval[2],
+		CharStateTable.Specials.Gekiro_H.stateval[2],
+	}
+}
+CharStateTable.Specials.Gekiro_Follow =
+{
+	name = "Gekiro Followups",
+	inputname = "Press K in a rhythm",
+	style = "mantis",
+	spid = 1,
+	startstate = {0x9d1c, 0x9fd4, 0xa2d8},
+	stateval =
+	{
+		{min = 0x9d1c, max = 0x9e30},
+		{min = 0x9fd4, max = 0xa134},
+		{min = 0xa2d8, max = 0xa484},
+	}
+}
+CharStateTable.Specials.Gekiro_Finish =
+{
+	name = "Gekiro Finish",
+	inputname = "K",
+	style = "mantis",
+	spid = 1,
+	startstate = {0x9e4c, 0xa150, 0xa4a0},
+	stateval =
+	{
+		{min = 0x9e4c, max = 0x9f0c},
+		{min = 0xa150, max = 0xa210},
+		{min = 0xa4a0, max = 0xa560},
+	}
+}
+-----------------------------------------------------------------------------------------------
+		-- Jyasen (in Crane, charge b,f + P)
+-----------------------------------------------------------------------------------------------
+CharStateTable.Specials.Jyasen_L =
+{
+	name = "(L) Jyasen",
+	inputname = "(Crane) [4]6LP",
+	style = "crane",
+	spid = 2,
+	atkstr = T_AtkStr.L,
+	startstate = {0xc5c8, 0xca9c},
+	stateval =
+	{
+		{min = 0xc5c8, max = 0xc6e8},
+		{min = 0xca9c, max = 0xcbbc}, -- CC only
+	}
+}
+CharStateTable.Specials.Jyasen_M =
+{
+	name = "(M) Jyasen",
+	inputname = "(Crane) [4]6MP",
+	style = "crane",
+	spid = 2,
+	atkstr = T_AtkStr.M,
+	startstate = {0xc704, 0xcbd8},
+	stateval =
+	{
+		{min = 0xc704, max = 0xc884},
+		{min = 0xcbd8, max = 0xcd58}, -- CC only
+	}
+}
+CharStateTable.Specials.Jyasen_H =
+{
+	name = "(H) Jyasen",
+	inputname = "(Crane) [4]6HP",
+	style = "crane",
+	spid = 2,
+	atkstr = T_AtkStr.H,
+	startstate = {0xc8a0, 0xcd74},
+	stateval =
+	{
+		{min = 0xc8a0, max = 0xca80},
+		{min = 0xcd74, max = 0xcf54}, -- CC only
+	}
+}
+CharStateTable.Specials.Jyasen =
+{
+	name = "Jyasen",
+	inputname = "(Crane) [4]6P",
+	style = "crane",
+	spid = 2,
+	startstate = {0xc5c8, 0xca9c, 0xc704, 0xcbd8, 0xc8a0, 0xcd74},
+	stateval =
+	{
+		CharStateTable.Specials.Jyasen_L.stateval[1],
+		CharStateTable.Specials.Jyasen_M.stateval[1],
+		CharStateTable.Specials.Jyasen_H.stateval[1],
+		CharStateTable.Specials.Jyasen_L.stateval[2],
+		CharStateTable.Specials.Jyasen_M.stateval[2],
+		CharStateTable.Specials.Jyasen_H.stateval[2],
+	}
+}
+-----------------------------------------------------------------------------------------------
+		-- Oga (in Crane, charge d,u + K)
+		-- -> Wall Dive (at wall, do nothing)
+		-- -> Angled Wall Dive (at wall, f)
+		-- -> Wall Feint (at wall, b)
+		-- -> Ceiling Cling (at wall, u)
+		--	-> Ceiling Dive (at ceiling, do nothing)
+		--	-> Angled Ceiling Dive (at ceiling, b or f)
+		--	-> Ceiling Feint (at ceiling, u)
+-----------------------------------------------------------------------------------------------
+CharStateTable.Specials.Oga_L =
+{
+	name = "(L) Oga",
+	inputname = "(Crane) [2]8LK",
+	style = "crane",
+	type = "notatk",
+	spid = 3,
+	atkstr = T_AtkStr.L,
+	stateval =
+	{
+		{min = 0xcf70, max = 0xcfa0}, -- wall jump
+		{min = 0xd008, max = 0xd080}, -- wall cling
+		{min = 0xd350, max = 0xd478}, -- landing recoveries
+	}
+}
+CharStateTable.Specials.Oga_M =
+{
+	name = "(M) Oga",
+	inputname = "(Crane) [2]8MK",
+	style = "crane",
+	type = "notatk",
+	spid = 3,
+	atkstr = T_AtkStr.L,
+	stateval =
+	{
+		{min = 0xcf70, max = 0xcfa0}, -- wall jump
+		{min = 0xd008, max = 0xd080}, -- wall cling
+		{min = 0xd350, max = 0xd478}, -- landing recoveries
+	}
+}
+CharStateTable.Specials.Oga_H =
+{
+	name = "(H) Oga",
+	inputname = "(Crane) [2]8HK",
+	style = "crane",
+	type = "notatk",
+	spid = 3,
+	atkstr = T_AtkStr.H,
+	stateval =
+	{
+		{min = 0xcf70, max = 0xcfa0}, -- wall jump
+		{min = 0xd008, max = 0xd080}, -- wall cling
+		{min = 0xd350, max = 0xd478}, -- landing recoveries
+	}
+}
+CharStateTable.Specials.Oga =
+{
+	name = "Oga",
+	inputname = "(Crane) [2]8K",
+	style = "crane",
+	type = "notatk",
+	spid = 3,
+	stateval =
+	{
+		{min = 0xcf70, max = 0xcfa0}, -- wall jump
+		{min = 0xd008, max = 0xd080}, -- wall cling
+		{min = 0xd350, max = 0xd478}, -- landing recoveries
+	}
+}
+CharStateTable.Specials.Oga_WallDive =
+{
+	name = "Wall Dive",
+	inputname = "At wall, do nothing",
+	style = "crane",
+	spid = 3,
+	startstate = {0xd494, 0xd6e4, 0xd934},
+	stateval =
+	{
+		{min = 0xd494, max = 0xd50c}, -- L
+		{min = 0xd6e4, max = 0xd75c}, -- M
+		{min = 0xd934, max = 0xd9ac}, -- H
+	}
+}
+CharStateTable.Specials.Oga_WallDiveAngled =
+{
+	name = "Angled Wall Dive",
+	inputname = "At wall, 6",
+	style = "crane",
+	spid = 3,
+	startstate = {0xd528, 0xd778, 0xd9c8},
+	stateval =
+	{
+		{min = 0xd528, max = 0xd5a0}, -- L
+		{min = 0xd778, max = 0xd7f0}, -- M
+		{min = 0xd9c8, max = 0xda40}, -- H
+	}
+}
+CharStateTable.Specials.Oga_CeilingCling =
+{
+	name = "Ceiling Cling",
+	inputname = "At wall, 8",
+	style = "crane",
+	type = "notatk",
+	spid = 3,
+	stateval = {min = 0xd09c, max = 0xd118}
+}
+CharStateTable.Specials.Oga_CeilingDive =
+{
+	name = "Ceiling Dive",
+	inputname = "At ceiling, do nothing",
+	style = "crane",
+	spid = 3,
+	startstate = {0xd650, 0xd8a0, 0xdaf0},
+	stateval =
+	{
+		{min = 0xd650, max = 0xd6c8}, -- L
+		{min = 0xd8a0, max = 0xd918}, -- M
+		{min = 0xdaf0, max = 0xdb68}, -- H
+	}
+}
+CharStateTable.Specials.Oga_CeilingDiveAngled =
+{
+	name = "Angled Ceiling Dive",
+	inputname = "At ceiling, 4 or 6",
+	style = "crane",
+	spid = 3,
+	startstate = {0xd5bc, 0xd80c, 0xda5c},
+	stateval =
+	{
+		{min = 0xd5bc, max = 0xd634}, -- L
+		{min = 0xd80c, max = 0xd884}, -- M
+		{min = 0xda5c, max = 0xdad4}, -- H
+	}
+}
+CharStateTable.Specials.Oga_WallFeint =
+{
+	name = "Wall Feint",
+	inputname = "At wall, 4",
+	style = "crane",
+	type = "notatk",
+	spid = 3,
+	stateval = {min = 0xd134, max = 0xd1ac}
+}
+CharStateTable.Specials.Oga_CeilingFeint =
+{
+	name = "Ceiling Feint",
+	inputname = "At ceiling, 8",
+	style = "crane",
+	type = "notatk",
+	spid = 3,
+	stateval = {min = 0xd134, max = 0xd1ac}
+}
+CharStateTable.Specials.Oga_Feint =
+{
+	name = "Feint",
+	inputname = "At wall, 4/At ceiling, 8",
+	style = "crane",
+	type = "notatk",
+	spid = 3,
+	stateval = {min = 0xd134, max = 0xd1ac}
+}
+-----------------------------------------------------------------------------------------------
+	-- Super Moves
+-----------------------------------------------------------------------------------------------
+		-- Zan'ei (in Mantis, qcf,qcf + P)
+-----------------------------------------------------------------------------------------------
+CharStateTable.Supers.Zanei_L1 =
+{
+	name = "(Level 1) Zan'ei",
+	inputname = "(Mantis) 236236P (Lv1)",
+	style = "mantis",
+	spid = 5,
+	atkstr = T_AtkStr.Lv1,
+	stateval =
+	{
+		{min = 0xb18c, max = 0xb24c}, -- startup
+		{min = 0xb420, max = 0xb528}, -- hit
+		{min = 0xb7d4, max = 0xb8c4}, -- whiff recovery
+	}
+}
+CharStateTable.Supers.Zanei_L2 =
+{
+	name = "(Level 2) Zan'ei",
+	inputname = "(Mantis) 236236P (Lv2)",
+	style = "mantis",
+	spid = 5,
+	atkstr = T_AtkStr.Lv2,
+	stateval =
+	{
+		{min = 0xb268, max = 0xb328}, -- startup
+		{min = 0xb544, max = 0xb664}, -- hit
+		{min = 0xb7d4, max = 0xb8c4}, -- whiff recovery
+	}
+}
+CharStateTable.Supers.Zanei_L3 =
+{
+	name = "(Level 3) Zan'ei",
+	inputname = "(Mantis) 236236P (Lv3)",
+	style = "mantis",
+	spid = 5,
+	atkstr = T_AtkStr.Lv3,
+	stateval =
+	{
+		{min = 0xb344, max = 0xb404}, -- startup
+		{min = 0xb680, max = 0xb7b8}, -- hit
+		{min = 0xb7d4, max = 0xb8c4}, -- whiff recovery
+	}
+}
+CharStateTable.Supers.Zanei =
+{
+	name = "Zan'ei",
+	inputname = "(Mantis) 236236P",
+	style = "mantis",
+	spid = 5,
+	startstate = {0xb18c, 0xb420, 0xb7d4},
+	stateval =
+	{
+		{min = 0xb18c, max = 0xb404}, -- startup
+		{min = 0xb420, max = 0xb7b8}, -- hit
+		{min = 0xb7d4, max = 0xb8c4}, -- whiff recovery
+	}
+}
+-----------------------------------------------------------------------------------------------
+		-- Shitenshu (in Mantis, qcb,qcb + P)
+-----------------------------------------------------------------------------------------------
+CharStateTable.Supers.Shitenshu_L1 =
+{
+	name = "(Level 1) Shitenshu",
+	inputname = "(Mantis) 214214P (Lv1)",
+	style = "mantis",
+	spid = 4,
+	atkstr = T_AtkStr.Lv1,
+	stateval = {min = 0xa910, max = 0xab68}
+}
+CharStateTable.Supers.Shitenshu_L2 =
+{
+	name = "(Level 2) Shitenshu",
+	inputname = "(Mantis) 214214P (Lv2)",
+	style = "mantis",
+	spid = 4,
+	atkstr = T_AtkStr.Lv2,
+	stateval = {min = 0xab84, max = 0xae3c}
+}
+CharStateTable.Supers.Shitenshu_L3 =
+{
+	name = "(Level 3) Shitenshu",
+	inputname = "(Mantis) 214214P (Lv3)",
+	style = "mantis",
+	spid = 4,
+	atkstr = T_AtkStr.Lv3,
+	stateval = {min = 0xae58, max = 0xb170}
+}
+CharStateTable.Supers.Shitenshu =
+{
+	name = "Shitenshu",
+	inputname = "(Mantis) 214214P",
+	style = "mantis",
+	spid = 4,
+	startstate = {0xa910, 0xab84, 0xae58},
+	stateval =
+	{
+		CharStateTable.Supers.Shitenshu_L1.stateval,
+		CharStateTable.Supers.Shitenshu_L2.stateval,
+		CharStateTable.Supers.Shitenshu_L3.stateval,
+	}
+}
+-----------------------------------------------------------------------------------------------
+		-- Jakoha (in Crane, qcf,qcf + K)
+-----------------------------------------------------------------------------------------------
+CharStateTable.Supers.Jakoha_L1 =
+{
+	name = "(Level 1) Jakoha",
+	inputname = "(Crane) 236236K (Lv1)",
+	style = "crane",
+	type = "throw",
+	spid = 6,
+	atkstr = T_AtkStr.Lv1,
+	stateval = {min = 0xdcc8, max = 0xde94}
+}
+CharStateTable.Supers.Jakoha_L2 =
+{
+	name = "(Level 2) Jakoha",
+	inputname = "(Crane) 236236K (Lv2)",
+	style = "crane",
+	type = "throw",
+	spid = 6,
+	atkstr = T_AtkStr.Lv2,
+	stateval = {min = 0xdeb0, max = 0xe0ac}
+}
+CharStateTable.Supers.Jakoha_L3 =
+{
+	name = "(Level 3) Jakoha",
+	inputname = "(Crane) 236236K (Lv3)",
+	style = "crane",
+	type = "throw",
+	spid = 6,
+	atkstr = T_AtkStr.Lv3,
+	stateval = {min = 0xe0c8, max = 0xe39c}
+}
+CharStateTable.Supers.Jakoha =
+{
+	name = "Jakoha",
+	inputname = "(Crane) 236236K",
+	style = "crane",
+	type = "throw",
+	spid = 6,
+	startstate = {0xdcc8, 0xdeb0, 0xe0c8},
+	stateval =
+	{
+		CharStateTable.Supers.Jakoha_L1.stateval,
+		CharStateTable.Supers.Jakoha_L2.stateval,
+		CharStateTable.Supers.Jakoha_L3.stateval,
+	}
+}
+-----------------------------------------------------------------------------------------------
+		-- Kouga (in Crane, air qcb,qcb + K -> followups nobody cares about)
+-----------------------------------------------------------------------------------------------
+CharStateTable.Supers.Kouga_L1 =
+{
+	name = "(Level 1) Kouga",
+	inputname = "(Crane) j214214K (Lv1)",
+	style = "crane",
+	spid = 7,
+	atkstr = T_AtkStr.Lv1,
+	stateval =
+	{
+		{min = 0xe3b8, max = 0xe6fc}, -- kicks
+		{min = 0xf63c, max = 0xf8a8}, -- in-between states
+	}
+}
+CharStateTable.Supers.Kouga_L2 =
+{
+	name = "(Level 2) Kouga",
+	inputname = "(Crane) j214214K (Lv2)",
+	style = "crane",
+	spid = 7,
+	atkstr = T_AtkStr.Lv2,
+	stateval =
+	{
+		{min = 0xe718, max = 0xed28}, -- kicks
+		{min = 0xf63c, max = 0xf8a8}, -- in-between states
+	}
+}
+CharStateTable.Supers.Kouga_L3 =
+{
+	name = "(Level 3) Kouga",
+	inputname = "(Crane) j214214K (Lv3)",
+	style = "crane",
+	spid = 7,
+	atkstr = T_AtkStr.Lv3,
+	stateval =
+	{
+		{min = 0xed44, max = 0xf620}, -- kicks
+		{min = 0xf63c, max = 0xf8a8}, -- in-between states
+	}
+}
+CharStateTable.Supers.Kouga =
+{
+	name = "Kouga",
+	inputname = "(Crane) j214214K",
+	style = "crane",
+	spid = 7,
+	startstate = {0xe3b8, 0xe718, 0xed44},
+	stateval =
+	{
+		CharStateTable.Supers.Kouga_L1.stateval[1],
+		CharStateTable.Supers.Kouga_L2.stateval[1],
+		CharStateTable.Supers.Kouga_L3.stateval[1],
+		{min = 0xf63c, max = 0xf8a8}, -- in-between states
+	}
+}
+
+return CharStateTable

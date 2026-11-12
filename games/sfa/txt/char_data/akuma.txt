@@ -116,7 +116,7 @@
 0x9da6 - 0x9e66: Ashura Senku -- applies to all versions
 		-- Hyakkishu (qcf,uf + P, has followups)
 0xab6e - 0xabce: Hyakkishu (Startup) -- applies to all versions
-0xabe6 - 0xac2e - Hyakkishu (Active)
+0xabe6 - 0xac2e: Hyakkishu (Active)
 		-- Followups
 0xaeee - 0xaf06: L Hyakki Gozan -- L Hyakkishu -> do nothing
 0xaf22 - 0xaf3a: M Hyakki Gozan -- M Hyakkishu -> do nothing

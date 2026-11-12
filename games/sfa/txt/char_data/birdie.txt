@@ -119,7 +119,7 @@
 0x7ea6 - 0x7ebe: Lv3 The Birdie (recovery after 1st & 2nd charges)
 0x7f3e - 0x7f86: Lv3 The Birdie (2nd)
 0x7fa2 - 0x83a6: Lv3 The Birdie (3-5)
-		-- Bull Revenger (qcf,qcf + K)
+		-- Bull Revenger (qcf,qcf + P/K)
 0x76ea - 0x771a: Bull Revenger (startup, all versions)
 0x78f2 - 0x793a: Bull Revenger (whiff, all versions)
 0x6a72 - 0x6c0a: Bull Revenger (grab up to 1st hit, all versions)

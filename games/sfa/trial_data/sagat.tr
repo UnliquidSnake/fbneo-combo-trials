@@ -1,6 +1,7 @@
 {
 	{
 		p1meter = 0,
+		save = "sagat/sagat_vs_ryu_pb.fs",
 		acttable = 
 		{
 			{state = States.Normals.crLK},
@@ -11,6 +12,7 @@
 	},
 	{
 		p1meter = 0,
+		save = "sagat/sagat_vs_ryu_jumpin.fs",
 		acttable = 
 		{
 			{state = States.Normals.jHK},
@@ -22,6 +24,7 @@
 		description = "Opponent jumping",
 		enemystate = "jump",
 		p1meter = 0,
+		save = "sagat/sagat_vs_ryu_pb.fs",
 		acttable = 
 		{
 			{state = States.Normals.stMP, nameadd = " [air hit]", success = "IsAtkCombo() and P2.CurrState.IsAirborne"},
@@ -31,6 +34,7 @@
 	{
 		description = "Corner only",
 		p1meter = 0,
+		save = "sagat/sagat_vs_ryu_corner_meaty.fs",
 		acttable = 
 		{
 			{state = States.Specials.TigerCrush_L, nameadd = " [meaty]"},
@@ -40,6 +44,7 @@
 	{
 		description = "Corner only",
 		p1meter = 0x30,
+		save = "sagat/sagat_vs_ryu_corner_jumpin.fs",
 		acttable = 
 		{
 			{state = States.Normals.jHK},
@@ -50,6 +55,7 @@
 	},
 	{
 		p1meter = 0x90,
+		save = "sagat/sagat_vs_ryu_pb.fs",
 		acttable = 
 		{
 			{state = States.Normals.crHP, nameadd = " [meaty]"},
@@ -59,6 +65,7 @@
 	},
 	{
 		p1meter = 0,
+		save = "sagat/sagat_vs_ryu_pb.fs",
 		acttable = 
 		{
 			{state = States.Normals.crLK},
@@ -70,6 +77,7 @@
 	{
 		description = "Corner only",
 		p1meter = 0x30,
+		save = "sagat/sagat_vs_ryu_corner_fullscreen.fs",
 		acttable = 
 		{
 			{state = States.Specials.TigerShotHigh_L, success = "IsProjHit()"},
@@ -80,6 +88,7 @@
 	{
 		description = "Corner only",
 		p1meter = 0x90,
+		save = "sagat/sagat_vs_ryu_corner_jumpin.fs",
 		acttable = 
 		{
 			{state = States.Normals.jLK},

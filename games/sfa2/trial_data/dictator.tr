@@ -1,0 +1,146 @@
+{
+	{
+		p1meter = 0,
+		save = "dictator/dictator_vs_charlie_pb.fs",
+		acttable = 
+		{
+			{state = States.Normals.stMP},
+			{state = States.Normals.stLK},
+		}
+	},
+	{
+		p1meter = 0,
+		save = "dictator/dictator_vs_charlie_pb.fs",
+		acttable = 
+		{
+			{state = States.Normals.stHP},
+			{state = States.Normals.stHK},
+		}
+	},
+	{
+		p1meter = 0,
+		save = "dictator/dictator_vs_charlie_pb.fs",
+		acttable = 
+		{
+			{state = States.Normals.crMK},
+			{state = States.Specials.PsychoShot_H},
+		}
+	},
+	{
+		p1meter = 0,
+		save = "dictator/dictator_vs_charlie_jumpin.fs",
+		acttable = 
+		{
+			{state = States.Normals.jHP},
+			{state = States.Normals.stHK},
+			{state = States.Specials.KneePress_H, success = "IsAtkCombo() and P2.CurrState.IsAirborne"},
+		}
+	},
+	{
+		fail = "DefaultFail() or P1.CurrState.CCActive",
+		p1meter = 0x60,
+		save = "dictator/dictator_vs_charlie_pb.fs",
+		acttable = 
+		{
+			{state = States.Normals.crMK},
+			{state = States.Supers.KneePressNightmare_L2, success = "IsAtkCombo() and P2.CurrState.IsAirborne"},
+		}
+	},
+	{
+		fail = "DefaultFail() or P1.CurrState.CCActive",
+		p1meter = 0x90,
+		save = "dictator/dictator_vs_charlie_jumpin.fs",
+		acttable = 
+		{
+			{state = States.Normals.jHK},
+			{state = States.Normals.crLK},
+			{state = States.Normals.stLK},
+			{state = States.Supers.PsychoCrusher_L3, success = "IsAtkMultiCombo(6)"},
+		}
+	},
+	{
+		fail = "DefaultFail() or P1.CurrState.CCActive",
+		p1meter = 0x90,
+		save = "dictator/dictator_vs_charlie_pb.fs",
+		acttable = 
+		{
+			{state = States.Normals.crMK, nameadd = " [meaty]"},
+			{state = States.Normals.crMK},
+			{state = States.Supers.KneePressNightmare_L3, success = "IsAtkCombo() and P2.CurrState.IsAirborne"},
+		}
+	},
+	{
+		fail = "DefaultFail() or (IsCCEnded() and Trial.CurrState.TrialProgress <= 1)",
+		p1meter = 0x30,
+		save = "dictator/dictator_vs_charlie_pb.fs",
+		acttable = 
+		{
+			{state = States.Basic.CC},
+			{state = States.Normals.crHK},
+			{state = States.Specials.KneePress_H},
+			{state = States.Specials.PsychoShot_H},
+			{state = States.Specials.KneePress_H, nameadd = " [2 hits]", success = "IsAtkMultiCombo(2)"},
+		}
+	},
+	{
+		fail = "DefaultFail() or (IsCCEnded() and Trial.CurrState.TrialProgress <= 1)",
+		enemystate = "jump",
+		p1meter = 0x30,
+		save = "dictator/dictator_vs_charlie_pb.fs",
+		acttable = 
+		{
+			{state = States.Basic.CC},
+			{state = States.Normals.stHP, nameadd = " [air hit]", success = "IsAtkCombo() and P2.CurrState.IsAirborne"},
+			{state = States.Specials.KneePress_H},
+			{state = States.Specials.KneePress_H, nameadd = " [2 hits]", success = "IsAtkMultiCombo(2)"},
+		}
+	},
+	{
+		fail = "DefaultFail() or (IsCCEnded() and Trial.CurrState.TrialProgress <= 1)",
+		p1meter = 0x90,
+		save = "dictator/dictator_vs_charlie_pb.fs",
+		acttable = 
+		{
+			{state = States.Basic.CC},
+			{state = States.Normals.crHK},
+			{state = States.Specials.KneePress_H, nameadd = " [2 hits]", success = "IsAtkMultiCombo(2)"},
+			{state = States.Specials.KneePress_H, nameadd = " [2 hits]", success = "IsAtkMultiCombo(2)"},
+			{state = States.Specials.KneePress_H, nameadd = " [2 hits]", success = "IsAtkMultiCombo(2)"},
+			{state = States.Specials.KneePress_H, nameadd = " [2 hits]", success = "IsAtkMultiCombo(2)"},
+			{state = States.Specials.KneePress_H, nameadd = " [2 hits]", success = "IsAtkMultiCombo(2)"},
+		}
+	},
+	{
+		enemystate = "crouch",
+		p1meter = 0x90,
+		save = "dictator/dictator_vs_charlie_jumpin.fs",
+		acttable = 
+		{
+			{state = States.Normals.jHP},
+			{state = States.Basic.CC_Ground},
+			{state = States.Normals.crHK},
+			{state = States.Specials.KneePress_H, nameadd = " [2 hits]", success = "IsAtkMultiCombo(2)"},
+			{state = States.Specials.KneePress_H, nameadd = " [2 hits]", success = "IsAtkMultiCombo(2)"},
+			{state = States.Specials.KneePress_H, nameadd = " [2 hits]", success = "IsAtkMultiCombo(2)"},
+			{state = States.Specials.KneePress_H, nameadd = " [2 hits]", success = "IsAtkMultiCombo(2)"},
+			{state = States.Normals.crHP},
+			{state = States.Specials.HeadStomp},
+		}
+	},
+	{
+		fail = "DefaultFail() or (IsCCEnded() and Trial.CurrState.TrialProgress <= 1)",
+		p1meter = 0x90,
+		save = "dictator/dictator_vs_charlie_pb.fs",
+		acttable = 
+		{
+			{state = States.Basic.CC},
+			{state = States.Normals.crHK},
+			{state = States.Specials.DevilReverse},
+			{state = States.Normals.stMP},
+			{state = States.Specials.KneePress_H, nameadd = " [2 hits]", success = "IsAtkMultiCombo(2)"},
+			{state = States.Specials.KneePress_H, nameadd = " [2 hits]", success = "IsAtkMultiCombo(2)"},
+			{state = States.Normals.crHP},
+			{state = States.Specials.HeadStomp},
+		}
+	},
+}	

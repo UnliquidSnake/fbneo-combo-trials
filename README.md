@@ -34,6 +34,7 @@ You can do so as follows:
 ## Supported Games
 
 - Street Fighter Alpha 1 **[sfa]** - 100% complete
+- Street Fighter Alpha 2 **[sfa2, use rom sfa2u]** - 100% complete, all characters have trials except Old Zangief & Old Dhalsim
 
 ## Special Thanks
 

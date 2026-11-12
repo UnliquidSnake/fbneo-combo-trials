@@ -1,0 +1,115 @@
+{
+	{
+		p1meter = 0,
+		acttable = 
+		{
+			{state = States.Throws.ThrowP},
+		}
+	},
+	{
+		p1meter = 0,
+		acttable = 
+		{
+			{state = States.Throws.ThrowK},
+		}
+	},
+	{
+		p1meter = 0,
+		acttable = 
+		{
+			{state = States.Normals.Cmd_6MK},
+		}
+	},
+	{
+		p1meter = 0,
+		acttable = 
+		{
+			{state = States.Normals.Cmd_j2MK},
+		}
+	},
+	{
+		fail = "not IsPlayerInState(P1, States.Specials.HighJump)",
+		p1meter = 0,
+		acttable = 
+		{
+			{state = States.Specials.HighJump},
+		}
+	},
+	{
+		p1meter = 0,
+		acttable = 
+		{
+			{state = States.Specials.PatriotCircle_1st},
+			{state = States.Specials.PatriotCircle_2nd},
+			{state = States.Specials.PatriotCircle_3rd},
+		}
+	},
+	{
+		fail = "not IsPlayerInState(P1, States.Specials.Roll)",
+		p1meter = 0,
+		acttable = 
+		{
+			{state = States.Specials.Roll},
+		}
+	},
+	{
+		p1meter = 0,
+		acttable = 
+		{
+			{state = States.Specials.AirRaid},
+		}
+	},
+	{
+		fail = "not IsPlayerInState(P1, States.Specials.WallJump)",
+		p1meter = 0,
+		acttable = 
+		{
+			{state = States.Specials.WallJump},
+		}
+	},
+	{
+		fail = "not IsPlayerInState(P1, States.Specials.Backflip)",
+		p1meter = 0,
+		acttable = 
+		{
+			{state = States.Specials.Backflip},
+		}
+	},
+	{
+		p1meter = 0,
+		acttable = 
+		{
+			{state = States.Specials.Backflip_Follow},
+		}
+	},
+	{
+		p1meter = 0,
+		acttable = 
+		{
+			{state = States.Specials.Stinger, carry = true},
+			{state = States.Specials.Stinger_Knife, success = "IsProjHit()"},
+		}
+	},
+	{
+		fail = "not IsPlayerInState(P1, States.Specials.TrickLanding)",
+		p1meter = 0,
+		acttable = 
+		{
+			{state = States.Specials.TrickLanding},
+		}
+	},
+	{
+		p1meter = 0x90,
+		acttable = 
+		{
+			{state = States.Supers.TakeNoPrisoners},
+		}
+	},
+	{
+		p1meter = 0x90,
+		acttable = 
+		{
+			{state = States.Supers.MineSweeper},
+		}
+	},
+}

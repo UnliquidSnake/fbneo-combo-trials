@@ -1,4 +1,4 @@
-CharStateTable = {}
+local CharStateTable = {}
 CharStateTable.Basic = {}
 CharStateTable.Normals = {}
 CharStateTable.Throws = {}
@@ -83,6 +83,8 @@ CharStateTable.Specials.AirTatsu_L = {}
 CharStateTable.Specials.AirTatsu_M = {}
 CharStateTable.Specials.AirTatsu_H = {}
 CharStateTable.Specials.AshuraSenku = {}
+CharStateTable.Specials.AshuraSenku_P = {}
+CharStateTable.Specials.AshuraSenku_K = {}
 CharStateTable.Specials.DemonFlip = {}
 CharStateTable.Specials.DemonFlip_L = {}
 CharStateTable.Specials.DemonFlip_M = {}
@@ -803,6 +805,24 @@ CharStateTable.Specials.AirTatsu =
 -----------------------------------------------------------------------------------------------
 		-- Ashura Senku (dp/rdp + PPP/KKK)
 -----------------------------------------------------------------------------------------------
+CharStateTable.Specials.AshuraSenku_P =
+{
+	name = "(P) Ashura Senku",
+	inputname = "623PPP or 421PPP",
+	type = "notatk",
+	spid = 8,
+	atktype = T_AtkType.P,
+	stateval = {min = 0x9da6, max = 0x9e66}
+}
+CharStateTable.Specials.AshuraSenku_K =
+{
+	name = "(K) Ashura Senku",
+	inputname = "623KKK or 421KKK",
+	type = "notatk",
+	spid = 8,
+	atktype = T_AtkType.K,
+	stateval = {min = 0x9da6, max = 0x9e66}
+}
 CharStateTable.Specials.AshuraSenku =
 {
 	name = "Ashura Senku",
@@ -1197,3 +1217,5 @@ CharStateTable.Supers.RagingDemon =
 	atkstr = T_AtkStr.Lv3,
 	stateval = {min = 0xa4d6, max = 0xa62a}
 }
+
+return CharStateTable

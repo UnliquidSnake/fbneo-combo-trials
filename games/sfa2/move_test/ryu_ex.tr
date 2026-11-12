@@ -1,0 +1,102 @@
+{
+	{
+		p1meter = 0,
+		acttable = 
+		{
+			{state = States.Throws.ThrowP},
+		}
+	},
+	{
+		p1meter = 0,
+		acttable = 
+		{
+			{state = States.Throws.ThrowK},
+		}
+	},
+	{
+		p1meter = 0,
+		acttable = 
+		{
+			{state = States.Normals.Cmd_6MP},
+		}
+	},
+	{
+		p1meter = 0,
+		acttable = 
+		{
+			{state = States.Normals.Cmd_6MK},
+		}
+	},
+	{
+		p1meter = 0,
+		acttable = 
+		{
+			{state = States.Specials.Hadoken, success = "IsProjHit()"},
+		}
+	},
+	{
+		p1meter = 0,
+		acttable = 
+		{
+			{state = States.Specials.Shoryuken},
+		}
+	},
+	{
+		p1meter = 0,
+		acttable = 
+		{
+			{state = States.Specials.Tatsu},
+		}
+	},
+	{
+		p1meter = 0,
+		acttable = 
+		{
+			{state = States.Specials.AirTatsu},
+		}
+	},
+	{
+		fail = "not IsPlayerInState(P1, States.Specials.FakeHadoken)",
+		p1meter = 0,
+		acttable = 
+		{
+			{state = States.Specials.FakeHadoken},
+		}
+	},
+	{
+		fail = "not IsPlayerInState(P1, States.Specials.AshuraSenku)",
+		p1meter = 0,
+		acttable = 
+		{
+			{state = States.Specials.AshuraSenku},
+		}
+	},
+	{
+		p1meter = 0x90,
+		acttable = 
+		{
+			{state = States.Supers.ShinkuHadoken, success = "IsProjHit()"},
+		}
+	},
+	{
+		p1meter = 0x90,
+		acttable = 
+		{
+			{state = States.Supers.ShinkuTatsumaki},
+		}
+	},
+	{
+		p1meter = 0x90,
+		acttable = 
+		{
+			{state = States.Supers.MessatsuGoshoryu},
+		}
+	},
+	{
+		p1meter = 0x90,
+		acttable = 
+		{
+			{state = States.Supers.RagingDemon},
+		}
+	},
+}

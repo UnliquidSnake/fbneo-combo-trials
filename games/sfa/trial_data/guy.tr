@@ -1,6 +1,7 @@
 {
 	{
 		p1meter = 0,
+		save = "guy/guy_vs_sodom_pb.fs",
 		acttable = 
 		{
 			{state = States.Normals.crLK, carry = true},
@@ -10,6 +11,7 @@
 	},
 	{
 		p1meter = 0,
+		save = "guy/guy_vs_sodom_jumpin.fs",
 		acttable = 
 		{
 			{state = States.Normals.Cmd_j2MP},
@@ -21,6 +23,7 @@
 	},
 	{
 		p1meter = 0x30,
+		save = "guy/guy_vs_sodom_pb.fs",
 		acttable = 
 		{
 			{state = States.Normals.crLK, carry = true},
@@ -33,6 +36,7 @@
 		description = "Opponent jumping",
 		enemystate = "jump",
 		p1meter = 0,
+		save = "guy/guy_vs_sodom_pb.fs",
 		acttable = 
 		{
 			{state = States.Normals.crHP, nameadd = " [air hit]", success = "IsAtkCombo() and P2.CurrState.IsAirborne"},
@@ -41,6 +45,7 @@
 	},
 	{
 		p1meter = 0,
+		save = "guy/guy_vs_sodom_jumpin.fs",
 		acttable = 
 		{
 			{state = States.Normals.Cmd_j2MP},
@@ -50,9 +55,10 @@
 	{
 		description = "Crossup combo",
 		p1meter = 0,
+		save = "guy/guy_vs_sodom_crossup.fs",
 		acttable = 
 		{
-			{state = States.Normals.djMK, nameadd = " [crossup]", success = "IsAtkCombo() and IsCrossup()"},
+			{state = States.Normals.Cmd_j2MP, nameadd = " [crossup]", success = "IsAtkCombo() and IsCrossup()"},
 			{state = States.Normals.crLK, carry = true},
 			{state = States.Normals.stMP, carry = true},
 			{state = States.Normals.crHP},
@@ -63,15 +69,17 @@
 	{
 		description = "Corner only",
 		p1meter = 0x30,
+		save = "guy/guy_vs_ryu_corner_pb.fs",
 		acttable = 
 		{
 			{state = States.Throws.ThrowK},
-			{state = States.Specials.Tatsu_M},
+			{state = States.Specials.Tatsu_H, success = "IsAtkMultiCombo(2)"},
 		}
 	},
 	{
 		description = "Corner only",
 		p1meter = 0x30,
+		save = "guy/guy_vs_sodom_corner_flip.fs",
 		acttable = 
 		{
 			{state = States.Specials.BushinFlip_Grab},
@@ -80,6 +88,7 @@
 	},
 	{
 		p1meter = 0,
+		save = "guy/guy_vs_sodom_pb.fs",
 		acttable = 
 		{
 			{state = States.Normals.crHK, nameadd = " [meaty]", success = "IsAtkCombo() and not P2.CurrState.IsAirborne"},
@@ -88,6 +97,7 @@
 	},
 	{
 		p1meter = 0,
+		save = "guy/guy_vs_sodom_pb.fs",
 		acttable = 
 		{
 			{state = States.Normals.Cmd_6MP, nameadd = " [meaty]"},
@@ -99,6 +109,7 @@
 	},
 	{
 		p1meter = 0,
+		save = "guy/guy_vs_sodom_jumpin.fs",
 		acttable = 
 		{
 			{state = States.Normals.jHK},
@@ -113,6 +124,7 @@
 	{
 		description = "Corner only",
 		p1meter = 0,
+		save = "guy/guy_vs_sodom_corner_jumpin.fs",
 		acttable = 
 		{
 			{state = States.Normals.djHK},

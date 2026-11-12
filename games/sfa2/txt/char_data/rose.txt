@@ -1,0 +1,157 @@
+-- Basic states
+	-- Idle & movement
+0x69c2 - 0x6a3a: Idle
+0x6a56 - 0x6ace: Crouching
+0x6aea - 0x6bf2: Forward walk
+0x6c0e - 0x6d16: Back walk
+0x6d32 - 0x6d92: Transition from crouch to stand
+0x6dae - 0x6e0e: Transition from stand to crouch
+0x6e2a - 0x6e72: Standing turn around after side switch
+0x6e8e - 0x6ed6: Crouching turn around after side switch
+0x6ef2 - 0x6f0a: Prejump frames
+0x6f26 - 0x6f3e: Landing recovery from jump
+0x6f5a - 0x707a: Neutral jump
+0x7096 - 0x71b6: Forward jump
+0x71d2 - 0x72f2: Backward jump
+	-- Blocking
+0x730e - 0x7372: Stand block (incl. proximity block)
+0x738e - 0x73f2: Crouch block (incl. proximity block)
+0x7426 - 0x74a2: Air block (incl. proximity block)
+	-- Recovery Roll
+0x7522 - 0x756a: Auto roll wakeup
+0x7586 - 0x75ce: Recovery roll
+	-- Custom Combo
+0xc06e - 0xc116: Grounded CC activation
+0xc132 - 0xc14a: Air CC activation
+	-- Cutscenes
+0x764e - 0x784e: Intro pose
+0x7862 - 0x7a2a: Win pose 1
+0x7a46 - 0x7bae: Win pose 2
+0x7bca - 0x7c2a, 0x78da - 0x7a2a: Win pose 3
+0x7c46 - 0x7dfa: Win pose 4
+0x7e16 - 0x7f06: Win pose 5
+0x7f22 - 0x80d2: Win pose 6
+0x8322 - 0x8442: Time over loss/draw
+	-- Getting thrown
+0x86d6 - 0x895e: Getting thrown
+	-- Getting hit
+0x8a82 - 0x8ab2: Standing hit in head 1
+0x8ace - 0x8b16: Standing hit in head 2
+0x8b32 - 0x8b92: Standing hit in head 3
+0x8bae - 0x8bde: Standing hit in body/feet 1
+0x8bfa - 0x8c42: Standing hit in body/feet 2
+0x8c5e - 0x8cbe: Standing hit in body/feet 3
+0x8cda - 0x8cf2: Crouching hit 1
+0x8d0e - 0x8d3e: Crouching hit 2
+0x8d5a - 0x8da2: Crouching hit 3
+0x8dbe - 0x8e1e: Launch hit (can usually be juggled)
+0x8e3a - 0x8e8a: Knockdown
+0x8eda - 0x8ef2: Spin out after AC
+0x8f0e - 0x8f3e: Falling after sweep
+0x917e - 0x920e: Air reset
+	-- Other
+0x925a - 0x92a2: Stun
+0x92be - 0x9366: Getting up
+-- Attacks
+	-- Normals
+		-- Standing Normals
+0x9382 - 0x93ca: Standing LP
+0x93e6 - 0x9446: Standing MP
+0x9462 - 0x94da: Standing HP
+0x94f6 - 0x9556: Standing LK
+0x9572 - 0x9632: Standing MK
+0x964e - 0x9726: Standing HK
+		-- Crouching Normals
+0x9742 - 0x978a: Crouching LP
+0x97a6 - 0x97ee: Crouching MP
+0x980a - 0x989a: Crouching HP
+0x98b6 - 0x98fe: Crouching LK
+0x991a - 0x9992: Crouching MK
+0x99ae - 0x9a56: Crouching HK
+		-- Neutral Jumping Normals
+0x9a72 - 0x9ad2: Neutral Jumping LP
+0x9aee - 0x9b66: Neutral Jumping MP
+0x9b82 - 0x9c72: Neutral Jumping HP
+0x9c8e - 0x9d06: Neutral Jumping LK
+0x9d22 - 0x9de2: Neutral Jumping MK
+0x9dfe - 0x9e8e: Neutral Jumping HK
+		-- Diagonal Jumping Normals
+0x9eaa - 0x9f0a: Diagonal Jumping LP
+0x9f26 - 0x9f9e: Diagonal Jumping MP
+0x9fba - 0xa0aa: Diagonal Jumping HP
+0xa0c6 - 0xa13e: Diagonal Jumping LK
+0xa15a - 0xa21a: Diagonal Jumping MK
+0xa236 - 0xa2c6: Diagonal Jumping HK
+		-- Command Normals
+0xbd36 - 0xbdf6: Slide (df + MK)
+		-- Alpha Counter
+0xb9f2 - 0xba9e: Punch AC - Soul Catch (b,db,d + P)
+0xbb1a - 0xbbc2: Punch AC (whiff)
+0xaed2 - 0xaeea: Punch AC (restand)
+0xbbf6 - 0xbc0e: Punch AC (recovery)
+0xbc2a - 0xbd1a: Kick AC - Sweep (b,db,d + K)
+	-- Throws
+0xa2e2 - 0xa55e: Soul Drain (f/b + MP/HP)
+	-- Special Moves
+		-- Soul Spark (hcf + P)
+0xa83e - 0xa9d6: L Soul Spark
+0xa9f2 - 0xaba2: M Soul Spark
+0xabbe - 0xad86: H Soul Spark
+0xcb32 - 0xccca: L Soul Spark (during CC)
+0xcce6 - 0xce96: M Soul Spark (during CC)
+0xceb2 - 0xd07a: H Soul Spark (during CC)
+		-- Soul Throw (dp + P)
+0xada2 - 0xae1e: Soul Throw (startup)
+0xd096 - 0xd112: Soul Throw (startup during CC)
+0xd12e - 0xd1ae: Soul Throw (hit during CC) -- frame of opponent taking damage = first frame of recovery period
+0xd1c6 - 0xd25a: Soul Throw (whiff recovery during CC) 
+		-- Soul Reflect (qcb + P)
+0xa57a - 0xa63a: L Soul Reflect
+0xa656 - 0xa72e: M Soul Reflect
+0xa74a - 0xa822: H Soul Reflect
+0xc86e - 0xc92e: L Soul Reflect (during CC)
+0xc94a - 0xca22: M Soul Reflect (during CC)
+0xca3e - 0xcb16: H Soul Reflect (during CC)
+		-- Soul Spiral (qcf + K)
+0xc166 - 0xc2ce: L Soul Spiral
+0xc31a - 0xc49a: M Soul Spiral
+0xc4ce - 0xc696: H Soul Spiral
+0xc6b2 - 0xc72a: L Soul Spiral (recovery)
+0xc746 - 0xc7be: M Soul Spiral (recovery)
+0xc7da - 0xc852: H Soul Spiral (recovery)
+0xd276 - 0xd3f6: L Soul Spiral (during CC)
+0xd42a - 0xd5c2: M Soul Spiral (during CC)
+0xd5de - 0xd7a6: H Soul Spiral (during CC)
+0xd7c2 - 0xd83a: L Soul Spiral (recovery during CC)
+0xd856 - 0xd8ce: M Soul Spiral (recovery during CC)
+0xd8ea - 0xd94a: H Soul Spiral (recovery during CC)
+	-- Super Moves
+		-- Aura Soul Spark (qcb,qcb + P)
+0xb232 - 0xb3ca: Lv1 Aura Soul Spark
+0xb3e6 - 0xb6ce: Lv2 Aura Soul Spark
+0xb6ea - 0xb942: Lv3 Aura Soul Spark
+		-- Aura Soul Throw (qcf,qcf + P)
+0xaf82 - 0xaf9a: Lv1 Aura Soul Throw (startup)
+0xafe6 - 0xb0a6: Lv2 Aura Soul Throw (startup + beginning hits)
+0xb0c2 - 0xb1ca: Lv3 Aura Soul Throw (startup + beginning hits)
+0xb1e6 - 0xb216: Aura Soul Throw (throw startup)
+		-- Soul Illusion (qcf,qcf + K)
+0xb95e - 0xb9be: Soul Illusion
+	-- Other
+0xbe12 - 0xc052: Taunt (Start)
+0xae3a - 0xaeb6: Soul Throw/Aura Soul Throw (hit, all versions)
+0xaed2 - 0xaf66: Soul Throw/Aura Soul Throw (whiff recovery, all versions)
+
+Special ID's:
+
+0 - Soul Spark
+1 - Soul Reflect
+2 - Soul Throw
+3 - Punch AC
+4 - Aura Soul Throw
+5 - Aura Soul Spark
+6 - Soul Illusion
+7 - Taunt
+8 - Kick AC
+9 - CC Activation
+10 - Soul Spiral

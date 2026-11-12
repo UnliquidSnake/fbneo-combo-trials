@@ -1,4 +1,4 @@
-CharStateTable = {}
+local CharStateTable = {}
 CharStateTable.Basic = {}
 CharStateTable.Normals = {}
 CharStateTable.Throws = {}
@@ -140,7 +140,7 @@ CharStateTable.Basic.BackJump = -- does not include prejump frames
 	type = "notatk",
 	stateval = {min = 0xca5e, max = 0xcad6}
 }
-CharStateTable.Basic.WallJump = -- does not include prejump frames
+CharStateTable.Basic.WallJump =
 {
 	name = "Wall Jump",
 	inputname = "Jump away from wall when airborne next to wall",
@@ -790,3 +790,5 @@ CharStateTable.Supers.BushinGoraikyaku =
 		CharStateTable.Supers.BushinGoraikyaku_L3.stateval[2],
 	}
 }
+
+return CharStateTable

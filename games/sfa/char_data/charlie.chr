@@ -1,4 +1,4 @@
-CharStateTable = {}
+local CharStateTable = {}
 CharStateTable.Basic = {}
 CharStateTable.Normals = {}
 CharStateTable.Throws = {}
@@ -768,3 +768,5 @@ CharStateTable.Supers.SomersaultJustice =
 		CharStateTable.Supers.SomersaultJustice_L3.stateval[3],
 	}
 }
+
+return CharStateTable

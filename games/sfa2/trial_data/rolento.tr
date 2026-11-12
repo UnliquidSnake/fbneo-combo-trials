@@ -1,0 +1,144 @@
+{
+	{
+		p1meter = 0,
+		save = "rolento/rolento_vs_guy_pb.fs",
+		acttable = 
+		{
+			{state = States.Normals.crLP},
+			{state = States.Normals.crLP},
+			{state = States.Specials.PatriotCircle_1st},
+			{state = States.Specials.PatriotCircle_2nd},
+			{state = States.Specials.PatriotCircle_3rd},
+		}
+	},
+	{
+		fail = "DefaultFail() or (Trial.CurrState.TrialProgress < 2 and not IsPlayerInState(P1, States.Specials.HighJump) and not IsPlayerInState(P1, States.Normals.jHK))",
+		p1meter = 0,
+		save = "rolento/rolento_vs_guy_highjump.fs",
+		acttable = 
+		{
+			{state = States.Specials.HighJump},
+			{state = States.Normals.jHK},
+			{state = States.Normals.crMK},
+			{state = States.Specials.PatriotCircle_1st},
+			{state = States.Specials.PatriotCircle_2nd},
+			{state = States.Specials.PatriotCircle_3rd},
+		}
+	},
+	{
+		p1meter = 0,
+		save = "rolento/rolento_vs_guy_pb.fs",
+		acttable = 
+		{
+			{state = States.Normals.stLP},
+			{state = States.Normals.crMK},
+			{state = States.Specials.Roll},
+		}
+	},
+	{
+		fail = "DefaultFail() or (Trial.CurrState.TrialProgress < 2 and not IsPlayerInState(P1, States.Specials.Stinger) and not IsPlayerInState(P1, States.Specials.Stinger_Knife))",
+		p1meter = 0,
+		save = "rolento/rolento_vs_guy_pb.fs",
+		acttable = 
+		{
+			{state = States.Specials.Stinger, carry = true},
+			{state = States.Specials.Stinger_Knife, success = "IsProjHit()"},
+			{state = States.Normals.crHK},
+		}
+	},
+	{
+		p1meter = 0,
+		save = "rolento/rolento_vs_guy_pb.fs",
+		acttable = 
+		{
+			{state = States.Normals.stMP, nameadd = " [meaty]"},
+			{state = States.Normals.crHK},
+		}
+	},
+	{
+		fail = "DefaultFail() or (Trial.CurrState.TrialProgress < 2 and not IsPlayerInState(P1, States.Specials.WallJump) and not IsPlayerInState(P1, States.Normals.jMK))",
+		description = "Crossup combo",
+		p1meter = 0,
+		save = "rolento/rolento_vs_guy_pb.fs",
+		acttable = 
+		{
+			{state = States.Specials.WallJump},
+			{state = States.Normals.jMK, nameadd = " [crossup]", success = "IsAtkCombo() and IsCrossup()"},
+			{state = States.Normals.crMK},
+			{state = States.Specials.PatriotCircle_1st},
+			{state = States.Specials.PatriotCircle_2nd},
+			{state = States.Specials.PatriotCircle_3rd},
+		}
+	},
+	{
+		fail = "DefaultFail() or (IsCCEnded() and Trial.CurrState.TrialProgress <= 1)",
+		p1meter = 0x30,
+		save = "rolento/rolento_vs_guy_pb.fs",
+		acttable = 
+		{
+			{state = States.Basic.CC},
+			{state = States.Normals.crHK},
+			{state = States.Specials.HighJump},
+			{state = States.Normals.jLK, carry = true},
+			{state = States.Normals.jLK, carry = true},
+			{state = States.Normals.jLK, carry = true},
+			{state = States.Normals.jLK},
+		}
+	},
+	{
+		enemystate = "crouch",
+		p1meter = 0x38,
+		save = "rolento/rolento_vs_guy_jumpin.fs",
+		acttable = 
+		{
+			{state = States.Normals.jHK},
+			{state = States.Basic.CC_Ground},
+			{state = States.Normals.crHK},
+			{state = States.Specials.HighJump},
+			{state = States.Normals.jLK, carry = true},
+			{state = States.Normals.jLK, carry = true},
+			{state = States.Normals.jLK},
+			{state = States.Specials.HighJump},
+			{state = States.Normals.jMP},
+		}
+	},
+	{
+		fail = "DefaultFail() or (IsCCEnded() and Trial.CurrState.TrialProgress <= 1)",
+		enemystate = "jump",
+		p1meter = 0x30,
+		save = "rolento/rolento_vs_guy_pb.fs",
+		acttable = 
+		{
+			{state = States.Basic.CC},
+			{state = States.Normals.stLP, nameadd = " [air hit]", success = "IsAtkCombo() and P2.CurrState.IsAirborne"},
+			{state = States.Specials.HighJump},
+			{state = States.Normals.jLK, carry = true},
+			{state = States.Normals.jLK, carry = true},
+			{state = States.Normals.jLK, carry = true},
+			{state = States.Normals.jLK},
+		}
+	},
+	{
+		fail = "DefaultFail() or (IsCCEnded() and Trial.CurrState.TrialProgress <= 1)",
+		p1meter = 0x90,
+		save = "rolento/rolento_vs_guy_pb.fs",
+		acttable = 
+		{
+			{state = States.Basic.CC},
+			{state = States.Normals.crHK},
+			{state = States.Specials.HighJump},
+			{state = States.Normals.jLK, carry = true},
+			{state = States.Normals.jLK, carry = true},
+			{state = States.Normals.jLK},
+			{state = States.Specials.HighJump},
+			{state = States.Normals.jLK, carry = true},
+			{state = States.Normals.jLK, carry = true},
+			{state = States.Normals.jLK},
+			{state = States.Specials.HighJump},
+			{state = States.Normals.jLK, carry = true},
+			{state = States.Normals.jLK, carry = true},
+			{state = States.Normals.jLK},
+		}
+	},
+	-- Stinger CC is unstable, dropping it
+}

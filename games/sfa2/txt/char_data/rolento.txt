@@ -1,0 +1,179 @@
+-- Basic states
+	-- Idle & movement
+0x326c - 0x33d4: Idle
+0x33f0: Crouching
+0x340c - 0x34e4: Forward walk
+0x3500 - 0x35d8: Back walk
+0x35f4 - 0x363c: Transition from crouch to stand
+0x3658 - 0x36a0: Transition from stand to crouch
+0x36bc - 0x3704: Standing turn around after side switch
+0x3720 - 0x3768: Crouching turn around after side switch
+0x3784 - 0x379c: Prejump frames
+0x37b8 - 0x37d0: Landing recovery from jump
+0x37ec - 0x3894: Neutral jump
+0x38b0 - 0x3970: Forward jump
+0x398c - 0x3a4c: Backward jump
+	-- Blocking
+0x3a80 - 0x3ae4: Stand block (incl. proximity block)
+0x3b00 - 0x3b64: Crouch block (incl. proximity block)
+0x3b98 - 0x3be4: Air block (incl. proximity block)
+	-- Recovery Roll
+0x3c64 - 0x3cac: Auto roll wakeup
+0x3cc8 - 0x3d10: Recovery roll
+	-- Custom Combo
+0xa754 - 0xa76c: Grounded CC activation
+0xa788 - 0xa7a0: Air CC activation
+	-- Cutscenes
+0x3d90 - 0x3df0: Intro pose
+0x3e3c - 0x3fbc: Win pose 1
+0x3fd8 - 0x40f8: Win pose 2
+0x4114 - 0x4294: Win pose 3
+0x42b0 - 0x4430: Win pose 4
+0x444c - 0x45cc: Win pose 5
+0x45e8 - 0x46a8: Time over loss/draw
+	-- Getting thrown
+0x4ae4 - 0x4d3c: Getting thrown
+	-- Getting hit
+0x4ed8 - 0x4f08: Standing hit in head 1
+0x4f24 - 0x4f54: Standing hit in head 2
+0x4f70 - 0x4fa0: Standing hit in head 3
+0x4fbc - 0x4fec: Standing hit in body/feet 1
+0x5008 - 0x5038: Standing hit in body/feet 2
+0x5054 - 0x509c: Standing hit in body/feet 3
+0x50b8 - 0x50d0: Crouching hit 1
+0x50ec - 0x511c: Crouching hit 2
+0x5138 - 0x5168: Crouching hit 3
+0x5184 - 0x51e4: Launch hit (can usually be juggled)
+0x5200 - 0x5268: Knockdown
+0x52b8 - 0x52d0: Spin out after AC
+0x52ec - 0x531c: Falling after sweep
+0x5544 - 0x5604: Air reset
+	-- Other
+0x5620 - 0x5698: Stun
+0x56b4 - 0x5744: Getting up
+-- Attacks
+	-- Normals
+		-- Standing Normals
+0x5838 - 0x5898: Standing LP
+0x58b4 - 0x595c: Standing MP
+0x5978 - 0x5a68: Standing HP
+0x5a84 - 0x5b14: Standing LK
+0x5b30 - 0x5c08: Standing MK
+0x5c24 - 0x5cfc: Standing HK
+		-- Crouching Normals
+0x5d18 - 0x5d90: Crouching LP
+0x5dac - 0x5efc: Crouching MP
+0x5f18 - 0x5ff0: Crouching HP
+0x600c - 0x6084: Crouching LK
+0x60a0 - 0x6118: Crouching MK
+0x6134 - 0x620c: Crouching HK
+		-- Neutral Jumping Normals
+0x6228 - 0x6270: Neutral Jumping LP
+0x628c - 0x63dc: Neutral Jumping MP
+0x63f8 - 0x64b8: Neutral Jumping HP
+0x64d4 - 0x651c: Neutral Jumping LK
+0x6538 - 0x6598: Neutral Jumping MK
+0x65b4 - 0x6614: Neutral Jumping HK
+		-- Diagonal Jumping Normals
+0x6630 - 0x6678: Diagonal Jumping LP
+0x6694 - 0x67e4: Diagonal Jumping MP
+0x6800 - 0x68c0: Diagonal Jumping HP
+0x68dc - 0x6924: Diagonal Jumping LK
+0x6940 - 0x69a0: Diagonal Jumping MK
+0x69bc - 0x6a1c: Diagonal Jumping HK
+		-- Command Normals
+0xa1d0 - 0xa2c0: Fake Rod (f + MK)
+0xa2dc - 0xa324: Spike Rod (air d + MK)
+		-- Alpha Counter
+0xa434 - 0xa6ec: Punch AC - Patriot Circle (b,db,d + P)
+0xa708 - 0xa738: Kick AC - Counter Escape (b,db,d + K)
+	-- Throws
+0x6a38 - 0x6b40: Colonel Carrier (f/b + MP/HP)
+0x6b74 - 0x6c1c: Deadly Package (f/b + MK/HK)
+	-- Special Moves
+		-- High Jump (d, ub/uf)
+0x6de4 - 0x6e44: High Jump (startup)
+0xb534 - 0xb594: High Jump (startup during CC)
+0x6ec4 - 0x6f6c: High Jump (jump state)
+		-- Patriot Circle (qcf + P x3)
+0x9408 - 0x9420: Patriot Circle 1st (startup)
+0xb5b0 - 0xb5c8: Patriot Circle 1st (startup during CC)
+0x9438 - 0x98a0: Patriot Circle 1st
+0x98bc - 0x9de4: Patriot Circle 2nd
+0x9e00 - 0xa058: Patriot Circle 3rd
+0xa074 - 0xa0a4: Patriot Circle 1st & 2nd (recovery)
+0xa0c0 - 0xa0f0: Patriot Circle 3rd (recovery)
+		-- Mekong Delta Air Raid (qcb + P -> P)
+0x7830 - 0x78d8: L Mekong Delta Air Raid (roll)
+0x78f4 - 0x7a2c: M Mekong Delta Air Raid (roll)
+0x7a48 - 0x7c10: H Mekong Delta Air Raid (roll)
+0x7c2c - 0x7d7c: L Mekong Delta Air Raid (followup with LP)
+0x7dc8 - 0x7f18: M Mekong Delta Air Raid (followup with MP)
+0x7f64 - 0x80b4: H Mekong Delta Air Raid (followup with HP)
+0xb5e4 - 0xb68c: L Mekong Delta Air Raid (roll, during CC)
+0xb6a8 - 0xb7e0: M Mekong Delta Air Raid (roll, during CC)
+0xb7fc - 0xb9c4: H Mekong Delta Air Raid (roll, during CC)
+0xb9e0 - 0xbb30: L Mekong Delta Air Raid (followup with LP, during CC)
+0xbb7c - 0xbccc: M Mekong Delta Air Raid (followup with MP, during CC)
+0xbd18 - 0xbe68: H Mekong Delta Air Raid (followup with HP, during CC)
+0x8100 - 0x8130: Mekong Delta Air Raid (recovery)
+		-- Mekong Delta Escape (qcb + K, then move with b/f)
+0x8480 - 0x85d8: Mekong Delta Escape (startup & wall cling)
+0xb3c0 - 0xb518: Mekong Delta Escape (startup & wall cling during CC)
+0x85f4 - 0x869c: Mekong Delta Escape (jump)
+		-- Mekong Delta Attack (PPP -> P)
+0x814c - 0x8288: Mekong Delta Attack (flip)
+0xbeb4 - 0xbff0: Mekong Delta Attack (flip during CC)
+0x82a4 - 0x82ec: L Mekong Delta Attack (followup with LP)
+0x8308 - 0x8350: M Mekong Delta Attack (followup with MP)
+0x836c - 0x83b4: H Mekong Delta Attack (followup with HP)
+0x8434 - 0x8464: Mekong Delta Attack (recovery)
+		-- Stinger (dp + K -> any attack button)
+0x7034 - 0x719c: L Stinger (jump)
+0x71b8 - 0x72a8: L Stinger (followup with any button)
+0x72c4 - 0x742c: M Stinger (jump)
+0x7448 - 0x7538: M Stinger (followup with any button)
+0x7554 - 0x76bc: H Stinger (jump)
+0x76d8 - 0x77c8: H Stinger (followup with any button)
+0xac10 - 0xad78: L Stinger (jump during CC)
+0xad94 - 0xae84: L Stinger (followup during CC)
+0xaea0 - 0xb008: M Stinger (jump during CC)
+0xb024 - 0xb114: M Stinger (followup during CC)
+0xb130 - 0xb298: H Stinger (jump during CC)
+0xb2b4 - 0xb3a4: H Stinger (followup during CC)
+0x77e4 - 0x7814: Stinger (landing recovery)
+		-- Trick Landing (KKK or f+KKK just before landing from jump)
+0x6c50 - 0x6c84: Trick Landing (land)
+0x6d1c - 0x6d64: Trick Landing (forward hop)
+0x6d80 - 0x6dc8: Trick Landing (backward hop)
+0x6cb8 - 0x6d00: Trick Landing (recovery)
+	-- Super Moves
+		-- Take No Prisoners (qcf,qcf + K)
+0x8a2c - 0x8a5c: Take No Prisoners (startup, all versions)
+0x8a90 - 0x8c10: Lv1 Take No Prisoners (wire active)
+0x8c2c - 0x8f14: Lv2 Take No Prisoners (wire active)
+0x8f30 - 0x9140: Lv3 Take No Prisoners (wire active)
+0x9174 - 0x9204: Take No Prisoners (recovery, all versions)
+0x9220 - 0x93ec: Take No Prisoners (attack animation, all versions)
+0xa81c - 0xab7c: Take No Prisoners (confirmed wire hit, all versions)
+		-- Mine Sweeper (qcb,qcb + P)
+0x8798 - 0x8a10: Mine Sweeper (all versions)
+	-- Other
+0xa340 - 0xa418: Taunt (Start)
+
+Special ID's:
+
+0 - Stinger
+1 - Mekong Delta Escape
+2 - Trick Landing
+3 - High Jump
+4 - ?
+5 - Mine Sweeper
+6 - Take No Prisoners
+7 - Patriot Circle
+8 - Taunt
+9 - Punch AC
+10 - Kick AC
+11 - CC Activation
+12 - Mekong Delta Air Raid
+13 - Mekong Delta Attack

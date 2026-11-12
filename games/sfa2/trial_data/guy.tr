@@ -1,0 +1,183 @@
+{
+	{
+		p1meter = 0,
+		save = "guy/guy_vs_sodom_pb.fs",
+		acttable = 
+		{
+			{state = States.Normals.crMK},
+			{state = States.Specials.Tatsu_M},
+		}
+	},
+	{
+		p1meter = 0,
+		save = "guy/guy_vs_sodom_jumpin.fs",
+		acttable = 
+		{
+			{state = States.Normals.Cmd_j2MP},
+			{state = States.Normals.stMP, carry = true},
+			{state = States.Normals.stHP},
+			{state = States.Specials.Hozanto},
+		}
+	},
+	{
+		fail = "DefaultFail() or P1.CurrState.CCActive",
+		p1meter = 0x30,
+		save = "guy/guy_vs_sodom_jumpin.fs",
+		acttable = 
+		{
+			{state = States.Normals.jHK},
+			{state = States.Normals.crHP},
+			{state = States.Supers.BushinGoraikyaku_L1, success = "IsAtkCombo() and P2.PrevState.IsAirborne"},
+		}
+	},
+	{
+		description = "Crossup combo",
+		p1meter = 0,
+		save = "guy/guy_vs_sodom_crossup.fs",
+		acttable = 
+		{
+			{state = States.Normals.Cmd_j2MP, nameadd = " [crossup]", success = "IsAtkCombo() and IsCrossup()"},
+			{state = States.Normals.BushinChain_4th},
+		}
+	},
+	{
+		enemystate = "jump",
+		p1meter = 0,
+		save = "guy/guy_vs_sodom_pb.fs",
+		acttable = 
+		{
+			{state = States.Normals.crHP, nameadd = " [air hit]", success = "IsAtkCombo() and P2.CurrState.IsAirborne"},
+			{state = States.Specials.Tatsu_H},
+		}
+	},
+	{
+		p1meter = 0,
+		save = "guy/guy_vs_sodom_pb.fs",
+		acttable = 
+		{
+			{state = States.Normals.crLP},
+			{state = States.Normals.stMP, carry = true},
+			{state = States.Normals.stHP},
+			{state = States.Specials.Run_Slide},
+		}
+	},
+	{
+		description = "Corner only",
+		p1meter = 0,
+		save = "guy/guy_vs_sodom_corner_pb.fs",
+		acttable = 
+		{
+			{state = States.Throws.ThrowK},
+			{state = States.Specials.Tatsu_H},
+		}
+	},
+	{
+		fail = "DefaultFail() or P1.CurrState.CCActive",
+		description = "Corner only",
+		p1meter = 0x90,
+		save = "guy/guy_vs_sodom_corner_flip.fs",
+		acttable = 
+		{
+			{state = States.Specials.BushinFlip_Grab},
+			{state = States.Supers.BushinHasoken_L3},
+		}
+	},
+	{
+		fail = "DefaultFail() or P1.CurrState.CCActive",
+		enemystate = "jump",
+		description = "Corner only",
+		p1meter = 0x30,
+		save = "guy/guy_vs_sodom_corner_pb.fs",
+		acttable = 
+		{
+			{state = States.Specials.BushinFlip_Elbow, nameadd = " [air hit]", success = "IsAtkCombo() and P2.CurrState.IsAirborne"},
+			{state = States.Supers.BushinHasoken_L1, success = "IsAtkMultiCombo(4)"},
+		}
+	},
+	{
+		fail = "DefaultFail() or (IsCCEnded() and Trial.CurrState.TrialProgress <= 1)",
+		p1meter = 0x30,
+		save = "guy/guy_vs_sodom_pb.fs",
+		acttable = 
+		{
+			{state = States.Basic.CC},
+			{state = States.Normals.crHK},
+			{state = States.Specials.Hozanto_H},
+			{state = States.Specials.Hozanto_H},
+			{state = States.Specials.Tatsu_H},
+		}
+	},
+	{
+		fail = "DefaultFail() or (IsCCEnded() and Trial.CurrState.TrialProgress <= 1)",
+		enemystate = "jump",
+		p1meter = 0x30,
+		save = "guy/guy_vs_sodom_pb.fs",
+		acttable = 
+		{
+			{state = States.Basic.CC},
+			{state = States.Normals.stLP, nameadd = " [air hit]", success = "IsAtkCombo() and P2.CurrState.IsAirborne"},
+			{state = States.Specials.Tatsu_H},
+			{state = States.Specials.Tatsu_H},
+		}
+	},
+	{
+		fail = "DefaultFail() or (IsCCEnded() and Trial.CurrState.TrialProgress <= 1)",
+		p1meter = 0x90,
+		save = "guy/guy_vs_sodom_pb.fs",
+		acttable = 
+		{
+			{state = States.Basic.CC},
+			{state = States.Normals.crHK},
+			{state = States.Specials.Tatsu_M},
+			{state = States.Specials.Tatsu_M},
+			{state = States.Specials.Tatsu_M},
+			{state = States.Specials.Tatsu_H},
+		}
+	},
+	{
+		fail = "DefaultFail() or (IsCCEnded() and Trial.CurrState.TrialProgress <= 1)",
+		p1meter = 0x90,
+		save = "guy/guy_vs_sodom_pb.fs",
+		acttable = 
+		{
+			{state = States.Basic.CC},
+			{state = States.Normals.Cmd_3HK},
+			{state = States.Specials.Hozanto_H},
+			{state = States.Specials.Hozanto_H},
+			{state = States.Specials.Hozanto_H},
+			{state = States.Specials.Hozanto_H},
+			{state = States.Specials.Hozanto_H},
+			{state = States.Specials.Tatsu_H},
+		}
+	},
+	{
+		enemystate = "crouch",
+		p1meter = 0x90,
+		save = "guy/guy_vs_sodom_jumpin.fs",
+		acttable = 
+		{
+			{state = States.Normals.jHK},
+			{state = States.Basic.CC_Ground},
+			{state = States.Normals.crHK},
+			{state = States.Specials.Hozanto_H},
+			{state = States.Specials.Hozanto_H},
+			{state = States.Specials.Hozanto_H},
+			{state = States.Specials.Tatsu_H, nameadd = " [3 hits]", success = "IsAtkMultiCombo(3)"},
+			{state = States.Specials.Tatsu_H, nameadd = " [3 hits]", success = "IsAtkMultiCombo(3)"},
+		}
+	},
+	{
+		enemystate = "crouch",
+		p1meter = 0x90,
+		save = "guy/guy_vs_sodom_jumpin.fs",
+		acttable = 
+		{
+			{state = States.Normals.jMK},
+			{state = States.Basic.CC_Ground},
+			{state = States.Normals.crHP},
+			{state = States.Specials.BushinFlip_Grab},
+			{state = States.Specials.Tatsu_H, nameadd = " [3 hits]", success = "IsAtkMultiCombo(3)"},
+			{state = States.Specials.Tatsu_H, nameadd = " [3 hits]", success = "IsAtkMultiCombo(3)"},
+		}
+	},
+}

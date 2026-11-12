@@ -1,6 +1,7 @@
 {
 	{
 		p1meter = 0,
+		save = "akuma/akuma_vs_ryu_pb.fs",
 		acttable = 
 		{
 			{state = States.Normals.crLK, carry = true},
@@ -10,6 +11,7 @@
 	},
 	{
 		p1meter = 0,
+		save = "akuma/akuma_vs_ryu_pb.fs",
 		acttable = 
 		{
 			{state = States.Normals.crLK, carry = true},
@@ -21,6 +23,7 @@
 	},
 	{
 		p1meter = 0,
+		save = "akuma/akuma_vs_ryu_jumpin.fs",
 		acttable = 
 		{
 			{state = States.Normals.jHP},
@@ -31,15 +34,17 @@
 	{
 		description = "Corner only",
 		p1meter = 0,
+		save = "akuma/akuma_vs_ryu_corner_jumpin.fs",
 		acttable = 
 		{
 			{state = States.Normals.jHP},
-			{state = States.Normals.stHP},
+			{state = States.Normals.crHP},
 			{state = States.Specials.ShakunetsuHadoken_H, success = "IsAtkMultiCombo(3)"},
 		}
 	},
 	{
 		p1meter = 0x30,
+		save = "akuma/akuma_vs_ryu_pb.fs",
 		acttable = 
 		{
 			{state = States.Normals.crLK, carry = true},
@@ -49,6 +54,7 @@
 	},
 	{
 		p1meter = 0,
+		save = "akuma/akuma_vs_ryu_jumpin.fs",
 		acttable = 
 		{
 			{state = States.Specials.AirTatsu, nameadd = " [2 hits]", success = "IsAtkMultiCombo(2)"},
@@ -58,6 +64,7 @@
 	{
 		description = "Corner only",
 		p1meter = 0,
+		save = "akuma/akuma_vs_ryu_corner_pb.fs",
 		acttable = 
 		{
 			{state = States.Normals.Cmd_6MP},
@@ -68,6 +75,7 @@
 		description = "Crossup combo, opponent crouching",
 		enemystate = "crouch",
 		p1meter = 0,
+		save = "akuma/akuma_vs_ryu_crossup.fs",
 		acttable = 
 		{
 			{state = States.Normals.djMK, nameadd = " [crossup]", success = "IsAtkCombo() and IsCrossup()"},
@@ -80,6 +88,7 @@
 	{
 		description = "Corner only",
 		p1meter = 0x90,
+		save = "akuma/akuma_vs_ryu_corner_airfb.fs",
 		acttable = 
 		{
 			{state = States.Specials.ZankuHadoken_L, success = "IsProjHit()"},
@@ -90,10 +99,11 @@
 	{
 		description = "Corner only",
 		p1meter = 0x30,
+		save = "akuma/akuma_vs_ryu_corner_airfb.fs",
 		acttable = 
 		{
 			{state = States.Specials.ZankuHadoken_L, success = "IsProjHit()"},
-			{state = States.Specials.ZankuHadoken_H, success = "IsProjHit()", forcestart = true,},
+			{state = States.Specials.ZankuHadoken_H, success = "IsProjHit()", forcestart = true},
 			{state = States.Normals.crLK, forcestart = true, carry = true},
 			{state = States.Normals.crLK},
 			{state = States.Specials.Tatsu_L},
@@ -105,6 +115,7 @@
 	{
 		description = "Corner only",
 		p1meter = 0,
+		save = "akuma/akuma_vs_ryu_corner_airfb.fs",
 		acttable = 
 		{
 			{state = States.Specials.ZankuHadoken_L, success = "IsProjHit()"},

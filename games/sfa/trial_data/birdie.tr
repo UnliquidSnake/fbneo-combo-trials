@@ -1,6 +1,7 @@
 {
 	{
 		p1meter = 0,
+		save = "birdie/birdie_vs_chunli_pb.fs",
 		acttable = 
 		{
 			{state = States.Normals.stLK, carry = true},
@@ -10,6 +11,7 @@
 	},
 	{
 		p1meter = 0,
+		save = "birdie/birdie_vs_chunli_jumpin.fs",
 		acttable = 
 		{
 			{state = States.Normals.Cmd_j2HP},
@@ -19,6 +21,7 @@
 	},
 	{
 		p1meter = 0,
+		save = "birdie/birdie_vs_chunli_jumpin.fs",
 		acttable = 
 		{
 			{state = States.Normals.jHK},
@@ -29,6 +32,7 @@
 	},
 	{
 		p1meter = 0,
+		save = "birdie/birdie_vs_chunli_meaty.fs",
 		acttable = 
 		{
 			{state = States.Normals.stHK, nameadd = " [meaty]"},
@@ -37,6 +41,7 @@
 	},
 	{
 		p1meter = 0x60,
+		save = "birdie/birdie_vs_chunli_jumpin.fs",
 		acttable = 
 		{
 			{state = States.Normals.jHK},

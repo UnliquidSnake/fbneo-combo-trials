@@ -1,4 +1,4 @@
-CharStateTable = {}
+local CharStateTable = {}
 CharStateTable.Basic = {}
 CharStateTable.Normals = {}
 CharStateTable.Throws = {}
@@ -139,7 +139,7 @@ CharStateTable.Basic.BackJump = -- does not include prejump frames
 	type = "notatk",
 	stateval = {min = 0x6976, max = 0x6a36}
 }
-CharStateTable.Basic.WallJump = -- does not include prejump frames
+CharStateTable.Basic.WallJump =
 {
 	name = "Wall Jump",
 	inputname = "Jump away from wall when airborne next to wall",
@@ -460,7 +460,12 @@ CharStateTable.Normals.Cmd_j2MK =
 	name = "Yosokyaku",
 	inputname = "j2MK",
 	atkstr = T_AtkStr.M,
-	stateval = {min = 0x8886, max = 0x8916}
+	startstate = {0x87da, 0x8886},
+	stateval =
+	{
+		{min = 0x87da, max = 0x886a},
+		{min = 0x8886, max = 0x8916},
+	}
 }
 -----------------------------------------------------------------------------------------------
 		-- Alpha Counter - Sweep (b,db,d + K)
@@ -655,7 +660,11 @@ CharStateTable.Specials.Senenshu_L =
 	inputname = "63214LK",
 	spid = 1,
 	atkstr = T_AtkStr.L,
-	stateval = {min = 0x8e4a, max = 0x8f9a}
+	stateval =
+	{
+		{min = 0x8e4a, max = 0x8f9a},
+		{min = 0x928e, max = 0x931e},
+	}
 }
 CharStateTable.Specials.Senenshu_M =
 {
@@ -663,7 +672,11 @@ CharStateTable.Specials.Senenshu_M =
 	inputname = "63214MK",
 	spid = 1,
 	atkstr = T_AtkStr.M,
-	stateval = {min = 0x8fb6, max = 0x9106}
+	stateval =
+	{
+		{min = 0x8fb6, max = 0x9106},
+		{min = 0x928e, max = 0x931e},
+	}
 }
 CharStateTable.Specials.Senenshu_H =
 {
@@ -671,7 +684,11 @@ CharStateTable.Specials.Senenshu_H =
 	inputname = "63214HK",
 	spid = 1,
 	atkstr = T_AtkStr.H,
-	stateval = {min = 0x9122, max = 0x9272}
+	stateval =
+	{
+		{min = 0x9122, max = 0x9272},
+		{min = 0x928e, max = 0x931e},
+	}
 }
 CharStateTable.Specials.Senenshu =
 {
@@ -681,9 +698,10 @@ CharStateTable.Specials.Senenshu =
 	startstate = {0x8e4a, 0x8fb6, 0x9122},
 	stateval =
 	{
-		CharStateTable.Specials.Senenshu_L.stateval,
-		CharStateTable.Specials.Senenshu_M.stateval,
-		CharStateTable.Specials.Senenshu_H.stateval,
+		CharStateTable.Specials.Senenshu_L.stateval[1],
+		CharStateTable.Specials.Senenshu_M.stateval[1],
+		CharStateTable.Specials.Senenshu_H.stateval[1],
+		{min = 0x928e, max = 0x931e}
 	}
 }
 -----------------------------------------------------------------------------------------------
@@ -833,3 +851,5 @@ CharStateTable.Supers.HazanTenshokyaku =
 		CharStateTable.Supers.HazanTenshokyaku_L3.stateval[2],
 	}
 }
+
+return CharStateTable

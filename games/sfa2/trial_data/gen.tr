@@ -1,0 +1,198 @@
+{
+	{
+		p1meter = 0,
+		save = "gen/gen_vs_akuma_pb.fs",
+		acttable = 
+		{
+			{state = States.Normals.Mantis_crLK, carry = true},
+			{state = States.Normals.Mantis_crLK, carry = true, name = "Crouch LK", inputname = "2LK"},
+			{state = States.Normals.Mantis_crMK, carry = true, name = "Crouch MK", inputname = "2MK"},
+			{state = States.Normals.Mantis_crHP, name = "Crouch HP", inputname = "2HP"},
+		}
+	},
+	{
+		p1meter = 0,
+		save = "gen/gen_vs_akuma_jumpin.fs",
+		acttable = 
+		{
+			{state = States.Normals.Mantis_jHP},
+			{state = States.Normals.Mantis_stLP},
+			{state = States.Specials.Hyakurenko_L},
+		}
+	},
+	{
+		p1meter = 0,
+		save = "gen/gen_vs_akuma_jumpin.fs",
+		acttable = 
+		{
+			{state = States.Normals.Crane_TC},
+			{state = States.Normals.Crane_crLP},
+			{state = States.Specials.Jyasen_L},
+		}
+	},
+	{
+		p1meter = 0,
+		save = "gen/gen_vs_akuma_jumpin.fs",
+		acttable = 
+		{
+			{state = States.Normals.Mantis_jHK},
+			{state = States.Normals.Mantis_stLP},
+			{state = States.Specials.Gekiro_H},
+			{state = States.Specials.Gekiro_Follow},
+			{state = States.Specials.Gekiro_Finish},
+		}
+	},
+	{
+		fail = "DefaultFail() or P1.CurrState.CCActive",
+		p1meter = 0x30,
+		save = "gen/gen_vs_akuma_pb.fs",
+		acttable = 
+		{
+			{state = States.Normals.Mantis_crMK},
+			{state = States.Supers.Shitenshu_L1},
+		}
+	},
+	{
+		fail = "DefaultFail() or P1.CurrState.CCActive",
+		p1meter = 0x60,
+		save = "gen/gen_vs_akuma_pb.fs",
+		acttable = 
+		{
+			{state = States.Normals.Mantis_crLK, carry = true},
+			{state = States.Normals.Mantis_crLK, carry = true, name = "Crouch LK", inputname = "2LK"},
+			{state = States.Normals.Mantis_crMK, name = "Crouch MK", inputname = "2MK"},
+			{state = States.Supers.Zanei_L2, success = "IsAtkMultiCombo(5)"},
+		}
+	},
+	{
+		fail = "DefaultFail() or P1.CurrState.CCActive or (Trial.CurrState.TrialProgress < 3 and not IsPlayerInState(P1, States.Specials.Oga) and not IsPlayerInState(P1, States.Specials.Oga_CeilingCling) and not IsPlayerInState(P1, States.Specials.Oga_CeilingDive))",
+		p1meter = 0x30,
+		save = "gen/gen_vs_akuma_corner_pb.fs",
+		acttable = 
+		{
+			{state = States.Specials.Oga, carry = true},
+			{state = States.Specials.Oga_CeilingCling, carry = true},
+			{state = States.Specials.Oga_CeilingDive},
+			{state = States.Supers.Jakoha_L1},
+		}
+	},
+	{
+		fail = "DefaultFail() or P1.CurrState.CCActive",
+		p1meter = 0x60,
+		save = "gen/gen_vs_akuma_corner_pb.fs",
+		acttable = 
+		{
+			{state = States.Throws.ThrowP},
+			{state = States.Supers.Jakoha_L2},
+		}
+	},
+	{
+		p1meter = 0,
+		save = "gen/gen_vs_akuma_jumpin.fs",
+		acttable = 
+		{
+			{state = States.Normals.Crane_TC},
+			{state = States.Normals.Mantis_stMP, carry = true},
+			{state = States.Normals.Mantis_stMK, carry = true, name = "Stand MK", inputname = "5MK"},
+			{state = States.Normals.Mantis_stHK, name = "Stand HK", inputname = "5HK"},
+		}
+	},
+	{
+		fail = "DefaultFail() or P1.CurrState.CCActive",
+		description = "Corner only",
+		p1meter = 0x90,
+		save = "gen/gen_vs_akuma_corner_jumpin.fs",
+		acttable = 
+		{
+			{state = States.Normals.Crane_TC},
+			{state = States.Basic.WalkForward, forcestart = true},
+			{state = States.Normals.Crane_stLP, carry = true},
+			{state = States.Normals.Crane_stLP, carry = true, name = "Stand LP", inputname = "5LP"},
+			{state = States.Normals.Crane_crLK, name = "Crouch LK", inputname = "2LK"},
+			{state = States.Supers.Jakoha_L3},
+		}
+	},
+	{
+		fail = "DefaultFail() or (IsCCEnded() and Trial.CurrState.TrialProgress <= 1)",
+		p1meter = 0x30,
+		save = "gen/gen_vs_akuma_pb.fs",
+		acttable = 
+		{
+			{state = States.Basic.CC, forcestart = true},
+			{state = States.Normals.Mantis_crHK},
+			{state = States.Specials.Gekiro_H},
+			{state = States.Specials.Gekiro_Follow, nameadd = " [3 hits]", success = "IsAtkMultiCombo(3)"},
+			{state = States.Specials.Gekiro_H},
+			{state = States.Specials.Gekiro_Follow},
+			{state = States.Specials.Gekiro_Finish},
+		}
+	},
+	{
+		enemystate = "crouch",
+		p1meter = 0x30,
+		save = "gen/gen_vs_akuma_jumpin.fs",
+		acttable = 
+		{
+			{state = States.Normals.Mantis_jHK},
+			{state = States.Basic.CC_Ground, forcestart = true},
+			{state = States.Normals.Mantis_crHK},
+			{state = States.Specials.Gekiro_H},
+			{state = States.Specials.Gekiro_Follow},
+			{state = States.Specials.Gekiro_H},
+			{state = States.Specials.Gekiro_Follow},
+			{state = States.Specials.Gekiro_H},
+			{state = States.Specials.Gekiro_Follow},
+			{state = States.Specials.Gekiro_Finish},
+		}
+	},
+	{
+		fail = "DefaultFail() or (IsCCEnded() and Trial.CurrState.TrialProgress <= 1)",
+		enemystate = "jump",
+		p1meter = 0x30,
+		save = "gen/gen_vs_akuma_pb.fs",
+		acttable = 
+		{
+			{state = States.Basic.CC, forcestart = true},
+			{state = States.Normals.Mantis_stLP, nameadd = " [air hit]", success = "IsAtkCombo() and P2.CurrState.IsAirborne"},
+			{state = States.Specials.Gekiro_H},
+			{state = States.Specials.Gekiro_Follow, nameadd = " [3 hits]", success = "IsAtkMultiCombo(3)"},
+			{state = States.Specials.Gekiro_H},
+			{state = States.Specials.Gekiro_Follow},
+			{state = States.Specials.Gekiro_Finish},
+		}
+	},
+	{
+		enemystate = "crouch",
+		p1meter = 0x90,
+		save = "gen/gen_vs_akuma_jumpin.fs",
+		acttable = 
+		{
+			{state = States.Normals.Crane_jMK, nameadd = " [crossup]", success = "IsAtkCombo() and IsCrossup()"},
+			{state = States.Basic.CC_Ground, forcestart = true},
+			{state = States.Normals.Crane_stHK},
+			{state = States.Specials.Jyasen_H},
+			{state = States.Specials.Jyasen_H},
+			{state = States.Specials.Jyasen_H},
+			{state = States.Specials.Jyasen_H},
+		}
+	},
+	{
+		fail = "DefaultFail() or (IsCCEnded() and Trial.CurrState.TrialProgress <= 1)",
+		p1meter = 0x90,
+		save = "gen/gen_vs_zangief_pb.fs",
+		acttable = 
+		{
+			{state = States.Basic.CC, forcestart = true},
+			{state = States.Normals.Mantis_crHK},
+			{state = States.Specials.Gekiro_H},
+			{state = States.Specials.Gekiro_Follow, nameadd = " [3 hits]", success = "IsAtkMultiCombo(3)"},
+			{state = States.Specials.Gekiro_H},
+			{state = States.Specials.Gekiro_Follow, nameadd = " [3 hits]", success = "IsAtkMultiCombo(3)"},
+			{state = States.Specials.Gekiro_H},
+			{state = States.Specials.Gekiro_Follow, nameadd = " [3 hits]", success = "IsAtkMultiCombo(3)"},
+			{state = States.Specials.Gekiro_H},
+			{state = States.Specials.Gekiro_Follow},
+			{state = States.Specials.Gekiro_Finish},
+		}
+	},
+}

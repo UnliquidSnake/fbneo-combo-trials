@@ -1,34 +1,31 @@
+-- Trial logic & additional functions for most Capcom games on CPS2 hardware (SF Alpha series, Darkstalkers, maybe Vs. series)
+
 -------------------------------------------------------Variables-------------------------------------------------------
-local DefaultAtkInterval = 120 -- const int
 -- Additional trial variables
 Trial.CurrState.IsStartstate = false -- bool
 Trial.HitCount = 0 -- int
 Trial.IsAtkStarted = false -- int
-Trial.EnemyAtk = "" -- string
-Trial.EnemyAtkTimer = 0 -- int
--------------------------------------------------------Integrity Functions-------------------------------------------------------
-function CheckSecondaryTrialErrors(param_trialtable) -- Checks integrity of game-specific values in trial table
-	for i = 1, #param_trialtable do
-		local trial = param_trialtable[i]
+-------------------------------------------------------Trial Support Functions-------------------------------------------------------
+function TrialRoutine.CheckSecondaryErrors(param_trialtable) -- Checks integrity of game-specific values in trial table
+	for i, trial in ipairs(param_trialtable) do
 		local p1_meter = trial.p1meter
 		local enemy_state = trial.enemystate
 		local enemy_atk = trial.enemyatk
 		local enemy_atkinterval = trial.enemyatkinterval
 		-- Check integrity of trial values
-		if (p1_meter ~= nil) and not (type(p1_meter) == "number" and IsInteger(p1_meter) and p1_meter >= 0 and p1_meter <= PlayerMaxSuperMeter) then
+		if (p1_meter ~= nil) and not (type(p1_meter) == "number" and Helper.IsInteger(p1_meter) and p1_meter >= 0 and p1_meter <= PlayerMaxSuperMeter) then
 			error("ERROR: Trial " .. i .. " has incorrect p1meter value") end
 		-- Check integrity of enemy settings
 		if (enemy_state ~= nil) and not (enemy_state == "stand" or enemy_state == "crouch" or enemy_state == "jump") then
 			error("ERROR: Trial " .. i .. " has incorrect enemystate value") end
 		if (enemy_atk ~= nil) and not (enemy_atk == "LP" or enemy_atk == "MP" or enemy_atk == "HP" or enemy_atk == "LK" or enemy_atk == "MK" or enemy_atk == "HK") then
 			error("ERROR: Trial " .. i .. " has incorrect enemyatk value") end
-		if (enemy_atkinterval ~= nil) and not (type(enemy_atkinterval) == "number" and IsInteger(enemy_atkinterval) and enemy_atkinterval > 1) then
+		if (enemy_atkinterval ~= nil) and not (type(enemy_atkinterval) == "number" and Helper.IsInteger(enemy_atkinterval) and enemy_atkinterval > 1) then
 			error("ERROR: Trial " .. i .. " has incorrect enemyatkinterval value") end
 		if (enemy_atk == nil and enemy_atkinterval ~= nil) then
 			error("ERROR: Trial " .. i .. " has an enemy attack interval with no attack") end
 		-- Check integrity of game-specific values in action table
-		for j = 1, #trial.acttable do
-			local action = trial.acttable[j]
+		for j, action in ipairs(trial.acttable) do
 			if not (type(action.state.stateval) == "table") then 
 				error("ERROR: In trial " .. i .. ", action " .. j .. " has missing stateval table") end
 			-- Check if stateval is a table of min and max
@@ -36,18 +33,18 @@ function CheckSecondaryTrialErrors(param_trialtable) -- Checks integrity of game
 				-- If it is, check correct statevals
 				if not (type(action.state.stateval.min) == "number" and type(action.state.stateval.max) == "number") then
 					error("ERROR: In trial " .. i .. ", action " .. j .. " has non-number min/max values for stateval table") end
-				if not (IsInteger(action.state.stateval.min) and action.state.stateval.min >= 0 and action.state.stateval.min <= 0xffff) then
+				if not (Helper.IsInteger(action.state.stateval.min) and action.state.stateval.min >= 0 and action.state.stateval.min <= 0xffff) then
 					error("ERROR: In trial " .. i .. ", action " .. j .. " has incorrect min value for stateval table") end
-				if not (IsInteger(action.state.stateval.max) and action.state.stateval.max >= 0 and action.state.stateval.max <= 0xffff) then
+				if not (Helper.IsInteger(action.state.stateval.max) and action.state.stateval.max >= 0 and action.state.stateval.max <= 0xffff) then
 					error("ERROR: In trial " .. i .. ", action " .. j .. " has incorrect max value for stateval table") end
 			end
 			-- Otherwise, stateval is a table of tables each containing a min and max value. Check statevals accordingly
-			for k = 1, #action.state.stateval do
-				if not (type(action.state.stateval[k].min) == "number" and type(action.state.stateval[k].max) == "number") then
+			for k, stateval in ipairs(action.state.stateval) do
+				if not (type(stateval.min) == "number" and type(stateval.max) == "number") then
 					error("ERROR: In trial " .. i .. ", action " .. j .. " has non-number min/max values for stateval table in position " .. k) end
-				if not (IsInteger(action.state.stateval[k].min) and action.state.stateval[k].min >= 0 and action.state.stateval[k].min <= 0xffff) then
+				if not (Helper.IsInteger(stateval.min) and stateval.min >= 0 and stateval.min <= 0xffff) then
 					error("ERROR: In trial " .. i .. ", action " .. j .. " has incorrect min value for stateval table in position " .. k) end
-				if not (IsInteger(action.state.stateval[k].max) and action.state.stateval[k].max >= 0 and action.state.stateval[k].max <= 0xffff) then
+				if not (Helper.IsInteger(stateval.max) and stateval.max >= 0 and stateval.max <= 0xffff) then
 					error("ERROR: In trial " .. i .. ", action " .. j .. " has incorrect max value for stateval table in position " .. k) end
 			end
 			if (action.forcestart ~= nil) and not (type(action.forcestart) == "boolean") then 
@@ -55,6 +52,7 @@ function CheckSecondaryTrialErrors(param_trialtable) -- Checks integrity of game
 		end
 	end
 end
+-------------------------------------------------------Integrity Functions-------------------------------------------------------
 function CheckStateArgs(...) -- Check for correct state arguments passed to other functions
 	local args = {...}
 	if (#args > 1) then return nil end
@@ -81,26 +79,26 @@ function CheckStateErrors(param_state, param_funcname)
 			error("ERROR (trial " .. Trial.CurrState.TrialID .. ", action " .. Trial.CurrState.TrialProgress+1 .. "): " .. 
 			param_funcname .. " - stateval table has non-number min/max values") 
 		end
-		if not (IsInteger(param_state.stateval.min) and param_state.stateval.min >= 0 and param_state.stateval.min <= 0xffff) then
+		if not (Helper.IsInteger(param_state.stateval.min) and param_state.stateval.min >= 0 and param_state.stateval.min <= 0xffff) then
 			error("ERROR (trial " .. Trial.CurrState.TrialID .. ", action " .. Trial.CurrState.TrialProgress+1 .. "): " ..
 			param_funcname .. " - stateval table has incorrect min value") 
 		end
-		if not (IsInteger(param_state.stateval.max) and param_state.stateval.max >= 0 and param_state.stateval.max <= 0xffff) then
+		if not (Helper.IsInteger(param_state.stateval.max) and param_state.stateval.max >= 0 and param_state.stateval.max <= 0xffff) then
 			error("ERROR (trial " .. Trial.CurrState.TrialID .. ", action " .. Trial.CurrState.TrialProgress+1 .. "): " ..
 			param_funcname .. " - stateval table has incorrect max value") 
 		end
 	end
 	-- Otherwise, stateval is a table of tables each containing a min and max value. Check statevals accordingly
-	for i = 1, #param_state.stateval do
-		if not (type(param_state.stateval[i].min) == "number" and type(param_state.stateval[i].max) == "number") then
+	for i, stateval in ipairs(param_state.stateval) do
+		if not (type(stateval.min) == "number" and type(stateval.max) == "number") then
 			error("ERROR (trial " .. Trial.CurrState.TrialID .. ", action " .. Trial.CurrState.TrialProgress+1 .. "): " .. 
 			param_funcname .. " - stateval table has non-number min/max values in position " .. i)
 		end
-		if not (IsInteger(param_state.stateval[i].min) and param_state.stateval[i].min >= 0 and param_state.stateval[i].min <= 0xffff) then
+		if not (Helper.IsInteger(stateval.min) and stateval.min >= 0 and stateval.min <= 0xffff) then
 			error("ERROR (trial " .. Trial.CurrState.TrialID .. ", action " .. Trial.CurrState.TrialProgress+1 .. "): " ..
 			param_funcname .. " - stateval table has incorrect min value in position " .. i) 
 		end
-		if not (IsInteger(param_state.stateval[i].max) and param_state.stateval[i].max >= 0 and param_state.stateval[i].max <= 0xffff) then
+		if not (Helper.IsInteger(stateval.max) and stateval.max >= 0 and stateval.max <= 0xffff) then
 			error("ERROR (trial " .. Trial.CurrState.TrialID .. ", action " .. Trial.CurrState.TrialProgress+1 .. "): " ..
 			param_funcname .. " - stateval table has incorrect max value in position " .. i) 
 		end
@@ -109,12 +107,12 @@ end
 function CheckStartstateErrors(param_startstate, param_funcname)
 	if not (type(param_startstate) == "table" and #param_startstate > 0) then
 		error("ERROR (trial " .. Trial.CurrState.TrialID .. ", action " .. Trial.CurrState.TrialProgress+1 .. "): " .. param_funcname .. " - incorrect startstate argument") end
-	for i = 1, #param_startstate do
-		if not (type(param_startstate[i]) == "number") then
+	for i, startval in ipairs(param_startstate) do
+		if not (type(startval) == "number") then
 			error("ERROR (trial " .. Trial.CurrState.TrialID .. ", action " .. Trial.CurrState.TrialProgress+1 .. "): " .. 
 			param_funcname .. " - startstate table has non-number value in position " .. i)
 		end
-		if not (IsInteger(param_startstate[i]) and param_startstate[i] >= 0 and param_startstate[i] <= 0xffff) then
+		if not (Helper.IsInteger(startval) and startval >= 0 and param_startstate[i] <= 0xffff) then
 			error("ERROR (trial " .. Trial.CurrState.TrialID .. ", action " .. Trial.CurrState.TrialProgress+1 .. "): " .. 
 			param_funcname .. " - startstate table has incorrect value in position " .. i)
 		end
@@ -130,8 +128,10 @@ function IsPlayerInStartstate(param_player, param_state) -- Same thing for start
 	local t_startstate = {param_state.stateval[1].min, param_state.stateval[1].min + 0x18 % 0x10000} 
 	if not (param_state.startstate == nil) then t_startstate = param_state.startstate end
 	CheckStartstateErrors(t_startstate, "IsPlayerInStartstate")
-	for i = 1, #t_startstate do
-		if (param_player.CurrState.CharState == t_startstate[i]) then return true end
+	-- Check Gen's styles, they have separate character ID's for determining which one is being used
+	if not IsCorrectGenStyle(param_player, param_state) then return false end
+	for _, startval in pairs(t_startstate) do
+		if (param_player.CurrState.CharState == startval) then return true end
 	end
 	return false
 end
@@ -140,9 +140,22 @@ function IsCorrectAtkProps(param_state) -- Check for the attack's properties bei
 	CheckStateErrors(param_state, "IsCorrectAtkProps")
 	-- Check for the correct strength of attack (i.e. buttons pressed)
 	if (param_state.atkstr ~= nil and P1.CurrState.AtkStr ~= param_state.atkstr) then return false end
+	-- Check for the correct type of attack (i.e. punch/kick)
+	if (param_state.atktype ~= nil and P1.CurrState.AtkType ~= param_state.atktype) then return false end
 	-- Check for the correct ID of the special/super, if exists
 	if (param_state.spid ~= nil and P1.CurrState.SpecialID ~= param_state.spid) then return false end
 	return true
+end
+function IsCorrectGenStyle(param_player, param_object) -- Alpha series only; check if Gen is using the correct style for a specific attack
+	if not (GameFolder == "sfa2" or GameFolder == "sfz2al" or GameFolder == "sfa3") then return true end
+	if not param_player.CharName == "Gen" then return true end
+	if (param_object.style == nil) then return true end
+	if
+	(
+		(param_object.style == "mantis" and Read_PlayerCharID(param_player) == T_CharID.Gen_Mantis) or
+		(param_object.style == "crane" and Read_PlayerCharID(param_player) == T_CharID.Gen_Crane)
+	) then return true end
+	return false
 end
 -------------------------------------------------------Trial Functions-------------------------------------------------------
 function IsPlayerInState(param_player, param_state) -- Check if player is currently in specific state - usually for attacks, can be other things
@@ -150,8 +163,15 @@ function IsPlayerInState(param_player, param_state) -- Check if player is curren
 	CheckPlayerErrors(param_player, "IsPlayerInState")
 	CheckStateErrors(param_state, "IsPlayerInState")
 	ConvertStatevals(param_state)
-	for i = 1, #param_state.stateval do
-		if (param_player.CurrState.CharState >= param_state.stateval[i].min and param_player.CurrState.CharState <= param_state.stateval[i].max) then return true end
+	-- Check Gen's styles, they have separate character ID's for determining which one is being used
+	if not IsCorrectGenStyle(param_player, param_state) then return false end
+	for _, stateval in pairs(param_state.stateval) do
+		if
+		(
+			IsCorrectGenStyle(param_player, stateval) and 
+			param_player.CurrState.CharState >= stateval.min and 
+			param_player.CurrState.CharState <= stateval.max
+		) then return true end
 	end
 	return false
 end
@@ -167,8 +187,12 @@ function IsAtkCombo(...) -- Check if combo counter increments while player is in
 	(
 		IsPlayerInState(P1, param_state) and
 		P1.CurrState.ComboCounter > P1.PrevState.ComboCounter and
-		-- if move is not a fireball, prevent move from registering if hit by a fireball
-		(param_state.type == "projectile" or (P1.PrevState.ProjActive == false and P1.CurrState.ProjActive == false))	
+		-- if move is not a fireball, prevent move from registering if hit by a fireball, unless CC is active
+		(
+			param_state.type == "projectile" or 
+			(P1.PrevState.ProjActive == false and P1.CurrState.ProjActive == false) or
+			((GameFolder == "sfa2" or GameFolder == "sfz2al") and P1.CurrState.CCActive)
+		)	
 	)
 end
 function IsAtkDamage(...) -- Check if opponent takes damage while player is in specific animation of the move
@@ -182,12 +206,16 @@ function IsAtkDamage(...) -- Check if opponent takes damage while player is in s
 	(
 		IsPlayerInState(P1, param_state) and
 		(P2.CurrState.Health + 1 % 256) < (P2.PrevState.Health + 1 % 256) and -- account for 0xff value when KO'd
-		-- if move is not a fireball, prevent move from registering if hit by a fireball
-		(param_state.type == "projectile" or (P1.PrevState.ProjActive == false and P1.CurrState.ProjActive == false))
+		-- if move is not a fireball, prevent move from registering if hit by a fireball, unless CC is activw
+		(
+			param_state.type == "projectile" or 
+			(P1.PrevState.ProjActive == false and P1.CurrState.ProjActive == false) or
+			((GameFolder == "sfa2" or GameFolder == "sfz2al") and P1.CurrState.CCActive)
+		)
 	)
 end
 function IsAtkMultiCombo(param_hitcount, ...) -- Check if an attack hits many consecutive times
-	if not (type(param_hitcount) == "number" and IsInteger(param_hitcount) and param_hitcount >= 1) then
+	if not (type(param_hitcount) == "number" and Helper.IsInteger(param_hitcount) and param_hitcount >= 1) then
 		error("ERROR (trial " .. Trial.CurrState.TrialID .. ", action " .. Trial.CurrState.TrialProgress+1 .. "): IsAtkMultiCombo - incorrect hitcount argument") end
 	-- Check integrity of state arguments
 	local param_state = CheckStateArgs(...)
@@ -227,6 +255,11 @@ function IsComboDropped()
 	return (P1.CurrState.ComboCounter < P1.PrevState.ComboCounter) end
 function IsEnemyKD()
 	return (IsPlayerInState(P2, P2.StateTable.Basic.Knockdown) or IsPlayerInState(P2, P2.StateTable.Basic.Recovery)) end
+-- Alpha 2 specific functions
+function IsCCEnded()
+	if not (GameFolder == "sfa2" or GameFolder == "sfz2al") then return false end
+	return (P1.PrevState.CCActive and not P1.CurrState.CCActive)
+end
 -------------------------------------------------------Default conditions for trial success/failure-------------------------------------------------------
 function DefaultFail()
 	return IsComboDropped() or IsEnemyKD() end
@@ -235,12 +268,9 @@ function DefaultSuccess(param_action)
 	if (param_action.state.type == "notatk") then return IsAtkWhiff(param_action.state) end
 	return IsAtkCombo(param_action.state) end
 -------------------------------------------------------Support functions for main execution loop-------------------------------------------------------
-function DisplayDebugText()
-	gui.text(Config.DebugTextPosX,Config.DebugTextPosY,"HitCount: " .. Trial.HitCount)
-	gui.text(Config.DebugTextPosX,Config.DebugTextPosY+CharIntervalY,"AtkStarted: " .. tostring(Trial.IsAtkStarted))
-end
 local function SetAtkStarted()
 	if (Trial.NextAction.forcestart == true) then Trial.IsAtkStarted = true return end
+	--if P1.CurrState.CCActive then Trial.IsAtkStarted = true return end -- force skip during CC's in Alpha 2
 	if (Trial.IsAtkStarted == true) then
 		if (Trial.CurrState.TrialID ~= Trial.PrevState.TrialID or Trial.CurrState.TrialProgress ~= Trial.PrevState.TrialProgress) then Trial.IsAtkStarted = false return
 		-- If player finishes animation, set to false unless next action is a projectile
@@ -265,38 +295,8 @@ local function SetHitCount()
 	) then Trial.HitCount = 0 end
 	if (IsAtkCombo(Trial.NextAction.state) and Trial.IsAtkStarted) then Trial.HitCount = Trial.HitCount + 1 end
 end
-local function SetEnemyInput()
-	Trial.EnemyDir = nil
-	Trial.EnemyAtk = nil
-	-- Reset all auto inputs, reestablish them later
-	for k,v in pairs(EnemyInputs) do EnemyInputs["" .. k] = nil end
-	-- Check if trial has setting for enemy state, make enemy hold down or up accordingly
-	if (Trial.CurrentTrial.enemystate ~= nil) then
-		if (Trial.CurrentTrial.enemystate == "crouch") then Trial.EnemyDir = "Down" end
-		if (Trial.CurrentTrial.enemystate == "jump") then Trial.EnemyDir = "Up" end
-		if (type(Trial.EnemyDir) == "string") then EnemyInputs[Trial.EnemyDir] = true end
-	end
-	-- Check if trial has setting for enemy attacking at specific interval
-	if (Trial.CurrentTrial.enemyatk ~= nil) then
-		if (Trial.CurrentTrial.enemyatkinterval == nil) then Trial.CurrentTrial.enemyatkinterval = DefaultAtkInterval end
-		-- Check trial setting for enemy's specific button
-		if (Trial.CurrentTrial.enemyatk == "LP") then Trial.EnemyAtk = "Weak Punch"
-		elseif (Trial.CurrentTrial.enemyatk == "MP") then Trial.EnemyAtk = "Medium Punch"
-		elseif (Trial.CurrentTrial.enemyatk == "HP") then Trial.EnemyAtk = "Strong Punch"
-		elseif (Trial.CurrentTrial.enemyatk == "LK") then Trial.EnemyAtk = "Weak Kick"
-		elseif (Trial.CurrentTrial.enemyatk == "MK") then Trial.EnemyAtk = "Medium Kick"
-		elseif (Trial.CurrentTrial.enemyatk == "HK") then Trial.EnemyAtk = "Strong Kick"
-		end
-		Trial.EnemyAtkTimer = Trial.EnemyAtkTimer - 1
-		if (Trial.EnemyAtkTimer <= 0) then
-			if (type(Trial.EnemyAtk) == "string") then EnemyInputs[Trial.EnemyAtk] = true end
-			Trial.EnemyAtkTimer = Trial.CurrentTrial.enemyatkinterval
-		end
-	end
-end
 -------------------------------------------------------Main execution loop-------------------------------------------------------
-function TrialSupportHandler()
+function ExecRoutine.TrialSupportExec()
 	SetAtkStarted()
 	SetHitCount()
-	SetEnemyInput()
 end

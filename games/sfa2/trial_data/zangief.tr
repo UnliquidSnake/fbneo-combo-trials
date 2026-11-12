@@ -1,0 +1,110 @@
+{
+	{
+		p1meter = 0,
+		save = "zangief/zangief_vs_ken_pb.fs",
+		acttable = 
+		{
+			{state = States.Normals.crLP, carry = true},
+			{state = States.Normals.crLP, carry = true},
+			{state = States.Normals.crLP, carry = true},
+			{state = States.Normals.stLK},
+		}
+	},
+	{
+		p1meter = 0,
+		save = "zangief/zangief_vs_ken_jumpin.fs",
+		acttable = 
+		{
+			{state = States.Normals.jHK},
+			{state = States.Normals.crHK},
+		}
+	},
+	{
+		p1meter = 0,
+		save = "zangief/zangief_vs_ken_pb.fs",
+		acttable = 
+		{
+			{state = States.Normals.Cmd_dj2HP},
+			{state = States.Normals.crLK},
+			{state = States.Specials.Lariat_P},
+		}
+	},
+	{
+		fail = "DefaultFail() or (IsCCEnded() and Trial.CurrState.TrialProgress <= 1)",
+		p1meter = 0x30,
+		save = "zangief/zangief_vs_ken_pb.fs",
+		acttable = 
+		{
+			{state = States.Basic.CC},
+			{state = States.Normals.crHK},
+			{state = States.Specials.GreenHand_L},
+			{state = States.Specials.GreenHand_L},
+			{state = States.Specials.Lariat_P},
+		}
+	},
+	{
+		enemystate = "crouch",
+		p1meter = 0x30,
+		save = "zangief/zangief_vs_ken_jumpin.fs",
+		acttable = 
+		{
+			{state = States.Normals.Cmd_dj2HP},
+			{state = States.Basic.CC_Ground},
+			{state = States.Normals.stLK, carry = true},
+			{state = States.Normals.stLK},
+			{state = States.Normals.stLK, carry = true},
+			{state = States.Normals.stLK},
+			{state = States.Normals.stLK, carry = true},
+			{state = States.Normals.stLK},
+			{state = States.Normals.stLK, carry = true},
+			{state = States.Normals.stLK},
+			{state = States.Specials.AtomicSuplex},
+		}
+	},
+	{
+		fail = "DefaultFail() or (IsCCEnded() and Trial.CurrState.TrialProgress <= 1)",
+		enemystate = "jump",
+		p1meter = 0x30,
+		save = "zangief/zangief_vs_ken_pb.fs",
+		acttable = 
+		{
+			{state = States.Basic.CC},
+			{state = States.Specials.Lariat_K, nameadd = " [air hit]", success = "IsAtkCombo() and P2.PrevState.IsAirborne"},
+			{state = States.Specials.GreenHand_L},
+			{state = States.Specials.Lariat_P},
+		}
+	},
+	{
+		fail = "DefaultFail() or (IsCCEnded() and Trial.CurrState.TrialProgress <= 1)",
+		p1meter = 0x90,
+		save = "zangief/zangief_vs_ken_pb.fs",
+		acttable = 
+		{
+			{state = States.Basic.CC},
+			{state = States.Normals.crHK},
+			{state = States.Specials.GreenHand_L},
+			{state = States.Specials.GreenHand_L},
+			{state = States.Specials.GreenHand_L},
+			{state = States.Specials.GreenHand_L},
+			{state = States.Specials.GreenHand_L},
+			{state = States.Specials.GreenHand_L},
+			{state = States.Specials.Lariat_P},
+		}
+	},
+	{
+		fail = "DefaultFail() or (IsCCEnded() and Trial.CurrState.TrialProgress <= 1)",
+		p1meter = 0x90,
+		save = "zangief/zangief_vs_ken_pb.fs",
+		acttable = 
+		{
+			{state = States.Basic.CC},
+			{state = States.Normals.crMK},
+			{state = States.Specials.GreenHand_H},
+			{state = States.Specials.GreenHand_H},
+			{state = States.Specials.GreenHand_H},
+			{state = States.Specials.GreenHand_H},
+			{state = States.Specials.GreenHand_H},
+			{state = States.Specials.SPD_H},
+		}
+	},
+}

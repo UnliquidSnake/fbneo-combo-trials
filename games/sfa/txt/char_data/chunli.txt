@@ -76,7 +76,8 @@
 0x84ae - 0x856e: Diagonal Jumping HK -- unique
 		-- Command Normals
 0x8716 - 0x87be: Kakukyakuraku (df + HK)
-0x8886 - 0x8916: Yosokyaku (air d + MK)
+0x87da - 0x886a: Yosokyaku (neutral jump air d + MK)
+0x8886 - 0x8916: Yosokyaku (diagonal jump air d + MK)
 		-- Alpha Counter
 0x8932 - 0x89c2: Alpha Counter - Sweep (b,db,d + K)
 	-- Throws
@@ -105,6 +106,7 @@
 0x8e4a - 0x8f9a: L Senenshu
 0x8fb6 - 0x9106: M Senenshu
 0x9122 - 0x9272: H Senenshu
+0x928e - 0x931e: Senenshu (all versions after hitting)
 	-- Super Moves
 		-- Kikosho (qcf,qcf + P)
 0xb022 - 0xb0ca: Kikosho (startup, all versions)

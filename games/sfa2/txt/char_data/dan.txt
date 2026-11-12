@@ -1,0 +1,147 @@
+-- Basic states
+	-- Idle & movement
+0x1a20 - 0x1a98: Idle
+0x1ab4: Crouching
+0x1ad0 - 0x1b48: Forward walk
+0x1b64 - 0x1bdc: Back walk
+0x1bf8 - 0x1c40: Transition from crouch to stand
+0x1c5c - 0x1ca4: Transition from stand to crouch
+0x1cc0 - 0x1d08: Standing turn around after side switch
+0x1d24 - 0x1d6c: Crouching turn around after side switch
+0x1d88 - 0x1da0: Prejump frames
+0x1dbc - 0x1dd4: Landing recovery from jump
+0x1df0 - 0x1e68: Neutral jump
+0x1e84 - 0x1efc: Forward jump
+0x1f18 - 0x1f90: Backward jump
+	-- Blocking
+0x1fac - 0x2010: Stand block (incl. proximity block)
+0x202c - 0x2090: Crouch block (incl. proximity block)
+0x20c4 - 0x2110: Air block (incl. proximity block)
+	-- Recovery Roll
+0x2190 - 0x21d8: Auto roll wakeup
+0x21f4 - 0x223c: Recovery roll
+	-- Custom Combo
+0x4824 - 0x4854: Grounded CC activation
+0x47f0 - 0x4808: Air CC activation
+	-- Cutscenes
+0x21f4 - 0x2304: Intro pose
+0x239c - 0x23e4: Win pose 1
+0x2400 - 0x2448: Win pose 2
+0x2464 - 0x24ac: Win pose 3
+0x24c8 - 0x2528: Win pose 4
+0x2544 - 0x25bc: Time over loss/draw
+	-- Getting thrown
+0x28e0 - 0x2bc8: Getting thrown
+	-- Getting hit
+0x2ca4 - 0x2cd4: Standing hit in head 1
+0x2cf0 - 0x2d20: Standing hit in head 2
+0x2d3c - 0x2d6c: Standing hit in head 3
+0x2d88 - 0x2db8: Standing hit in body/feet 1
+0x2dd4 - 0x2e04: Standing hit in body/feet 2
+0x2e20 - 0x2e50: Standing hit in body/feet 3
+0x2e6c - 0x2e84: Crouching hit 1
+0x2ea0 - 0x2ed0: Crouching hit 2
+0x2eec - 0x2f1c: Crouching hit 3
+0x2f38 - 0x2f80: Launch hit (can usually be juggled)
+0x2f9c - 0x2fec: Knockdown
+0x303c - 0x3054: Spin out after AC
+0x3070 - 0x30a0: Falling after sweep
+0x3250 - 0x32c8: Air reset
+	-- Other
+0x32e4 - 0x332c: Stun
+0x3348 - 0x33a8: Getting up
+-- Attacks
+	-- Normals
+		-- Standing Normals
+0x33c4 - 0x340c: Standing LP
+0x3428 - 0x3488: Standing MP
+0x34a4 - 0x354c: Standing HP
+0x3568 - 0x35f8: Standing LK
+0x3614 - 0x36bc: Standing MK
+0x36d8 - 0x37b0: Standing HK
+		-- Crouching Normals
+0x37cc - 0x3814: Crouching LP
+0x3830 - 0x38c0: Crouching MP
+0x38dc - 0x393c: Crouching HP
+0x3958 - 0x39e8: Crouching LK
+0x3a04 - 0x3a7c: Crouching MK
+0x3a98 - 0x3b10: Crouching HK
+		-- Neutral Jumping Normals
+0x3b2c - 0x3b74: Neutral Jumping LP
+0x3b90 - 0x3bf0: Neutral Jumping MP
+0x3c0c - 0x3c9c: Neutral Jumping HP
+0x3cb8 - 0x3d18: Neutral Jumping LK
+0x3d34 - 0x3d94: Neutral Jumping MK
+0x3db0 - 0x3e40: Neutral Jumping HK
+		-- Diagonal Jumping Normals
+0x3e5c - 0x3ea4: Diagonal Jumping LP
+0x3ec0 - 0x3f20: Diagonal Jumping MP
+0x3f3c - 0x3fcc: Diagonal Jumping HP
+0x3fe8 - 0x4048: Diagonal Jumping LK
+0x4064 - 0x40c4: Diagonal Jumping MK
+0x40e0 - 0x4170: Diagonal Jumping HK
+		-- Alpha Counter
+0x4ff4 - 0x506c: Punch AC - Taunt (b,db,d + P)
+0x5088 - 0x5178: Kick AC - Sweep (b,db,d + K)
+	-- Throws
+0x418c - 0x421c: Seoi Nage (f/b + MP/HP)
+	-- Special Moves
+		-- Gadoken (qcf + P)
+0x4870 - 0x48b8: L Gadoken
+0x48d4 - 0x491c: M Gadoken
+0x4938 - 0x4980: H Gadoken
+0x499c - 0x49e4: L Gadoken (during CC)
+0x4a00 - 0x4a48: M Gadoken (during CC)
+0x4a64 - 0x4aac: H Gadoken (during CC)
+		-- Koryuken (dp + P)
+0x4ac8 - 0x4b70: L Koryuken
+0x4b8c - 0x4c34: M Koryuken
+0x4c50 - 0x4cf8: H Koryuken
+0x4d14 - 0x4dbc: L Koryuken (during CC)
+0x4dd8 - 0x4e80: M Koryuken (during CC)
+0x4e9c - 0x4f44: H Koryuken (during CC)
+		-- Dankukyaku (qcb + K)
+0x4238 - 0x42b0: L Dankukyaku
+0x42cc - 0x43a4: M Dankukyaku
+0x43c0 - 0x44f8: H Dankukyaku
+0x4514 - 0x458c: L Dankukyaku (during CC)
+0x45a8 - 0x4680: M Dankukyaku (during CC)
+0x469c - 0x47d4: H Dankukyaku (during CC)
+0x5620 - 0x5668: Dankukyaku (landing recovery)
+		-- Zenten/Kouten Chohatsu (qcf/qcb + Start)
+0x5700 - 0x5838: Zenten Chohatsu (roll)
+0x5854 - 0x59a4: Kouten Chohatsu (roll)
+0x59c0 - 0x5a20: Both (taunt)
+	-- Super Moves
+		-- Shinku Gadoken (qcf,qcf + P)
+0x5684 - 0x56cc: Shinku Gadoken -- applies for all versions
+		-- Koryurekka (qcf,qcf + K)
+0x5194 - 0x52e4: Lv1 Koryurekka
+0x5300 - 0x5468: Lv2 Koryurekka
+0x5484 - 0x5604: Lv3 Koryurekka
+		-- Hissho Buraiken (qcb,qcb + K)
+0x5ec8 - 0x6120: Lv1 Hissho Buraiken
+0x613c - 0x640c: Lv2 Hissho Buraiken
+0x6428 - 0x6878: Lv3 Hissho Buraiken
+		-- Legendary Taunt (qcf,qcf + Start)
+0x6894 - 0x6ab4: Legendary Taunt
+	-- Other
+0x27cc - 0x2814: Taunt (Start)
+0x2830 - 0x2878: Crouching Taunt (d+Start)
+0x2894 - 0x28c4: Jumping Taunt (in air, Start)
+
+Special ID's:
+
+0 - Koryuken
+1 - Gadoken
+2 - Kick AC
+3 - Dankukyaku
+4 - Shinku Gadoken
+5 - Punch AC
+6 - Koryurekka
+7 - Taunt/Crouching Taunt
+8 - CC Activation
+9 - Jumping Taunt
+10 - Zenten Chohatsu/Kouten Chohatsu
+11 - Hissho Buraiken
+12 - Legendary Taunt

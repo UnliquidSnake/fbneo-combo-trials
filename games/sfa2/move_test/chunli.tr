@@ -1,0 +1,90 @@
+{
+	{
+		fail = "not IsPlayerInState(P1, States.Throws.ThrowP)",
+		p1meter = 0,
+		acttable = 
+		{
+			{state = States.Throws.ThrowP},
+		}
+	},
+	{
+		fail = "not IsPlayerInState(P1, States.Throws.AirThrow)",
+		enemystate = "jump",
+		p1meter = 0,
+		acttable = 
+		{
+			{state = States.Throws.AirThrow},
+		}
+	},
+	{
+		fail = "not IsPlayerInState(P1, States.Basic.WallJump)",
+		p1meter = 0,
+		acttable = 
+		{
+			{state = States.Basic.WallJump},
+		}
+	},
+	{
+		p1meter = 0,
+		acttable = 
+		{
+			{state = States.Normals.Cmd_3HK},
+		}
+	},
+	{
+		p1meter = 0,
+		acttable = 
+		{
+			{state = States.Normals.Cmd_j2MK},
+		}
+	},
+	{
+		p1meter = 0,
+		acttable = 
+		{
+			{state = States.Specials.Hyakuretsukyaku},
+		}
+	},
+	{
+		p1meter = 0,
+		acttable = 
+		{
+			{state = States.Specials.Kikoken, success = "IsProjHit()"},
+		}
+	},
+	{
+		p1meter = 0,
+		acttable = 
+		{
+			{state = States.Specials.Tenshokyaku},
+		}
+	},
+	{
+		p1meter = 0,
+		acttable = 
+		{
+			{state = States.Specials.Senenshu},
+		}
+	},
+	{
+		p1meter = 0x90,
+		acttable = 
+		{
+			{state = States.Supers.Kikosho},
+		}
+	},
+	{
+		p1meter = 0x90,
+		acttable = 
+		{
+			{state = States.Supers.Senretsukyaku},
+		}
+	},
+	{
+		p1meter = 0x90,
+		acttable = 
+		{
+			{state = States.Supers.HazanTenshokyaku},
+		}
+	},
+}

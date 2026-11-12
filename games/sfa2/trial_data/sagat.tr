@@ -1,0 +1,152 @@
+{
+	{
+		p1meter = 0,
+		save = "sagat/sagat_vs_sagat_pb.fs",
+		acttable = 
+		{
+			{state = States.Normals.crLK},
+			{state = States.Normals.crLK},
+			{state = States.Specials.TigerCrush_H, success = "IsAtkCombo() and P2.CurrState.IsAirborne"},
+		}
+	},
+	{
+		p1meter = 0,
+		save = "sagat/sagat_vs_ryu_jumpin.fs",
+		acttable = 
+		{
+			{state = States.Normals.jHK},
+			{state = States.Normals.stMP},
+			{state = States.Specials.TigerBlow_H},
+		}
+	},
+	{
+		fail = "DefaultFail() or P1.CurrState.CCActive",
+		p1meter = 0x90,
+		save = "sagat/sagat_vs_ryu_jumpin.fs",
+		acttable = 
+		{
+			{state = States.Normals.jHK},
+			{state = States.Normals.crMP},
+			{state = States.Supers.TigerGenocide_L3, success = "IsAtkCombo() and P2.CurrState.IsAirborne"},
+		}
+	},
+	{
+		description = "Opponent jumping",
+		enemystate = "jump",
+		p1meter = 0,
+		save = "sagat/sagat_vs_ryu_pb.fs",
+		acttable = 
+		{
+			{state = States.Normals.stMP, nameadd = " [air hit]", success = "IsAtkCombo() and P2.CurrState.IsAirborne"},
+			{state = States.Specials.TigerBlow_H},
+		}
+	},
+	{
+		fail = "DefaultFail() or P1.CurrState.CCActive",
+		description = "Corner only",
+		p1meter = 0x30,
+		save = "sagat/sagat_vs_ryu_corner_jumpin.fs",
+		acttable = 
+		{
+			{state = States.Normals.jHK},
+			{state = States.Normals.crMP},
+			{state = States.Supers.TigerRaid_L1, success = "IsAtkCombo() and P2.CurrState.IsAirborne"},
+			{state = States.Specials.TigerBlow_H}
+		}
+	},
+	{
+		description = "Corner only",
+		p1meter = 0,
+		save = "sagat/sagat_vs_ryu_corner_pb.fs",
+		acttable = 
+		{
+			{state = States.Normals.crLK},
+			{state = States.Normals.crLK},
+			{state = States.Normals.crLK},
+			{state = States.Specials.TigerCrush_L, nameadd = " [meaty]", success = "IsAtkCombo() and P2.CurrState.IsAirborne"},
+			{state = States.Specials.TigerBlow_H}
+		}
+	},
+	{
+		fail = "DefaultFail() or P1.CurrState.CCActive",
+		description = "Corner only",
+		p1meter = 0x30,
+		save = "sagat/sagat_vs_ryu_corner_fullscreen.fs",
+		acttable = 
+		{
+			{state = States.Specials.TigerShotHigh_L, success = "IsProjHit()"},
+			{state = States.Supers.TigerRaid_L1, success = "IsAtkCombo() and P2.CurrState.IsAirborne", forcestart = true},
+			{state = States.Specials.TigerBlow_H}
+		}
+	},
+	{
+		fail = "DefaultFail() or P1.CurrState.CCActive",
+		description = "Corner only",
+		p1meter = 0x90,
+		save = "sagat/sagat_vs_ryu_corner_jumpin.fs",
+		acttable = 
+		{
+			{state = States.Normals.jLK},
+			{state = States.Normals.crLK},
+			{state = States.Normals.crLK},
+			{state = States.Supers.TigerRaid_L2, success = "IsAtkCombo() and P2.CurrState.IsAirborne"},
+			{state = States.Supers.TigerCannon_L1}
+		}
+	},
+	{
+		fail = "DefaultFail() or (IsCCEnded() and Trial.CurrState.TrialProgress <= 1)",
+		p1meter = 0x30,
+		save = "sagat/sagat_vs_ryu_pb.fs",
+		acttable = 
+		{
+			{state = States.Basic.CC},
+			{state = States.Normals.crHK},
+			{state = States.Specials.TigerCrush_H},
+			{state = States.Specials.TigerBlow_H},
+		}
+	},
+	{
+		enemystate = "crouch",
+		p1meter = 0x30,
+		save = "sagat/sagat_vs_ryu_jumpin.fs",
+		acttable = 
+		{
+			{state = States.Normals.jHK},
+			{state = States.Basic.CC_Ground},
+			{state = States.Normals.crHK},
+			{state = States.Specials.TigerShotHigh_H},
+			{state = States.Specials.TigerCrush_H},
+			{state = States.Specials.TigerBlow_H},
+		}
+	},
+	{
+		fail = "DefaultFail() or (IsCCEnded() and Trial.CurrState.TrialProgress <= 1)",
+		enemystate = "jump",
+		p1meter = 0x38,
+		save = "sagat/sagat_vs_ryu_pb.fs",
+		acttable = 
+		{
+			{state = States.Basic.CC},
+			{state = States.Normals.stMP, nameadd = " [air hit]", success = "IsAtkCombo() and P2.CurrState.IsAirborne"},
+			{state = States.Specials.TigerBlow_L},
+			{state = States.Specials.TigerBlow_L},
+			{state = States.Specials.TigerBlow_H},
+		}
+	},
+	{
+		fail = "DefaultFail() or (IsCCEnded() and Trial.CurrState.TrialProgress <= 1)",
+		p1meter = 0x90,
+		save = "sagat/sagat_vs_ryu_pb.fs",
+		acttable = 
+		{
+			{state = States.Basic.CC},
+			{state = States.Normals.crHK},
+			{state = States.Normals.stMP},
+			{state = States.Specials.TigerCrush_H},
+			{state = States.Specials.TigerCrush_H},
+			{state = States.Specials.TigerCrush_H},
+			{state = States.Specials.TigerCrush_H},
+			{state = States.Specials.TigerBlow_H},
+		}
+	},
+}

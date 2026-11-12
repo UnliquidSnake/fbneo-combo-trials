@@ -1,9 +1,6 @@
+-- Memory addresses & values for Street Fighter Alpha
+
 -------------------------------------------------------Constants-------------------------------------------------------
-GameMessage = {} -- Message when loading script
--- Menu values
-Button_Confirm = "Weak Punch"
-Button_Back = "Medium Punch"
-InputHelperText = "LP - Confirm, MP - Back"
 -- Player & game values
 PlayerMaxHealth = 0x90 -- byte
 PlayerMaxSuperMeter = 0x90 -- byte
@@ -73,10 +70,17 @@ T_AtkStr =
 	Lv5 = 4,
 	Lv6 = 5,
 }
+T_AtkType =
+{
+	P = 0,
+	K = 1,
+}
 -------------------------------------------------------Addresses-------------------------------------------------------
 	-- Player state addresses
 Addr_PlayerChar = function(param_player) -- byte address
 	return 0xFF84D1 + 0x400*(param_player == P1 and 0 or 1) end
+Addr_PlayerSelect = function(param_player) -- byte address
+	return 0xFF84A2 + 0x400*(param_player == P1 and 0 or 1) end
 Addr_PlayerHealth = function(param_player) -- byte address
 	return 0xFF8441 + 0x400*(param_player == P1 and 0 or 1) end
 Addr_PlayerRedHealth = function(param_player) -- byte address
@@ -99,6 +103,8 @@ Addr_PlayerSpecialID = function(param_player) -- word address
 	return 0xFF8533 + 0x400*(param_player == P1 and 0 or 1) end
 Addr_PlayerAtkStr = function(param_player) -- byte address
 	return 0xFF8502 + 0x400*(param_player == P1 and 0 or 1) end
+Addr_PlayerAtkType = function(param_player) -- byte address
+	return 0xFF8501 + 0x400*(param_player == P1 and 0 or 1) end
 Addr_PlayerProjActive = function(param_player) -- byte address
 	return 0xFF8524 + 0x400*(param_player == P1 and 0 or 1) end
 Addr_PlayerRoseClones = function(param_player) -- byte address
@@ -107,7 +113,7 @@ Addr_PlayerRoseClones = function(param_player) -- byte address
 Addr_MatchTimer = 0xFFAE09 -- word address
 Addr_GameSpeed = 0xFFAE14 -- byte address
 -------------------------------------------------------State Variables-------------------------------------------------------
-	-- Player 1 state values
+-- Player 1 state values
 P1.CurrState.Health = 0 -- byte
 P1.CurrState.RedHealth = 0 -- byte
 P1.CurrState.SuperMeter = 0 -- byte
@@ -119,21 +125,20 @@ P1.CurrState.IsAirborne = false -- bool
 P1.CurrState.CharState = 0 -- word
 P1.CurrState.SpecialID = 0 -- byte
 P1.CurrState.AtkStr = 0 -- byte
+P1.CurrState.AtkType = 0 -- byte
 P1.CurrState.InHitstun = false -- bool
 P1.CurrState.ProjActive = false -- bool
 P1.CurrState.ProjID = -1 -- int
 P1.CurrState.ProjStr = -1 -- int
 P1.CurrState.RoseClones = 0 -- bool
-	-- Copy everything for player 2 state values
-	CopyTable(P1.CurrState, P2.CurrState)
-	-- Copy everything for previous frame values.
-	CopyTable(P1.CurrState, P1.PrevState)
-	CopyTable(P2.CurrState, P2.PrevState)
-	-- Match state values
+-- Copy everything for player 2 state values
+P2.CurrState = Helper.CopyTable(P1.CurrState)
+-- Copy everything for previous frame values
+P1.PrevState = Helper.CopyTable(P1.CurrState)
+P2.PrevState = Helper.CopyTable(P2.CurrState)
+-- Match state values
 Match.CurrState.Timer = 0x0000 -- word
 Match.CurrState.GameSpeed = 0 -- byte
--- Helper variables
-RefillTimer = 0
 -------------------------------------------------------Functions-------------------------------------------------------
 	-- Basic read operations
 function Read_PlayerCharID(param_player)
@@ -160,6 +165,8 @@ function Read_PlayerSpecialID(param_player)
 	return rb(Addr_PlayerSpecialID(param_player))/2 end
 function Read_PlayerAtkStr(param_player)
 	return rb(Addr_PlayerAtkStr(param_player))/2 end
+function Read_PlayerAtkType(param_player)
+	return rb(Addr_PlayerAtkType(param_player))/2 end
 function Read_PlayerProjActive(param_player)
 	return rb(Addr_PlayerProjActive(param_player))~=0 end
 function Read_PlayerRoseClones(param_player)

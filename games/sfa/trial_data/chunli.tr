@@ -1,6 +1,7 @@
 {
 	{
 		p1meter = 0,
+		save = "chunli/chunli_vs_birdie_pb.fs",
 		acttable = 
 		{
 			{state = States.Normals.crLK, carry = true},
@@ -10,6 +11,7 @@
 	},
 	{
 		p1meter = 0,
+		save = "chunli/chunli_vs_birdie_pb.fs",
 		acttable = 
 		{
 			{state = States.Normals.crLK, carry = true},
@@ -19,6 +21,7 @@
 	},
 	{
 		p1meter = 0,
+		save = "chunli/chunli_vs_birdie_jumpin.fs",
 		acttable = 
 		{
 			{state = States.Normals.djHK},
@@ -29,6 +32,7 @@
 	{
 		description = "Corner only",
 		p1meter = 0,
+		save = "chunli/chunli_vs_birdie_corner_fullscreen.fs",
 		acttable = 
 		{
 			{state = States.Specials.Kikoken_L, success = "IsProjHit()"},
@@ -37,6 +41,7 @@
 	},
 	{
 		p1meter = 0x30,
+		save = "chunli/chunli_vs_birdie_pb.fs",
 		acttable = 
 		{
 			{state = States.Normals.stLP, carry = true},
@@ -47,6 +52,7 @@
 	},
 	{
 		p1meter = 0,
+		save = "chunli/chunli_vs_charlie_jumpin.fs",
 		acttable = 
 		{
 			{state = States.Normals.Cmd_j2MK, carry = true},
@@ -56,6 +62,7 @@
 	},
 	{
 		p1meter = 0,
+		save = "chunli/chunli_vs_birdie_pb.fs",
 		acttable = 
 		{
 			{state = States.Normals.Cmd_3HK},
@@ -65,6 +72,7 @@
 	{
 		description = "Corner only",
 		p1meter = 0x30,
+		save = "chunli/chunli_vs_birdie_corner_pb.fs",
 		acttable = 
 		{
 			{state = States.Normals.Cmd_3HK},
@@ -74,6 +82,7 @@
 	{
 		description = "Corner only",
 		p1meter = 0x60,
+		save = "chunli/chunli_vs_birdie_corner_pb.fs",
 		acttable = 
 		{
 			{state = States.Supers.Kikosho_L1, nameadd = " [meaty]"},
@@ -83,6 +92,7 @@
 	{
 		description = "Corner only",
 		p1meter = 0x90,
+		save = "chunli/chunli_vs_birdie_corner_jumpin.fs",
 		acttable = 
 		{
 			{state = States.Normals.jHP},
@@ -94,6 +104,7 @@
 	{
 		description = "Corner only",
 		p1meter = 0x90,
+		save = "chunli/chunli_vs_birdie_corner_jumpin.fs",
 		acttable = 
 		{
 			{state = States.Normals.jHP},

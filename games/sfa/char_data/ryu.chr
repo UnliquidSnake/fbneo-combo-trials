@@ -1,4 +1,4 @@
-CharStateTable = {}
+local CharStateTable = {}
 CharStateTable.Basic = {}
 CharStateTable.Normals = {}
 CharStateTable.Throws = {}
@@ -745,3 +745,5 @@ CharStateTable.Supers.ShinkuTatsumaki =
 		CharStateTable.Supers.ShinkuTatsumaki_L3.stateval[3],
 	}
 }
+
+return CharStateTable

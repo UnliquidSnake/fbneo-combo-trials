@@ -2,6 +2,7 @@
 	{
 		fail = "DefaultFail() or P1.CurrState.RoseClones > 0",
 		p1meter = 0,
+		save = "rose/rose_vs_ryu_pb.fs",
 		acttable = 
 		{
 			{state = States.Normals.crLK, carry = true},
@@ -12,6 +13,7 @@
 	{
 		fail = "DefaultFail() or P1.CurrState.RoseClones > 0",
 		p1meter = 0,
+		save = "rose/rose_vs_ryu_jumpin.fs",
 		acttable = 
 		{
 			{state = States.Normals.jHK},
@@ -22,6 +24,7 @@
 	{
 		fail = "DefaultFail() or P1.CurrState.RoseClones > 0",
 		p1meter = 0x30,
+		save = "rose/rose_vs_ryu_pb.fs",
 		acttable = 
 		{
 			{state = States.Normals.crLK, carry = true},
@@ -34,6 +37,7 @@
 		fail = "DefaultFail() or P1.CurrState.RoseClones > 0",
 		enemystate = "jump",
 		p1meter = 0x30,
+		save = "rose/rose_vs_ryu_pb.fs",
 		acttable = 
 		{
 			{state = States.Normals.crHP, nameadd = " [air hit]", success = "IsAtkCombo() and P2.CurrState.IsAirborne"},
@@ -46,15 +50,18 @@
 		enemystate = "crouch",
 		enemyatk = "HK",
 		p1meter = 0x30,
+		save = "rose/rose_vs_ryu_pb.fs",
 		acttable = 
 		{
 			{state = States.Normals.AC},
+			{state = States.Normals.crMK},
 			{state = States.Normals.crHK},
 		}
 	},
 	{
 		fail = "DefaultFail() or P1.CurrState.RoseClones > 0",
 		p1meter = 0x90,
+		save = "rose/rose_vs_ryu_jumpin.fs",
 		acttable = 
 		{
 			{state = States.Normals.jHP},
@@ -69,6 +76,7 @@
 		description = "Corner only",
 		fail = "DefaultFail() or P1.CurrState.RoseClones > 0",
 		p1meter = 0x30,
+		save = "rose/rose_vs_ryu_corner_jumpin.fs",
 		acttable = 
 		{
 			{state = States.Normals.jHP},
@@ -81,6 +89,7 @@
 		description = "Corner only",
 		fail = "DefaultFail() or P1.CurrState.RoseClones > 0",
 		p1meter = 0x30,
+		save = "rose/rose_vs_ryu_corner_meaty.fs",
 		acttable = 
 		{
 			{state = States.Normals.Cmd_3MK, nameadd = " [meaty]"},
@@ -93,6 +102,7 @@
 		description = "Corner only",
 		fail = "DefaultFail() or P1.CurrState.RoseClones > 0",
 		p1meter = 0x60,
+		save = "rose/rose_vs_ryu_corner_jumpin.fs",
 		acttable = 
 		{
 			{state = States.Normals.jHK},
@@ -106,6 +116,7 @@
 	{
 		description = "Corner only",
 		p1meter = 0x90,
+		save = "rose/rose_vs_ryu_corner_jumpin.fs",
 		acttable = 
 		{
 			{state = States.Normals.jHP},
@@ -117,6 +128,7 @@
 	{
 		description = "Corner only",
 		p1meter = 0x30,
+		save = "rose/rose_vs_ryu_corner_jumpin.fs",
 		acttable = 
 		{
 			{state = States.Normals.jHP},

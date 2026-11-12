@@ -1,0 +1,149 @@
+-- Basic states
+	-- Idle & movement
+0x888e - 0x8a26: Idle
+0x8a42 - 0x8bda: Crouching
+0x8bf6 - 0x8c6e: Forward walk
+0x8c8a - 0x8d02: Back walk
+0x8d1e - 0x8d66: Transition from crouch to stand
+0x8d82 - 0x8dca: Transition from stand to crouch
+0x8de6 - 0x8e2e: Standing turn around after side switch
+0x8e4a - 0x8e92: Crouching turn around after side switch
+0x8eae - 0x8ec6: Prejump frames
+0x8ee2 - 0x8efa: Landing recovery from jump
+0x8f16 - 0x9006: Neutral jump
+0x9022 - 0x9112: Forward jump
+0x912e - 0x921e: Backward jump
+	-- Blocking
+0x926e - 0x929e: Stand block (incl. proximity block)
+0x92ba - 0x931e: Crouch block (incl. proximity block)
+0x9352 - 0x939e: Air block (incl. proximity block)
+	-- Recovery Roll
+0x941e - 0x9466: Auto roll wakeup
+0x9482 - 0x94ca: Recovery roll
+	-- Custom Combo
+0xc806 - 0xc896: Grounded CC activation
+0xc7a2 - 0xc7ea: Air CC activation
+	-- Cutscenes
+0x954a - 0x96a2: Intro pose
+0x96be - 0x97b2: Win pose 1
+0x97ce - 0x9966: Win pose 2
+0x9982 - 0x9b92: Win pose 3
+0x9bae - 0x9d8e: Win pose 4
+0x9daa - 0x9ee2: Win pose 5
+0x9fc2 - 0xa052: Time over loss/draw
+	-- Getting thrown
+0xa11e - 0xa50e: Getting thrown
+	-- Getting hit
+0xa6f2 - 0xa722: Standing hit in head 1
+0xa73e - 0xa76e: Standing hit in head 2
+0xa78a - 0xa7ba: Standing hit in head 3
+0xa7d6 - 0xa806: Standing hit in body/feet 1
+0xa822 - 0xa852: Standing hit in body/feet 2
+0xa86e - 0xa89e: Standing hit in body/feet 3
+0xa8ba - 0xa8d2: Crouching hit 1
+0xa8ee - 0xa91e: Crouching hit 2
+0xa93a - 0xa96a: Crouching hit 3
+0xa986 - 0xaa46: Launch hit (can usually be juggled)
+0xaa62 - 0xaae2: Knockdown
+0xab32 - 0xab4a: Spin out after AC
+0xab66 - 0xabde: Falling after sweep
+0xaeae - 0xaf86: Air reset
+	-- Other
+0xafa2 - 0xafea: Stun
+0xb06a - 0xb0ca: Getting up
+-- Attacks
+	-- Normals
+		-- Standing Normals
+0xb0e6 - 0xb146: Standing LP
+0xb162 - 0xb1f2: Standing MP
+0xb20e - 0xb2e6: Standing HP
+0xb302 - 0xb392: Standing LK
+0xb3ae - 0xb456: Standing MK
+0xb472 - 0xb532: Standing HK
+		-- Crouching Normals
+0xb54e - 0xb5ae: Crouching LP
+0xb5ca - 0xb672: Crouching MP
+0xb68e - 0xb74e: Crouching HP
+0xb76a - 0xb7ca: Crouching LK
+0xb7e6 - 0xb88e: Crouching MK
+0xb8aa - 0xb982: Crouching HK
+		-- Neutral Jumping Normals
+0xb99e - 0xba16: Neutral Jumping LP
+0xba32 - 0xbada: Neutral Jumping MP
+0xbaf6 - 0xbb9e: Neutral Jumping HP
+0xbbba - 0xbc32: Neutral Jumping LK
+0xbc4e - 0xbcf6: Neutral Jumping MK
+0xbd12 - 0xbdba: Neutral Jumping HK
+		-- Diagonal Jumping Normals
+0xbdd6 - 0xbe4e: Diagonal Jumping LP
+0xbe6a - 0xbf2a: Diagonal Jumping MP
+0xbf46 - 0xbfee: Diagonal Jumping HP
+0xc00a - 0xc082: Diagonal Jumping LK
+0xc09e - 0xc146: Diagonal Jumping MK
+0xc162 - 0xc20a: Diagonal Jumping HK
+		-- Recovery
+0xc226 - 0xc23e: Jump Normal Recovery
+		-- Command Normals
+0xc666 - 0xc786: Flower Kick (f + MK)
+		-- Alpha Counter
+0xd996 - 0xd9ae: AC startup
+0xd9c6 - 0xdaba: Punch AC - Shouoken (b,db,d + P)
+0xdad6 - 0xdbc6: Kick AC - Sweep (b,db,d + K)
+	-- Throws
+0xc25a - 0xc45e: Sakura Jime (f/b + MP/HP)
+0xc47a - 0xc64a: Sailor Shoot (f/b + MK/HK)
+	-- Special Moves
+		-- Hadoken (qcf + P, press P for higher strengths)
+0xd0de - 0xd126: Lv1 Hadoken (charging) -- all buttons behave the same way
+0xd15a - 0xd18a: Lv2 Hadoken (charging)
+0xd1be - 0xd1ee: Lv3 Hadoken (charging)
+0xd5aa - 0xd5da: Lv2 Hadoken (charging, during CC)
+0xd60e - 0xd63e: Lv3 Hadoken (charging, during CC)
+0xd222 - 0xd312: Lv1 Hadoken (active)
+0xd32e - 0xd41e: Lv2 Hadoken (active)
+0xd43a - 0xd52a: Lv3 Hadoken (active)
+0xd672 - 0xd762: Lv1 Hadoken (active, during CC)
+0xd77e - 0xd86e: Lv2 Hadoken (active, during CC)
+0xd88a - 0xd97a: Lv3 Hadoken (active, during CC)
+		-- Shouoken (dp + P)
+0xc8b2 - 0xc9ba: L Shouoken
+0xc9d6 - 0xcb0e: M Shouoken
+0xcb2a - 0xcc92: H Shouoken
+0xcce2 - 0xcdd2: L Shouoken (during CC)
+0xce06 - 0xcf26: M Shouoken (during CC)
+0xcf5a - 0xd0c2: H Shouoken (during CC)
+0xccae - 0xccc6: Shouoken (landing recovery, all versions)
+		-- Shunpukyaku (qcb + K)
+0xdbe2 - 0xdca2: L Shunpukyaku
+0xdcbe - 0xddde: M Shunpukyaku
+0xddfa - 0xdf7a: H Shunpukyaku
+0xdfe2 - 0xe0a2: L Shunpukyaku (during CC)
+0xe0be - 0xe1de: M Shunpukyaku (during CC)
+0xe1fa - 0xe37a: H Shunpukyaku (during CC)
+0xdf96 - 0xdfc6: Shunpukyaku (recovery)
+	-- Super Moves
+		-- Shinku Hadoken (qcf,qcf + P)
+0xe396 - 0xe532: Shinku Hadoken -- applies to all versions
+		-- Midare Zakura (qcf,qcf + K)
+0xe54e - 0xe776: Lv1 Midare Zakura
+0xe792 - 0xe9ba: Lv2 Midare Zakura
+0xe9d6 - 0xecee: Lv3 Midare Zakura
+		-- Haru Ichiban (qcb,qcb + K)
+0xed0a - 0xefaa: Lv1 Haru Ichiban
+0xefde - 0xf2de: Lv2 Haru Ichiban
+0xf312 - 0xf672: Lv3 Haru Ichiban
+	-- Other
+0xf6a6 - 0xf7c6: Taunt (Start)
+
+Special ID's:
+
+0 - Hadoken
+1 - CC Activation
+2 - Punch AC
+3 - Kick AC
+4 - Shouoken
+5 - Shunpukyaku
+6 - Shinku Hadoken
+7 - Midare Zakura
+8 - Haru Ichiban
+9 - Taunt

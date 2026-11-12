@@ -1,4 +1,4 @@
-CharStateTable = {}
+local CharStateTable = {}
 CharStateTable.Basic = {}
 CharStateTable.Normals = {}
 CharStateTable.Throws = {}
@@ -686,3 +686,5 @@ CharStateTable.Supers.JaguarRevolver =
 		CharStateTable.Supers.JaguarRevolver_L3.stateval,
 	}
 }
+
+return CharStateTable

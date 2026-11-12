@@ -1,4 +1,4 @@
-CharStateTable = {}
+local CharStateTable = {}
 CharStateTable.Basic = {}
 CharStateTable.Normals = {}
 CharStateTable.Throws = {}
@@ -607,3 +607,5 @@ CharStateTable.Supers.TenchuSatsu =
 		{min = 0x8fcc, max = 0x8fcc},
 	}
 }
+
+return CharStateTable

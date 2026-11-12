@@ -1,0 +1,125 @@
+{
+	{
+		p1meter = 0,
+		save = "dhalsim/dhalsim_vs_dictator_pb.fs",
+		acttable = 
+		{
+			{state = States.Normals.Cmd_1MK},
+			{state = States.Specials.YogaFire_H},
+		}
+	},
+	{
+		p1meter = 0,
+		enemystate = "jump",
+		save = "dhalsim/dhalsim_vs_dictator_pb.fs",
+		acttable = 
+		{
+			{state = States.Normals.Cmd_4MP, nameadd = " [air hit]", success = "IsAtkCombo() and P2.CurrState.IsAirborne"},
+			{state = States.Specials.YogaFire_H, nameadd = " [whiff]", success = "IsAtkWhiff()"},
+		}
+	},
+	{
+		p1meter = 0,
+		save = "dhalsim/dhalsim_vs_dictator_jumpin.fs",
+		acttable = 
+		{
+			{state = States.Normals.Cmd_j4HP},
+			{state = States.Normals.Cmd_4HP},
+			{state = States.Specials.YogaFire_H},
+		}
+	},
+	{
+		p1meter = 0,
+		save = "dhalsim/dhalsim_vs_dictator_corner_fullscreen.fs",
+		acttable = 
+		{
+			{state = States.Specials.YogaFire_L, success = "IsProjHit()"},
+			{state = States.Normals.stHP, forcestart = true},
+		}
+	},
+	{
+		fail = "DefaultFail() or P1.CurrState.CCActive",
+		p1meter = 0x30,
+		save = "dhalsim/dhalsim_vs_dictator_pb.fs",
+		acttable = 
+		{
+			{state = States.Normals.Cmd_1MP},
+			{state = States.Normals.crLK},
+			{state = States.Supers.YogaInferno_L1, success = "IsAtkCombo() and P2.CurrState.IsAirborne"},
+		}
+	},
+	{
+		p1meter = 0,
+		save = "dhalsim/dhalsim_vs_dictator_pb.fs",
+		acttable = 
+		{
+			{state = States.Normals.Cmd_1MP},
+			{state = States.Normals.Cmd_1MK},
+			{state = States.Specials.YogaTeleport},
+		}
+	},
+	{
+		p1meter = 0,
+		save = "dhalsim/dhalsim_vs_dictator_corner_pb.fs",
+		acttable = 
+		{
+			{state = States.Normals.Cmd_j2HK, nameadd = " [meaty]"},
+			{state = States.Normals.Cmd_1MK},
+			{state = States.Specials.YogaFire_H},
+		}
+	},
+	{
+		fail = "DefaultFail() or P1.CurrState.CCActive",
+		p1meter = 0x30,
+		save = "dhalsim/dhalsim_vs_dictator_corner_jumpin.fs",
+		acttable = 
+		{
+			{state = States.Normals.Cmd_j4HP},
+			{state = States.Normals.Cmd_4HP},
+			{state = States.Specials.YogaFlame_H},
+			{state = States.Supers.YogaInferno_L1},
+		}
+	},
+	{
+		fail = "DefaultFail() or (IsCCEnded() and Trial.CurrState.TrialProgress <= 1)",
+		p1meter = 0x30,
+		save = "dhalsim/dhalsim_vs_dictator_pb.fs",
+		acttable = 
+		{
+			{state = States.Basic.CC},
+			{state = States.Normals.Cmd_1HK},
+			{state = States.Specials.YogaBlast_H},
+			{state = States.Specials.YogaBlast_H},
+			{state = States.Specials.YogaBlast_H},
+		}
+	},
+	{
+		fail = "DefaultFail() or (IsCCEnded() and Trial.CurrState.TrialProgress <= 1)",
+		enemystate = "jump",
+		p1meter = 0x30,
+		save = "dhalsim/dhalsim_vs_dictator_pb.fs",
+		acttable = 
+		{
+			{state = States.Basic.CC},
+			{state = States.Normals.Cmd_4MP, nameadd = " [air hit]", success = "IsAtkCombo() and P2.CurrState.IsAirborne"},
+			{state = States.Specials.YogaBlast_H},
+			{state = States.Specials.YogaBlast_H},
+		}
+	},
+	{
+		fail = "DefaultFail() or (IsCCEnded() and Trial.CurrState.TrialProgress <= 1)",
+		p1meter = 0x90,
+		save = "dhalsim/dhalsim_vs_dictator_pb.fs",
+		acttable = 
+		{
+			{state = States.Basic.CC},
+			{state = States.Normals.Cmd_1HK},
+			{state = States.Specials.YogaBlast_H},
+			{state = States.Specials.YogaBlast_H},
+			{state = States.Specials.YogaBlast_H},
+			{state = States.Specials.YogaBlast_H},
+			{state = States.Specials.YogaBlast_H},
+			{state = States.Specials.YogaBlast_H},
+		}
+	},
+}

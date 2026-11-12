@@ -125,8 +125,8 @@ local infiniteTime = function()
 	ww(0xFFAE09, 0x6300)
 end
 -- Define paths for helper files
-statetest_path = "games/" .. emu.romname() .. "/statetest.lua"
-statefile_path = "games/" .. emu.romname() .. "/statefile.txt"
+statetest_path = "games/sfa/statetest.lua"
+statefile_path = "games/sfa/statefile.txt"
 -- Open helper script for statetesting
 if fexists(statetest_path) then dofile(statetest_path)
 else print("ERROR: Cannot find statetest file") return 

@@ -1,6 +1,7 @@
 {
 	{
 		p1meter = 0,
+		save = "dan/dan_vs_sagat_pb.fs",
 		acttable = 
 		{
 			{state = States.Normals.crLP, carry = true},
@@ -10,15 +11,7 @@
 	},
 	{
 		p1meter = 0,
-		acttable = 
-		{
-			{state = States.Normals.crLP, carry = true},
-			{state = States.Normals.crMP},
-			{state = States.Specials.Gadoken_M},
-		}
-	},
-	{
-		p1meter = 0,
+		save = "dan/dan_vs_sagat_jumpin.fs",
 		acttable = 
 		{
 			{state = States.Normals.jHP},
@@ -28,6 +21,7 @@
 	},
 	{
 		p1meter = 0x30,
+		save = "dan/dan_vs_sagat_pb.fs",
 		acttable = 
 		{
 			{state = States.Normals.crLP, carry = true},
@@ -39,16 +33,18 @@
 		description = "Crossup combo, opponent crouching",
 		p1meter = 0x90,
 		enemystate = "crouch",
+		save = "dan/dan_vs_sagat_crossup.fs",
 		acttable = 
 		{
 			{state = States.Normals.djMK, nameadd = " [crossup]", success = "IsAtkCombo() and IsCrossup()"},
-			{state = States.Normals.crMP},
+			{state = States.Normals.crLP},
 			{state = States.Supers.HisshoBuraiken_L3, success = "IsAtkCombo() and P2.CurrState.IsAirborne"},
 		}
 	},
 	{
 		description = "Corner only",
 		p1meter = 0x30,
+		save = "dan/dan_vs_ken_corner_jumpin.fs",
 		acttable = 
 		{
 			{state = States.Normals.djHK},
@@ -61,6 +57,7 @@
 	{
 		description = "Corner only",
 		p1meter = 0x60,
+		save = "dan/dan_vs_sagat_corner_jumpin.fs",
 		acttable = 
 		{
 			{state = States.Normals.jHP},

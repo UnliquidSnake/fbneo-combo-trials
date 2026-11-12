@@ -1,0 +1,117 @@
+{
+	{
+		p1meter = 0,
+		save = "birdie/birdie_vs_chunli_pb.fs",
+		acttable = 
+		{
+			{state = States.Normals.crLK},
+			{state = States.Specials.BullHead_M},
+		}
+	},
+	{
+		p1meter = 0,
+		save = "birdie/birdie_vs_chunli_jumpin.fs",
+		acttable = 
+		{
+			{state = States.Normals.Cmd_j2HP},
+			{state = States.Normals.crHK},
+		}
+	},
+	{
+		p1meter = 0,
+		save = "birdie/birdie_vs_chunli_jumpin.fs",
+		acttable = 
+		{
+			{state = States.Normals.jHK},
+			{state = States.Normals.crHP},
+			{state = States.Specials.BullHead_H},
+		}
+	},
+	{
+		p1meter = 0,
+		save = "birdie/birdie_vs_chunli_pb.fs",
+		acttable = 
+		{
+			{state = States.Normals.stHK},
+			{state = States.Normals.crMK},
+		}
+	},
+	{
+		p1meter = 0,
+		save = "birdie/birdie_vs_chunli_pb.fs",
+		acttable = 
+		{
+			{state = States.Normals.stHK, nameadd = " [meaty]"},
+			{state = States.Normals.crHK},
+		}
+	},
+	{
+		fail = "DefaultFail() or P1.CurrState.CCActive",
+		p1meter = 0x60,
+		save = "birdie/birdie_vs_chunli_jumpin.fs",
+		acttable = 
+		{
+			{state = States.Normals.jHK},
+			{state = States.Normals.crHP},
+			{state = States.Supers.TheBirdie_L2, success = "IsAtkCombo() and P2.CurrState.IsAirborne"},
+		}
+	},
+	{
+		fail = "DefaultFail() or (IsCCEnded() and Trial.CurrState.TrialProgress <= 1)",
+		p1meter = 0x30,
+		save = "birdie/birdie_vs_chunli_pb.fs",
+		acttable = 
+		{
+			{state = States.Basic.CC},
+			{state = States.Normals.stLK, carry = true},
+			{state = States.Normals.stLK},
+			{state = States.Normals.stLK, carry = true},
+			{state = States.Normals.stLK},
+			{state = States.Normals.stLK, carry = true},
+			{state = States.Normals.stLK},
+			{state = States.Normals.stLK},
+			{state = States.Specials.MurdererChain_H},
+		}
+	},
+	{
+		enemystate = "crouch",
+		p1meter = 0x30,
+		save = "birdie/birdie_vs_chunli_jumpin.fs",
+		acttable = 
+		{
+			{state = States.Normals.jHP},
+			{state = States.Basic.CC_Ground},
+			{state = States.Normals.crHK},
+			{state = States.Specials.BullHead_H},
+			{state = States.Specials.BullHead_H},
+			{state = States.Specials.BullHead_H},
+		}
+	},
+	{
+		fail = "DefaultFail() or (IsCCEnded() and Trial.CurrState.TrialProgress <= 1)",
+		enemystate = "jump",
+		p1meter = 0x38,
+		save = "birdie/birdie_vs_chunli_pb.fs",
+		acttable = 
+		{
+			{state = States.Basic.CC},
+			{state = States.Normals.crHP, nameadd = " [air hit]", success = "IsAtkCombo() and P2.CurrState.IsAirborne"},
+			{state = States.Specials.BullHorn_L5},
+			{state = States.Specials.BullHorn_L5},
+		}
+	},
+		{
+		fail = "DefaultFail() or (IsCCEnded() and Trial.CurrState.TrialProgress <= 1)",
+		p1meter = 0x90,
+		save = "birdie/birdie_vs_chunli_pb.fs",
+		acttable = 
+		{
+			{state = States.Basic.CC},
+			{state = States.Normals.crHK},
+			{state = States.Specials.BullHorn_L5},
+			{state = States.Specials.BullHorn_L5},
+			{state = States.Specials.BullHorn_L5},
+			{state = States.Specials.BullHorn_L5},
+		}
+	},
+}

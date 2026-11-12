@@ -1,0 +1,166 @@
+-- Basic states
+	-- Idle & movement
+0xaf4c - 0xb0e4: Idle
+0xb100: Crouching
+0xb11c - 0xb1f4: Forward walk
+0xb210 - 0xb2e8: Back walk
+0xb304 - 0xb34c: Transition from crouch to stand
+0xb368 - 0xb3b0: Transition from stand to crouch
+0xb3cc - 0xb444: Standing turn around after side switch
+0xb460 - 0xb4a8: Crouching turn around after side switch
+0xb4c4 - 0xb4dc: Prejump frames
+0xb4f8 - 0xb510: Landing recovery from jump
+0xb52c - 0xb58c: Neutral jump
+0xb5a8 - 0xb608: Forward jump
+0xb624 - 0xb684: Backward jump
+	-- Blocking
+0xb6a0 - 0xb704: Stand block (incl. proximity block)
+0xb720 - 0xb784: Crouch block (incl. proximity block)
+0xb7b8 - 0xb804: Air block (incl. proximity block)
+	-- Recovery Roll
+0xb884 - 0xb8cc: Auto roll wakeup
+0xb8e8 - 0xb930: Recovery roll
+	-- Custom Combo
+0xc104 - 0xc164: Grounded CC activation
+0xc180 - 0xc198: Air CC activation
+	-- Cutscenes
+0xb9b0 - 0xbb18: Intro pose
+0xbb34 - 0xbbdc: Win pose 1
+0xbbf8 - 0xbca0: Win pose 2
+0xbcbc - 0xbdf4: Win pose 3
+0xbe10 - 0xbf48: Win pose 4
+0xbf64 - 0xbfdc: Time over loss/draw
+	-- Getting thrown
+0xccf0 - 0xcfd8: Getting thrown
+	-- Getting hit
+0xd0cc - 0xd0fc: Standing hit in head 1
+0xd118 - 0xd148: Standing hit in head 2
+0xd164 - 0xd194: Standing hit in head 3
+0xd1b0 - 0xd1e0: Standing hit in body/feet 1
+0xd1fc - 0xd22c: Standing hit in body/feet 2
+0xd248 - 0xd278: Standing hit in body/feet 3
+0xd294 - 0xd2ac: Crouching hit 1
+0xd2c8 - 0xd2f8: Crouching hit 2
+0xd314 - 0xd344: Crouching hit 3
+0xd360 - 0xd3d8: Launch hit (can usually be juggled)
+0xd3f4 - 0xd444: Knockdown
+0xd494 - 0xd4ac: Spin out after AC
+0xd4c8 - 0xd4f8: Falling after sweep
+0xd6f0 - 0xd780: Air reset
+	-- Other
+0xd79c - 0xd814: Stun
+0xd830 - 0xd8c0: Getting up
+-- Attacks
+	-- Normals
+		-- Standing Normals
+0xd8dc - 0xd96c: Standing LP
+0xd988 - 0xda48: Standing MP
+0xda64 - 0xdb0c: Standing HP
+0xdb28 - 0xdbd0: Standing LK
+0xdbec - 0xdc94: Standing MK
+0xdcb0 - 0xddb8: Standing HK
+		-- Crouching Normals
+0xddd4 - 0xde4c: Crouching LP
+0xde68 - 0xdef8: Crouching MP
+0xdf14 - 0xdfa4: Crouching HP
+0xdfc0 - 0xe038: Crouching LK
+0xe054 - 0xe144: Crouching MK
+0xe160 - 0xe238: Crouching HK
+		-- Neutral Jumping Normals
+0xe37c - 0xe40c: Neutral Jumping LP
+0xe428 - 0xe4b8: Neutral Jumping MP
+0xe4d4 - 0xe564: Neutral Jumping HP -- unique
+0xe76c - 0xe7e4: Neutral Jumping LK
+0xe800 - 0xe878: Neutral Jumping MK
+0xe894 - 0xe954: Neutral Jumping HK
+		-- Diagonal Jumping Normals
+0xe580 - 0xe610: Diagonal Jumping LP
+0xe62c - 0xe6bc: Diagonal Jumping MP
+0xe6d8 - 0xe750: Diagonal Jumping HP -- unique
+0xe970 - 0xea00: Diagonal Jumping LK
+0xea1c - 0xea94: Diagonal Jumping MK
+0xeab0 - 0xeb70: Diagonal Jumping HK
+		-- Command Normals
+0xe254 - 0xe2cc: Dynamite Kick (db + MK)
+0xe2e8 - 0xe360: Russian Kick (db + HK)
+0xeb8c - 0xec04: Flying Body Attack (diagonal jump d + HP)
+0xec20 - 0xec80: L Double Knee Drop (diagonal jump d + LK)
+0xec9c - 0xecfc: M Double Knee Drop (diagonal jump d + MK)
+0xed18 - 0xed30: Double Knee Drop (landing recovery)
+0xed4c - 0xedac: M Headbutt (neutral jump u + MP)
+0xedc8 - 0xee28: H Headbutt (neutral jump u + HP)
+0xee44 - 0xee5c: Headbutt (landing recovery)
+		-- Alpha Counter
+0xfee0 - 0xff10: Punch AC startup
+0xff28 - 0x0030: Punch AC - Grab & Punch (b,db,d + P)
+0x0064 - 0x00dc: Punch AC (whiff)
+0xf6b8 - 0xf7a8: Kick AC - Standing MK (b,db,d + K)
+	-- Throws
+0xf924 - 0xfb1c: Backdrop (f/b + MP/HP)
+0xf7c4 - 0xf870: Kamitsuki (f/b + MK/HK)
+0xf8a4 - 0xf908: Stomach Claw (df + MP/HP)
+	-- Special Moves
+		-- Spinning Piledriver (360 + P)
+0xfb38 - 0xfbc8: L Spinning Piledriver (whiff)
+0xfbe4 - 0xfc74: M Spinning Piledriver (whiff)
+0xfc90 - 0xfd20: H Spinning Piledriver (whiff)
+0xfd3c - 0xfec4: Spinning Piledriver (grab & recovery, all versions)
+		-- Double Lariat (PPP)
+0xee78 - 0xf070: Double Lariat
+0x131c - 0x1514: Double Lariat (during CC)
+		-- Quick Double Lariat (KKK)
+0xf2a0 - 0xf408: Quick Double Lariat
+0x1530 - 0x1698: Quick Double Lariat (during CC)
+		-- Flying Power Bomb (far 360 + K)
+0x0d48 - 0x0dd8: L Flying Power Bomb (run)
+0x0e54 - 0x0ee4: M Flying Power Bomb (run)
+0x0f60 - 0x0ff0: H Flying Power Bomb (run)
+0x106c - 0x10fc: L Flying Power Bomb (whiff)
+0x1118 - 0x11a8: M Flying Power Bomb (whiff)
+0x11c4 - 0x1254: H Flying Power Bomb (whiff)
+0x0350 - 0x04c0: Flying Power Bomb (grab)
+		-- Atomic Suplex (close 360 + K)
+0x04dc - 0x0770: Atomic Suplex
+		-- Banishing Flat (dp + P)
+0xf424 - 0xf4e4: L Banishing Flat
+0xf500 - 0xf5c0: M Banishing Flat
+0xf5dc - 0xf69c: H Banishing Flat
+0x16b4 - 0x1774: L Banishing Flat (during CC)
+0x1790 - 0x1850: M Banishing Flat (during CC)
+0x186c - 0x192c: H Banishing Flat (during CC)
+	-- Super Moves
+		-- Final Atomic Buster (720 + P)
+0x078c - 0x07a4: Final Atomic Buster (startup, all versions)
+0x07d4 - 0x093c: Final Atomic Buster (1st suplex)
+0x0970 - 0x0a48: Final Atomic Buster (2nd suplex)
+0x0a7c - 0x0ac4: Final Atomic Buster (piledriver, before hit)
+0x0ae0 - 0x0ba0: Lv3 Final Atomic Buster (between 1st & 2nd piledriver)
+0x0bbc - 0x0c68: Final Atomic Buster (recovery)
+0x1270 - 0x1300: Final Atomic Buster (whiff)
+		-- Aerial Russian Slam (qcf,qcf + K)
+0x0110 - 0x0170: Aerial Russian Slam (startup & whiff, all versions)
+0x018c - 0x0204: Lv1 Aerial Russian Slam (grab)
+0x0288 - 0x02b8: Lv2 Aerial Russian Slam (grab)
+0x02d4 - 0x0334: Lv3 Aerial Russian Slam (grab)
+0x0220 - 0x026c: Lv1 Aerial Russian Slam (recovery)
+0x0bbc - 0x0c68: Lv2 & Lv3 Aerial Russian Slam (recovery)
+0x0444 - 0x048c: Lv3 Aerial Russian Slam (recovery)
+0x0220 - 0x026c: Aerial Russian Slam (whiff recovery, all versions)
+	-- Other
+0xbff8 - 0xc0e8: Taunt (Start)
+0x0bbc - 0x0c68: Final Atomic Buster/Lv2 & Lv3 Aerial Russian Slam (recovery)
+
+Special ID's:
+
+0 - CC Activation
+1 - Taunt
+2 - Punch AC
+3 - Kick AC
+4 - Double Lariat
+5 - Quick Double Lariat
+6 - Banishing Flat
+7 - Spinning Piledriver
+8 - Atomic Suplex
+9 - Flying Power Bomb
+10 - Aerial Russian Slam
+11 - Final Atomic Buster

@@ -1,4 +1,4 @@
-CharStateTable = {}
+local CharStateTable = {}
 CharStateTable.Basic = {}
 CharStateTable.Normals = {}
 CharStateTable.Throws = {}
@@ -524,3 +524,5 @@ CharStateTable.Supers.Super1 =
 		CharStateTable.Supers.Super1_L3.stateval,
 	}
 }
+
+return CharStateTable

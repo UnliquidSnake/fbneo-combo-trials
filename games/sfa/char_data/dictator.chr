@@ -1,4 +1,4 @@
-CharStateTable = {}
+local CharStateTable = {}
 CharStateTable.Basic = {}
 CharStateTable.Normals = {}
 CharStateTable.Throws = {}
@@ -773,3 +773,5 @@ CharStateTable.Supers.KneePressNightmare =
 		CharStateTable.Supers.KneePressNightmare_L3.stateval[2],
 	}
 }
+
+return CharStateTable
