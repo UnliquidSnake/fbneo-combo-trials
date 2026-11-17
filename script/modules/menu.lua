@@ -138,8 +138,10 @@ function MenuRoutine.ToggleMenu() -- This is what happens when you press Alt+1
 	if MenuState.IsActive then MenuRoutine.CloseMenu() return end
 	MenuRoutine.OpenMenu()
 end
-function MenuRoutine.OpenTrialMenu()
-	if (Trial.CurrState.TrialProgress ~= 0 or MenuState.IsActive == true) then return end -- Block menuing while combo is going or menu is open
+function MenuRoutine.OpenTrialMenu() -- This is what happens when you press Alt+2
+	if (Trial.CurrState.TrialProgress ~= 0) then return end -- Block menuing while combo is going or menu is open
+	-- If player is already in trial menu, close the menu
+	if (MenuState.CurrentMenu == Menus.TrialMenu and MenuState.IsActive == true) then MenuRoutine.CloseMenu() return end
 	MenuState.CurrentMenu = Menus.TrialMenu
 	MenuState.IsActive = true
 end
